@@ -1,0 +1,162 @@
+% Rozdział 1 – indukcja matematyczna
+
+\begin{center}
+	\textbf{Indukcja matematyczna}
+\end{center}
+
+\noindent
+\textbf{Przykład 1}
+
+\noindent
+Wykazać, że dla każdej liczby dodatniej całkowitej $n$ zachodzi nierówność
+\[
+	2^n \geqslant n + 1.
+\]
+
+\noindent
+\textit{Rozwiązanie}
+
+\noindent
+Zauważamy, że dla $n = 1$ mamy $2^n = 2 = n + 1,$ a więc postulowana nierówność istotnie zachodzi.
+Załóżmy, że dla pewnej liczby dodatniej całkowitej $k$ zachodzi nierówność $2^k \geqslant k + 1$. Zauważmy, że wówczas
+\[
+	2^{k + 1} = 2 \cdot 2^k \geqslant 2 \cdot (k + 1) = 2k + 2 \geqslant k + 2.
+\]
+
+Wykazaliśmy, że jeśli postulowana nierówność zachodzi dla pewnej dodatniej liczby całkowitej $k$, to zachodzi również dla liczby $k + 1$. Skoro zachodzi ona dla $n = 1$, to zachodzi również dla $1 + 1 = 2,\; 2 + 1 = 3,\; 3 + 1 = 4, ...$ -- wszystkich liczb naturalnych.
+
+\vspace{20px}
+
+\noindent
+Metodę dowodzenia zastosowaną w ostatnim akapicie powyższego rozwiązania nazywamy \textbf{zasadą indukcji matematycznej}.
+
+Alternatywnym, ale równoważnym, sposobem zakończenia rozwiązania powyższego przykładu jest rozpatrzenie najmniejszego naturalnego $n$, dla którego teza nie zachodzi. A więc dla $n - 1$ nierówność musi zachodzić, chyba że $n = 1$. Ale w tym przypadku sprawdzamy, że teza zachodzi. Skoro dla $n - 1$ teza jest prawdziwa, a dla $n$ już nie, to otrzymujemy sprzeczność z wcześniej poczynioną obserwacją.
+
+
+\vspace{10px}
+
+Formalizując, dowód indukcyjny zdania logicznego $Z(n)$ dla dowolnej dodatniej liczby całkowitej $n$ składa się z dwóch części:
+\begin{enumerate}
+	\item Baza indukcji -- sprawdzenie prawdziwości zdania $Z(1)$.
+	\item Krok indukcyjny -- udowodnienie, że jeśli zachodzi zdanie $Z(k)$ to zachodzi $Z(k + 1)$.
+\end{enumerate}
+
+Indukcję matematyczną da się wykorzystać także poza algebrą. Pokażemy jedno jego zastosowanie kombinatoryczne. Ale najpierw musimy zdefiniować kilka pojęć z teorii grafów.
+
+\textit{Grafem} nazywamy pewien zbiór \textit{wierzchołków} na płaszczyźnie, które są połączone \textit{krawędziami}. \textit{Ścieżką} nazywamy ciąg parami różnych krawędzi pewnego grafu, z których dwie kolejne mają wspólny wierzchołek. \textit{Ścieżką Hamiltona} nazwamy ścieżkę, która przechodzi przez każdy wierzchołek dokładnie raz. 
+
+\vspace{20px}
+
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+	\begin{tikzpicture}
+    \tkzDefPoint(0,0){v_1}
+    \tkzDefPoint(1,2){v_2}
+    \tkzDefPoint(2,1){v_3}
+    \tkzDefPoint(4,4){v_4}
+    \tkzDefPoint(2,3){v_5}
+    \tkzDrawPoints(v_1,v_2,v_3,v_4,v_5)
+    \tkzDrawSegments[arrowMe=stealth](v_1,v_2 v_2,v_3 v_3,v_4 v_4,v_5)
+    \tkzDrawSegments(v_1,v_3 v_3,v_5)
+	\end{tikzpicture}\\
+	Graf posiada ścieżkę Hamiltona -- zaznaczono ją strzałkami
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+	\begin{tikzpicture}
+    \tkzDefPoint(0,0){v_1}
+    \tkzDefPoint(1,2){v_2}
+    \tkzDefPoint(2,1){v_3}
+    \tkzDefPoint(4,4){v_4}
+    \tkzDefPoint(2,3){v_5}
+    \tkzDrawPoints(v_1,v_2,v_3,v_4,v_5)
+    \tkzDrawSegments(v_1,v_2 v_2,v_3 v_3,v_4)
+    \tkzDrawSegments(v_1,v_3 v_3,v_5)
+	\end{tikzpicture}\\
+	Graf nie posiada ścieżki Hamiltona
+\end{center}
+\end{minipage}
+
+
+\vspace{20px}
+
+
+\noindent
+\textbf{Przykład 2}
+	Zdefinujmy ciąg grafów $(G_n)_{n\geqslant1}$ w następujący sposób.
+	\begin{itemize}
+		\item Graf $G_1$ jest grafem złożonym z dwóch połączonych ze sobą wierzchołków,
+		\item Graf $G_{i + 1}$ dla $i \geqslant 2$ otrzymujemy poprzez połączenie dwóch grafów $G_i$, aby każdy wierzchołek z jednego z tych grafów był połączony z dokładnie jednym wierzchołkiem z drugiego z tych grafów.
+	\end{itemize}
+
+	Wykazać, że graf $G_{2020}$ ma ścieżkę Hamiltona.
+
+	\textit{Uwaga.} Można zauważyć, że $G_n$ to w istocie $n$ wymiarowy hipersześcian.
+
+\vspace{20px}
+
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+	\begin{tikzpicture}
+    \tkzDefPoint(0,0){v_1}
+    \tkzDefPoint(2,0){v_2}
+    \tkzDrawPoints(v_1,v_2)
+    \tkzDrawSegments(v_1,v_2)
+	\end{tikzpicture}\\
+	$G_1$
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+	\begin{tikzpicture}
+    \tkzDefPoint(0,0){v_1}
+    \tkzDefPoint(2,0){v_2}
+    \tkzDefPoint(2,2){v_3}
+    \tkzDefPoint(0,2){v_4}
+    \tkzDrawPoints(v_1,v_2, v_3, v_4)
+    \tkzDrawSegments(v_1,v_2 v_2,v_3 v_3,v_4 v_1,v_4)
+	\end{tikzpicture}\\
+	$G_2$
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+	\begin{tikzpicture}
+    \tkzDefPoint(0,0){v_1}
+    \tkzDefPoint(2,0){v_2}
+    \tkzDefPoint(2,2){v_3}
+    \tkzDefPoint(0,2){v_4}
+    \tkzDefPoint(0.5,0.5){v_5}
+    \tkzDefPoint(1.5,0.5){v_6}
+    \tkzDefPoint(1.5,1.5){v_7}
+    \tkzDefPoint(0.5,1.5){v_8}
+    \tkzDrawPoints(v_1,v_2, v_3, v_4)
+    \tkzDrawSegments(v_1,v_2 v_2,v_3 v_3,v_4 v_1,v_4)
+    \tkzDrawPoints(v_5,v_6, v_7, v_8)
+    \tkzDrawSegments(v_5,v_6 v_6,v_7 v_7,v_8 v_5,v_8)
+    \tkzDrawSegments(v_5,v_1 v_6,v_2 v_7,v_3 v_8,v_4)
+	\end{tikzpicture}\\
+	$G_3$
+\end{center}
+\end{minipage}
+
+\noindent
+\textbf{Rozwiązanie}
+
+Wykażemy, że teza jest prawdziwa dla każdego $n \geqslant 1$. Co więcej wykażemy, że ścieżka Hamiltona może zaczynać się w każdym z wierzchołków $G_n$.
+
+Zauważmy, że dla $n = 1$ teza jest oczywista -- ścieżka złożona z jednej krawędzi spełnia warunki zadania.
+
+Załóżmy, że dla $G_n$ istnieje ścieżka Hamiltona. Wykażemy, że istnieje ona dla $G_{n + 1}$. Graf $G_{n+1}$ składa się z dwóch połączonych ze sobą cześci izomorficznych z grafem $G_n$ -- nazwijmy je $A$ oraz $B$. Oznaczmy wierzchołki $G_{n + 1}$ kolejno jako
+$a_1, a_2, ..., a_{2^n}$ -- cześć $A$ oraz $b_1, b_2, ..., b_{2^n}$ -- część $B$, przy czym $a_i$ jest połączone właśnie z $b_i$. 
+
+Ścieżka Hamiltonowska w grafie $G_{n + 1}$ będzie się składać z 3 cześći:
+
+\begin{itemize}
+	\item Na mocy założenia istnieje ścieżka zaczynająca się w $a_1$ przechodząca przez wszystkie wierzchołki $A$. Możemy ją przejść od tyłu. Wówczas przejdziemy wszystkie wierzchołki częsci $A$ kończąc w $a_1$.
+	\item Następnie przedziemy krawędzią między $a_1$ i $b_1$ do części $B$.
+	\item Na mocy założenia z punktu $b_1$ da się poprowadzić ścieżkę, która przejdzie przez każdy z wierzchołków części $B$ dokładnie raz.
+\end{itemize}
+
+Łatwo zauważyć, że podany sposób przejścia grafu $G_{n + 1}$ tworzy ścieżkę Hamiltonowską.

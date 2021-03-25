@@ -1,0 +1,28 @@
+\documentclass{article}
+
+\usepackage[utf8]{inputenc}
+\usepackage{amssymb}
+\usepackage{amsmath} 
+\usepackage{enumitem}
+\usepackage{pgf,tikz}
+\usepackage{tkz-euclide}
+\usepackage{mathrsfs}
+\usepackage{xcolor}
+\usetikzlibrary{arrows}
+\usepackage{fancyhdr}
+\usepackage{hyperref}
+\usepackage{wrapfig}
+\usepackage{polski}
+\usepackage{gensymb}
+
+\DeclareUnicodeCharacter{2212}{-}
+
+\def\kont{\hbox{\lower-.2ex\hbox{$<\kern-.53em)$}$\,$}}
+
+\usepackage[b5paper, left=0.8in, right=0.8 in, top=0.8 in, bottom=0.8 in]{geometry}
+
+\usetikzlibrary{arrows, calc,intersections, decorations.pathmorphing}
+\tikzset{
+arrowMe/.style={postaction=decorate,
+    decoration={markings, mark=at position .5 with {\arrow[thick]{#1}}
+    } }}
