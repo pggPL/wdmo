@@ -1,11 +1,8 @@
 % Rozdział 1 – indukcja matematyczna
 
-\begin{center}
-	\textbf{Indukcja matematyczna}
-\end{center}
+\theory{Indukcja matematyczna}
 
-\noindent
-\textbf{Przykład 1}
+\heading{Przykład 1}
 
 \noindent
 Wykazać, że dla każdej liczby dodatniej całkowitej $n$ zachodzi nierówność
@@ -13,12 +10,11 @@ Wykazać, że dla każdej liczby dodatniej całkowitej $n$ zachodzi nierównoś�
 	2^n \geqslant n + 1.
 \]
 
-\noindent
-\textit{Rozwiązanie}
+\heading{Rozwiązanie}
 
 \noindent
-Zauważamy, że dla $n = 1$ mamy $2^n = 2 = n + 1,$ a więc postulowana nierówność istotnie zachodzi.
-Załóżmy, że dla pewnej liczby dodatniej całkowitej $k$ zachodzi nierówność $2^k \geqslant k + 1$. Zauważmy, że wówczas
+Dla $n = 1$ mamy $2^n = 2 = n + 1,$ a więc postulowana nierówność istotnie zachodzi.
+Załóżmy, że dla pewnej liczby dodatniej całkowitej $k$ zachodzi nierówność ${2^k \geqslant k + 1}$. Zauważmy, że wówczas
 \[
 	2^{k + 1} = 2 \cdot 2^k \geqslant 2 \cdot (k + 1) = 2k + 2 \geqslant k + 2.
 \]
@@ -28,12 +24,14 @@ Wykazaliśmy, że jeśli postulowana nierówność zachodzi dla pewnej dodatniej
 \vspace{20px}
 
 \noindent
-Metodę dowodzenia zastosowaną w ostatnim akapicie powyższego rozwiązania nazywamy \textbf{zasadą indukcji matematycznej}.
-
 Alternatywnym, ale równoważnym, sposobem zakończenia rozwiązania powyższego przykładu jest rozpatrzenie najmniejszego naturalnego $n$, dla którego teza nie zachodzi. A więc dla $n - 1$ nierówność musi zachodzić, chyba że $n = 1$. Ale w tym przypadku sprawdzamy, że teza zachodzi. Skoro dla $n - 1$ teza jest prawdziwa, a dla $n$ już nie, to otrzymujemy sprzeczność z wcześniej poczynioną obserwacją.
 
-
 \vspace{10px}
+\heading{Zasada indukcji matematycznej}
+
+\noindent
+Metodę dowodzenia zastosowaną w ostatnim akapicie powyższego rozwiązania nazywamy \textit{zasadą indukcji matematycznej}.
+
 
 Formalizując, dowód indukcyjny zdania logicznego $Z(n)$ dla dowolnej dodatniej liczby całkowitej $n$ składa się z dwóch części:
 \begin{enumerate}
@@ -41,15 +39,24 @@ Formalizując, dowód indukcyjny zdania logicznego $Z(n)$ dla dowolnej dodatniej
 	\item Krok indukcyjny -- udowodnienie, że jeśli zachodzi zdanie $Z(k)$ to zachodzi $Z(k + 1)$.
 \end{enumerate}
 
-Indukcję matematyczną da się wykorzystać także poza algebrą. Pokażemy jedno jego zastosowanie kombinatoryczne. Ale najpierw musimy zdefiniować kilka pojęć z teorii grafów.
 
+\noindent
+Indukcję matematyczną da się wykorzystać poza algebrą. Pokażemy jedno jego zastosowanie kombinatoryczne. Ale najpierw musimy zdefiniować kilka pojęć z teorii grafów.
+
+\vspace{20px}
+
+\heading{Grafy i ścieżki Hamiltona}
+
+\vspace{5px}
+
+\noindent
 \textit{Grafem} nazywamy pewien zbiór \textit{wierzchołków} na płaszczyźnie, które są połączone \textit{krawędziami}. \textit{Ścieżką} nazywamy ciąg parami różnych krawędzi pewnego grafu, z których dwie kolejne mają wspólny wierzchołek. \textit{Ścieżką Hamiltona} nazwamy ścieżkę, która przechodzi przez każdy wierzchołek dokładnie raz. 
 
 \vspace{20px}
 
 \begin{minipage}{0.5\textwidth}
 \begin{center}
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=0.5]
     \tkzDefPoint(0,0){v_1}
     \tkzDefPoint(1,2){v_2}
     \tkzDefPoint(2,1){v_3}
@@ -64,7 +71,7 @@ Indukcję matematyczną da się wykorzystać także poza algebrą. Pokażemy jed
 \end{minipage}
 \begin{minipage}{0.5\textwidth}
 \begin{center}
-	\begin{tikzpicture}
+	\begin{tikzpicture}[scale=0.5]
     \tkzDefPoint(0,0){v_1}
     \tkzDefPoint(1,2){v_2}
     \tkzDefPoint(2,1){v_3}
@@ -81,18 +88,21 @@ Indukcję matematyczną da się wykorzystać także poza algebrą. Pokażemy jed
 
 \vspace{20px}
 
+\heading{Przykład 2}
 
 \noindent
-\textbf{Przykład 2}
-	Zdefinujmy ciąg grafów $(G_n)_{n\geqslant1}$ w następujący sposób.
-	\begin{itemize}
-		\item Graf $G_1$ jest grafem złożonym z dwóch połączonych ze sobą wierzchołków,
-		\item Graf $G_{i + 1}$ dla $i \geqslant 2$ otrzymujemy poprzez połączenie dwóch grafów $G_i$, aby każdy wierzchołek z jednego z tych grafów był połączony z dokładnie jednym wierzchołkiem z drugiego z tych grafów.
-	\end{itemize}
+Zdefinujmy ciąg grafów $(G_n)_{n\geqslant1}$ w następujący sposób.
+\begin{itemize}
+	\item Graf $G_1$ jest grafem złożonym z dwóch połączonych ze sobą wierzchołków,
+	\item Graf $G_{i + 1}$ dla $i \geqslant 2$ otrzymujemy poprzez połączenie dwóch grafów $G_i$, aby każdy wierzchołek z jednego z tych grafów był połączony z dokładnie jednym wierzchołkiem z drugiego z tych grafów.
+\end{itemize}
 
-	Wykazać, że graf $G_{2020}$ ma ścieżkę Hamiltona.
+\noindent
+Wykazać, że graf $G_{2020}$ ma ścieżkę Hamiltona.
 
-	\textit{Uwaga.} Można zauważyć, że $G_n$ to w istocie $n$ wymiarowy hipersześcian.
+\vspace{5px}
+
+\remark Można zauważyć, że $G_n$ to w istocie $n$-wymiarowy hipersześcian.
 
 \vspace{20px}
 
@@ -142,8 +152,9 @@ Indukcję matematyczną da się wykorzystać także poza algebrą. Pokażemy jed
 \end{minipage}
 
 \noindent
-\textbf{Rozwiązanie}
+\heading{Rozwiązanie}
 
+\noindent
 Wykażemy, że teza jest prawdziwa dla każdego $n \geqslant 1$. Co więcej wykażemy, że ścieżka Hamiltona może zaczynać się w każdym z wierzchołków $G_n$.
 
 Zauważmy, że dla $n = 1$ teza jest oczywista -- ścieżka złożona z jednej krawędzi spełnia warunki zadania.
@@ -159,4 +170,7 @@ $a_1, a_2, ..., a_{2^n}$ -- cześć $A$ oraz $b_1, b_2, ..., b_{2^n}$ -- częś�
 	\item Na mocy założenia z punktu $b_1$ da się poprowadzić ścieżkę, która przejdzie przez każdy z wierzchołków części $B$ dokładnie raz.
 \end{itemize}
 
+\noindent
 Łatwo zauważyć, że podany sposób przejścia grafu $G_{n + 1}$ tworzy ścieżkę Hamiltonowską.
+
+\newpage

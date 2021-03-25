@@ -14,10 +14,15 @@
 \usepackage{wrapfig}
 \usepackage{polski}
 \usepackage{gensymb}
+\usepackage[many]{tcolorbox}
+
+% definicja koloru
+\definecolor{kolor}{RGB}{8, 97, 138}
 
 \DeclareUnicodeCharacter{2212}{-}
 
-\def\kont{\hbox{\lower-.2ex\hbox{$<\kern-.53em)$}$\,$}}
+% definicja kąta
+\def\an{\hbox{\lower-.2ex\hbox{$<\kern-.53em)$}$\,$}}
 
 \usepackage[b5paper, left=0.8in, right=0.8 in, top=0.8 in, bottom=0.8 in]{geometry}
 
@@ -26,3 +31,80 @@
 arrowMe/.style={postaction=decorate,
     decoration={markings, mark=at position .5 with {\arrow[thick]{#1}}
     } }}
+
+
+\newcommand{\heading}[1]{
+	\noindent
+	\textbf{\textcolor{kolor}{#1}}
+	\vspace{5px}
+}
+
+\newcommand{\remark}{
+	\noindent\textit{Uwaga}\\
+}
+
+\newcommand{\theory}[1]{
+	\begin{center}
+    \fontsize{26}{20}\selectfont
+	\textbf{\textcolor{kolor}{#1}}
+	\end{center}
+	\vspace{20px}
+}
+
+\tcbset{mystyle/.style={
+  breakable,
+  enhanced,
+  outer arc=0pt,
+  arc=0pt,
+  colframe=kolor,
+    coltitle=kolor,
+  colback=white,
+  attach boxed title to top left={yshift=-2mm},
+  boxed title style={
+    coltitle=kolor,
+    colback=white,
+    outer arc=0pt,
+    arc=0pt,
+    top=3pt,
+    bottom=3pt,
+    },
+  fonttitle=\sffamily
+  }
+}
+
+\newtcolorbox[auto counter]{problem_box}[1][1]{
+  mystyle,
+  title=Zadanie~{#1},
+}
+
+
+\newlist{hints_list}{enumerate}{3}
+
+\setlist[hints_list]{label=\textbf{\textcolor{kolor}{\arabic*}}.}
+
+\newcommand{\hints}[1]{
+	\begin{center}
+    \fontsize{20}{20}\selectfont
+	\textbf{\textcolor{kolor}{#1}}
+	\end{center}
+}
+
+\newcommand{\solutions}[1]{
+	\begin{center}
+    \fontsize{26}{20}\selectfont
+	\textbf{\textcolor{kolor}{#1}}
+	\end{center}
+	\vspace{20px}
+}
+
+
+\newenvironment{problem}[1]
+    {
+    \begin{samepage}
+    \begin{problem_box}[{#1}]
+    }
+    { 
+    \end{problem_box}
+    \end{samepage}
+    }
+
