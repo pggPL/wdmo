@@ -99,12 +99,17 @@ arrowMe/.style={postaction=decorate,
 
 
 \newenvironment{problem}[1]
-    {
+{
     \begin{samepage}
     \begin{problem_box}[{#1}]
-    }
-    { 
+}
+{ 
     \end{problem_box}
     \end{samepage}
-    }
+}
+
+\newcommand{\answer}[1]{
+  \noindent\textit{Odpowiedź.} #1
+  \vspace{5px}
+}
 
