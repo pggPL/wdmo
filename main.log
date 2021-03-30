@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.21)  30 MAR 2021 12:50
+This is pdfTeX, Version 3.14159265-2.6-1.40.21 (TeX Live 2020) (preloaded format=pdflatex 2020.4.21)  30 MAR 2021 13:03
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -1249,21 +1249,21 @@ Overfull \hbox (16.44753pt too wide) in paragraph at lines 26--27
  [] 
  []
 
-[3]) [4] (./chapters/02/theory.tex [5]) (./chapters/02/problems.tex [6])
-(./chapters/01/hint1.tex [7]) (./chapters/02/hint1.tex)
-(./chapters/01/hint2.tex [8]) (./chapters/02/hint2.tex)
-(./chapters/01/hint3.tex [9]) (./chapters/02/hint3.tex)
-(./chapters/01/solutions.tex [10] [11]
+[3]) [4] (./chapters/02/theory.tex [5]) (./chapters/02/problems.tex [6]
+[7]) (./chapters/01/hint1.tex [8]) (./chapters/02/hint1.tex)
+(./chapters/01/hint2.tex [9]) (./chapters/02/hint2.tex)
+(./chapters/01/hint3.tex [10]) (./chapters/02/hint3.tex)
+(./chapters/01/solutions.tex [11] [12]
 Overfull \hbox (16.44753pt too wide) in paragraph at lines 80--81
  [] 
  []
 
-[12]
+[13]
 Overfull \hbox (17.22221pt too wide) in paragraph at lines 110--143
 []$[]$ $[]$ 
  []
 
-[13] [14]) (./chapters/02/solutions.tex [15] [16] [17] [18]) [19]
+[14] [15]) (./chapters/02/solutions.tex [16] [17] [18] [19]) [20]
 Package atveryend Info: Empty hook `BeforeClearDocument' on input line 25.
 Package atveryend Info: Empty hook `AfterLastShipout' on input line 25.
  (./main.aux)
@@ -1275,9 +1275,9 @@ Package atveryend Info: Empty hook `AtVeryVeryEnd' on input line 25.
  ) 
 Here is how much of TeX's memory you used:
  29010 strings out of 480608
- 616281 string characters out of 5903630
- 928734 words of memory out of 5000000
- 44063 multiletter control sequences out of 15000+600000
+ 616269 string characters out of 5903630
+ 926736 words of memory out of 5000000
+ 44062 multiletter control sequences out of 15000+600000
  542112 words of font info for 52 fonts, out of 8000000 for 9000
  1141 hyphenation exceptions out of 8191
  62i,10n,111p,936b,1397s stack positions out of 5000i,500n,10000p,200000b,80000s
@@ -1304,10 +1304,10 @@ nts/type1/public/pl/plsy10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/
 public/pl/plsy7.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/pl/p
 lti10.pfb></usr/local/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1
 000.pfb>
-Output written on main.pdf (20 pages, 160950 bytes).
+Output written on main.pdf (21 pages, 161522 bytes).
 PDF statistics:
- 316 PDF objects out of 1000 (max. 8388607)
- 257 compressed objects within 3 object streams
- 113 named destinations out of 1000 (max. 500000)
+ 320 PDF objects out of 1000 (max. 8388607)
+ 260 compressed objects within 3 object streams
+ 114 named destinations out of 1000 (max. 500000)
  109 words of extra memory for PDF output out of 10000 (max. 10000000)
 
