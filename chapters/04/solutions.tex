@@ -1,0 +1,251 @@
+\newpage
+\solutions{Równania funkcyjne}
+
+\begin{problem}{1} 
+	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie
+	\[
+		 f(x)+f(y) = f(xy).
+	\]
+\end{problem}
+
+\answer{Jedyną funkcją spełniającą warunki zadania jest $f(x) = 0$.}
+
+\noindent
+Podstawmy $y=0$: \[ f(x) + f(0) = f(0), \] czyli $f(x) =0$ dla każdego x. Łatwo sprawdzić, że ta funkcja spełnia warunki zadania. 
+
+\vspace{10px}
+
+\begin{problem}{2}
+	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie
+	\[
+		 f(x-f(y)) = 1 - x - y.
+	\]
+\end{problem}
+
+\noindent
+Podstawmy $x = f(y)$. Otrzymamy 
+\begin{gather*}
+	f(0) = 1 - f(y) - y, \\
+	f(y) = - y + (1 - f(0)).
+\end{gather*} 
+Podstawmy $y = 0$ do powyższej zależności. Wówczas łatwo obliczyć, że $f(0)=\frac{1}{2}$. Czyli $f(x) = - x + \frac{1}{2} $. Ta funkcja istotnie spełnia warunki zadania, gdyż
+\[
+	f(x - f(y)) = f(y) - x + \frac{1}{2} = 1 - y - x .
+\]
+
+\begin{problem}{3}
+	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
+	\[
+		f(x^{2}y) = f(xy) + yf(f(x) + y).
+	\]
+\end{problem}
+
+\answer{Funkcja $f(x) = x$ jest jedynym rozwiązaniem.}
+
+\noindent
+Podstawmy $x = 0$ i $y = -f(0)$. Otrzymamy $f(0)^{2}=0$, czyli $f(0)=0$. Podstawmy $x=0$: 
+\[ 
+	0 = yf(f(0) + y) = yf(y)
+\] 
+Dla niezerowego $y$ mamy $f(y) = 0$.
+Sprawdzamy, że funkcja $f(x) = 0$ spełnia warunki zadania. Łącząc powyższe wnioski otrzymujemy, że jedyni funkcja $f(x)=0$ spełnia warunki zadania. 
+
+\newpage
+
+\begin{problem}{4}
+	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
+	\[
+		2f(x) + f(1 - x) = x^{2}.
+	\] 
+\end{problem}
+
+\answer{Jedyną funkcją spełniającą warunki zadania jest $f(x) = \frac{2x^2 - (1-x)^2}{3}$.}
+
+\noindent
+Podstawmy $1-x$ za x. Otrzymamy 
+\[ 
+	2f(1 - x) + f(x) = 2(1 - x)^{2}.
+\] 
+Z równaniem z zadania tworzy to układ równań ze zmiennymi $f(x)$ i $f(1 - x)$. Wyliczamy $f(x) = \frac{2x^{2}-(1-x)^{2}} {3} $. Wystarczy teraz tylko sprawdzić, że ta funkcja spełnia warunki zadania. 
+
+\vspace{5px}
+
+\begin{problem}{5}
+	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
+	\[
+		f(x+y) = f(f(x)) + y + 1.
+	\] 
+\end{problem}
+
+\answer{$f(x) = x - 1$ jest jedynym rozwiązaniem danego równania.}
+
+\noindent
+Podstawmy $x = 0$: 
+\[
+ f(y) = f(f(0)) + 1 + y, 
+\] 
+czyli $f(x) = x + a$ dla pewnego stałego a. Podstawmy tę funkcję do wyjściowego równania
+\[
+	x+y+a=x+2a+y+1.
+\] 
+Mamy $a = -1$. Łatwo sprawdzić, że funkcja $f(x) = x - 1$ spełnia warunki zadania. 
+
+\vspace{5px}
+
+\begin{problem}{6}
+	Znajdź wszystkie funkcje różnowartościowe
+	$\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równość 
+	\[
+		f(f(x) + y) = f(x+y) + 1.
+	\]
+\end{problem}
+
+\answer{Jedyną funkcją spełniającą warunki zadania jest $f(x) = x + 1$.}
+
+\noindent
+Podstawmy $y = -x$. Otrzymamy 
+\[ 
+	f(f(x) - x) = f(0) + 1.
+\] 
+Zauważmy, że prawa strona równości jest stała. Z różnowartościowości f wynika, że wartość $f(x) - x$ jest stała. Czyli $f(x) - x = a$ dla pewnego a. Wstawiamy $f(x) = x + a$ do wyjściowego równania 
+\[
+	x + y + 2a = x + y + a + 1,
+\]
+więc $a = 1$. Skąd $f(x) = x + 1 $ -- możemy sprawdzić, że ta funkcja spełnia warunki zadania.
+
+\newpage
+
+\begin{problem}{7}
+	Znajdź wszystkie funkcje 
+	$\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ nierówność 
+	\[
+		f(x^2+y) + f(y) \geqslant f(x^2) + f(x).
+	\] 
+\end{problem}
+
+\noindent
+Podstawmy $x = 0$
+\[ 
+	f(y) \geqslant f(0). 
+\] 
+Podstawmy $y = 0$ 
+\[ 
+	f(x^2) + f(0) \geqslant f(x^2) + f(x), 
+\] 
+czyli $f(0) \geqslant f(x) $. 
+Łącząc oba wnioski otrzymuję 
+\[ 
+	f(0) \geqslant f(x) \geqslant f(0), 
+\] 
+czyli $f(x) = f(0)$. Innymi słowy $f$ jest funkcją stałą. Łatwo zauważyć, że taka funkcja spełnia warunki zadania. 
+
+\vspace{5px}
+
+\begin{problem}{8}
+	Znajdź wszystkie funkcje $\mathbb{Z} \rightarrow \mathbb{Z} $ spełniające dla wszystkich $x \in \mathbb{Z} $ równanie
+	\[
+		 f(f(x)) =x+1.
+	\] 
+\end{problem}
+
+\answer{Szukane funkcje nie istnieją.}
+
+\noindent
+Zauważmy, że zachodzą równości 
+\begin{gather*} 
+f(f(f(x))) = f(x + 1) \\
+f(f(f(x))) = f(x) +1 
+\end{gather*} 
+Z tego otrzymujemy równość: 
+\[
+	f(x) =f(x-1)+1 
+\] 
+Skoro działamy w liczbach całkowitych to możemy wywnioskować, że
+\[
+	f(x) = f(x - 1) + 1 = f(x - 2) +  2 =  ... = x + f(0).
+\] 
+Podstawmy równość $f(x) = x + f(0)$ do 
+$f(f(x)) = x + 1$:
+\[
+	x + 1 = f(f(x))= x + 2f(0), 
+\]
+czyli $f(0) = \frac{1}{2}$. Sprzeczność. Takie funkcje nie istnieją.
+
+\vspace{5px} 
+
+\begin{problem}{9}
+	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
+	\[
+		f(x) f(y) = f(x-y).
+	\] 
+\end{problem}
+
+\answer{Daną zależność spełniają funkcje $f(x) = 1$ i $f(x) = 0$.}
+
+\noindent
+Podstawmy $x = y = 0$. Wtedy otrzymujemy 
+\[
+	f(0)^{2} = f(0) \implies f(0) \in \{0, 1\}.
+\]
+Podstawmy $x = y$
+\[
+	f(x)^{2} = f(0).
+\] 
+Jeśli $f(0)=0$, to $f(x) =0$. Łatwo sprawdzić, że funkcja zerowa spełnia warunki zadania.
+Zobaczmy, co jeśli $x = y$ oraz $f(0) = 1$:
+\[
+	f(x)^{2} = f(0) = 1 
+\] 
+Czyli $f(x)$ jest równe $-1$ lub 1 dla każdego $x$.
+Podstawmy $x=0$
+\[
+	f(y) =f(-y).
+\] 
+Zauważmy, że 
+\[
+	f(x - y) = f(x)f(y) = f(x)f(-y) = f(x+y). 
+\] 
+Weźmy 2 dowolne liczby a i b. Biorąc $x=\frac{a+b}{2}$ oraz 
+$y=\frac{a-b}{2}$ otrzymamy
+\[
+	f(x+y) = f(x-y) \implies f(a) = f(b).
+\] 
+Skoro $a$ i $b$ były dowolne to $f$ jest funkcją stałą, czyli $f(x) = 1$. Łatwo sprawdzić, że ta funkcja również spełnia warunki zadania. Czyli tę zależność spełniają funkcje $f(x) = 1 $ i $f(x) = 0$. Sprawdzamy, że istotnie one działają.
+
+\vspace{5px}
+
+\begin{problem}{10}
+	Udowodnij, że nie istnieje taka funkcja $f:\mathbb{R}\longrightarrow\mathbb{R}$, że dla dowolnych liczb rzeczywistych $x$, $y$ zachodzi równość:
+	\[
+		f(f(x) + 2f(y)) = x + y.
+	\]
+\end{problem}
+
+\noindent
+\underline{Lemat 1} Funkcja $f$ jest różnowartościowa
+
+Załóżmy, że $f(a) = f(b)$. Podstawmy, $x=a$ oraz $x = b$
+\[
+	f(f(a) + 2f(y)) = a + y \quad \text{oraz} \quad f(f(b) + 2f(y)) = b + y.
+\] 
+Skoro $f(a)=f(b)$, to 
+\[
+	f(f(a) + 2f(y)) = f(f(b) + 2f(y)),
+\] 
+a więc $a + y = b + y$, czyli $a = b$. A więc $f$ istotnie jest różnowartościowa.
+\vspace{10px}
+
+\noindent
+Zauważamy, że zachodzą równości
+\[
+	f(f(x) + 2f(y)) = x + y \quad \text{oraz} \quad f(f(y)+2f(x))=x+y.
+\]
+Czyli 
+\[
+	f(f(x) + 2f(y)) = f(f(y) + 2f(x)).
+\] 
+Skoro $f$ jest różnowartościowa, to 
+\[
+	f(x)+2f(y)=f(y)+2f(x),
+\]
+więc $f(x)=f(y)$ dla wszystkich liczb $x$, $y$. Czyli $f$ musiałaby być funkcją stałą, a to jest oczywista sprzeczność z danym równaniem.
