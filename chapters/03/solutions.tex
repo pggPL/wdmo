@@ -1,251 +1,146 @@
 \newpage
-\solutions{Równania funkcyjne}
+\solutions{Bijekcje i bajki kombinatoryczne}
+
 
 \begin{problem}{1} 
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie
+	Dane są liczby całkowite $n$ i $k$. Wykaż, że
 	\[
-		 f(x)+f(y) = f(xy).
+		\sum^{n}_{k=0} k \cdot {{n}\choose{k}} = n \cdot 2^{n - 1}.
 	\]
 \end{problem}
 
-\answer{Jedyną funkcją spełniającą warunki zadania jest $f(x) = 0$.}
+\vspace{5px}
 
 \noindent
-Podstawmy $y=0$: \[ f(x) + f(0) = f(0), \] czyli $f(x) =0$ dla każdego x. Łatwo sprawdzić, że ta funkcja spełnia warunki zadania. 
+Spośród $n$ osób będziemy chcieli wybrać drużynę i mianować jednego jej członka kapitanem. Wykażemy, że wyrażenia po obu stronach równości są liczbą możliwości takiego wyboru.
 
-\vspace{10px}
+Wybierając najpierw kapitana -- możemy go wybrać na $n$ sposobów -- a następnie dobierając mu zawodników -- których można wybrać na $2^{n - 1}$ sposobów, gdyż wybieramy dowolny podzbiór $n - 1$ osób -- otrzymamy $n \cdot 2^{n - 1}$ osób.
+
+Przyjmijmy, że w drużynie wraz z kapitanem jest $k$ osób. Możliwości wyboru $k$ osób spośród $n$ jest ${n}\choose{k}$, a opcji wyboru kapitana spośród tych $k$ osób jest dokładnie $k$. Stąd też dla dowolnego $k$ liczba wariantów wynosi $k \cdot {{n}\choose{k}} $. Sumując po wszystkich możliwych $k$ otrzymujemy, że łączna liczba możliwości wynosi $\sum^{n}_{k=0} k \cdot {{n}\choose{k}}$.
+
+\vspace{5px}
 
 \begin{problem}{2}
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie
-	\[
-		 f(x-f(y)) = 1 - x - y.
-	\]
+	Wyznacz liczbę podzbiorów zbioru $\{1, 2, 3, ..., 10\}$, których suma wynosi co najmniej $27$.
 \end{problem}
 
-\noindent
-Podstawmy $x = f(y)$. Otrzymamy 
-\begin{gather*}
-	f(0) = 1 - f(y) - y, \\
-	f(y) = - y + (1 - f(0)).
-\end{gather*} 
-Podstawmy $y = 0$ do powyższej zależności. Wówczas łatwo obliczyć, że $f(0)=\frac{1}{2}$. Czyli $f(x) = - x + \frac{1}{2} $. Ta funkcja istotnie spełnia warunki zadania, gdyż
-\[
-	f(x - f(y)) = f(y) - x + \frac{1}{2} = 1 - y - x .
-\]
+\vspace{5px}
 
-\begin{problem}{3}
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
-	\[
-		f(x^{2}y) = f(xy) + yf(f(x) + y).
-	\]
-\end{problem}
-
-\answer{Funkcja $f(x) = x$ jest jedynym rozwiązaniem.}
+\answer{Szukana liczba podzbiorów wynosi $2^9 = 512$.}
 
 \noindent
-Podstawmy $x = 0$ i $y = -f(0)$. Otrzymamy $f(0)^{2}=0$, czyli $f(0)=0$. Podstawmy $x=0$: 
-\[ 
-	0 = yf(f(0) + y) = yf(y)
-\] 
-Dla niezerowego $y$ mamy $f(y) = 0$.
-Sprawdzamy, że funkcja $f(x) = 0$ spełnia warunki zadania. Łącząc powyższe wnioski otrzymujemy, że jedyni funkcja $f(x)=0$ spełnia warunki zadania. 
+Zauważmy, że suma wszystkich elementów tego zbioru wynosi $55$. Dla każdego podzbioru $A$ zdefiniujmy jego dopełnienie jako pozbiór $\{1, 2, 3, ..., 10\} - A$. Składa się on z wszystkich elementów nie występujących w $A$. Dla przykładu dopełnieniem zbioru $\{1, 2, 4, 7, 8, 9\}$ będzie zbiór $\{3, 5, 6, 10\}$.
+
+Zauważmy, że suma elementów dowolnego podzbioru i jego dopełnienia wynosi $55$. Więc dokładnie jeden z tych zbiorów ma sumę elementów większą lub równą $27$. Podzielmy wszystkie rozpatrywane pozdbiory na pary zawierające dwa zbiory będące swoim dopełnieniem. Z powyższej obserwacji wynika, że dokładnie połowa podzbiorów -- po jednym z każdej pary -- będzie spełniać warunki zadania. Jest więc ich $\frac{1}{2} \cdot 2^{10} = 2^9 = 512$.
+
 
 \newpage
 
-\begin{problem}{4}
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
+\begin{problem}{3} 
+	Udowodnić, że dla wszystkich dodatnich liczb całkowitych $n$, $k$ zachodzi równość
 	\[
-		2f(x) + f(1 - x) = x^{2}.
-	\] 
+	    \sum^{n}_{k=0} {{n}\choose{k}}^2 = {{2n}\choose{n}}.
+	\]
 \end{problem}
 
-\answer{Jedyną funkcją spełniającą warunki zadania jest $f(x) = \frac{2x^2 - (1-x)^2}{3}$.}
+\vspace{5px}
 
 \noindent
-Podstawmy $1-x$ za x. Otrzymamy 
-\[ 
-	2f(1 - x) + f(x) = 2(1 - x)^{2}.
+Prawa strona równości jest równa liczbie sposobów wyboru $n$ spośród $2n$ osób.
+
+Podzielmy te $2n$ osób na dwie grupy po $n$ osób. Załóżmy, że z pierwszej grupy wybieramy $k$ osób. Możemy tego dokonać na ${n}\choose{k}$ sposobów. Z drugiej grupy wybieramy $n - k$ osób -- mamy ${{n}\choose{n - k}} = {{n}\choose{k}}$ możliwości. Dla ustalonego $k$ możemy dokonać wyboru na ${{n}\choose{k}}^2$ sposobów. Sumując po wszystkich $k$ otrzymujemy lewą stronę równości.
+
+\begin{problem}{4}
+	Dana jest liczba pierwsza $p \geqslant 3$. Niech $A_k$ oznacza zbiór permutacji $(a_1, a_2, ..., a_p)$ zbioru $\{1, 2, 3,..., p\}$, dla których liczba
+	\[
+		a_1 + 2a_2 + 3a_3 + ... + pa_p - k
+	\]
+	jest podzielna przez $p$. Wykazać, że zbiory $A_1$, $A_2$ mają tyle samo elementów.
+\end{problem}
+
+\vspace{5px}
+
+\noindent
+Ideą poniższego rozwiązania jest fakt, że jak mamy pewną permutację z $A_1$, pomnożymy każdy jej z elementów przez 2, to otrzymamy permutację z $A_2$. Jako, że mnożąc liczbę większą od $\frac{1}{2}p$ przez $2$ wylecimi ze zbioru $\{1, 2, 3,..., p\}$ to zamiast mnożenia przez $2$ użyjemy funkcji danej wzorem
+\[
+	f(x) = 
+	\begin{cases}
+	2x \;\;\; \quad\quad\text{dla} \;\; x < \frac{1}{2}p\\
+	2x - p \quad \text{dla} \;\; x > \frac{1}{2}p.
+	\end{cases}
+\]
+Zauważmy, że $f(x) \equiv 2x \pmod{p}$.
+
+W ten sposób przyporządkujemy każdemu elementowi ze zbioru $A_1$ dokładnie 1 element ze zbioru $A_2$. Czy może się jednak tak zdarzyć, że pewien element z $A_2$ zostanie w ten sposób przyporządkowany nie do jednego, a do innej liczby elementów z $A_1$? Wykażemy, że nie.
+
+Mianowicie pokażemy, że z dowolnego elementu $A_2$ możemy odzyskać dokładnie jedną przyporządkowaną mu permutację z $A_1$. Zdefiniujmy ,,dzielenie przez $2$ modulo $p$'' wzorem
+\[
+	g(x) = 
+	\begin{cases}
+	\frac{1}{2}x \;\; \quad\quad\quad\text{dla x parzystych}\\
+	\frac{1}{2}(x - p) \quad \text{dla x nieparzystych}.
+	\end{cases}
+\]
+Mamy $2g(x) \equiv x \pmod{p}$.
+Zauważmy, że jest to funkcja odwrotna do $f$ -- tj. $f(g(x)) = x$.
+
+Zauważmy, że
+\[
+	(a_1, a_2, ..., a_p) \in A_2 \iff (g(a_1), g(a_2), ..., g(a_p)) \in A_1.
 \] 
-Z równaniem z zadania tworzy to układ równań ze zmiennymi $f(x)$ i $f(1 - x)$. Wyliczamy $f(x) = \frac{2x^{2}-(1-x)^{2}} {3} $. Wystarczy teraz tylko sprawdzić, że ta funkcja spełnia warunki zadania. 
+Pozostaje zauważyć, że to permutacja $(a_i)$ była przyporządkowana do permutacji~$(g(a_i))$. Jest tak, bo $f(g(a_i)) = a_i$. Stąd podane parowanie było poprawne, czyli istotnie zbiory $A_1$ i $A_2$ są równoliczne.
+
+\remark{Kluczowym faktem w powyższym rozumowaniu było istnienie funkcji odwrotnej do funkcji $f$ zdefiniowanej dla każdego elementu zbioru $\{1, 2, ..., p\}$.} 
 
 \vspace{5px}
 
 \begin{problem}{5}
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
-	\[
-		f(x+y) = f(f(x)) + y + 1.
-	\] 
+	Wykaż, że dla dowolnych dodatnich liczb całkowitych $n$, $k$ liczba	(kn)!
+	jest podzielna przez liczbę $(n!)^k \cdot k!$.
 \end{problem}
 
-\answer{$f(x) = x - 1$ jest jedynym rozwiązaniem danego równania.}
+\vspace{5px}
 
 \noindent
-Podstawmy $x = 0$: 
-\[
- f(y) = f(f(0)) + 1 + y, 
-\] 
-czyli $f(x) = x + a$ dla pewnego stałego a. Podstawmy tę funkcję do wyjściowego równania
-\[
-	x+y+a=x+2a+y+1.
-\] 
-Mamy $a = -1$. Łatwo sprawdzić, że funkcja $f(x) = x - 1$ spełnia warunki zadania. 
+Rozpatrzmy liczbę podziałów $kn$ osób na $k$ grup po $n$ osób. Nie bierzemy pod uwagę żadnej kolejności grup, ani kolejności osób w grupie. 
+
+Możemy ustawić $kn$ osób w kolejce na $(kn)!$ sposobów, a następnie pierwsze $n$ osób dać do jednej grupy, drugie $n$ osób do drugiej, itd. 
+
+Każdą z $k$ grup możemy ustawić w kolejności na $n!$ sposobów. Te grupy możemy ustawić w kolejności na $k!$ sposobów. W ten sposób z jednego podziału na grupu możemy uzyskać dokładnie $(n!)^k \cdot k!$ kolejek. 
+
+Więc liczba podziałów na grupy wynosi $\frac{(kn)!}{(n!)^k \cdot k!}$. Skoro jest ona całkowita, to musi zachodzić rozpatrywana podzielność.
 
 \vspace{5px}
+
+
 
 \begin{problem}{6}
-	Znajdź wszystkie funkcje różnowartościowe
-	$\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równość 
-	\[
-		f(f(x) + y) = f(x+y) + 1.
-	\]
+	Dana jest liczba całkowita $n$. Niech $T_n$ oznacza liczbę takich podzbiorów zbioru $\{1, 2, 3, ..., n\}$, że ich średnia arytmetyczna jest liczbą całkowitą. Wykazać, że liczba $T_n - n$ jest parzysta.
 \end{problem}
 
-\answer{Jedyną funkcją spełniającą warunki zadania jest $f(x) = x + 1$.}
+\vspace{5px}
+
+% Source : https://prase.cz/kalva/putnam/psoln/psol023.html
 
 \noindent
-Podstawmy $y = -x$. Otrzymamy 
-\[ 
-	f(f(x) - x) = f(0) + 1.
-\] 
-Zauważmy, że prawa strona równości jest stała. Z różnowartościowości f wynika, że wartość $f(x) - x$ jest stała. Czyli $f(x) - x = a$ dla pewnego a. Wstawiamy $f(x) = x + a$ do wyjściowego równania 
-\[
-	x + y + 2a = x + y + a + 1,
-\]
-więc $a = 1$. Skąd $f(x) = x + 1 $ -- możemy sprawdzić, że ta funkcja spełnia warunki zadania.
+Zauważmy, że zbiory, których średnia arytmetyczna jest liczbą całkowitą, zawierające więcej niż $1$ element da się podzielić na pary. Mianowicie zbiory $S$ i $S'$ o średniej arytmetycznej elementów równej $a$ będa w jednej parze jeśli jeden z tych zbiorów zawiera $a$, drugi nie zawiera, a poza tym mają te same elementy.
 
-\newpage
+$T_n$ będzie takiej parzystości jak liczba niesparowanych zbiorów. Są to wszystkie zbiory jednoelementowe -- jest ich $n$.  Stąd $T_n - n$ jest liczba parzystą.
+
+\vspace{5px}
 
 \begin{problem}{7}
-	Znajdź wszystkie funkcje 
-	$\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ nierówność 
+	Niech $n$, $k$, $r$ będą dodatnimi liczbami całkowitymi. Wykaż, że
 	\[
-		f(x^2+y) + f(y) \geqslant f(x^2) + f(x).
-	\] 
-\end{problem}
-
-\noindent
-Podstawmy $x = 0$
-\[ 
-	f(y) \geqslant f(0). 
-\] 
-Podstawmy $y = 0$ 
-\[ 
-	f(x^2) + f(0) \geqslant f(x^2) + f(x), 
-\] 
-czyli $f(0) \geqslant f(x) $. 
-Łącząc oba wnioski otrzymuję 
-\[ 
-	f(0) \geqslant f(x) \geqslant f(0), 
-\] 
-czyli $f(x) = f(0)$. Innymi słowy $f$ jest funkcją stałą. Łatwo zauważyć, że taka funkcja spełnia warunki zadania. 
-
-\vspace{5px}
-
-\begin{problem}{8}
-	Znajdź wszystkie funkcje $\mathbb{Z} \rightarrow \mathbb{Z} $ spełniające dla wszystkich $x \in \mathbb{Z} $ równanie
-	\[
-		 f(f(x)) =x+1.
-	\] 
-\end{problem}
-
-\answer{Szukane funkcje nie istnieją.}
-
-\noindent
-Zauważmy, że zachodzą równości 
-\begin{gather*} 
-f(f(f(x))) = f(x + 1) \\
-f(f(f(x))) = f(x) +1 
-\end{gather*} 
-Z tego otrzymujemy równość: 
-\[
-	f(x) =f(x-1)+1 
-\] 
-Skoro działamy w liczbach całkowitych to możemy wywnioskować, że
-\[
-	f(x) = f(x - 1) + 1 = f(x - 2) +  2 =  ... = x + f(0).
-\] 
-Podstawmy równość $f(x) = x + f(0)$ do 
-$f(f(x)) = x + 1$:
-\[
-	x + 1 = f(f(x))= x + 2f(0), 
-\]
-czyli $f(0) = \frac{1}{2}$. Sprzeczność. Takie funkcje nie istnieją.
-
-\vspace{5px} 
-
-\begin{problem}{9}
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
-	\[
-		f(x) f(y) = f(x-y).
-	\] 
-\end{problem}
-
-\answer{Daną zależność spełniają funkcje $f(x) = 1$ i $f(x) = 0$.}
-
-\noindent
-Podstawmy $x = y = 0$. Wtedy otrzymujemy 
-\[
-	f(0)^{2} = f(0) \implies f(0) \in \{0, 1\}.
-\]
-Podstawmy $x = y$
-\[
-	f(x)^{2} = f(0).
-\] 
-Jeśli $f(0)=0$, to $f(x) =0$. Łatwo sprawdzić, że funkcja zerowa spełnia warunki zadania.
-Zobaczmy, co jeśli $x = y$ oraz $f(0) = 1$:
-\[
-	f(x)^{2} = f(0) = 1 
-\] 
-Czyli $f(x)$ jest równe $-1$ lub 1 dla każdego $x$.
-Podstawmy $x=0$
-\[
-	f(y) =f(-y).
-\] 
-Zauważmy, że 
-\[
-	f(x - y) = f(x)f(y) = f(x)f(-y) = f(x+y). 
-\] 
-Weźmy 2 dowolne liczby a i b. Biorąc $x=\frac{a+b}{2}$ oraz 
-$y=\frac{a-b}{2}$ otrzymamy
-\[
-	f(x+y) = f(x-y) \implies f(a) = f(b).
-\] 
-Skoro $a$ i $b$ były dowolne to $f$ jest funkcją stałą, czyli $f(x) = 1$. Łatwo sprawdzić, że ta funkcja również spełnia warunki zadania. Czyli tę zależność spełniają funkcje $f(x) = 1 $ i $f(x) = 0$. Sprawdzamy, że istotnie one działają.
-
-\vspace{5px}
-
-\begin{problem}{10}
-	Udowodnij, że nie istnieje taka funkcja $f:\mathbb{R}\longrightarrow\mathbb{R}$, że dla dowolnych liczb rzeczywistych $x$, $y$ zachodzi równość:
-	\[
-		f(f(x) + 2f(y)) = x + y.
+		\sum^{r}_{k=0} {{n + k}\choose{k}} = {{n + r + 1}\choose{r}} .
 	\]
 \end{problem}
 
-\noindent
-\underline{Lemat 1} Funkcja $f$ jest różnowartościowa
-
-Załóżmy, że $f(a) = f(b)$. Podstawmy, $x=a$ oraz $x = b$
-\[
-	f(f(a) + 2f(y)) = a + y \quad \text{oraz} \quad f(f(b) + 2f(y)) = b + y.
-\] 
-Skoro $f(a)=f(b)$, to 
-\[
-	f(f(a) + 2f(y)) = f(f(b) + 2f(y)),
-\] 
-a więc $a + y = b + y$, czyli $a = b$. A więc $f$ istotnie jest różnowartościowa.
-\vspace{10px}
+\vspace{5px}
 
 \noindent
-Zauważamy, że zachodzą równości
-\[
-	f(f(x) + 2f(y)) = x + y \quad \text{oraz} \quad f(f(y)+2f(x))=x+y.
-\]
-Czyli 
-\[
-	f(f(x) + 2f(y)) = f(f(y) + 2f(x)).
-\] 
-Skoro $f$ jest różnowartościowa, to 
-\[
-	f(x)+2f(y)=f(y)+2f(x),
-\]
-więc $f(x)=f(y)$ dla wszystkich liczb $x$, $y$. Czyli $f$ musiałaby być funkcją stałą, a to jest oczywista sprzeczność z danym równaniem.
+Wykażemy, że obie strony równości to liczba słów, które składają się z $n + 1$ liter $A$ oraz $r$ liter $B$. Z jednej strony możemy wybrać na $r$ sposobów pozycje liter $B$, a na pozostałych miejscach ustawić litery $A$. Stąd tych słów jest ${{n + r + 1}\choose{r}}$.
+
+Przyjmijmy, że na miejscu $n + k + 1$ znajduje się ostatnia litera $A$. Na $n + k$ poprzednich miejsc znajdzie się $n$ liter $A$ i $k$ liter $B$. Możemy je więc ustawić na ${{n + k}\choose{k}}$ sposobów. Po ostatniej literze $A$ będą same litery $B$, więc nie mamy wyboru. Stąd dla ustalonego $k$ jest ${{n + k}\choose{k}}$ sposobów. Sumując po wszystkich możliwych $k$ otrzymujemy lewą stronę równości.
+
+

@@ -1,107 +1,219 @@
-% Rozdział 2 – równania funkcyjne
+% Rozdział 3 – zbiory i funkcje
 
-\theory{Równania funkcyjne}
+%Pojęcia:
+%- definicja bijekcji, injeckcji i surjekcji,
+%– wywnioskowanie z istnienia powyższych równoliczności zbiorów,
+%– jakiś przykład bajki kombinatorycznej
+
+%No i kilka zadań, niedużo. Czytelnik ma załapać ideę robienia funkcji w %kombinatoryce.
+
+\theory{Bijekcje i bajki kombinatoryczne}
+
+\noindent
+W tym rozdziale będziemy analizować różne zbiory i relacje między nimi. W części zadań trzeba będzie pokazać, że pewne dwa zbiory mają tyle samo elementów. Jedną z metod dowodzenia tego typu stwierdzeń jest połączenie elementów danych zbiorów w pary. Takie przyporządkowanie nazywamy \textit{bijekcją}.
+
+\begin{center}
+    \begin{tikzpicture}
+        \tkzDefPoint(-1,3){P_0}
+        \tkzDefPoint(0,3){P_1}
+        \tkzDefPoint(1,3){P_2}
+        \tkzDefPoint(2,3){P_3}
+        \tkzDefPoint(3,3){P_4}
+        \tkzDefPoint(4,3){P_5}
+        \tkzDefPoint(5,3){P_6}
+
+
+        \tkzDefPoint(-1,1){Q_0}
+        \tkzDefPoint(0,1){Q_1}
+        \tkzDefPoint(1,1){Q_2}
+        \tkzDefPoint(2,1){Q_3}
+        \tkzDefPoint(3,1){Q_4}
+        \tkzDefPoint(4,1){Q_5}
+        \tkzDefPoint(5,1){Q_6}
+
+        \tkzDrawSegments[dashed](P_1,Q_1 P_2,Q_2 P_3,Q_3 P_4,Q_4 P_5,Q_5 P_6,Q_6)
+
+        \tkzDrawPoints(P_1, P_2, P_3, P_4, Q_1, Q_2, Q_3, Q_4, P_5, P_6, Q_5, Q_6)
+
+        \tkzLabelPoint[left](P_0){Zbiór $A$}
+        \tkzLabelPoint[left](Q_0){Zbiór $B$}
+    \end{tikzpicture}
+\end{center}
+
+\vspace{10px}
+
+\noindent
+Aby stwierdzić czy przyporządkowanie jest bijekcją wystarczy sprawdzić, czy każdy element jednego zbioru jest przyporządkowany do \textit{dokładnie} jednego elementu drugiego zbioru. Poniżej dwa przykłady przyporządkowania, które nie jest bijekcją.
+
+\begin{center}
+    \begin{tikzpicture}[scale=0.5]
+        \tkzDefPoint(-1,3){P_0}
+        \tkzDefPoint(0,3){P_1}
+        \tkzDefPoint(1,3){P_2}
+        \tkzDefPoint(2,3){P_3}
+        \tkzDefPoint(3,3){P_4}
+        \tkzDefPoint(4,3){P_5}
+        \tkzDefPoint(5,3){P_6}
+
+
+        \tkzDefPoint(-1,1){Q_0}
+        \tkzDefPoint(0,1){Q_1}
+        \tkzDefPoint(1,1){Q_2}
+        \tkzDefPoint(2,1){Q_3}
+        \tkzDefPoint(3,1){Q_4}
+        \tkzDefPoint(4,1){Q_5}
+        \tkzDefPoint(5,1){Q_6}
+
+        \tkzDrawSegments[dashed](P_1,Q_1 P_2,Q_2 P_3,Q_3 P_4,Q_4 P_5,Q_5 P_6,Q_5 P_1,Q_2)
+
+        \tkzDrawPoints(P_1, P_2, P_3, P_4, Q_1, Q_2, Q_3, Q_4, P_5, P_6, Q_5)
+
+        \tkzLabelPoint[left](P_0){Zbiór $A$}
+        \tkzLabelPoint[left](Q_0){Zbiór $B$}
+    \end{tikzpicture}
+    \hspace{20px}
+    \begin{tikzpicture}[scale=0.5]
+        \tkzDefPoint(-1,3){P_0}
+        \tkzDefPoint(0,3){P_1}
+        \tkzDefPoint(1,3){P_2}
+        \tkzDefPoint(2,3){P_3}
+        \tkzDefPoint(3,3){P_4}
+        \tkzDefPoint(4,3){P_5}
+        \tkzDefPoint(5,3){P_6}
+
+
+        \tkzDefPoint(-1,1){Q_0}
+        \tkzDefPoint(0,1){Q_1}
+        \tkzDefPoint(1,1){Q_2}
+        \tkzDefPoint(2,1){Q_3}
+        \tkzDefPoint(3,1){Q_4}
+        \tkzDefPoint(4,1){Q_5}
+        \tkzDefPoint(5,1){Q_6}
+
+        \tkzDrawSegments[dashed](P_1,Q_1 P_2,Q_2 P_3,Q_3 P_4,Q_4 P_5,Q_5)
+
+        \tkzDrawPoints(P_1, P_2, P_3, P_4, Q_1, Q_2, Q_3, Q_4, P_5, Q_5, Q_6)
+
+        \tkzLabelPoint[left](P_0){Zbiór $A$}
+        \tkzLabelPoint[left](Q_0){Zbiór $B$}
+    \end{tikzpicture}
+\end{center}
+
+% Source: Problem 2 from https://yufeizhao.com/olympiad/bijections.pdf 
 
 \heading{Przykład 1}
 
 \noindent
-Znajdź wszystkie funkcje $f:\mathbb{R}\rightarrow\mathbb{R}$ spełniające dla wszystkich $x, y \in \mathbb{R}$, równanie 
-\[
-    f(x + y) = f(x) − f(y).
-\]
-
-\heading{Rozwiązanie}
-
-\noindent
-Zauważmy, że skoro dane równanie jest spełnione dla wszystkich liczb rzeczywistych $x$ i $y$ to jest spełnione w szczególności dla $x = y = 0$. Wówczas
+Dla pewnej liczby całkowitej $n$ jej \textit{podziałem} nazwiemy takie liczby $(a_1, ..., a_t)$, że
 \begin{gather*}
-    f(0) = f(0) - f(0) = 0.
+    n = a_1 + a_2 + ... + a_t \\
+    a_1 \geqslant a_2 \geqslant a_3 \geqslant ... \geqslant a_t \geqslant 0.
 \end{gather*}
 
 \noindent
-Podstawiając do wyjściowej równości $x = 0$ otrzymujemy
-\[
-    f(y) = f(0) - f(y).
-\]
-Na mocy wyżej wykazanej zależności $f(y) = 0$ mamy
-\begin{gather*}
-    f(y) = - f(y) \\
-    f(y) = 0.
-\end{gather*}
-Wykazaliśmy, że $f(x) = 0$ dla wszystkich liczb rzeczywistych $x$. Pozostaje sprawdzić, że istotnie taka funkcja spełnia warunki zadania. Zauważmy, że wówczas
-\[
-    f(x + y) = 0 = f(x) - f(y).
-\]
+Niech $n$, $k$ będą dodatnimi liczbami całkowitymi. Wykazać, że liczba podziałów $n$, które składają się dokładnie z $k$ liczb jest równa liczbie podziałów $n$, takich, że największy składnik każdego z nich jest równy dokładnie $k$.
 
-\vspace{20px}
-
-\noindent
-Metodę, polegająca na podstawianiu szczególnych wartości do danego równania, jest najważniejszym narzędziem w walce z równaniami funkcyjnymi. Często, aby zadania rozwiązać, należy użyć jej kilka lub nawet kilkanaście razy.
-
-\vspace{10px}
-
-\noindent
-Należy zaznaczyć, że bardzo często rozwiązując równanie funkcyjne, wyznacza się zbiór funkcji, które mogą spełniać dane równanie. Jednak często nie oznacza to, że muszą one go spełniać, gdyż podstawianie zazwyczaj nie jest przejściem równoważnym. Dlatego należy zawsze w swoim rozwiązaniu zawrzeć sprawdzenie tego, czy otrzymane funkcje istotnie działają. Brak takiego sprawdzenie w większości przypadków skutkuje obniżeniem oceny za dane zadanie.
-
-\vspace{20px}
-
-\heading{Przykład 2}
-
-\noindent
-Znajdź wszystkie funkcje $f:\mathbb{R}\rightarrow\mathbb{R}$ spełniające dla wszystkich $x, y \in \mathbb{R}$ równanie 
-\[
-    f(2f(x) + f(y)) = 2x + f(y).
-\]
-
-\newpage
+\vspace{5px}
 
 \heading{Rozwiązanie}
-
-\noindent
-Rozwiązanie rozpoczniemy od wykazania następującego lematu.
-
-\vspace{10px}
-
-\noindent
-\underline{Lemat 1.} Dla każdego $a \in \mathbb{R}$ istnieje $x \in \mathbb{R}$, że $f(x) = a$.
 
 \vspace{5px}
 
 \noindent
-Podstawmy $\dfrac{a - f(y)}{2}$ w miejsce zmiennej $x$
-\[
-    f\left(f\left(\frac{a - f(y)}{2}\right) + f(y)\right) = 2(\frac{a - f(y)}{2}) + f(y) = a.
-\]
+Weźmy dowolny podział liczby $n$. Niech $n = a_1 + a_2 + ... + a_t$. Rozpatrzmy jego reprezentację graficzną zwaną diagramem Ferrera.
+Poniżej narysowano diagram Ferrera dla podziału $12 = 4 + 4 + 3 + 1$.
+W każdym kolejnym wierszu znajduje się tyle kropek, ile wynosi kolejny składnik z podziału. 
+
+\begin{center}
+    \begin{tikzpicture}[scale=0.6]
+
+        \tkzDefPoint(-1,3){A_1}
+        \tkzDefPoint(0,3){P_1}
+        \tkzDefPoint(1,3){P_2}
+        \tkzDefPoint(2,3){P_3}
+        \tkzDefPoint(3,3){P_4}
+
+
+        \tkzDefPoint(-1,2){A_2}
+        \tkzDefPoint(0,2){P_5}
+        \tkzDefPoint(1,2){P_6}
+        \tkzDefPoint(2,2){P_7}
+        \tkzDefPoint(3,2){P_8}
+
+        \tkzDefPoint(-1,1){A_3}
+        \tkzDefPoint(0,1){P_9}
+        \tkzDefPoint(1,1){P_10}
+        \tkzDefPoint(2,1){P_11}
+
+        \tkzDefPoint(-1,0){A_4}
+        \tkzDefPoint(0,0){P_12}
+
+        \tkzDrawPoints(P_1, P_2, P_3, P_4, P_5, P_6, P_7, P_8, P_9, P_10, P_11, P_12)
+        \tkzLabelPoint[left](A_1){4}
+        \tkzLabelPoint[left](A_2){4}
+        \tkzLabelPoint[left](A_3){3}
+        \tkzLabelPoint[left](A_4){1}
+
+        \tkzDefPoint(0,4){B_1}
+        \tkzDefPoint(1,4){B_2}
+        \tkzDefPoint(2,4){B_3}
+        \tkzDefPoint(3,4){B_4}
+        \tkzLabelPoint[above](B_1){4}
+        \tkzLabelPoint[above](B_2){3}
+        \tkzLabelPoint[above](B_3){3}
+        \tkzLabelPoint[above](B_4){2}
+    \end{tikzpicture}
+\end{center}
 
 \noindent
-Zauważmy, że z otrzymanej równości wynika teza lematu – liczbę $a$ można wybrać dowolnie, zaś po prawej stronie otrzymamy argument, dla którego funkcja przyjmie tę wartość.
+Zastanówmy się co znaczą założenia zadania w języku rozpatrywanych diagramów.
+Jeśli w podziale jest dokładnie $k$ liczb, to diagram Ferrera będzie składał się dokładnie z $k$ wierszy. Jeśli  największy składnik podziału jest równy $k$, to kolumn będzie dokładnie $k$.
+
+Zauważmy, że patrząc na dowolny diagram Ferrera ,,od góry'' -- traktujemy kolumny jako wiersze i vice versa -- otrzymamy inny diagram Ferrera. W podanym przykładzie z podziału $12 = 4 + 4 + 3 + 1$ otrzymamy w ten sposób podział $12 = 4 + 3 + 3 + 2$.
+
+Jeśli diagram Ferrera przedstawiał podział $n$, który składa się dokładnie z $k$ liczb, to podział otrzymany w powyższy sposób ma największy składnik każdego z nich jest równy dokładnie $k$. Obie z tych własności są równoważne temu, że diagram na $k$ wierszy.
+
+Powyższe przyporządkowanie łączy elementy danych w zadaniu zbiorów w pary -- dokładnie jeden podział pierwszego rodzaju z dokładnie jednym podziałem drugiego rodzaju. Rysując diagram dla pewnego podziału otrzymamy dokładnie jeden podział z drugiego zbioru, więc to parowanie jest dobre. Stąd wynika, że rozpatrywane zbiory mają tyle samo elementów.
 
 \vspace{10px}
 
 \noindent
-Korzystając z lematu, podstawmy w miejsce $y$ taką liczbę $a$, aby $f(a) = -2f(a)$. Wówczas
-\begin{gather*}
-    f(0) = 2x - 2f(x) \\
-    f(x) = x  + \frac{1}{2}f(0).
-\end{gather*}
-Podstawiając do powyższej równowści $x = 0$ otrzymujemy, że $f(0) = 0$. Stąd
-\[
-    f(x) = x + \frac{1}{2}f(0) = x.
-\]
-Sprawdzamy, że funkcja $f(x) = x$ istotnie spełnia warunki zadania.
+Pokazaliśmy, że pewne dwa zbiory mają tę samą liczbę elementów. Teraz spróbujemy za pomocą kombinatoryki udowodnić równość algebraiczną.
 
-\vspace{20px}
+\vspace{5px}
+
+% Source: Przykład 7 from https://smp.uph.edu.pl/msn/37/jaszu.pdf
+
+\heading{Przykład 2}
 
 \noindent
-W powyższym rozumowaniu kluczowe było wykazanie, że dana funkcja przyjmuje wszystkie wartości rzeczywiste -- inaczej mówiąc jest surjeckją. Mogliśmy także wykazać więcej, mianowicie, że dana funkcja jest różnowartościowa. Zakładając, że $f(a) = f(b)$ dla pewnych liczb $a,\;b$ podstawiamy w miejsce $(x, y)$ kolejno $(a, 0)$ i $(b, 0)$ otrzymując
+Wykazać, że dla wszystkich dodatnich liczb całkowitych $n$, $k$ zachodzi równość
 \[
-    f(2f(a) + f(y)) = 2a + f(y) \quad \text{oraz} \quad f(2f(b) + f(y)) = 2b + f(y).
+    \sum^{n}_{k=0} {{n}\choose{k}} 2^k = 3^n.
 \]
-Na mocy wyżej założonej równości lewe strony obu zależności są sobie równe. Stąd prawe również, skąd $a = b$. Implikacja $f(a) = f(b) \implies a = b$ jest równoważna temu, że funkcja $f$ jest różnowartościowa.
+
+\vspace{5px}
+
+\heading{Rozwiązanie}
+
+\vspace{5px}
+
+\noindent
+Na imprezę przyszło $n$ matematyczek. Każda z nich wzięła kapelusz, czapkę lub przyszła bez okrycia głowy. Obliczmy ile różnych wariantów nakryć głowy mogło się zdarzyć na dwa sposoby.
+\begin{enumerate}
+    \item Każda z dziewczyn mogła wybrać jedną z trzech opcji ubioru, było ich $n$, więc liczba możliwości wynosi $3^n$.
+    \item Przyjmijmy, że $n - k$ dziewczyn nie przyniosło żadnego nakrycia głowy. 
+    Wówczas możemy wybrać te dziewczyny na ${{n}\choose{n - k}} = {{n}\choose{k}}$ sposobów. 
+    Następnie każda z pozostałych $k$ dziewczyn wybrała jedno z dwóch dostępnych nakryć głowy. 
+    Więc mogą to zrobić na $2^k$ sposobów. Z reguły mnożenia wynika, że dla ustalonej liczby $k$ jest dokładnie ${{n}\choose{k}} 2^k$ wariantów. Sumując po wszystkich $k$ otrzymujemy $\sum^{n}_{k=0} {{n}\choose{k}} 2^k$.
+\end{enumerate}
+
+\noindent
+Obliczając jedną rzecz na dwa sposoby otrzymaliśmy liczby, które muszą być równe.
 
 \vspace{10px}
 
 \noindent
-W większości rozwiązań funkcyjnych konieczne będzie wykonanie wielu ,,sztampowych'' podstawień i spróbować wykazać własności funkcji -- chociażby te wspomniane wyżej. Niekiedy do rozwiązania zadania potrzebny będzie błyskotliwy pomysł czy niesztampowe połączenie faktów. W innych zaś przypadkach samo rzetelne i uważne próbowanie znanych trików może okazać się wystarczające. 
+Rozumowania podobne do powyższego nazywane są bajkami kombinatorycznymi.
 
 \vspace{10px}

@@ -1,72 +1,52 @@
+
+% Source: Problem 4 https://www.mimuw.edu.pl/~joasiaj/plock/materialy/bajki.pdf
 \begin{problem}{1} 
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie
+	Dane są liczby całkowite $n$ i $k$. Wykaż, że
 	\[
-		 f(x)+f(y) = f(xy).
+		\sum^{n}_{k=0} k \cdot {{n}\choose{k}} = n \cdot 2^{n - 1}.
 	\]
 \end{problem}
 
+% Source: Example 2 https://www.imomath.com/index.php?options=238&lmm=1
 \begin{problem}{2}
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie
+	Wyznacz liczbę podzbiorów zbioru $\{1, 2, 3, ..., 10\}$, których suma wynosi co najmniej $27$.
+\end{problem}
+
+%Source: Przykład 5 https://smp.uph.edu.pl/msn/37/jaszu.pdf
+\begin{problem}{3} 
+	Udowodnić, że dla wszystkich dodatnich liczb całkowitych $n$, $k$ zachodzi równość
 	\[
-		 f(x-f(y)) = 1 - x - y.
+	    \sum^{n}_{k=0} {{n}\choose{k}}^2 = {{2n}\choose{n}}.
 	\]
 \end{problem}
 
-\begin{problem}{3}
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
-	\[
-		f(x^{2}y) = f(xy) + yf(f(x) + y).
-	\]
-\end{problem}
-
+% Own
 \begin{problem}{4}
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
+	Dana jest liczba pierwsza $p \geqslant 3$. Niech $A_k$ oznacza zbiór permutacji $(a_1, a_2, ..., a_p)$ zbioru $\{1, 2, 3,..., p\}$, dla których liczba
 	\[
-		2f(x) + f(1 - x) = x^{2}.
-	\] 
+		a_1 + 2a_2 + 3a_3 + ... + pa_p - k
+	\]
+	jest podzielna przez $p$. Wykazać, że zbiory $A_1$, $A_2$ mają tyle samo elementów.
 \end{problem}
 
+% Source: przykład 3 https://smp.uph.edu.pl/msn/37/jaszu.pdf
 \begin{problem}{5}
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
-	\[
-		f(x+y) = f(f(x)) + y + 1.
-	\] 
+	Wykaż, że dla dowolnych dodatnich liczb całkowitych $n$, $k$ liczba	(kn)!
+	jest podzielna przez liczbę $(n!)^k \cdot k!$.
 \end{problem}
+
+% Source: https://artofproblemsolving.com/community/c1509h1009792
 
 \begin{problem}{6}
-	Znajdź wszystkie funkcje różnowartościowe
-	$\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równość 
-	\[
-		f(f(x) + y) = f(x+y) + 1.
-	\]
+	Dana jest liczba całkowita $n$. Niech $T_n$ oznacza liczbę takich podzbiorów zbioru $\{1, 2, 3, ..., n\}$, że ich średnia arytmetyczna jest liczbą całkowitą. Wykazać, że liczba $T_n - n$ jest parzysta.
 \end{problem}
+
+% Source: przykład 13 https://smp.uph.edu.pl/msn/37/jaszu.pdf
 
 \begin{problem}{7}
-	Znajdź wszystkie funkcje 
-	$\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ nierówność 
+	Niech $n$, $k$, $r$ będą dodatnimi liczbami całkowitymi. Wykaż, że
 	\[
-		f(x^2+y) + f(y) \geqslant f(x^2) + f(x).
-	\] 
-\end{problem}
-
-\begin{problem}{8}
-	Znajdź wszystkie funkcje $\mathbb{Z} \rightarrow \mathbb{Z} $ spełniające dla wszystkich $x \in \mathbb{Z} $ równanie
-	\[
-		 f(f(x)) =x+1.
-	\] 
-\end{problem}
-
-\begin{problem}{9}
-	Znajdź wszystkie funkcje $\mathbb{R} \rightarrow \mathbb{R} $ spełniające dla wszystkich $x, y \in \mathbb{R} $ równanie 
-	\[
-		f(x) f(y) = f(x-y).
-	\] 
-\end{problem}
-
-\begin{problem}{10}
-	Udowodnij, że nie istnieje taka funkcja $f:\mathbb{R}\longrightarrow\mathbb{R}$, że dla dowolnych liczb rzeczywistych $x$, $y$ zachodzi równość:
-	\[
-		f(f(x) + 2f(y)) = x + y.
+		\sum^{r}_{k=0} {{n + k}\choose{k}} = {{n + r + 1}\choose{r}} .
 	\]
 \end{problem}
 
