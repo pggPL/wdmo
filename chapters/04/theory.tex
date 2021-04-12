@@ -1,0 +1,167 @@
+% Rozdział 4 – liczby pierwsze i reszty z dzielenia
+
+% p|ab -> p|a or p|b
+% v_p
+% odwracalnośc modulo p
+
+
+\theory{Liczby pierwsze i reszty z dzielenia}
+
+\noindent
+Ten rozdział będzie nieco bardziej teoretyczny niż poprzednie. Zadania także będą trudniejsze -- zachęcamy do skorzystania ze wskazówek i głębokiego przestudiowania rozwiązań. Chcemy wyrobić u czytelnika intuicję dotyczącą działań na resztach z dzielenia przez pewną liczbę pierwszą. Od czytelniczki/czytelnika wymaga się, aby znał własności kongruencji -- opisano je chociażby w  \href{https://omj.edu.pl/uploads/attachments/kwadrat-07-kolor.pdf}{Gazetce OMJ ,,Kwadrat'' nr 7}. 
+
+\vspace{5px}
+
+\noindent
+We wszystkich poniższych zadaniach przez $a$, $b$ będziemy oznaczać liczby całkowite, zaś przez $p$ dowolną liczbę pierwszą. Przez $x \big| y$ będziemy oznaczać fakt, że liczba $x$ jest dzielnikiem liczby $y$.
+
+\vspace{5px}
+\heading{Twierdzenie 1}
+
+\noindent
+Jeśli liczba $ab$ jest podzielna przez $p$, to wówczas co najmniej jedna z liczb $a$, $b$ jest podzielna przez $p$.
+
+\vspace{15px}
+
+\noindent
+Zauważmy, że założenie o pierwszości liczby $p$ jest konieczne. Chociażby liczba $4 \cdot 9 = 36$ dzieli się przez $6$, ale żadna z liczb $4$, $9$ nie jest podzielna przez $6$.
+
+\vspace{5px}
+\noindent
+Zachęcamy do samodzielnej próby wykazania poniższych lematów. Poniżej, czcionką odwróconą, zapisano wskazówki.
+
+\vspace{5px}
+\heading{Lemat 1}
+
+\noindent
+Udowodnić, że jeśli $x^2\equiv 1 \pmod{p}$ dla pewnej liczby pierwszej $p$, to \[   
+    x\equiv 1 \pmod{p} \quad \text{lub} \quad x\equiv -1 \pmod{p}.
+\]
+
+\rotatehint{Zapisz założenia i tezę zadania bez użycia modulo.}
+
+\heading{Dowód}
+
+\noindent
+Zauważamy, że zapis $x^2\equiv 1 \pmod{p}$ jest równoważny zapisowi 
+\[
+    p \mid x^2-1=(x-1)(x+1).
+\]
+ Skoro $p$ jest liczbą pierwszą, to na mocy Twierdzenia 1 $p\mid x-1$ lub $p\mid x+1$, a to jest równoważne temu, co było do wykazania.
+
+\vspace{5px}
+\heading{Lemat 2}
+
+\noindent
+Liczba $a$ nie jest podzielna przez $p$. Udowodnić, że istnieje taka dodatnia liczba całkowita~$k$, że 
+\[
+   a^k\equiv 1 \pmod{p}.
+\]
+
+\rotatehint{Udowodnij, że istnieją takie $r$ i $s$, że $a^r\equiv a^s \pmod{p}$.}
+
+\heading{Dowód}
+
+\noindent
+Rozpatrzmy ciąg $(1,\; a^1,\; a^2,\; a^3,\; ...)$ . Zauważamy, że ma on nieskończenie wiele elementów, a reszt z dzielenia przez $p$ jest skończenie wiele. Z Zasady Szufladkowej Dirichleta mamy więc, że istnieją takie liczby $r$ oraz $s$ -- załóżmy, że $r\geqslant s $ -- że 
+\[
+    a^r\equiv a^s \pmod{p}.
+\]
+Jest to równoważne temu, że 
+\[  
+    p\mid a^s(a^{r-s}-1).
+\]
+Skoro $a$ nie jest podzielna przez $p$, to $p\mid a^{r-s}-1$, to zachodzi $a^{r-s}\equiv 1 \pmod{p}$.
+
+\vspace{10 px}
+\heading{Odwrotności modulo p}
+
+\noindent
+Z Lematu 2 można wywnioskować, że dla każdej liczby $a$, która nie jest podzielna przez $p$ istnieje pewna liczba $b \in \{1, 2, ..., p-1\}$, że
+\[
+    ab \equiv 1 \pmod{p}.
+\]
+Wystarczy wziąć $b = a^{k - 1} \text{ mod } p$. 
+
+Wykażemy teraz, że w zbiorze $\{1, 2, ..., p-1\}$ jest dokładnie jedna taka liczba $b$. Załóżmy, że dla pewnych $b, c \in \{1, 2, ..., p-1\}$
+\[
+    ab \equiv  ac \equiv 1 \pmod{p}.
+\]
+Wówczas
+\[
+    p \big| ab - ac = a(b - c) \implies p \big|b - c,
+\]
+gdyż liczba $a$ nie jest podzielna przez $p$. Skoro $b, c \in \{1, 2, ..., p-1\}$, to 
+\[
+    - p < b - c < p.
+\]
+Skoro $p \big| b - c$, to $b - c = 0$, czyli $b = c$.
+
+\vspace{10px}
+
+\noindent
+Przyjmiemy, że liczba $b$ jest \textit{odwrotnością} liczby $a$ modulo $p$. Zapiszemy $b = a^{-1} \pmod{p}$.
+
+\vspace{10px}
+
+\heading{Lemat 3}
+
+\noindent
+Dla dowolnej liczby $a$, która nie jest podzielna przez $p$ ciąg
+\[
+    (a \text{ (mod } p),\;\; 2a \text{ (mod } p),\;\;  3a \text{ (mod } p), ...,\;\;  (p - 1) \cdot a \text{ (mod } p))
+\]
+jest permutacją ciągu
+\[
+ (1,\; 2,\; 3,\; ...,\; p - 1).
+\]
+
+\rotatehint{Wykaż, że $ai \not\equiv aj \pmod{p}$, jeśli $i \not\equiv j \pmod{p}$.}
+
+\heading{Dowód}
+
+\noindent
+Pokażmy, że jeśli $i \not\equiv j \pmod{p}$, to $ai \not\equiv aj \pmod{p}$. 
+Załóżmy, że 
+\[
+    ai \equiv aj \pmod{p}
+\] 
+dla pewnych $i,\; j$. Skoro $p$ nie dzieli $a$, to istnieje odwrotność $a$ modulo $p$. Mnożąc obie strony przez $a^{-1}$ -- lub równoważnie dzieląc przez $a$ otrzymujemy
+\[
+    i \equiv j \pmod{p},
+\]
+co dowodzi postulowanej implikacji.
+
+Rozpatrzmy liczby $a, \; 2a,\; (p - 1)a$. Oczywiście żadna z nich nie jest podzielna przez~$p$. Z tego, że tych liczb jest $p - 1$, niezerowych reszt z dzielenia przez $p$ również jest $p - 1$, oraz te liczby dają parami różne reszty niezerowe z dzielenia przez $p$, wynika teza.
+
+\newpage
+
+\heading{Małe twierdzenie Fermata}
+
+\noindent
+Dana jest liczba $a$, która nie jest podzielna przez $p$. Wykazać, że
+\[
+    a^{p - 1} \equiv 1 \pmod{p}.
+\]
+
+\heading{Dowód}
+
+\noindent
+Korzystając z poprzedniego lematu mamy, że ciąg
+\[
+    (a \text{ (mod } p),\;\; 2a \text{ (mod } p),\;\;  3a \text{ (mod } p), ...,\;\;  (p - 1) \cdot a \text{ (mod } p))
+\]
+jest permutacją ciągu
+\[
+ (1,\; 2,\; 3,\; ...,\; p - 1).
+\]
+Skoro te ciągi zawierają te same elementy modulo $p$, tylko, że w innej kolejności, to iloczyny tych elementów będą dawały taką samą resztę z dzielenie przez $p$. Więc
+\[
+    1 \cdot 2 \cdot 3 \cdot ... \cdot (p - 1) = a \cdot 2a \cdot 3a \cdot ... \cdot (p - 1)a \pmod{p},
+\]
+\[
+    (p - 1)! \equiv a^{p - 1}(p - 1)! \pmod{p}.
+\]
+Zauważmy, że $(p - 1)! \not\equiv 0 \pmod{p}$. Mnożać przystawanie stronami przez odwrotność liczby~$(p - 1)!$ otrzymujemy tezę.
+
+\vspace{10px}

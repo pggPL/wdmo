@@ -1,0 +1,75 @@
+\newpage
+\solutions{Liczby pierwsze i reszty z dzielenia}
+
+\begin{problem}{1} 
+	Dana jest liczba pierwsza $p$. Udowodnić, że istnieje taka liczba całkowita $n$, że 
+	\[
+		2^n \equiv n \pmod{p}.
+	\]
+\end{problem}
+
+\noindent
+Weźmy $n = k(p - 1)$. Wówczas 
+\[
+	2^{k(p-1)}\equiv (2^{p-1})^k \equiv 1^k \equiv 1 \pmod{p},
+\]
+zaś
+\[
+	n \equiv k(p - 1) \equiv -k \pmod{p}.
+\]
+Wystarczy wziąć $k = p - 1$, aby teza zachodziła.\\
+
+\begin{problem}{2}
+	Dana jest liczba pierwsza $p\geqslant 3$. Niech 
+	\[
+		1 + \frac{1}{2} + \frac{1}{3} + ... + \frac{1}{p-1} = \frac{a}{b}
+	\]
+	dla pewnych dodatnich liczb całkowitych $a$, $b$.
+	Udowodnić, że $p\big| a$.
+\end{problem}
+
+\noindent
+Przemnóżmy obie strony przez $b \cdot (p - 1)!$. Mamy wtedy 
+\[
+	b(p - 1)! + \frac{b(p - 1)!}{2} + \frac{b(p - 1)!}{3} + ...+\frac{b(p - 1)!}{p-1} = a(p - 1)!.
+\] 
+Zauważmy, że
+\begin{align*}
+	a(p - 1)! &\equiv b(p - 1)! + \frac{b(p - 1)!}{2} + \frac{b(p - 1)!}{3} + ...+\frac{b(p - 1)!}{p-1} \equiv \\
+	&\equiv b(p - 1)! + b(p - 1)! \cdot 2^{-1} + b(p - 1)! \cdot 3^{-1} + ... + b(p - 1)!  \cdot (p - 1)^{-1} \equiv \\
+	&\equiv b(p - 1)!(1^{-1}+2^{-1}+...+(p-1)^{-1}) \pmod{p}.
+\end{align*}
+Funkcja, która przyporządkowuje każdej niezerowej reszcie jej odwrotność modulo $p$ jest bijekcją(przyjmuje wszystkie wartości przeciwdziedziny i jest różnowartościowa). Czyli cały zbiór $\{1,\; 2,\; 3,\; ...,\; p-1\}$ zostanie przekształcony na samego siebie.
+Zauważamy więc, że suma odwrotności wszystkich niezerowych reszt modulo $p$ to suma wszystkich możliwych reszt modulo $p$, czyli 
+\[
+	1^{-1} + 2^{-1} + ... + (p-1)^{-1} = 1 + 2 + 3 + ... + (p-1) = \frac{p(p-1)}{2}.
+\] Zauważamy, że powyższa suma jest podzielna przez $p$. Jest ona równa $a(p - 1)!$. Skoro $(p - 1)!$ nie jest podzielna przez $p$, stąd to liczba $a$ jest podzielna przez $p$.
+
+\begin{problem}{3}
+	Udowodnij, że istnieje $n$, dla którego $2^n+3^n+6^n\equiv 1 \pmod{p}.$
+\end{problem}
+
+\noindent
+Weźmy $n = p-2$. Wówczas mamy
+\[ 
+	2^{p-2} + 3^{p-2} + 6^{p-2} \equiv \frac{2^{p-1}}{2} + \frac{3^{p-1}}{3} + \frac{6^{p-1}}{6} \equiv \frac{1}{2} + \frac{1}{3} + \frac{1}{6} \equiv 1 \pmod{p}.
+\]
+
+\begin{problem}{4}
+	Wykazać, że zachodzi przystawanie
+	\[
+		(p - 1)! \equiv -1 \pmod{p}.
+	\]
+\end{problem}
+
+\noindent
+Zauważmy, że każda liczba w zbiorze $\{1,\; 2,\; 3,\; ...,\; p-1\}$ ma swoją odwrotność. Jak dowodzi Lemat $1$ jedynymi liczbami, które są swoimi odwrotnościami są $-1$ i $1$. Czyli reszty ze zbioru $\{2, ..., p-2\}$ można pogrupować w pary postaci $(a,\; a^{-1})$ -- liczba i jej odwrotność. 
+
+Jeśli wymnożymy wszystkie liczby ze zbioru $\{1,\; 2,\; 3,\; ...,\; p-1\}$, elementy z par zredukują się do $1$. Skoro każdy element jest w jakiejś parze, to cały iloczyn 
+\[
+	(p-2)\cdot (p-3) \cdot ... \cdot 3 \cdot 2
+\] 
+zredukuje się do liczby $1$. Stąd
+\[
+	(p-1)! \equiv (p-1) \cdot (p-2)! \equiv (p - 1) \cdot 1 \equiv -1 \pmod{p}.
+\]
