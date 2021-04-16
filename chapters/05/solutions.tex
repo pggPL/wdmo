@@ -1,0 +1,128 @@
+\newpage
+\solutions{Nierówności między średnimi}
+
+\begin{problem}{1} 
+	Wykazać, że dla dowolnej liczby rzeczywistej $x$ zachodzi
+	\[
+		x^2 + \frac{1}{x} \geqslant \frac{3}{2}\sqrt[3]{2}.
+	\]
+\end{problem}
+
+\vspace{5px}
+
+\noindent
+Korzystając z nierówności między średnią arytemetyczną i geometryczną dla liczb $x^2, \frac{x}{2}, \frac{x}{2}$ otrzymujemy
+\[
+	\frac{x^2 + \frac{1}{x}}{3} = \frac{x^2 + \frac{x}{2} + \frac{x}{2}}{3} \geqslant \sqrt[3]{x^2 \cdot \frac{x}{2} \cdot \frac{x}{2}} = \sqrt[3]{\frac{1}{4}},
+\]
+z czego wprost wynika teza.
+
+\vspace{5px}
+
+%Source: well-known
+\begin{problem}{2} 
+	Dane są takie dodatnie liczby rzeczywiste $a_1, \;a_2,\; a_3,\; ...,\; a_n$, że $a_1a_2a_3...a_n = 1$. Wykazać, że
+	\[
+		(a_1 + a_2)(a_2 + a_3)\cdot ... \cdot (a_{n-1} + a_n)(a_n + a_1) \geqslant 2^n.
+	\]
+\end{problem}
+
+\vspace{5px}
+
+\noindent
+Korzystając z nierówności miedzy średnią arytmetyczną a geometryczną mamy
+\[
+	a_i + a_{i + 1} \geqslant 2\sqrt{a_ia_{i + 1}}.
+\]
+Robiąc tak dla każdego nawiasu otrzymujemy, że
+\begin{multline*}
+	(a_1 + a_2)(a_2 + a_3)\cdot ... \cdot (a_{n-1} + a_n)(a_n + a_1) \geqslant \\
+	\geqslant 2\sqrt{a_1a_{2}} \cdot 2\sqrt{a_2a_{3}} \cdot ... \cdot 2\sqrt{a_{n-1}a_{n}}\cdot 2\sqrt{a_na_{1}}  = \\
+	= 2^n a_1a_2\cdot ... \cdot a_n = 2^n.
+\end{multline*}
+
+%Source: well-known
+\begin{problem}{3} 
+	Udowodnić, że dla dowolnych dodatnich liczb rzeczywistych zachodzi nierówność
+	\[
+		\frac{a}{b + c} + \frac{b}{a + c} + \frac{c}{a + b} \geqslant \frac{3}{2}.
+	\]
+\end{problem}
+
+\vspace{5px}
+
+\noindent
+Przekształcamy tezę równoważnie dodając $3$ do obu stron
+\begin{align*}
+	\frac{a}{b + c} + 1 + \frac{b}{a + c} + 1 + \frac{c}{a + b} + 1 &\geqslant \frac{9}{2}, \\
+	\frac{a + b + c}{b + c} + \frac{a + b + c}{a + c} + \frac{a + b + c}{a + b} &\geqslant \frac{9}{2}, \\
+	\left(a + b + c\right)\left(\frac{1}{b + c} + \frac{1}{a + c} + \frac{1}{a + b}\right) &\geqslant \frac{9}{2}.
+\end{align*}
+
+\noindent
+Zauważmy, że z nierówności miedzy średnią arytmetyczną i harmoniczną wynika
+\[
+	\frac{\frac{1}{b + c} + \frac{1}{a + c} + \frac{1}{a + b}}{3} \geqslant \frac{9}{(b + c) + (a + c) + (a + b)} = \frac{9}{2(a + b + c)},
+\]
+co jest równoważne nierówności, którą chcieliśmy wykazać.
+
+\vspace{5px}
+
+%Source: well-known
+\begin{problem}{4} 
+	Dane są takie dodatnie liczby rzeczywiste $a$, $b$, $c$, że $abc = 1$. Wykazać, że
+	\[
+		a^2 + b^2 + c^2 \geqslant a + b + c.
+	\]
+\end{problem}
+
+\vspace{5px}
+
+\noindent
+Zauważmy, że zachodzą nierówności
+\[
+	(a - 1)^2 + (b - 1)^2 + (c - 1)^2 \geqslant 0,
+\]
+\[
+	a^2 + b^2 + c^2 + 3 \geqslant 2a + 2b + 2c.
+\]
+Z nierówności między średnią arytmetyczną i geometryczną mamy
+\[
+	\frac{a + b + c}{3} \geqslant \sqrt[3]{abc} = 1,
+\]
+\[
+	a + b + c \geqslant 3.
+\]
+
+\noindent
+Dodając dwie otrzymane nierówności stronami udowadniamy tezę.
+
+\vspace{5px}
+
+%Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2015.pdf Problem 33
+\begin{problem}{5} 
+	Udowodnić, że dla dowolnych liczb rzeczywistych $a$, $b$, $c$ zachodzi nierówność
+	\[
+		\frac{a^2}{a + b} + \frac{b^2}{b + c} \geqslant \frac{3a + 2b - c}{4}. 
+	\]
+\end{problem}
+
+\vspace{5px}
+
+\noindent
+Zauważmy, że z nierówności między średnią arymtetyczną i geometryczną dla liczb $\frac{a^2}{a + b}$ oraz $\frac{a + b}{4}$ otrzymujemy
+\[
+	\frac{a^2}{a + b} + \frac{a + b}{4} \geqslant a.
+\]
+Analogicznie mamy
+\[
+	\frac{a^2}{a + b} + \frac{b + c}{4} \geqslant b.
+\]
+Dodając te dwie równości stronami otrzymujemy
+\[
+	\frac{a^2}{a + b} + \frac{a^2}{a + b} + \frac{a + b}{4} + \frac{b + c}{4} \geqslant a + b,
+\]
+\[
+	\frac{a^2}{a + b} + \frac{b^2}{b + c} \geqslant \frac{3a + 2b - c}{4},
+\]
+co było do wykazania.
