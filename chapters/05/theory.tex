@@ -1,0 +1,249 @@
+% Rozdział 5 – nierówności między średnimi
+% dowód AM-GM dla wielu zmiennych
+% pokazanie jakiegoś szacowania, uwaga o przejściu z równością
+% inne szacowanie z szacowaniem częściowym
+
+\theory{Nierówności między średnimi}
+
+\noindent
+Zakładamy, że czytelniczka/czytelnik zna metodę dowodzenia nierówności poprzez zwinięcie do kwadratu. Zaprezentujemy jedno twierdzenie -- nierówność między średnimi -- oraz kilka metod pracy z nierównoścami.
+
+\vspace{10px}
+
+\heading{Nierówności między średnimi}
+
+\noindent
+Dane są dodatnie liczby rzeczywiste $a_1,\; a_2, \; a_3, \; ..., \; a_n$.
+
+\noindent
+Średnią kwadratową nazywamy wartość
+\[
+    QM = \sqrt{\frac{a_1^2 + a_2^2 + ... + a_n^2}{n}}.
+\]
+Średnią arytmentyczną nazywamy wartość
+\[
+    AM = \frac{a_1 + a_2 + ... + a_n}{n}.
+\]
+Średnią geometryczną nazywamy wartość
+\[
+    GM = \sqrt[n]{a_1a_2...a_n}.
+\]
+Średnią harmoniczną nazywamy wartość
+\[
+   HM = \frac{n}{\frac{1}{a_1} + \frac{1}{a_2} + ... + \frac{1}{a_n}}.
+\]
+
+\noindent
+Wówczas zachodzą nierówności
+\[
+    QM \geqslant AM \geqslant GM \geqslant HM,
+\]
+przy czym równość w którymkolwiek przypadku zachodzi wtedy i tylko wtedy, gdy
+\[
+    a_1 = a_2 = ... = a_n.
+\]
+
+\vspace{10px}
+\noindent
+Skróty $QM$, $AM$, $GM$, $HM$ pochodzą z języka angielskiego i oznaczają odpowiednio \textit{quadratic mean}, \textit{arithmetic mean}, \textit{geometric mean}, \textit{harmonic mean}. Zaprezentujemy dowód jednej z podanych nierówności. Pozostałe są nieco bardziej złożone, więc nie będziemy ich przytaczać.
+
+\vspace{10px}
+
+\heading{Dowód nierówności między średnimi arytmetyczną a geometryczną}
+
+\noindent
+\underline{Cześć 1.} Dowód $n = 2$.
+
+\vspace{10px}
+
+\noindent
+Chcemy wykazać, że zachodzi nierówność
+\[
+    \frac{a_1 + a_2}{2} \geqslant \sqrt{a_1a_2}.
+\]
+Jest ona równoważna prawdziwej nierówności
+\[
+    a_1 - 2\sqrt{a_1a_2} + a_2 = (\sqrt{a_1} - \sqrt{a_2})^2 \geqslant 0.
+\]
+
+\noindent
+\underline{Cześć 2.} Dowód dla $n$ postaci $n = 2^k$, $k \in \mathbb{Z}_{\geqslant 0}$.
+
+\vspace{10px}
+
+\noindent
+Będziemy indukować się po $k$. Dla $k = 0$ nierówność jest oczywista. Załóżmy, że zachodzi dla $k$, wykażemy, że zachodzi dla $k + 1$.
+
+\noindent
+Zauważmy, że
+\[
+    \frac{a_1 + a_2 + ... + a_{2^{k + 1}}}{2^{k + 1}} = \frac{1}{2}\left( \frac{a_1 + a_2 + ... + a_{2^{k}}}{2^{k}} + \frac{a_{2^k + 1} + a_{2^k + 2} + ... + a_{2^{k + 1}}}{2^{k}}\right)
+\]
+
+\noindent
+Korzystając z założenia indukcyjnego -- to jest nierówności dla $n = 2^{k}$ mamy
+\begin{align*}
+    \frac{a_1 + a_2 + ... + a_{2^{k}}}{2^{k}} &\geqslant \sqrt[2^k]{a_1a_2...a_{2^k}} \\
+   \frac{a_{2^k + 1} + a_{2^k + 2} + ... + a_{2^{k + 1}}}{2^{k}} &\geqslant \sqrt[2^k]{a_{2^k + 1}a_{2^k + 2}...a_{2^{k + 1}}}
+\end{align*}
+
+\noindent
+Zauważmy teraz, że na mocy znanej nierówności $a + b \geqslant 2\sqrt{ab}$ mamy
+\[
+    \frac{1}{2}\left(\sqrt[2^k]{a_1a_2...a_{2^k}} + \sqrt[2^k]{a_{2^k + 1}a_{2^k + 2}...a_{2^{k + 1}}}\right) \geqslant \sqrt[2^{k + 1}]{a_1a_2...a_{2^{k + 1}}}
+\]
+Łącząc powyższe nierówności dowód nierówności dla $n$ będącej potęgą liczby $2$.
+
+\vspace{10px}
+
+\noindent
+\underline{Cześć 3.} Z faktu, że nierówność zachodzi dla $n \geqslant 2$ wynika, że zachodzi dla $n - 1$.
+
+\vspace{10px}
+
+\noindent
+Oznaczmy 
+\[
+    AM = \frac{a_1 + a_2 + ... + a_{n - 1}}{n - 1} \quad \text{oraz} \quad GM = \sqrt[n - 1]{a_1a_2...a_{n - 1}}.
+\]
+
+\noindent
+Skoro nierówność zachodzi dla liczby $n$ to mamy
+\[
+    AM = \frac{(n-1)AM + AM}{n} = \frac{a_1 + a_2 + ... + a_{n - 1} + AM}{n} \geqslant \sqrt[n]{a_1a_2...a_{n - 1}\cdot AM}.
+\]
+Podnosząc powyższą równość do $n$ potęgi stronami otrzymujemy
+\begin{align*}
+    &(AM)^n \geqslant a_1a_2...a_{n-1}AM, \\
+    &(AM)^{n - 1} \geqslant a_1a_2...a_{n-1}, \\
+    &AM \geqslant \sqrt[n - 1]{a_1a_2...a_{n-1}} = GM,
+\end{align*}
+co należało wykazać.
+
+\vspace{10px}
+
+\noindent
+Pozostaje zauważyć, że z części 3 i 4 wynika nierówność dla dowolnego $n$. Możemy bowiem rozpatrzyć takie $k$, że $2^k > n$ i zastosować $2^k - n$ razy implikację z części czwartej.
+
+\qed
+
+\vspace{10px}
+
+% przykład zwykły
+% Source: ,,Wędrówki po Krainie Nierówności'' 3.3.2
+\heading{Przykład 1}
+
+\noindent
+Udowodnić, że dla dowolnych liczb dodatnich $a$, $b$ i $c$, dla których $a + b + c = 1$ zachodzi nierówność
+\[
+    \sqrt{2a + 1} + \sqrt{2b + 1} + \sqrt{2c + 1} \leqslant \sqrt{15}.
+\]
+
+\newpage
+
+\heading{Rozwiązanie}
+
+\noindent
+Stosując nierówność miedzy średnimi: arytmetyczną i kwadratową otrzymujemy
+\[
+    \sqrt{\frac{\left(\sqrt{2a + 1}\right)^2 + \left(\sqrt{2b + 1}\right)^2 + \left(\sqrt{2c + 1}\right)^2}{3}}
+    \geqslant \frac{\sqrt{2a + 1} + \sqrt{2b + 1} + \sqrt{2c + 1}}{3}.
+\]
+
+\noindent
+Lewa strona powyższej równości jest równa
+\[
+    \sqrt{\frac{\left(\sqrt{2a + 1}\right)^2 + \left(\sqrt{2b + 1}\right)^2 + \left(\sqrt{2c + 1}\right)^2}{3}} = \sqrt{\frac{2a + 1 + 2b + 1 + 2c + 1}{3}} = \sqrt{\frac{5}{3}}.
+\]
+Łącząc powyższe nierówności otrzymujemy
+\[
+    \sqrt{2a + 1} + \sqrt{2b + 1} + \sqrt{2c + 1} \leqslant \sqrt{\frac{5}{3}} \cdot 3 = \sqrt{15}.
+\]
+
+\qed
+
+% przykład na szacowania przejściowe
+%Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2017.pdf problem 4
+\heading{Przykład 2}
+
+\noindent
+Wykazać, że dla dowolnych dodatnich liczb rzeczywistych $a$, $b$, $c$ i $d$, dla których zachodzi równość ${a + b + c + d = 4}$ prawdziwa jest nierówność
+\[
+    \frac{a}{a^3 + 4} + \frac{b}{b^3 + 4} + \frac{c}{c^3 + 4} + \frac{d}{d^3 + 4} \leqslant \frac{4}{5}. 
+\]
+
+\heading{Rozwiązanie}
+
+\noindent
+Wykażemy, że dla dowolnej liczby $x$ zachodzi nierówność
+\[
+    \frac{x}{x^3 + 4} \leqslant \frac{2x + 3}{25}.
+\]
+Istotnie mamy bowiem
+\begin{align*}
+    25x \leqslant (2x + 3)(x^3 + 4) = 2x^4 + 3x^3 + 8x + 12, \\
+    17x \leqslant 2x^4 + 3x^3 + 12,\\
+    x = \sqrt[17]{\left(x^4\right)^2\cdot\left(x^3\right)^3\cdot1^{12}} \leqslant \frac{2x^4 + 3x^3 + 12}{17}.
+\end{align*}
+Ostatnia zależność jest prawdziwa na mocy nierówności miedzy średnią arytmetyczną i~geometryczną.
+
+
+\noindent 
+Korzystając z powyższej nierówności otrzymujemy
+\[
+    \frac{a}{a^3 + 4} + \frac{b}{b^3 + 4} + \frac{c}{c^3 + 4} + \frac{d}{d^3 + 4} \leqslant \frac{2a + 3}{25} + \frac{2b + 3}{25} + \frac{2c + 3}{25} + \frac{2d + 3}{25} = \frac{4}{5}.
+\]
+
+\qed
+
+\vspace{5px}
+
+% przykład na pilnowanie równości
+\heading{Przykład 3}
+
+\noindent
+Dane są dodatnie liczby rzeczywiste $a_1, a_2, a_3, ..., a_n$, że ich suma wynosi $1$. Wyznaczyć największą możliwą wartość wyrażenia
+\[
+    a_1^2 + a_2^2 + a_3^2 + ... + a_n^2.
+\]
+
+\newpage
+\heading{Rozwiązanie}
+
+\noindent
+W powyższym zadaniu narzuca się skorzystanie z nierówności miedzy średnimi. Jednak jeśli czytelniczka/czytelnik próbował je rozwiązać, to może zobaczyć, że takie próby kończą się niepowodzeniem.
+
+Niezwykle pomocne w ocenieniu, czy metoda szacowania przez średnie pozwoli rozwiązać zadanie jest zobaczenie na przypadek, w którym zachodzi równość lub osiągane jest ekstremum. W tym zadaniu narzucają się dwie kandydatury, które są warte sprawdzenia:
+\[
+    a_1 = 1, \; a_2 = ... = a_n = 0 \quad \text{oraz} \quad a_1 = a_2 = a_3 = ... = a_n = \frac{1}{n}.
+\]
+
+Spróbujemy wykazać, że
+\[
+    1 \geqslant a_1^2 + a_2^2 + a_3^2 + ... + a_n^2.
+\]
+
+\noindent
+We wszystkich nierównościach między średnimi równość zachodzi wtedy i tylko wtedy, gdy wszystkie $a_i$ są sobie równe. W innym przypadku nierówność jest ostra. Zaś w powyższej nierówności równość zachodzi wtedy, kiedy wszystkie liczby nie są równe. Wykonując szacowanie za pomocą średnich na tych liczbach otrzymamy, że dla $a_1 = 1$,  ${a_2 = ... = a_n = 0}$ zachodzi ostra nierówność. A tak być nie może, bo wówczas zachodzi równość. Dlatego musimy spróbować innych metod.
+
+\noindent 
+Istotnie, wystarczy zauważyć, że zachodzi nierówność
+\[
+    a_1^2 + a_2^2 + ... + a_n^2 \leqslant (a_1 + a_2 + ... + a_n)^2 = 1.
+\]
+\qed
+
+\vspace{10px}
+
+\noindent 
+Podobne rozumowanie mogło być pomocne przy rozwiązywaniu Przykładu 2. Wówczas równość zachodzi dla $a = b = c = d = 1$. Załóżmy, że wpadliśmy na pomysł użycia nierówności AM-GM w mianowniku. Wówczas
+\[
+    \frac{a}{a^3 + 4} + \frac{b}{b^3 + 4} + \frac{c}{c^3 + 4} + \frac{d}{d^3 + 4} \leqslant \frac{a}{4a^{\frac{3}{2}}} + \frac{b}{4b^{\frac{3}{2}}} + \frac{c}{4c^{\frac{3}{2}}} + \frac{d}{4d^{\frac{3}{2}}} = \frac{1}{8\sqrt{a}} +  \frac{1}{8\sqrt{b}} +  \frac{1}{8\sqrt{c}} +  \frac{1}{8\sqrt{d}},
+\]
+co dla $a = b = c = d = 1$ jest większe od $\frac{5}{4}$. Więc to szacowanie nie doprowadzi nas do rozwiązania zadania, gdyż nierówność
+\[
+    \frac{1}{8\sqrt{a}} +  \frac{1}{8\sqrt{b}} +  \frac{1}{8\sqrt{c}} +  \frac{1}{8\sqrt{d}} \leqslant \frac{5}{4}
+\]
+nie jest prawdziwa.
+
+\vspace{10px}
