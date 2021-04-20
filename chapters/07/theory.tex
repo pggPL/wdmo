@@ -1,0 +1,292 @@
+% Rozdział 7 – Wielomiany
+% definicja, tw. Bezouta z dowodem
+% lemat o równych wielomianach
+% zadania z wyrażeniami algebraicznymi
+% wielomiany całkowite
+% wzory Vieta
+
+\theory{Wielomiany}
+
+\heading{Definicje}
+
+\noindent
+Wyrażenie algebraiczne postaci
+\[
+    W(x) = a_nx^n + a_{n - 1}x^{n - 1} + ... + a_1x + a_0
+\]
+dla pewnych liczb rzeczywistych $a_n \neq 0$, $a_1$, $a_2$, ..., $a_{n - 1}$.
+\begin{itemize}
+    \item Liczbę $n$ nazywamy stopniem tego wielomianu i oznaczamy jako $deg \; W = n$.
+
+    \item \textit{Współczynnikami} nazywamy liczby $a_0$, $a_1$, ..., $a_n$.
+
+    \item Współczynnik przy najwyższej potędze $x$ -- w tym przypadku $a_n$ nazywamy \textit{współczynnikiem wiodącym}.
+
+    \item Gdy współczynnik wiodący jest równy $1$ to powiemy, że wielomian jest \textit{unormowany}.
+
+    \item Liczbę $\alpha$, dla której zachodzi równość $W(\alpha) = 0$ nazywamy \textit{pierwiastkiem} wielomianu $W$.
+\end{itemize}
+
+\vspace{5px}
+
+\noindent 
+Na początku zachęcamy do samodzielnego zmierzenia się z poniższym zadaniem. Jego rozwiązanie wyrobi intuicję co do działania dzielenia wielomianów.
+
+\vspace{5px}
+
+\heading{Przykład 1}
+
+\noindent
+Znaleźć wszystkie nieujemne liczby całkowite $n$, dla których liczba $n^5 + 3n^2 + 1$ jest podzielna przez liczbę $n^2 + 2$.
+
+\vspace{5px}
+
+\heading{Rozwiązanie}
+
+\noindent
+Zauważmy, że zachodzą równości
+\begin{align*}
+    \frac{n^5 + 3n^2 + 1}{n^2 + 1} &= 
+    \frac{n^3(n^2 + 1) - n^3 + 3n^2 + 1}{n^2 + 1} 
+    = n^3 + \frac{- n^3 + 3n^2 + 1}{n^2 + 1} = \\
+    &= n^3 + \frac{-n(n^2 + 1) + 3n^2 + n + 1}{n^2 + 1} 
+    = n^3 - n + \frac{3n^2 + n + 1}{n^2 + 1} = \\
+    &= n^3 - n + \frac{3(n^2 + 1) + n - 2}{n^2 + 1}
+    =  n^3 - n + 3 + \frac{n - 2}{n^2 + 1}, 
+\end{align*} 
+z czego wynika, że liczba $\frac{n^5 + 3n^2 + 1}{n^2 + 1}$ będzie całkowita wtedy i tylko wtedy, gdy liczba $\frac{n - 2}{n^2 + 1}$ będzie całkowita. Gdy $n = 0$ to rozpatrywana liczba jest całkowita. Łatwo wykazać, że dla $n \neq 0$ zaachodzi nierówność $n^2 + 1 > |n - 2|$. Stąd moduł liczby $\frac{n - 2}{n^2 + 1}$ jest mniejszy od $1$. Jeśli więc ma on być całkowity, to musi być on równy zeru. Jest to prawdą jedynie dla $n = 2$.
+
+\vspace{5px}
+
+\noindent
+Otrzymaliśmy więc, że szukana podzielność zachodzi jedynie dla $n = 0$ i $n = 2$.
+
+\qed
+
+\noindent 
+To co w istocie dokonało się w powyższym rozwiązaniu to jest podzielenie wielomianu $n^5 + 3n^2 + 1$ przez wielomian $n^2 + 1$. Ideą było wyciąganie takich liczb przed ułamek, aby stopień wielomianu w mianowniku spadał. Istotnie -- najpierw w mianowniku był wielomian $n^5 + 3n^2 + 1$, następnie $3n^2 + n + 1$, aż w końcu $n - 2$. Zauważmy, że nie jesteśmy w stanie otrzymać w podobny sposób wielomianu o niższym stopniu.
+
+\vspace{5px}
+\noindent
+Otrzymaliśmy zależność
+\[
+    n^5 + 3n^2 + 1 = (n^3 - n + 3)(n^2 + 1) + (n - 2).
+\]
+Wielomian $n - 2$ nazwiemy resztą z dzielenia wielomianu $n^5 + 3n^2 + 1$ przez $n^2 + 1$. Teraz sformalizujemy nasze intuicje.
+
+\vspace{5px}
+
+\heading{Twierdzenie 1}
+
+\noindent
+Dane są wielomiany o współczynnikach rzeczywistych $W(x)$ i $P(x)$. Wówczas istnieją takie wielomiany o współczynnikach rzeczywistych $G(x)$ i $R(x)$, że
+\[
+    W(x) = G(x) \cdot P(x) + R(x),
+\]
+oraz $deg \; R < deg\; P$. 
+
+\vspace{10px}
+
+\heading{Dowód}
+
+\noindent
+Rozpatrzmy takie przedstawienie $W(x)$ w postaci
+\[
+    W(x) = G(x) \cdot P(x) + R(x),
+\]
+gdzie $deg \; R$ jest najmniejsze możliwe. Jeżeli $deg \; R < deg\; P$ to zachodzi teza. Rozpatrzmy przypadek, gdy $deg \; R \geqslant deg\; P$. Niech $deg \; P = n$ oraz $deg \; R = n + k$. Przyjmijmy
+\[
+    P(x) =  a_nx^n + a_{n - 1}x^{n - 1} + ... + a_1x + a_0,
+\]
+\[  
+    R(x) = b_{n + k}x^{n + k} + b_{n + k - 1}x^{n + k - 1} + ... + b_1x + b_0.
+\]
+Zauważmy, że wielomiany $R(x)$ oraz $\frac{b_{n + k}}{a_n}x^kP(x)$ mają równe stopień i współczynnik wiodący. Odejmując je od siebie skróci się on, stąd wielomian $R(x) - \frac{b_{n + k}}{a_n}x^kP(x)$ ma mniejszy stopień niż wielomian $R(x)$. Możemy zapisać
+\[
+    W(x) = \left(G(x) + \frac{b_{n + k}}{a_n}x^k\right) \cdot  P(x) + \left(R(x) - \frac{b_{n + k}}{a_n}x^k\right),
+\]
+co przeczy temu, że stopień $R$ był minimalny.
+
+\qed
+
+
+\vspace{10px}
+
+
+
+\noindent
+Wielomian $R$ nazywamy resztą z dzielenia wielomianu $W$ przez $P$.
+
+\vspace{10px}
+
+\noindent
+Powiemy, że wielomian $W$ jest \textit{podzielny} przez wielomian $P$, jeśli reszta z rozpatrywanego dzielenia wynosi $0$. Równoważnie istnieje wielomian $G$, że
+\[
+    W(x) = P(x) \cdot G(x).
+\]
+
+\vspace{10px}
+
+\heading{Twierdzenie 2 (Bézout)}
+
+\noindent
+Dany jest wielomian $W(x)$ oraz taka liczba rzeczywista $\alpha$, dla której zachodzi równość $W(\alpha) = 0$. Wówczas $W(x)$ jest podzielny przez $x - \alpha$.
+
+\newpage
+
+\heading{Dowód}
+
+\noindent
+Rozpatrzmy dzielenie wielomianu $W(x)$ przez wielomian $x - a$. Możemy zapisać
+\[
+    W(x) = G(x) \cdot (x - \alpha) + R(x).
+\]
+Wiemy, że $deg \; R < 1$, czyli $R$ jest stałą. Przymijmy $R(x) = c$. Mamy wówczas
+\[
+    W(x) = G(x) \cdot (x - \alpha) + c.
+\]
+Podstawmy $x = \alpha$
+\[
+    0 = W(\alpha) = G(x) \cdot (\alpha - \alpha) + c = c.
+\]
+Stąd $c = 0$, czyli możemy zapisać $W$ w postaci
+\[
+    W(x) = (x - \alpha) \cdot G(x),
+\]
+co było do wykazania.
+
+\qed
+
+\vspace{5px}
+
+\noindent
+Niech $\alpha_1, \alpha_2, ..., \alpha_n$ będą parami różnymi pierwiastkami pewnego wielomianu $W(x)$. Wówczas 
+\[
+    W(x) = (x - \alpha_1)W_1(x)
+\]
+dla pewnego wielomianu $W_1(x)$. Zauważmy, że $\alpha_2, ..., \alpha_n$ będa pierwiastkami $W_1(x)$, gdyż
+\[
+    0 = W(\alpha_i) = (\alpha_i - \alpha_1)W_1(\alpha_i),
+\]
+a pierwiastki są parami różne. Możemy więc kontynuować wyciąganie pierwiastków i otrzymać w ten sposób poniższe twierdzenie.
+
+\vspace{5px}
+
+\heading{Twierdzenie 3}
+
+\noindent
+Jeśli wielomian $W(x)$ ma $n$ pierwiastków rzeczywistych $\alpha_1, \alpha_2, ..., \alpha_n$ to wówczas można go zapisać w postaci
+\[
+    W(x) = (x - \alpha_1)(x - \alpha_2) \cdot ... \cdot (x - \alpha_n) Q(x),
+\]
+dla pewnego wielomianu $Q(x)$, takiego, że $deg\; Q + n = deg\; W$. W szczególności jeśli $W$ jest stopnia $n$ to $Q(x)$ jest stałą.
+
+\vspace{5px}
+
+\heading{Wniosek}
+
+\noindent
+Wielomian stopnia $n$ o współczynnikach rzeczywistych, który nie jest stale równy zero, może mieć co najwyżej $n$ różnych pierwiastków rzeczywistych.
+
+
+\vspace{5px} 
+
+
+\heading{Twierdzenie 4}
+
+\noindent
+Dane są wielomiany o współczynnikach rzeczywistych $P(x)$ i $Q(x)$ stopnia co najwyżej $n$. Istnieje $n + 1$ liczb rzeczwysitych $\alpha_1, \alpha_2, ..., \alpha_{n + 1}$, takich, że dla każdego $i \in \{1, 2, 3, ..., n\}$ zachodzi równość 
+\[
+    P(\alpha_i) = Q(\alpha_i).
+\]
+Wówczas $P(x) = Q(x)$ dla dowolnej liczby rzeczywistej $x$.
+
+\vspace{5px}
+
+\heading{Dowód}
+
+\noindent
+Rozpatrzmy wielomian 
+\[
+    W(x) = P(x) - Q(x).
+\]
+Liczby $\alpha_1, \alpha_2, ..., \alpha_{n + 1}$ sa jego pierwiastkami. Ma więc on co najmniej $n + 1$ pierwiastków i stopień $n$. Z wyżej przestawionego wniosku wynika więc, że jest to wielomian zerowy. Stąd $P(x) - Q(x) = 0$ dla każdego $x$, a to trzeba było wykazać.
+
+\qed
+
+\heading{Krotność pierwiastków}
+
+\noindent
+Jeśli wielomian $W$ da się zapisać w formie
+\[
+    W(x) = (x - \alpha_1)^{k_1}(x - \alpha_2)^{k_2} \cdot ... \cdot (a - \alpha_n)^{k_n},
+\]
+gdzie $\alpha_1, \alpha_2, ..., \alpha_{n}$ są parami różne to powiemy, że pierwiastek $\alpha_i$ ma \textit{krotnośc} równą $k_i$. 
+
+Mówienie o zbiorze pierwiastków nie ma większego sensu, gdyż struktura zbióru nie przewiduje czegoś takiego jak element występujący kilkukrotnie. Stąd zdefiniujmy \textit{multizbiór} analogicznie do zbioru, z tym, że jeden element może należeć do niego kilka razy. Będziemy mówić o multizbiorach pierwiastków.
+
+\vspace{5px}
+
+\heading{Równość wielomianów}
+
+\noindent
+Następujące warunki równości wielomianów są sobie równoważne, tj. gdy zachodzi jeden, to zachodzą wszystkie:
+\begin{itemize}
+    \item wielomiany przyjmują równe wartości dla każdej liczby rzeczywistej,
+    \item współczynniki obu wielomianów przy tych samych potęgach są równe,
+    \item multizbiory pierwiastków rzeczywistych są sobie równe.
+\end{itemize}
+
+\vspace{5px}
+\noindent
+Wykazanie, że powyższe warunki są równoważne pozostawiamy czytelnikowi, jeśli ma chęć. Po zapoznaniu się z powyższą teorią powinno być to dość łatwe. Przejdźmy teraz do pierwszego nietrywialnego zastosowania wielomianów.
+
+\vspace{5px}
+
+\heading{Przykład 2}
+
+\noindent
+Dla liczb rzeczywistych $a$, $b$ zachodzi $ab = cd$ i $a + b = c + d$. Wykazać, że $\{a, b\} = \{c, d\}$.
+
+\vspace{5px}
+
+\heading{Rozwiązanie}
+
+\noindent
+Rozpatrzmy wielomiany
+\[
+    P_1(x) = (x - a)(x - b) = x^2 - (a + b)x + ab,
+\]
+\[
+    P_2(x) = (x - c)(x - d) = x^2 - (c + d)x + cd.
+\]
+Zauważmy, że na mocy założeń mają one równe współczynniki. Stąd te wielomiany są sobie równe, toteż mają równe multizbiory pierwiastków.
+
+\qed
+
+\vspace{5px}
+
+\noindent
+Dla unormowanego wielomianu drugiego stopnia o pierwiastkach $a$ i $b$ współczynniki wyniosą kolejno $1$, $-(a + b)$ oraz $ab$. Tę obserwacje można uogólnić do Wzorów Viete'a. Poniżej wyprowadzamy je dla wielomianów trzeciego stopnia. Dla większych stopnie wyprowadzenie jest analogiczne. 
+
+\newpage
+
+\heading{Wzory Viete'a dla wielomianu stopnia trzeciego}
+
+\noindent
+Dany jest wielomian
+\[
+     W(x) = a_3(x - \alpha_1)(x - \alpha_2)(x - \alpha_3) = a_3x^3 + a_2x^2 + a_1x + a_0.
+\]
+Wówczas 
+\begin{align*}
+-a_3(x_1 + x_2 + x_3) = a_2, \\
+a_3(x_1x_2 + x_1x_3 + x_2x_3) = a_1, \\
+-a_3x_1x_2x_3 = a_0,
+\end{align*}
+lub równoważnie
+\begin{align*}
+x_1 + x_2 + x_3 = -\frac{a_2}{a_3}, \\
+x_1x_2 + x_1x_3 + x_2x_3 = \frac{a_1}{a_3}, \\
+x_1x_2x_3 = -\frac{a_0}{a_3}.
+\end{align*}
