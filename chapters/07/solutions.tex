@@ -1,0 +1,182 @@
+\newpage
+\solutions{Wielomiany}
+
+\begin{problem}{1}
+    Dany jest niezerowy wielomian $W(x)$ o współczynnikach rzeczywistych, dla którego zachodzi równość
+    \[
+        (x + 1)W(x) = (x - 2)W(x + 1).
+    \]
+    Wykazać, że każdy pierwiastek rzeczywisty $W(x)$ jest liczbą całkowitą.
+\end{problem}
+
+\noindent
+Załóżmy nie wprost, że istnieje pewna liczba niecałkowita $\alpha$, dla której zachodzi równość $W(\alpha) = 1$. Wstawiając $x = \alpha$ do wyjściowego równania otrzymujemy
+\begin{align*}
+    (\alpha + 1)W(\alpha) = (\alpha - 2)W(\alpha + 1), \\
+    0 = (\alpha - 2)W(\alpha + 1).
+\end{align*}
+Skoro liczba $\alpha$ nie była całkowita, to $\alpha - 2 \neq 0$. Stąd $W(\alpha + 1) = 0$.
+
+Wykazaliśmy, że jeśli $\alpha$ jest niecałkowitym pierwiastkiem, to również $\alpha + 1$ jest niecałkowitym pierwiastkiem. Więc liczby
+\[
+    \alpha, \; \alpha + 1, \; \alpha + 2, \; \alpha + 3, \; ...
+\]
+są pierwiastkami $W(x)$. Zaś każdy niezerowy wielomian może mieć skończenie wiele pierwiastków -- co najwyżej tyle, ile wynosi jego stopień -- co daje sprzeczność.
+
+
+\begin{problem}{2}
+    Wykazać, że jeśli liczby rzeczywiste $a, b, c$ spełniają
+    \[
+    \begin{cases}
+        abc = 1 \\
+        \frac{1}{a} + \frac{1}{b} + \frac{1}{c} = a + b + c.
+    \end{cases}
+    \]
+    to co najmniej jedna liczba spośród $a, b, c$ jest równa 1.
+\end{problem}
+
+\noindent
+Rozpatrzmy wielomian
+\begin{align*}
+    P(x) &= (x - a)(x - b)(x - c) = x^3 - (a + b + c)x^2 + (ab + bc + ca)x - abc = \\
+    &= x^3 - (a + b + c)x^2 + abc \cdot \left(\frac{1}{a} + \frac{1}{b} + \frac{1}{c}\right)x - 1 = \\
+    &= x^3 - (a + b + c)x^2 + (a + b + c)x - 1.
+\end{align*}
+Chcemy wykazać, że liczba $1$ jest pierwiastkiem tego wielomianu. Zauważmy więc, że
+\[
+    P(1) = 1^3 - (a + b + c) \cdot 1^2 + (a + b + c)\cdot 1 - 1 = 0.
+\]
+Skoro $1$ jest pierwiastkiem $P(x)$, to należy on do multizbioru $\{a, b, c\}$.
+
+\begin{problem}{3}
+    Niech $n \geqslant 1$ będzie pewną liczbą całkowitą. Wykazać, że wielomian $x^{1001} + x + 1$ jest podzielny przez $x^2 + x + 1$.
+\end{problem}
+
+\noindent
+Wykażemy indukcyjnie, że dla każdej dodatniej liczby całkowitej $n$ wielomian $x^{3n - 1} + x + 1$ jest podzielny przez wielomian $x^2 + x + 1$. Dla $n = 1$ te wielomiany są sobie równe, więc podzielność zachodzi.
+
+Zauważmy, że
+\[
+    (x^{3(n + 1) - 1} + x + 1) - (x^{3n - 1} + x + 1) = x^{3n - 1}(x^3 - 1) =   x^{3n - 1}(x - 1)(x^2 + x + 1).
+\]
+Prawa strona równości jest podzielna przez wielomian $x^2 + x + 1$. Stąd jeśli $x^{3n - 1} + x + 1$ jest podzielne przez $x^2 + x + 1$ to $x^{3(n + 1) - 1} + x + 1$ również. Więc z zasady indukcji matematycznej wynika postulowana własność. Wstawiając $n = 334$ otrzymujemy tezę.
+
+
+\begin{problem}{4}
+    Dany jest pewien wielomian $P(x)$. Wykazać, że istnieje wielomian $Q(x)$, że zachodzi równość
+    \[
+        Q(x + 1) - Q(x) = P(x).
+    \]
+\end{problem}
+
+\noindent
+Tezę wykażemy indukując się po stopniu wielomianu $P$. Jeśli jego stopień wynosi $0$, to znaczy $P(x) = c$ dla pewnej stałej $c$, to biorąc $Q(x) = cx$ otrzymujemy
+\[
+    Q(x + 1) - Q(x) = c(x + 1) - cx = c.
+\]
+Załóżmy, że dla wielomianów o stopniu nie większym niż $n - 1$ zachodzi teza. Wykażemy, że jeśli ${deg\; P = n}$ to szukane $Q$ istnieje.
+Zauważmy, że wielomian 
+\[
+    (x + 1)^{n + 1} - x^{n + 1} = \sum^{n}_{i = 0} {{n + 1}\choose{i}}x^i
+\]
+jest wielomianem stopnia $n$. Taki sam stopień ma $P$, więc istnieje taka liczba rzeczywista~$a$, że
+\[
+    a\left((x + 1)^{n + 1} - x^{n + 1} \right) \quad \text{oraz} \quad P(x)
+\]
+mają równy współczynnik wiodący. Stąd
+\[
+    P(x) - a\left((x + 1)^{n + 1} - x^{n + 1} \right)
+\]
+ma stopień mniejszy od $n$, czyli na mocy założenia indukcyjnego istnieje takie $Q_1(x)$, że
+\[
+    Q_1(x + 1) - Q_1(x) = P(x) - a\left((x + 1)^{n + 1} - x^{n + 1} \right),
+\]
+równoważnie
+\[
+    (Q_1(x + 1) + a(x + 1)^{n + 1}) - (Q_1(x) + ax^{n + 1}) = P(x).
+\]
+Biorąc $Q(x) = Q_1(x) + ax^{n + 1}$ otrzymujemy tezę.
+
+% Source: https://artofproblemsolving.com/community/c6h87681p511519
+\begin{problem}{5}
+    Dany jest wielomian $W(x)$ o współczynnikach całkowitych. Wykazać, że jeśli przyjmuje on dla czterech różnych liczb całkowitych wartość $5$, to dla żadnego całkowitego argumentu nie przyjmuje wartości $8$
+\end{problem}
+
+\noindent
+Przyjmijmy, że
+\[
+    W(a_1) = W(a_2) = W(a_3) = W(a_4) = 5 \quad \text{oraz} \quad W(b) = 8.
+\]
+dla pewnych liczb całkowitych $a_1, \; a_2, \; a_3, \; a_4$.
+Rozpatrzmy wielomian
+\[
+    Q(x) = W(x) - 5.
+\]
+Wówczas liczby $a_1, \; a_2, \; a_3, \; a_4$ są jego pierwiastkami. Na mocy twierdzenia Bézouta możemy napisać
+\[
+    Q(x) = (x - a_1)(x - a_2)(x - a_3)(x - a_4) \cdot R(x)
+\]
+dla pewnego wielomianu $R$. Zauważmy, że $R(x)$ musi mieć współczynniki całkowite. W~przeciwnym wypadku, rozpatrzając wspołczynnik niecałkowity przy najwyższej możliwej potędze, przemnożony przez $x^4$ otrzymalibyśmy, że $Q(x)$ też ma współczynnik niecałkowity.
+Zauważmy, że
+\[
+    3 = W(b) - 5 = Q(5) = (5 - a_1)(5 - a_2)(5 - a_3)(5 - a_4) \cdot R(b).
+\]
+Liczby $5 - a_1, \; 5 - a_2, \;5 - a_3, \;5 - a_4$ są parami różnem. Stąd co najmniej dwie z nich nie są równe $-1$ ani $1$. Stąd wartość bezwzględna ich iloczynu nie może być liczbą pierwszą, w szczególności być równa $3$.
+
+
+\begin{problem}{6}
+    Paweł i Tomek grają w grę.
+    Paweł ma pewien wielomian $W(x)$ o współczynnikach dodatnich całkowitych stopnia $n \geqslant 1$. Tomek go nie zna, a chce poznać. Może w tym celu wykonywać ruchy. W każdym ruchu może wybrać pewną dodatnią liczbę całkowitą $k$, być może biorąc pod uwagę co się stało we wcześniejszych ruchach, a nastepnie Tomek podaje mu wartość $W(k)$. Wyznaczyć, w zależności od $n$, najmniejszą liczbę ruchów, w której Tomek, niezależnie od wybranego wielomianu, jest w stanie poznać wszystkie jego współczynniki.
+\end{problem}
+
+\noindent
+Załóżmy, że Tomek po wykonaniu pierwszego ruchu dowiedział się, że $W(a) = 2a$. Wówczas nie może rozróżnić czy $W(x) = 2a$ czy $W(x) = 2x$. Stąd aby być w stanie poznać wielomian niezależnie od tego, jaki on jest, Tomek będzie potrzebował co najmniej 2 ruchów.
+Wykażemy, że niezależnie od $n$, Tomek jest w stanie tego dokonać w 2 ruchach.
+Strategia składa się z 2 punktów:
+\begin{itemize}
+    \item Tomek pyta Pawła o wartość $W(2)$. Skoro współczynniki $W$ są dodatnie, to łatwo wykazać, że $W(2)$ jest większe od największego współczynnika wielomianu $W$.
+    \item Następnie pyta go o wartość $d = W(W(2))$. Otrzyma liczbę
+    \[
+        a_n d^n + a_{n - 1}d^{n - 1} + ... + a_1d + a_0.
+    \]
+    Jest to wartość liczby o kolejnych cyfrach $a_n, \; a_{n - 1}, \; ..., \; a_{1}, \; a_0$ w systemie liczbowym o podstawie $d$. Korzystamy tu z faktu, że $a_n, \; a_{n - 1}, \; ..., \; a_{1}, \; a_0 < d$. Zamieniając otrzymaną liczbę na liczbę w systemie o podstawie $d$ kolejne cyfry będą współczynnikami danego wielomianu.
+\end{itemize}
+
+\begin{remark}
+    W lepszym zrozumieniu idei może posłużyć przykład. Weźmy wielomian
+    \[
+        W(x) = 21x^3 + 4x + 5.
+    \]
+    Wiemy, że
+    \[
+        W(100) = 21000405.
+    \]
+    W zapisie dziesiętnym pokazały nam się kolejne współczynniki $W(x)$.
+\end{remark}
+
+% Canada 1970
+\begin{problem}{7}
+    Rozstrzygnąć, czy istnieje wielomian $1000$ stopnia, którego współczynniki należą do zbioru $\{-1, 1\}$ oraz ma on $1000$ pierwiastków rzeczywistych.
+\end{problem}
+
+\noindent
+Wykażemy, że szukany wielomian nie istnieje. Przyjmijmy, że ma on pierwiastki $a_1$, $a_2$, ..., $a_{1000}$. Wówczas jest on postaci
+\[
+    W(x) = a(x - a_1)(x - a_2)\cdot ... \cdot (x - a_{1000}).
+\]
+Wymnażając te nawiasy możemy zauważyć, że wyraz wolny wynosi $a_1a_2 \cdot ... \cdot a_{1000}$, współczynnik przy $x$ będzie równy $\sum_{1 \leqslant i \leqslant 1000} a_i$, zaś współczynnik przy $x^2$ wyniesie $\sum_{1 \leqslant i < j \leqslant 1000} a_ia_j$. Na mocy założeń są one równe $\pm 1$. Mamy
+\begin{align*}
+    \sum_{1 \leqslant i \leqslant 1000} a_i = \pm 1, \\
+    \left(\sum_{1 \leqslant i \leqslant 1000} a_i\right)^2 = 1, \\
+   \sum_{1 \leqslant i \leqslant 1000} a_i^2 + 2\sum_{1 \leqslant i < j \leqslant 1000} a_ia_j = 1. \\
+\end{align*}
+Jeśli $\sum_{1 \leqslant i < j \leqslant 1000} a_ia_j = 1$, to na mocy powyższej równości mielibyśmy, że suma kwadratów jest ujemna. Stąd $\sum_{1 \leqslant i < j \leqslant 1000} a_ia_j = -1$, czyli
+\[
+    \sum_{1 \leqslant i \leqslant 1000} a_i^2 = 1 - 2\sum_{1 \leqslant i < j \leqslant 1000} a_ia_j = 3.
+\]
+Na mocy nierówności między średnią arytmetyczną i geometryczną mamy
+\[
+   \frac{3}{1000} =  \frac{\sum_{1 \leqslant i \leqslant 1000} a_i^2}{1000} \geqslant \sqrt[1000]{|a_1a_2\cdot ... \cdot a_{1000}|^2} = 1,
+\]
+co daje nam sprzeczność.
+
