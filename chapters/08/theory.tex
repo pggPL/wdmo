@@ -1,0 +1,282 @@
+% Rozdział 8 – Grafy
+% definicja grafu, odwołanie do skryptu o indukcji
+% definicje
+% twierdzenie o drzewach
+% dowód tw. Eulera o cyklach
+% własności drzew
+
+\theory{Grafy}
+
+\noindent
+W rozdziale o indukcji matematycznej wprowadziliśmy pojęcie grafu. Przypominając, jest to zbiór wierzchołków, z których niektóre są połączone krawędzią. Najpierw zdefiniujmy garść pojęć, których będziemy używać.
+
+\vspace{5px}
+
+\heading{Definicje}
+
+\noindent
+\begin{itemize}
+    \item \textit{Ścieżka} to ciąg, niekoniecznie parami różnych, wierzchołków $v_1, \; v_2, \; v_3, \; ..., \; v_t$, że każde dwa kolejne są połączone krawędzią.
+    \item \textit{Cykl} to ciąg, niekoniecznie parami różnych, wierzchołków $v_1, \; v_2, \; v_3, \; ..., \; v_t$, że zarówno każde dwa kolejne wierzchołki, jak i $v_1$ oraz $v_t$ są połączone krawędzią. 
+    \item \textit{Stopniem} wierzchołka nazywamy liczbę krawędzi z niego wychodzących.
+    \item Graf nazywamy \textit{spójnym}, jeśli dla dowolnych dwóch wierzchołków istnieje ścieżka, która zaczyna się w pierwszym i kończy w drugim. Kolokwialnie mówiąc, graf jest jedną całością, a nie składa się z kilku rozłącznych części.
+    \item Zbiór $n$ wierzchołków, spośród których każde dwa wierzchołki są połączone krawędzią nazywamy \textit{kliką} i oznaczamy go jako $K_n$.
+    \item Graf składający się z dwóch grup zawierających kolejno $a$ i $b$ wierzchołków, tak, że dwa wierzchołki są ze sobą połączone wtedy i tylko wtedy, gdy są w innych grupach, nazywamy \textit{grafem dwudzielnym} i oznaczamy jako $K_{a, b}$.
+\end{itemize}
+
+\begin{remark}
+    Często można spotkać się z innymi definicjami cyklu i ścieżki -- niekiedy przyjmuje się, że zawierają każdy z wierzchołków dokładnie raz. Niemniej jednak będzie to doprecyzowane w zadaniu.
+\end{remark}
+
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+    \begin{tikzpicture}
+    \tkzDefPoint(0,0){v_1}
+    \tkzDefPoint(1,0){v_2}
+    \tkzDefPoint(2,1){v_3}
+    \tkzDefPoint(3,1.5){v_4}
+    \tkzDefPoint(3.5,2){v_5}
+    \tkzDrawPoints(v_1,v_2,v_3,v_4,v_5)
+    \tkzDrawSegments(v_1,v_2 v_2,v_3 v_3,v_4 v_4,v_5)
+    \end{tikzpicture}\\
+    ścieżka
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+    \begin{tikzpicture}
+    \tkzDefPoint(0,0){v_1}
+    \tkzDefPoint(2,0){v_2}
+    \tkzDefPoint(2,2){v_3}
+    \tkzDefPoint(0,2){v_4}
+    \tkzDefPoint(-1,1){v_5}
+    \tkzDrawPoints(v_1,v_2, v_3, v_4, v_5)
+    \tkzDrawSegments(v_1,v_2 v_2,v_3 v_3,v_4 v_4,v_5 v_1,v_5)
+    \end{tikzpicture}\\
+    cykl
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+    \begin{tikzpicture}
+    \tkzDefPoint(2,2){v_1}
+    \tkzDefPoint(0,1){v_2}
+    \tkzDefPoint(3,3){v_3}
+    \tkzDefPoint(1,2.4){v_4}
+    \tkzDrawPoints[size=10,shape=cross](v_1)
+    \tkzDrawPoints(v_1)
+    \tkzDrawPoints( v_2, v_3, v_4)
+    \tkzDrawSegments(v_1,v_2 v_1,v_3 v_1,v_4)
+    \end{tikzpicture}\\
+    wierzchołek o stopniu $3$
+\end{center}
+\end{minipage}
+
+\vspace{10px}
+
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+    \begin{tikzpicture}
+    \tkzDefPoint(0,0){v_1}
+    \tkzDefPoint(1,1.4){v_2}
+    \tkzDefPoint(2,1){v_3}
+    \tkzDefPoint(2.7,1.5){v_4}
+    \tkzDefPoint(3.2,1){v_5}
+    \tkzDefPoint(3.7,1.7){v_6}
+    \tkzDrawPoints(v_1,v_2,v_3,v_4,v_5,v_6)
+    \tkzDrawSegments(v_1,v_2 v_2,v_3  v_4,v_5 v_5,v_6 v_6,v_4)
+    \end{tikzpicture}\\
+    graf niespójny
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+    \begin{tikzpicture}
+    \tkzDefPoint(0,0){v_1}
+    \tkzDefPoint(1.7,0){v_2}
+    \tkzDefPoint(2,2){v_3}
+    \tkzDefPoint(0,1.8){v_4}
+    \tkzDefPoint(2.2,1){v_5}
+    \tkzDrawPoints(v_1,v_2, v_3, v_4, v_5)
+    \tkzDrawSegments(v_1,v_2 v_2,v_3 v_3,v_4 v_4,v_5 v_1,v_5 v_1,v_3 v_3,v_5 v_2,v_4 v_1,v_4 v_2,v_5)
+    \end{tikzpicture}\\
+    klika $K_5$
+\end{center}
+\end{minipage}
+\begin{minipage}{0.33\textwidth}
+\begin{center}
+    \begin{tikzpicture}
+    \tkzDefPoint(0,2){v_1}
+    \tkzDefPoint(0,0){v_2}
+
+    \tkzDefPoint(3,0){v_3}
+    \tkzDefPoint(3,1){v_4}
+    \tkzDefPoint(3,2){v_5}
+    \tkzDrawPoints(v_1, v_2, v_3, v_4, v_5)
+    \tkzDrawSegments(v_1,v_4 v_1,v_5 v_2,v_4 v_2,v_5 v_1,v_3 v_2,v_3)
+    \end{tikzpicture}\\
+    graf dwudzielny $K_{2,3}$
+\end{center}
+\end{minipage}
+
+\vspace{10px}
+
+\begin{center}
+    \begin{tikzpicture}
+    \tkzDefPoint(1,1){v_1}
+
+    \tkzDefPoint(0,0.5){v_2}
+    \tkzDefPoint(2,0.5){v_3}
+
+    \tkzDefPoint(0,0){v_4}
+    \tkzDefPoint(1,0){v_5}
+    \tkzDefPoint(2,0){v_6}
+    \tkzDrawPoints(v_1, v_2, v_3, v_4, v_5, v_6)
+    \tkzDrawSegments(v_1,v_2 v_1,v_3 v_2,v_4 v_2,v_5 v_3,v_6)
+    \end{tikzpicture}\\
+    drzewo
+\end{center}
+
+\vspace{10px}
+
+\noindent
+Grafy, które są spójne i nie zawierają żadnego cyklu nazywamy \textit{drzewami}. Mają one kilka równoważnych definicji, o czym mówi poniższe twierdzenie.
+
+\vspace{5px}
+
+\heading{Twierdzenie 1}
+
+\noindent
+Dany jest graf spójny $G$, który ma $n$ wierzchołków. Następujące warunki są sobie równoważnie
+\begin{itemize}
+    \item $G$ nie zawiera żadnego cyklu,
+    \item w grafie jest dokładnie $n - 1$ krawędzi,
+    \item pomiędzy dowolnymi dwoma wierzchołkami istnieje dokładnie jedna ścieżka, która nie przechodzi przez żaden wierzchołek więcej niż raz.
+\end{itemize}
+
+\heading{Dowód}
+
+\noindent
+Zauważmy, że dla $n = 1$ teza jest oczywista. Załóżmy, że $n \geqslant 1$. Najpierw wykażemy, że każdego z tych warunków wynika istnienie wierzchołka o stopniu $1$.
+
+Załóżmy nie wprost, że każdy wierzchołek ma stopień co najmniej $2$. Wówczas można łatwo obliczyć, że krawędzi jest co najmniej $\frac{2 \cdot n}{2} = n$, czyli pierwszy warunek nie może zajść.
+
+Wybierzmy pewien wierzchołek i rozpocznijmy w nim spacer po grafie. Z wierzchołka, w którym będziemy, wybierzemy krawędź, którą jeszcze nie szliśmy. Algorytm zakończymy, gdy trafimy w ten sposób do wierzchołka, w którym jeszcze nie byliśmy. Skoro stopień każdego grafu wynosi $2$, to nigdy nie utkniemy w żadnym z wierzchołków. Jeśli tak się stanie, to znaczy, że weszliśmy do tego wierzchołka co najmniej raz, a wtedy kończymy spacer. W taki sposób otrzymujemy cykl. Łatwo zauważyć, że z istnienia cyklu wynika istnienie dwóch ścieżek między dowolnymi jego dwoma wierzchołkami.
+
+Rozpatrzmy więc wierzchołek o stopniu $1$. Usuwając go wraz z krawędzią otrzymam graf o $n - 1$ wierzchołkach. W ten sposób nie zmieni się prawdziwość żadnego z warunków -- wierzchołek o stopniu $1$ nie może być częścią ani cyklu, ani dwóch ścieżek. Relacja liczby krawędzi do liczby cykli zostanie zachowana. Możemy więc skorzystać z zasady indukcji matematycznej i otrzymujemy tezę.
+
+\vspace{10px}
+
+
+\heading{Przykład 1}
+
+\noindent
+Dany jest prostokąt $m \times n$. Pokolorowano w nim $m + n$ pól. Wykazać, że da się wybrać pewne z pokolorowanych pól, tak, aby w każdej kolumnie i w każdym wierszu liczba wybranych pól była parzysta.
+
+\vspace{5px}
+
+\heading{Rozwiązanie}
+
+\noindent
+Rozpatrzmy graf, w którym wierzchołkami będą wiersze i kolumny. Jeśli pole zostało pokolorowane, to połaczymy przyporządkowane mu wiersz i kolumnę. Otrzymany graf ma $m + n$ wierzchołków i $m + n$ krawędzi, czyli musi zawierać cykl. Wybierając przyporządkowane jego krawędziom pola otrzymujemy zbiór spełniający warunki zadania.
+
+\vspace{10px}
+
+\noindent
+Ścieżkę, która przechodzi każdą z krawędzi dokładnie raz nazywamy \textit{ścieżką Eulera} na cześć szwajcarskiego matematyka Leonharda Eulera. Okazuje się, że stwierdzenie, czy w danym grafie istnieje ścieżka Eulera jest dość łatwe dzięki poniższemu twierdzeniu.
+
+\vspace{10px}
+
+\heading{Twierdzenie 2}
+
+\noindent
+Dany jest graf spójny o $n \geqslant 2$ wierzchołkach. Wówczas cykl Eulera istnieje, wtedy i tylko wtedy, gdy stopień każdego z wierzchołków jest liczbą parzystą.
+
+\vspace{5px}
+
+\heading{Dowód}
+
+\noindent
+Najpierw wykażemy, że cykl może istnieć tylko w takim wypadku. Przechodząc tą ścieżką, do każdego wierzchołka wejdziemy tyle samo razy, ile z niego wyjdziemy. Stąd więc każdy wierzchołek ma parzysty stopień, gdyż krawędzi ,,wejściowych'' i ,,wyjściowych'' jest tyle samo.
+
+\vspace{10 px}
+
+\noindent
+Dowód, że gdy każdy ze stopni jest parzysty, to takowy cykl musi istnieć, jest nieco trudniejszy. Będziemy rozumować indukcyjnie po sumie liczby wierzchołków i krawędzi.
+
+\vspace{5px}
+
+\noindent
+Zauważmy, że skoro graf jest spójny, to stopień żadnego z wierzchołków nie wynosi $0$ -- jest to co najmniej $2$. Rozumując podobnie jak w dowodzie Twierdzenia $1$ wykazujemy, że w rozpatrywanym grafie istnieje cykl -- nazwijmy go $\mathcal{C}$.
+
+\vspace{5px}
+
+\noindent
+Usuńmy ten cykl z grafu. Nie musi pozostać spójny -- podzieli się on na pewne spójne składowe. Niemniej jednak każda ze składowych zawiera pewien wierzchołek $\mathcal{C}$. Na mocy założenia indukcyjnego w każdej z nich istnieje cykl Eulera. 
+
+\vspace{5px}
+
+\noindent
+Możemy połączyć te cykle w jeden duży cykl. Wykażemy, że dwa rozłączne krawędziowo cykle o wspólnym wierzchołku możemy połaczyć w jeden większy cykl. Korzystając z tego faktu posklejamy cykle po kolei ze sobą.
+
+\vspace{5px}
+
+\noindent
+Załóżmy, że wspólnym wierzchołkiem cykli $\mathcal{A}$ i $\mathcal{B}$ jest pewien wierzchołek $c$. Wówczas startując z wierzchołka $c$, najpierw przechodzimy cykl $\mathcal{A}$. Wrócimy wtedy do wierzchołka~$c$. Wówczas przejdziemy cykl $\mathcal{B}$. W taki sposób otrzymamy jeden cykl.
+
+\vspace{5px}
+
+\noindent
+Poniżej przestawiono rysunki poglądowe. Aby były czytelne, cykle przechodzą przez każdy wierzchołek dokładnie raz. Niemniej jednak w dowodzie takiego założenia nie poczyniliśmy.
+
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+    \begin{tikzpicture}
+    \tkzDefPoint(0,0){a_1}
+    \tkzDefPoint(1,1.4){a_2}
+    \tkzDefPoint(2,1){a_3}
+    \tkzDefPoint(1.5,0.5){a_4}
+    \tkzDrawPoints(a_1,a_2,a_3,a_4)
+    \tkzDrawSegments(a_1,a_2 a_2,a_3  a_3,a_4 a_4,a_1)
+    
+    \tkzDefPoint(2,2.5){b_1}
+    \tkzDefPoint(3,3){b_2}
+    \tkzDefPoint(4,3.2){b_3}
+    \tkzDefPoint(3.5,2.5){b_4}
+    \tkzDrawPoints(b_1,b_2,b_3,b_4)
+    \tkzDrawSegments(b_1,b_2 b_2,b_3  b_3,b_4 b_4,b_1)
+    
+    \tkzDefPoint(3,0){c_1}
+    \tkzDefPoint(4,1.4){c_2}
+    \tkzDefPoint(5,1){c_3}
+    \tkzDrawPoints(c_1,c_2,c_3)
+    \tkzDrawSegments(c_1,c_2 c_2,c_3 c_3,c_1)
+
+    \tkzDrawSegments[dashed](a_1,b_2 b_2,b_4 b_4,c_1 c_1,a_1)
+    \end{tikzpicture}\\
+    
+\end{center}
+\end{minipage}
+\begin{minipage}{0.5\textwidth}
+\begin{center}
+    \begin{tikzpicture}
+    \tkzDefPoint(0,0){v_1}
+    \tkzDefPoint(1.7,0){v_2}
+    \tkzDefPoint(2.2,1){v_3}
+    \tkzDefPoint(2,2){v_4}
+    \tkzDefPoint(0,1.8){v_5}
+    \tkzDrawPoints(v_1,v_2, v_3, v_4, v_5)
+    \tkzDrawSegments[arrowMe=stealth](v_1,v_2 v_2,v_3 v_3,v_4 v_4,v_5 v_1,v_5)
+
+
+    \tkzDefPoint(3,0){a_1}
+    \tkzDefPoint(4.7,0){a_2}
+    \tkzDefPoint(5.2,1){a_3}
+    \tkzDefPoint(5,2){a_4}
+    \tkzDrawPoints(a_1,a_2, a_3, a_4)
+    \tkzDrawSegments[arrowMe=stealth](a_1,a_2 a_2,a_3 a_3,a_4 v_3,a_4 v_3,a_1)
+    \end{tikzpicture}\\
+\end{center}
+\end{minipage}
+
+\vspace{5px}
