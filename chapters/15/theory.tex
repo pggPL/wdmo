@@ -1,3 +1,66 @@
-% Rozdział 
+% Rozdział 15 - Grafy skierowane
 
-\theory{}
+\theory{Grafy skierowane}
+
+\heading{Definicje}
+
+% graf skierowany + rysunek
+
+% cykl w grafie skierowanym
+
+% indeg i outdeg
+
+
+
+% lematy o cyklach
+
+
+\heading{Lemat 1}
+
+\noindent
+W grafie skierowanym, w którym dla każdego wierzchołka $v$ zachodzi $out(v) \geqslant 1$ istnieje cykl.
+
+\heading{Dowód}
+
+
+\heading{Lemat 2}
+
+\noindent
+W grafie skierowanym, w którym dla każdego wierzchołka $v$ zachodzi $out(v) = in(v) = 1$ istnieje cykl.
+
+\heading{Dowód}
+
+%Source: https://www.comp.nus.edu.sg/~warut/cycles.pdf P1
+\heading{Przykład 1}
+
+Pewne $n \geqslant 2$ osób zostało przydzielonych do $n$ pokoi, przy czym w każdym pokoju znajduje się dokładnie jedna osoba. Każda z osób ustaliła listę preferencji posortowała pokoje w pewnej kolejności. Wiadomo, że jeśli przyporządkowano by pokoje w inny sposób, to znalazła by się osoba, dla której nowy pokój był niżej na jej liście niż pierwotnie przyporządkowany jej pokój. Wykazać, że istnieje osoba, która ma na najwyższym miejscu swojej listy pokój, który został jej przyporządkowany.
+
+\heading{Rozwiązanie}
+
+\heading{Turnieje}
+
+% definicja turnieju
+
+
+Turniej nazwiemy \textit{redukowalnym}, gdy możemy podzielić jego uczestników na dwa niepuste zbiory $A$ oraz $B$, takie, że każdy uczestnik z $A$ wygrał z każdym uczestnikiem z $B$.
+
+Turniej nazwiemy \textit{cyklicznym}, gdy istnieją tacy uczestnicy $a_1$, $a_2$, ..., $a_k$, że $a_1$ wygrał z $a_2$, $a_2$ wygrał z $a_3$, ..., $a_{k - 1}$ wygrał z $a_k$ oraz $a_k$ wygrał z $a_1$.
+
+% lematy o turniejach
+% handout Bożyka 4.5
+
+% zachęta, żeby sami zmierzyli się z lematami
+
+\heading{Lemat 3}
+
+\noindent
+Turniej jest redukowalny wtedy i tylko wtedy, gdy nie jest cykliczny.
+
+\heading{Dowód}
+
+\heading{Lemat 4}
+
+\noindent
+Jeśli turniej o $n$ wierzchołkach jest cykliczny, to zawiera cykl o długości równiej $n - 1$.
+
+\heading{Dowód}

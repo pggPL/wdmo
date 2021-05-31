@@ -1,4 +1,49 @@
-%Source:
+%Source: http://www.wfnmc.org/Journal%202010%202.pdf P2
 \begin{problem}{1}
-
+	Danych jest $n$ punktów i $n$ prostych, przy czym żadne trzy punkty nie są współliniowe oraz żadne dwie proste nie są równolgełe. Wykazać, że można tak pogrupować punkty i proste w pary, aby odcinki łączące punkt z jego rzutem prostokątnym na przyporządkowaną do niego prostą, nie przecinały się.
 \end{problem}
+
+% Source: https://artofproblemsolving.com/community/c6h55344p343871
+\begin{problem}{2}
+	Niech $p_1, p_2, p_3, \ldots$ będą kolejnymi liczbami pierwszymi, zaś $x_0$ niech będzie liczbą rzeczywista pomiędzy 0 i 1. Dla każdej dodatniej liczby całkowitej $k$, przyjmijmy
+\[
+	x_k = \begin{cases} 0 & \mbox{if} \; x_{k-1} = 0, \\[.1in] {\displaystyle \left\{ \frac{p_k}{x_{k-1}} \right\}} & \mbox{if} \; x_{k-1} \neq 0, \end{cases}  
+\]
+gdzie $\{x\}$ oznacza część ułamkową $x$. (Część ułamkowa $x$ jest równa $x - \lfloor x \rfloor$) Znajdź wszystkie liczby $x_0$ spełniające $0 < x_0 < 1$, dla których ciąg $x_0, x_1, x_2, \ldots$ od pewnego momentu jest równy 0.
+\end{problem}
+
+% Source: well-known
+\begin{problem}{3}
+	Dana jest kratka $1000\times 1000$. W każdą kratkę wpisano strzałkę, która wskazuje jeden z boków kratki. W jednej z tych kratek stoi mrówka. Co sekundę wykonuje ona ruch -- rusza się na pole wskazane przez strzałkę w polu, na którym stoi, a następnie obraca tę strzałkę o $90\degree$ zgodnie z ruchem wskazówek zegara. Wykazać, że mrówka wyjdzie kiedyś z wyjściowego kwadratu.
+\end{problem}
+
+\begin{problem}{4}
+	Niech $k \geqslant n$ będą dodatnimi liczbami całkowitymi i niech $S$ będzie zbiorem zawierającym dokładnie $n$ różnych liczb rzeczywistych. Niech $T$ będzie zbiorem wszystkich liczb postaci $x_1 + x_2 + ... + x_k$, gdzie $x_1$, $x_2$, $...$ , $x_k$ są różnymi elementami $S$. Wykazać, że zbiór $T$ zawiera co najmniej $k(n − k) + 1$ elementów.
+\end{problem}
+
+% Source: Rosyjska Olimpiada
+\begin{problem}{5}
+Na tablicy zapisano pewną liczbę naturalną. W każdym ruchu możemy zastąpić aktualnie zapisaną liczbę $x$ jedną z liczb 
+\[
+    2x + 1 \quad  \text{lub} \quad \dfrac{x}{x + 2}.
+\]
+Wykazać, że jeśli na tablicy pojawiła się liczba 2020, to była tam ona od samego początku.
+\end{problem}
+
+% rozw: Niech w pewnym ruchu na tablicy znajdzie się nieskracalny ułamek $\frac{a}{b}$. Wówczas możemy go zamienić na jedną z liczb $\frac{2a + b}{b}$ lub $\frac{a}{a + 2b}$. Oba te ułamki są nieskracalne. Łatwo zauważyć, że biorąc za niezmiennik sumę licznika i mianownika w każdym ruchu ona się podwaja. Natomiast dla liczby $\frac{2020}{1}$ ta suma jest nieparzysta, co dowodzi tego, że ta liczba musiała tam być od samego początku.
+
+% Source: https://artofproblemsolving.com/community/c6h1876784p12752893
+\begin{problem}{6}
+Niech $n$ będzie dodatnią liczbą całkowitą. Syzyf wykonuje ruchu na planszy, która zawiera $n + 1$ pól, ponumerowanych $0$ do $n$ od lewej do prawej. Początkowo $n$ kamieni znajduje się nie polu o numerze $0$, zaś inne pola są puste. W każdym ruchu, Syzyf wybiera niepuste pole, niech ono zawiera $k$ kamieni, bierze jeden kamień i przesuwa go w prawo o co najwyżej $k$ pól (kamień musi pozostać na planszy). Celem Syzyfa jest przeniesienie wszystkich kamieni z pola o numerze $0$ na pole o numerze $n$.
+Wykazać, że Syzyf nie może osiągnąć swojego celu w mniej niż
+\[ 
+	\left \lceil \frac{n}{1} \right \rceil + \left \lceil \frac{n}{2} \right \rceil + \left \lceil \frac{n}{3} \right \rceil + \dots + \left \lceil \frac{n}{n} \right \rceil 
+\]
+ruchach.
+\end{problem}
+
+
+
+
+
+

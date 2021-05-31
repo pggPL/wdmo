@@ -1,3 +1,88 @@
-% Rozdział 
+% Rozdział 14 – twierdzenia z teorii liczb
 
-\theory{}
+\theory{Twierdzenia z teorii liczb}
+
+% skrypt bardziej teoretyczny
+% zadania nie zawsze są z nim związane, ale są pouczające
+
+\noindent
+Na potrzeby natstepującego lematu i twierdzenia, dla liczby całkowitej $n$ oraz parami względnie pierwszych liczb $m_1$, ..., $m_k$ przyjmiemy
+\[
+	G(n) = (n \;(\text{mod } m_1), n \;(\text{mod } m_2), ..., n \;(\text{mod } m_k)).
+\]
+
+
+% obserwacja, że G(n) może przyjmować m_1m_2...m_k wartości
+
+\heading{Lemat 1}
+
+\noindent
+Dane są parami względnie pierwsze liczby $m_1$, ..., $m_k$ oraz dodatnie liczby całkowite~$x$,~$y$ spełniające $m_1m_2\cdot ... \cdot m_k > x > y > 0$. Wykazać, że wówczas
+\[
+	G(x) \neq G(y).
+\]
+
+\heading{Dowód}
+
+
+
+\heading{Chińskie twierdzenie o resztach}
+
+\noindent
+Dane są parami względnie pierwsze liczby $m_1$, ..., $m_k$ oraz pewne liczby całkowite $a_1$, ..., $a_k$. Wówczas istnieje taka liczba całkowita $x$, że zachodzą przystawania
+\begin{gather*}
+	x \equiv a_1 \pmod{m_1}, \\
+	x \equiv a_2 \pmod{m_2}, \\
+	..., \\
+	x \equiv a_k \pmod{m_k}.
+\end{gather*}
+
+\heading{Dowód}
+
+% potem komentarz, że to znaczy tyle, że ,,jakie przystawania sobie zażyczymy, takie mamy
+
+\heading{Symbol Legendre'a}
+
+\noindent
+Dla pewnej liczby pierwszej $p$ oraz liczby całkowitej $n$ przyjmiemy
+\[
+	\left(\frac{n}{p}\right) = 
+	\begin{cases}
+		\phantom{-}1 \text{, gdy istnieje taka liczba całkowita } a \not\equiv 0 \text{, że } n \equiv a^2 \pmod{p}\\
+		-1\text{, gdy nie istnieje taka liczba całkowita } a \not\equiv 0 \text{, że } n \equiv a^2 \pmod{p} \\
+		\phantom{-}0 \text{, gdy } n \equiv 0 \pmod{p}\\
+	\end{cases}
+\]
+
+\noindent
+W pierwszym przypadku powiemy, że $n$ jest \textit{resztą kwadratową}, a w drugim, że $n$ jest \textit{nieresztą kwadratową}.
+
+
+\heading{Twierdzenie 2}
+
+\noindent
+Dana jest liczba pierwsza $p$ oraz liczby całkowite $a$, $b$. Wówczas zachodzi równość
+\[
+	\left(\frac{a}{p}\right)\left(\frac{b}{p}\right) = \left(\frac{ab}{p}\right).
+\]
+
+\heading{Dowód}
+
+\heading{Pierwiastki pierwotne modulo $p$}
+
+% bez dowodu!!!
+
+\vspace{10px}
+
+
+\vspace{10px}
+
+\heading{Przykład 1}
+
+\noindent
+Wykazać, że dla dodatniej liczby całkowitej, która nie jest podzielna przez $p - 1$ zachodzi przystawanie
+\[
+	1^k + 2^k + 3^k + ... + p^k \equiv 0 \pmod{p}.
+\]
+
+\heading{Rozwiązanie}

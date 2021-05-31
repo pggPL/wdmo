@@ -1,3 +1,73 @@
-% Rozdział 
+% Rozdział 18 - Grafy 2
 
-\theory{}
+\theory{Grafy 2}
+
+% Hall
+
+\heading{Twierdzenie 1 (Halla)}
+
+\noindent
+Dana są dwa zbiory -- chłopców i dziewcząt. Niektórzy chłopcy znają się z niektórymi dziewczynami. Wówczas następujące dwa warunki są równoważne:
+\begin{enumerate}
+	\item każdemu chłopcowi można przyporządkować dokładnie jedną, znaną mu dziewczynę, przy czym każda dziewczyna będzie przyporządkowana do co najwyżej jednego chłopca;
+	\item każdy podzbiór chłopców liczący $k$ osób zna co najmniej $k$ dziewczyn.
+\end{enumerate}
+
+% tutaj jakiś rysunek z przykładem o co cho
+
+\heading{Dowód}
+
+% Source: https://luckytoilet.wordpress.com/2013/12/21/halls-marriage-theorem-explained-intuitively/
+\heading{Przykład 1}
+
+\noindent
+W pewnym turnieju gra $2m$ drużyn. W ciągu każdego z $2m - 1$ dni każda z drużyn rozgrywała po jednej partii. Każda drużyna zagrała z każdą drużyną dokładnie raz. W żadnym meczu nie było remisów. Wykazać, że można dla każdego dnia wybrać jedną drużynę, która w danym dniu wygrała swój mecz, tak, aby żadna drużyna nie została wybrana więcej niż raz.
+
+\heading{Rozwiązanie}
+
+\heading{Grafy planarne}
+
+% definicja grafu planarnego
+
+% rysunek
+
+% definicja: ściany, spójne składowe
+
+% Euler
+
+\heading{Twierdzenie 2 (Eulera)}
+
+\noindent
+Dany jest graf planarny, w którym jest $e$ krawędzi, $v$ wierzchołków, $f$ ścian oraz $c$ spójnych składowych. Wówczas zachodzi równość
+\[
+	v - e + f - c = 1.
+\]
+
+\heading{Dowód}
+
+% Teraz dwa przykłady
+
+
+% Przykład z pajączkami
+% source:
+\heading{Przykład 2}
+
+\noindent
+Dany jest graf o $n$ wierzchołkach posiadający $k$ krawędzi o długościach
+będących różnymi liczbami całkowitymi od $1$ do $k$. Udowodnić, że istnieje w
+nim ścieżka składająca się z co najmniej $\frac{2k}{n}$ krawędzi, których długości tworzą ciąg rosnący.
+
+\vspace{5px}
+
+\heading{Rozwiązanie}
+
+% Przykład z probabilem
+% source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2018.pdf P30
+\heading{Przykład 3}
+
+\noindent
+Na dyskotece spotkało się $n$ chłopców i $m$ dziewczyn. Okazało się, że każda chłopiec zna co najwyżej $2018$ dziewcząt oraz każda para dziewcząt ma wspólnego znajomego chłopca. Wykazać, że da się każdej dziewczynie przypisać podzbiór znajomych jej chłopców w taki sposób, by przypisane podzbiory były parami rozłączne oraz by było co najmniej $\frac{m(m−1)}{2018}$ różnych par dziewcząt mających wspólnego znajomego chłopca przypisanego do jednej z nich.
+
+\vspace{5px}
+
+\heading{Rozwiązanie}
