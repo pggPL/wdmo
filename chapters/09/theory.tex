@@ -18,6 +18,41 @@ Niech $F_0 = 0$, $F_1 = 1$, $F_{n + 1} = F_n + F_{n - 1}$ dla $n \geqslant 1$ b�
 
 \heading{Rozwiązanie}
 
+\noindent
+Zauważmy najpierw, że liczba $0$ może być przedstawiona we wspomnianej postaci.
+Załóżmy, że dla pewnej liczby $k$, każdą z liczb 1, 2, ..., k da się przedstawić w postaci sumy parami różnych liczb Fibonacciego. Wykażemy, że wówczas liczbę $k + 1$ również.
+
+\vspace{10px}
+
+\noindent
+Niech $F_i$ będzie największą liczbą Fibonacciego mniejszą lub równą $k + 1$, równoważnie
+\[
+	F_i \leqslant k + 1 < F_{i + 1}.
+\]
+Wówczas
+\[
+	k + 1 - F_i < F_{i + 1} -  F_{i} = F_{i - 1} \leqslant F_{i}.
+\]
+Korzystając z założenia liczbę $k + 1 - F_i \leqslant k$ da się przedstawić w postaci sumy parami różnych liczb Fibonacciego. Żadna z tych liczb nie może być równa $F_{i}$, gdyż ich suma -- liczba $k + 1$ jest mniejsza niż $F_i$. Stąd dorzucając do danego przedstawienia liczby~$k + 1 - F_i$  liczbę $F_{i}$ otrzymamy szukane przedstawienie liczby $k + 1$.
+
+\qed
+
+\noindent
+
+
+\heading{Indukcja zupełna}
+
+\noindent
+W powyższym rozumowaniu skorzystaliśmy z założenia nie tylko dla liczby $k$, ale także dla wszystkich liczb od niej mniejszych. Tę metodę dowodzenia  nazywamy \textit{indukcją zupełną}. 
+
+\vspace{10px}
+
+\noindent
+Formalizując, analogicznie do standardowego dowodu indukcyjnego, dowód indukcyjny zupełny zdania logicznego $Z(n)$ dla dowolnej dodatniej liczby całkowitej $n$ składa się z dwóch części:
+\begin{enumerate}
+	\item Baza indukcji -- sprawdzenie prawdziwości zdania $Z(1)$.
+	\item Krok indukcyjny -- udowodnienie, że jeśli zachodzą zdania $Z(1)$, $Z(2)$, $Z(3)$, ..., $Z(k)$ to zachodzi zdanie $Z(k + 1)$.
+\end{enumerate}
 
 \vspace{10px}
 
@@ -30,3 +65,62 @@ Wykaż, że
 \[
 	\frac{1}{2} \cdot \frac{3}{4} \cdot ... \cdot \frac{2n - 1}{2n} < \frac{1}{\sqrt{3n}}.
 \]
+
+\newpage
+
+\heading{Rozwiązanie}
+
+\noindent
+Jeśli czytelniczka/czytelnik próbował samodzielnie zmierzyć się z tym zadaniem, mógł przekonać się, że nie da się danej nierówności wykazać wprost, korzystając z indukcji matematycznej. Okazuje się jednak, że gdy nieco umocnimy tezę do postaci
+\[
+	\frac{1}{2} \cdot \frac{3}{4} \cdot ... \cdot \frac{2n - 1}{2n} \leqslant \frac{1}{\sqrt{3n + 1}},
+\]
+to jest to już jak najbardziej możliwe.
+
+\vspace{10px}
+\noindent
+Zauważmy, że
+\[
+	\frac{1}{2} = \frac{1}{\sqrt{3\cdot 1 + 1}}.
+\]
+Załóżmy, że dla pewnej liczby naturalnej $n$ zachodzi 
+\[
+	\frac{1}{2} \cdot \frac{3}{4} \cdot ... \cdot \frac{2n - 1}{2n} \leqslant \frac{1}{\sqrt{3n + 1}}.
+\]
+Jeśli wykażemy, że 
+\begin{gather}
+	\frac{2n + 1}{2n + 2} \leqslant \frac{\sqrt{3n + 1}}{\sqrt{3n + 4}}
+\end{gather}
+to mnożąc dwie powyższe równości otrzymamy tezę dla $n + 1$
+\[
+	\frac{1}{2} \cdot \frac{3}{4} \cdot ... \cdot \frac{2n + 1}{2n + 2} \leqslant \frac{1}{\sqrt{3n + 4}}.
+\]
+Przekształcając nierówność $(1)$ równoważnie otrzymujemy kolejno
+\begin{align*}	
+	\frac{2n + 1}{2n + 2} &\leqslant \frac{\sqrt{3n + 1}}{\sqrt{3n + 4}},\\
+	\frac{(2n + 1)^2}{(2n + 2)^2} &\leqslant \frac{3n + 1}{3n + 4},\\
+	(2n + 1)^2(3n + 4) &\leqslant (2n + 2)^2(3n + 1), \\
+	12n^3 + 28n^2 + 19n + 4 &\leqslant  12n^3 + 28n^2 + 20n + 4, \\
+	0 &\leqslant n.
+\end{align*}
+Ostatnia równość jest oczywiście prawdziwa, co kończy dowód indukcyjny. Pozostaje zauważyć, że
+\[
+	\frac{1}{2} \cdot \frac{3}{4} \cdot ... \cdot \frac{2n - 1}{2n} \leqslant \frac{1}{\sqrt{3n + 1}} < \frac{1}{\sqrt{3n}}.
+\]
+
+\qed
+
+\noindent
+Umocnienie tezy paradoksalnie może pomóc w rozwiązaniu zadania. Owszem, teza staje się mocniejsza, ale mocniejsze staje się też założenie indukcyjne. Warto zawsze zobaczyć, czy ten trik jest możliwy. W powyższym zadaniu w przypadku dla $n = 1$ mieliśmy do wykazania nierówność
+\[
+	\frac{1}{2} < \frac{1}{\sqrt{3}}.
+\]
+Pozostawia ona pewne pole do działania, pomysł, że po prawej stronie liczbę $\frac{1}{\sqrt{3}}$ można zastąpić przez $\frac{1}{\sqrt{4}} = \frac{1}{2}$. Postawienie hipotezy, że zachodzi mocniejsza nierówność, nasuwa się samo. 
+
+\vspace{10px}
+
+\noindent
+Indukcja matematyczna jest tak ogólną metodą, że zawsze trzeba spróbować z niej skorzystać. Niemniej jednak są zadania, w których nie jest to możliwe. Przesłankami, które na to mogą wskazywać są chociażby występowanie w zadaniu zbiorów, po których ciężko się indukuje, jak chociażby liczby pierwsze. 
+
+\vspace{10px}
+

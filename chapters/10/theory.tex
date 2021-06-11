@@ -6,50 +6,350 @@
 
 \heading{Wykładniki peadyczne}
 
-\heading{Własności $v_p$}
+\noindent
+Niech $p$ będzie liczbę pierwszą, a $n$ pewną niezerową liczbą całkowitą. Wówczas przyjmiemy, że $v_p(n)$ oznacza potęgę, w której występuje liczba $p$ w rozkładzie liczby $n$ na czynniki pierwsze. Na przykład liczba $360$ może zostać zapisana jako
+\[
+	360 = 2^3 \cdot 3^2 \cdot 5^1,
+\]
+więc
+\[
+	v_2(360) = 3, \quad v_3(360) = 2, \quad v_3(360) = 1, \quad v_7(360) = 0.
+\]
+
+\vspace{10px}
+
+\noindent
+Inaczej, $v_p(n)$ jest taką nieujemną liczbą całkowita, że 
+\[
+	p^{v_p(n)} \mid n, \quad \text{ale} \quad p^{v_p(n) + 1} \nmid n.
+\]
+Innymi słowy jest to największy wykładnik liczy $p$, przez który jest podzielna liczba $n$.
+
+
+\vspace{10px}
+
+\noindent
+Wartość $v_p(n)$ nazywamy wykładnikiem $p$-adycznym liczby $n$. Ma ona bardzo wiele własności, które są niezwykle przydatne w badaniu podzielności liczb.
+
+\vspace{10px}
+
+\heading{Lemat 1}
+
+\noindent
+Niech $a$, $b$ będą niezerowymi liczbami całkowitymi. Wówczas
+\[
+	v_p(ab) = v_p(a) + v_p(b).
+\]
+
+\heading{Dowód}
+
+\noindent
+Zauważmy, że jeśli $a = p^{v_p(a)} \cdot x$ oraz $b = p^{v_p(b)} \cdot y$, dla pewnych liczb całkowitych $x$, $y$, które nie są podzielne przez $p$, to mamy
+\[
+	ab = p^{v_p(a)} \cdot x \cdot p^{v_p(b)} \cdot y = p^{v_p(a) + v_p(b)} \cdot xy.
+\] 
+Liczby $x$ oraz $y$ nie dzielą się przez $p$, więc $xy$ również. Z powyższej równości wynika teza. 
+
+\qed
+
+\vspace{10px}
+
+\heading{Lemat 2}
+
+\noindent
+Niech $a$, $b$ będą niezerowymi liczbami całkowitymi. Wówczas 
+\[
+	b \mid a \iff v_p(a) \geqslant v_p(b) \text{ dla każdej liczby pierwszej $p$.}
+\]
+
+\heading{Dowód}
+
+\noindent
+Załóżmy, że jeśli $v_p(b) > v_p(a)$ dla pewnej liczby pierwszej $p$. Przyjmijmy $a = p^{v_p(a)} \cdot x$ oraz $b = p^{v_p(b)} \cdot y$, dla pewnych liczb całkowitych $x$, $y$. Wówczas
+\[
+	\frac{a}{b} = \frac{p^{v_p(a)} \cdot x}{p^{v_p(b)} \cdot y}= \frac{x}{p^{v_p(b) - v_p(a)} \cdot y}.
+\]
+Mianownik powyższego ułamka jest podzielny przez $p$, a licznik nie. Stąd też nie może być on liczbą całkowitą.
+
+\vspace{5px}
+
+\noindent
+Jeśli zaś $a = bk$ dla pewnej liczby całkowitej $k$, to wówczas dla dowolnej liczby pierwszej~$p$
+\[
+	v_p(a) = v_p(bk) = v_p(b) + v_p(k) \geqslant v_p(b).
+\]
+
+\qed
+
+\heading{Lemat 3}
+
+\noindent
+Liczba $n$ jest $k$-tą potęgą liczby całkowitej wtedy i tylko wtedy, gdy dla każdej liczby pierwszej liczba $v_p(n)$ jest podzielna przez $k$. 
+
+\vspace{5px}
+
+\heading{Dowód}
+
+\noindent
+Przyjmijmy 
+$ n = p_1^{v_{p_1}(n)} \cdot p_2^{v_{p_2}(n)} \cdot ... \cdot p_s^{v_{p_1}(n)}. $
+Wówczas
+\[
+	n = p_1^{v_{p_1}(n)} \cdot p_2^{v_{p_1}(n)} \cdot ... \cdot p_s^{v_{p_1}(n)} = \left( p_1^{\frac{v_{p_1}(n)}{k}} \cdot p_2^{^{\frac{v_{p_2}(n)}{k}}} \cdot ... \cdot p_s^{^{\frac{v_{p_s}(n)}{k}}}\right)^k,
+\]
+więc jeśli każdy z wykładników jest podzielny przez $k$, to liczba w nawiasie będzie liczbą całkowitą.
+
+\vspace{10px}
+
+\noindent
+Dowodząc w drugą stronę, przyjmijmy $n = a^k$ dla pewnej liczby całkowitej $a$. Dla dowolnej liczby pierwszej $p$ mamy wtedy
+\[
+	v_p(n) = v_p(a^k) = v_p(a) + v_p(a^{k - 1}) = 2v_p(a) + v_p(a^{k - 2}) = ... =  k \cdot v_p(a),
+\]
+co dowodzi postulowanej podzielności.
+
+\qed
+
+\vspace{10px}
+
+\noindent
+Z powyższego rozumowania warto zrozumieć i zapamiętać zależność
+\[
+	v_p(a^k) =  k \cdot v_p(a).
+\]
+
+
+\noindent
+Warto zwrócić uwagę na fakt, że Lemat 2 i Lemat 3 działają w dwie strony. Możemy ich użyć, aby uzyskać pewną własność $v_p$ z założenia o podzielności lub byciu potęgą. Jednak także są przydatne, gdy mamy wykazać, że jakaś podzielność zachodzi lub jakaś liczba jest kwadratem, sześcianem, ... liczby całkowitej.
+
+\vspace{10px}
 
 % Source: XIII OMJ, finals
 
 \heading{Przykład 1}
 
+\noindent
 Niech $a$, $b$ będą nieparzystymi liczbami całkowitymi, dla których $a^bb^a$ jest kwadratem liczby całkowitej. Wykazać, że liczba $ab$ również jest kwadratem liczby całkowitej.
+
+\vspace{5px}
 
 \heading{Rozwiązanie}
 
+\noindent
+Rozpatrzmy dowolną liczbę pierwszą $p$. Wówczas na mocy Lematu $3$ mamy
+\[
+	2 \mid v_p(a^bb^a) = v_p(a^b) + v_p(b^a) = av_p(b) + bv_p(a).
+\]
+Skoro liczby $a$ i $b$ są nieparzyste, to
+\[
+	0 \equiv av_p(b) + bv_p(a) \equiv v_p(a) + v_p(b) \pmod{2},
+\]
+czyli
+\[
+	v_p(ab) = v_p(a) + v_p(b) \equiv 0 \pmod{2}.
+\]
+Skoro $v_p(ab)$ dla każdej liczby pierwszej $ab$ jest liczbą parzystą, to liczba $ab$ jest kwadratem liczby całkowitej.
+
+\heading{Lemat 4}
+
+\noindent
+Dane są niezerowe liczby całkowite $a_1, a_2, ..., a_k$. Niech m będzie najmniejszą z liczb postaci $v_p(a_i)$. Wówczas, jeśli dokładnie jedna spośród $a_1, \; a_2, \; ..., \; a_n$ spełnia zależność $m = v_p(a_i)$, to
+\[
+	v_p(a_1 + a_2 + ... + a_k) = m.
+\]
+
+\vspace{5px}
+
+\heading{Dowód}
+
+\noindent
+Przyjimy $a_i = p^{v_p(a_i)} \cdot b_i$. Wówczas
+\begin{align*}
+	a_1 + a_2 + ... + a_n &= p^{v_p(a_1)}b_1 + p^{v_p(a_2)}a_2 + ... + p^{v_p(a_n)}a_n = \\
+	&= p^{v_p(m)}\left(p^{v_p(a_1) - v_p(m)}b_1 + p^{v_p(a_2) - v_p(m)}a_2 + ... + p^{v_p(a_n) - v_p(m)}a_n\right).
+\end{align*}
+Każda z liczb w nawiasie poza jedną jest podzielna przez $p$, toteż ich suma nie jest podzielna przez $p$, skąd wynika teza.
+
+\qed
 
 %Source: https://om.mimuw.edu.pl/static/app_main/problems/om66_1r.pdf P1
 \heading{Przykład 2}
 
+\noindent
 Dane są takie niezerowe liczby całkowite, że liczba
 \[
 	\frac{a}{b} + \frac{b}{c} + \frac{c}{a}
 \]
 jest całkowita. Wykazać, że iloczyn $abc$ jest sześcianem liczby całkowitej.
 
+\vspace{5px}
+
 \heading{Rozwiązanie}
+
+\noindent
+Niech $p$ będzie dowolną liczbą pierwszą. Wówczas, skoro liczba
+\[
+	\frac{a}{b} + \frac{b}{c} + \frac{c}{a} = \frac{a^2c + b^2a + c^2b}{abc}
+\]
+jest całkowita, to
+\[
+	v_p(a^2c + b^2a + c^2b) \geqslant v_p(abc).
+\]
+Zauważmy, że
+\[
+	v_p(a^2c) = 2v_p(a) + v_p(c), \quad v_p(b^2a) = 2v_p(b) + v_p(a), \quad v_p(c^2b) = 2v_p(c) + v_p(b).
+\]
+
+\vspace{10px}
+
+
+\noindent
+\underline{Lemat.} Rozpatrzmy liczby
+\[
+	2v_p(a) + v_p(c),\; 2v_p(b) + v_p(a),\; 2v_p(c) + v_p(b).
+\] 
+Niech $m$ to będzie najmniejsza z nich. Wówczas co najmniej dwie z nich są równe $m$.
+
+
+\vspace{5px}
+
+\noindent
+\underline{Dowód.}
+
+\noindent
+Załóżmy nie wprost, że dokładnie jedna z nich jest równa $m$, a dwie pozostałe są nie mniejsze niż $m + 1$. Wyrażenie
+\[
+	a^2c + b^2a + c^2b
+\]
+jest sumą dwóch składników podzielnych przez $p^{m + 1}$ i jednego składnika podzielnego przez $p^m$. Toteż dzieli wykładnik peadyczny tej sumy wynosi dokładnie $m$.
+\[
+	m = v_p(a^2c + b^2a + c^2b) \geqslant v_p(abc) = v_p(a) + v_p(b) + v_p(c),
+\]
+\[
+	3m \geqslant (v_p(a) + v_p(b)) + (v_p(b) + v_p(c)) + (v_p(a)  + v_p(c)).
+\]
+co przeczy temu, że $m$ jest najmniejszą z tych trzech liczb, różną od pozostałych dwóch.
+
+\vspace{15px}
+
+\noindent
+Przyjmijmy bez straty ogólności, że
+\[
+	v_p(a) + 2v_p(c) = v_p(b) + 2v_p(a),
+\]
+wówczas
+\[
+	2v_p(c) = v_p(b) + v_p(a),
+\]
+\[
+	v_p(a) + v_p(b) + v_p(c) = 3v_p(c),
+\]
+co dowodzi tego, że liczba
+\[
+	v_p(abc) = v_p(a) + v_p(b) + v_p(c) = 3v_p(c)
+\]
+jest podzielna przez $3$. Z Lematu $3$ wynika więc teza. 
+
+\qed
+
 
 % Source: https://s3.amazonaws.com/aops-cdn.artofproblemsolving.com/resources/articles/olympiad-number-theory.pdf Ex 3.3.1
 
+\vspace{10px}
+
 \heading{Przykład 3}
 
+\noindent
 Wykazać, że dla żadnej dodatniej liczby całkowitej $n$ większej od $1$ liczba
 \[
 	1 + \frac{1}{2} + \frac{1}{3} + ... + \frac{1}{n}
 \]
 nie jest liczbą całkowitą.
 
+\vspace{5px}
+
 \heading{Rozwiązanie}
+
+\noindent
+Zauważmy, że
+\[
+	1 + \frac{1}{2} + \frac{1}{3} + ... + \frac{1}{n} = \frac{n! + \frac{n!}{2} + \frac{n!}{3} + ... + \frac{n!}{n}}{n!}.
+\]
+Niech $k$ będzie największą liczbą całkowitą, że
+\[
+	2^{k + 1} > n \geqslant 2^k.
+\]
+Wówczas wśród liczb $1,\; 2,\; 3,\; ..., \; n$ jest dokładnie jedna podzielna przez $2^{k}$ -- mianowicie $2^{k}$. Stąd dla każdej liczby $i$ spośród nich, która nie jest równa $2^k$ zachodzi
+\[
+	v_2\left(\frac{n!}{i}\right) = v_2(n!) - v_2(i) > v_2(n!) - k.
+\]
+Zaś mamy
+\[
+	v_2\left(\frac{n!}{2^k}\right) = v_2(n!) - v_2(2^k) = v_2(n!) - k.
+\]
+Stąd w sumie $n! + \frac{n!}{2} + \frac{n!}{3} + ... + \frac{n!}{n}$ wszystkie liczby dzielą się przez $2^{v_2(n!) - k + 1}$, poza jedną, której $v_2$ wynosi $v_2(n!) - k$ stąd
+\[
+	v_2\left(n! + \frac{n!}{2} + \frac{n!}{3} + ... + \frac{n!}{n}\right) = v_2(n!) - k < v_2(n!).
+\]
+Czyli liczba
+\[
+	\frac{n! + \frac{n!}{2} + \frac{n!}{3} + ... + \frac{n!}{n}}{n!}
+\]
+na mocy Lematu 2 nie może być całkowita, co dowodzi tezy.
+
+\qed
+
 
 \heading{Wzór Legendre'a}
 
+\noindent
+Jeśli $n$ jest dodatnią liczbą całkowitą, a $p$ jest liczbą pierwszą, to
+\[
+	v_p(n!) = \left\lfloor \frac{n}{p} \right\rfloor + \left\lfloor \frac{n}{p^2} \right\rfloor + \left\lfloor \frac{n}{p^3} \right\rfloor + ...
+\]
+Mimo że powyższa suma ma nieskończenie wiele składników, będą one od pewnego momentu -- a dokładniej, gdy $p^k > n$ -- równe zero. Powyższa toższamość zwana jest \textit{wzorem Legendre'a}.
+
+\vspace{10px}
+
+\noindent
+Powyższa równość ma bardzo intuicyjne uzasadnienie. Rozpatrzmy liczby $1, \; 2, \; n$. Spośród nich dokładnie $\left\lfloor \frac{n}{p} \right\rfloor$ jest podzielnych przez $p$, dokładnie $\left\lfloor \frac{n}{p^2} \right\rfloor$ jest podzielnych przez $p^2$ itd. Każda z liczb, dla których wykładnik peadyczny wynosi $k$ zostanie policzona dokładnie $k$ razy, gdyż dzieli się przez każdą z liczb $1$, $p$, ..., $p^k$, ale nie przez żadną wyższą potęgę.
+
+\vspace{10px}
+
 \heading{Przykład 4}
 
+\noindent
 Udowodnić, że dla wszystkich liczb całkowitych $n$ liczba 
 \[
 	\frac{1}{n+1}{{2n}\choose{n}}
 \]
 jest całkowita.
 
-\heading{Rozwiązanie}
-% wzór Langrange'a z silniami
+\vspace{5px}
 
+\heading{Rozwiązanie}
+
+\noindent
+Chcemy pokazać, że dla dowolnej liczby pierwszej $p$ zachodzi nierówność
+\[
+	v_p\left({2n}\choose{n} \right) \geqslant v_p(n + 1).
+\]
+Niech $n + 1 = p^{\alpha}m$, gdzie $p \nmid m$.
+Ze wzoru Legendre'a mamy
+\[
+	v_p\left({2n}\choose{n} \right) = v_p\left(\frac{2n!}{n! \cdot n!} \right) = v_p\left(2n! \right) - 2v_p\left(n! \right) =  \sum_{i = 1} \left(\left\lfloor \frac{2n}{p^i} \right\rfloor - 2\left\lfloor \frac{n}{p^i} \right\rfloor \right).
+\]
+Wystarczy więc pokazać, że
+\[
+	\sum_{i = 1} \left(\left\lfloor \frac{2(p^{\alpha}m - 1)}{p^i} \right\rfloor - 2\left\lfloor \frac{p^{\alpha}m - 1}{p^i} \right\rfloor \right) \geqslant \alpha,
+\]
+Dla $i \leqslant \alpha$ mamy
+\begin{align*}
+	\left\lfloor \frac{2(p^{\alpha}m - 1)}{p^i} \right\rfloor - 2\left\lfloor \frac{p^{\alpha}m - 1}{p^i} \right\rfloor &= 2p^{\alpha - 1}m + \left\lfloor \frac{-2}{p^i} \right\rfloor - 2\left(p^{\alpha - 1}m \right) -2\left\lfloor \frac{- 1}{p^i} \right\rfloor = \\
+	&= \left\lfloor \frac{-2}{p^i} \right\rfloor - 2\left\lfloor \frac{- 1}{p^i} \right\rfloor = -1 + 2 = 1.
+\end{align*}
+Stąd pierwsze $\alpha$ czynników jest równe $1$. Wykazując, że kolejne są nieujemne, udowodnimy tezę. Jeśli $n = p^i\cdot a + r$, $r < p^i$, to zachodzi nierówność
+\[
+	\left\lfloor \frac{2n}{p^i} \right\rfloor - 2\left\lfloor \frac{n}{p^i} \right\rfloor = 2a + \left\lfloor  \frac{2r}{p^i} \right\rfloor - 2a - 2\left\lfloor \frac{r}{p^i} \right\rfloor = \left\lfloor  \frac{2r}{p^i} \right\rfloor \geqslant 0,
+\]
+co kończy dowód.

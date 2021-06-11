@@ -1,11 +1,32 @@
 %Source: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxpbW9jYW5hZGF8Z3g6NDA2NGM2NjkwZTJiYTg2Ng Canada Training Camp
 \begin{problem}{1}
-	Udowodnić, że za pomocą monet dwuzłotowych i pięciozłotowych można zapłacić każdą kwotę większą niż $4$ złote, bez konieczności wydawania reszty.
+	Udowodnić, że za pomocą monet trzyzłotowych i pięciozłotowych można zapłacić każdą kwotę większą niż $8$ złotych, bez konieczności wydawania reszty.
 \end{problem}
 
 %Source: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxpbW9jYW5hZGF8Z3g6NWVkYTk2MWY5ODMzZGMxNA
 \begin{problem}{2}
-	Dana jest liczba naturalna $n$. Niech $\mathcal{S}$ będzie zbiorem wszystkich punktów postaci $(a, b)$, gdzie $a$ i $b$ są liczbami ze zbioru $\{0, 1, 2, ..., n\}$. Wykazać, że jeśli pewien zbiór prostych zawiera każdy z tych punktów, to zawiera on co najmniej $n + 1$ prostych. 
+	Dana jest liczba naturalna $n$. Niech $\mathcal{S}$ będzie zbiorem wszystkich punktów postaci $(a, b)$, gdzie $a$ i $b$ są liczbami ze zbioru $\{0, 1, 2, ..., n\}$ oraz $a + b \leqslant n$. 
+
+	\begin{center}
+	\begin{tikzpicture}[scale = 0.5]
+	    \tkzDefPoint(0,0){v_1}
+	    \tkzDefPoint(1,0){v_2}
+	    \tkzDefPoint(2,0){v_3}
+	    \tkzDefPoint(3,0){v_4}
+	    \tkzDefPoint(0,1){v_5}
+	    \tkzDefPoint(1,1){v_6}
+	    \tkzDefPoint(2,1){v_7}
+	    \tkzDefPoint(0,2){v_8}
+	    \tkzDefPoint(1,2){v_9}
+	    \tkzDefPoint(0,3){v_{10}}
+	    \tkzDrawPoints(v_1,v_2, v_3, v_4, v_5, v_6, v_7, v_8, v_9, v_{10})
+	\end{tikzpicture}\\
+	\vspace{5px}
+	Przykład dla $n = 3$.
+	\end{center}
+
+	\noindent
+	Wykazać, że jeśli pewien zbiór prostych zawiera każdy z tych punktów, to zawiera on co najmniej $n + 1$ prostych. 
 \end{problem}
 
 %Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2015.pdf P 9
@@ -15,7 +36,7 @@
 
 %Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2018.pdf P 26
 \begin{problem}{4}
-	Niech $k$ będzie dodatnią liczbą całkowitą. Na przyjęciu spotkało sie $n \geqslant 2$ gości, spośród których niektórzy znają się. Okazało się, że dla każdego niepustego podzbioru gości $A$ istnieje osoba, która zna co najwyżej $k$ osób z $A$. Wykazać, że istnieje co najwyżej $2^k \cdot n$ klik.
+	Niech $k$ będzie dodatnią liczbą całkowitą. Na przyjęciu spotkało sie $n \geqslant 2$ gości, spośród których niektórzy znają się. Okazało się, że dla każdego niepustego podzbioru gości $A$ istnieje osoba, która zna co najwyżej $k$ osób z $A$. Podzbiór gości, spośród których każde dwie się znają, nazywamy \textit{kilką}. Wykazać, że istnieje co najwyżej $2^k \cdot n$ klik.
 \end{problem}
 
 %Source: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxpbW9jYW5hZGF8Z3g6NDA2NGM2NjkwZTJiYTg2Ng P 2
@@ -28,6 +49,6 @@
 
 %Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2019.pdf P 14
 \begin{problem}{6}
-	Niech $\mathcal{R}$ będzie rodziną zbiorów $1000$-elementowych. Moc $\mathcal{R}$ wynosi co najmniej $1000 \cdot 999^{1000}$ Wykazać, że istnieje $1000$-elementowa rodzina $\mathcal{G}$, będąca podrodziną $\mathcal{R}$, oraz taki zbiór $X$, że dla dowolnych zbiorów $A, B \in \mathcal{R}$ zachodzi $A \cap B = X$.
+	Niech $\mathcal{R}$ będzie rodziną zbiorów $1000$-elementowych. Moc $\mathcal{R}$ jest większa niż $1000 \cdot 999^{1000}$ Wykazać, że istnieje $1000$-elementowa rodzina $\mathcal{G}$, będąca podrodziną $\mathcal{R}$, oraz taki zbiór $X$, że dla dowolnych zbiorów $A, B \in \mathcal{R}$ zachodzi $A \cap B = X$.
 \end{problem}
 
