@@ -2,6 +2,10 @@
 
 \theory{Bardziej zaawansowane nierówności}
 
+\noindent
+Na początku udowodnimy dwie bardzo znane nierówności. 
+
+\vspace{10px}
 
 % nierówność Cauchego–Schwarza
 \heading{Nierówność Cauchego–Schwarza}
@@ -14,7 +18,20 @@ Dla liczb rzeczywistych $a_1, a_2, ..., a_n$ oraz $b_1, b_2, ..., b_n$ zachodzi 
 
 \heading{Dowód}
 
-% dowód z deltami jest w ,,Wędrówkach po krainie nierówności'
+\noindent
+Przyjmijmy, że funkcja $f$ jest dana wzorem
+\[
+	f(x) = \sum^{n}_{i=1} (a_ix - b_i)^2 = \left(\sum^{n}_{i=1} a_i^2\right) x^2 - 2\left(\sum^{n}_{i=1} a_ib_i\right) x + \sum^{n}_{i=1} b_i^2.
+\]
+Zauważmy, że jest to suma funkcji przyjmujących wartości nieujemne, a więc sama przyjmuje tylko wartości nieujemne. Stąd też jej wyróżnik $\Delta$ będzie niedodatni
+\[
+	\Delta = 4\left(\sum^{n}_{i=1} a_ib_i\right)^2 - 4  \left(\sum^{n}_{i=1} a_i^2\right)  \left(\sum^{n}_{i=1} b_i^2\right) \leqslant 0,
+\]
+co jest równoważnie tezie.
+
+\qed
+
+\vspace{10px}
 
 % ta sama w formie Engela
 
@@ -28,9 +45,28 @@ Dla liczb rzeczywistych $a_1, a_2, ..., a_n$ oraz $b_1, b_2, ..., b_n$ zachodzi 
 
 \heading{Dowód}
 
-% też w wędrówkach
+\noindent
+Zauważmy, że na mocy nierówności Cauchego-Schwarza prawdą jest, że
+\begin{gather*}
+	\left(\sum^{n}_{i = 1} \left(\sqrt{\frac{a_i}{b_i}}\right)^2 \right) \left(\sum^{n}_{i = 1} \left(\sqrt{a_ib_i}\right)^2 \right) \geqslant \left(\sum^{n}_{i = 1} \sqrt{a_ib_i} \cdot \sqrt{\frac{a_i}{b_i}} \right).
+\end{gather*}
+Jest to równoważnie nierówności
+\[
+	\left(\sum^{n}_{i = 1} \frac{a_i}{b_i} \right) \left(\sum^{n}_{i = 1} a_ib_i \right) \geqslant \left(\sum^{n}_{i = 1} a_i^2 \right),
+\]
+z której w oczywisty sposób wynika teza.
+
+\qed
+\newpage
+
+\noindent
 
 % ciągi jednomonotoniczne
+
+\noindent
+Przejdziemy teraz do nierówności między ciągami jednomonotonicznymi. Ma ona bardzo ciekawy dowód, do którego będzie potrzebny nam następujący lemat.
+
+\vspace{10px}
 
 \heading{Lemat 1}
 
@@ -39,9 +75,26 @@ Dane są liczby rzeczywiste $a_1 \geqslant a_2$ oraz $b_1 \geqslant b_2$. Wówcz
 \[
 	a_1b_1 + a_2b_2 \geqslant a_1b_2 + a_2b_1.
 \] 
+Jeśli zaś $a_1 \geqslant a_2$ oraz $b_1 \leqslant b_2$, to zachodzi
+\[
+	a_1b_1 + a_2b_2 \leqslant a_1b_2 + a_2b_1.
+\] 
 
 \heading{Dowód}
 
+\noindent
+Zauważmy, że
+\[
+	a_1b_1 + a_2b_2 \geqslant a_1b_2 + a_2b_1 \iff (a_1 - a_2)(b_1 - b_2) \geqslant 0,
+\]
+\[
+	a_1b_1 + a_2b_2 \leqslant a_1b_2 + a_2b_1 \iff (a_1 - a_2)(b_1 - b_2) \leqslant 0,
+\]
+Teza lematu wynika wprost z założeń.
+
+\qed
+
+\vspace{10px}
 
 % tutaj opis przekształceń, sortowania bąbelkowego
 % ,,z tego algorytmu wynika następujące twierdzenie
@@ -49,25 +102,137 @@ Dane są liczby rzeczywiste $a_1 \geqslant a_2$ oraz $b_1 \geqslant b_2$. Wówcz
 \heading{Twierdzenie o ciągach jednomonotonicznych}
 
 \noindent
-Liczby $a_1 \geqslant a_2 \geqslant ... \geqslant a_n$ oraz $b_1 \geqslant b_2 \geqslant ... \geqslant b_n$ są rzeczywiste. Niech $b_1', b_2', ..., b_n'$ będzie permutacją liczb $b_1, b_2, ..., b_n$. Wówczas zachodza nierówności
+Liczby $a_1 \geqslant a_2 \geqslant ... \geqslant a_n$ oraz $b_1 \geqslant b_2 \geqslant ... \geqslant b_n$ są rzeczywiste. Niech $b_1', b_2', ..., b_n'$ będzie permutacją liczb $b_1, b_2, ..., b_n$. Wówczas zachodzą nierówności
 \[
 	a_1b_1 + a_2b_2 + ... + a_nb_n \geqslant a_1b_1' + a_2b_2' + ... + a_nb_n' \geqslant a_1b_n + a_2b_{n - 1} + ... + a_nb_1.
 \]
 
-
-% wniosek, że ta suma maksymalizuje się przy jednakowym uporządkowaniu – nie trzeba by a_1 > ... >a_n, tylko by ten porządek był taki jak w b_i
-
-
-\heading{Przykład 1}
+\heading{Dowód}
 
 \noindent
-Liczby $a_1$, $a_2$, ..., $a_n$ są dodatnie. Wykazać, że zachodzi nierównośc
+Rozpatrzmy pewną permutację $b_1', b_2', ..., b_n'$ liczb $b_1, b_2, ..., b_n$.  Zamieńmy liczby $b'_i$ oraz~$b'_{i + 1}$ miejscami i zobaczmy co stanie się z wartością wyrażenia, nazwijmy go $W$:
+\[
+	a_1b_1' + a_2b_2' + ... + a_nb_n'.
+\]
+Składnik $a_ib_i'$ zostanie zastąpiony przez $a_ib_{i + 1}'$, zaś $a_{i + 1}b_{i + 1}'$ zostanie zastąpiony przez $a_{i + 1}b_i'$. Inne składniki pozostaną bez zmian. Skoro $a_i \geqslant a_{i + 1}$, to z Lematu~1 wynika, że
+\[
+	a_ib_{i + 1}' + a_{i + 1}b_i' \leqslant a_ib_i' + a_{i + 1}b_{i + 1}', \quad \text{gdy} \; b_i \geqslant b_{i + 1},
+\]
+\[
+	a_ib_{i + 1}' + a_{i + 1}b_i' \geqslant a_ib_i' + a_{i + 1}b_{i + 1}', \quad \text{gdy} \; b_i \leqslant b_{i + 1}.
+\]
+
+\vspace{10px}
+
+\noindent
+Jeśli więc liczby $b'_i$ oraz $b'_{i + 1}$ są posortowane odwrotnie do ciągu $\{a_i\}$, to zmieniając ich kolejności możemy zwiększyć wartość wyrażenia $W$.
+Wykonując wiele takich zamian, za każdym razem wartość $W$ wzrośnie. Również liczba par postaci $(b_i', b_j')$, gdzie $i > j$ oraz $b_i' < b_j'$ maleje o $1$ przy każdym przestawieniu. Stąd w pewnym momencie otrzymamy permutację, w którym nie możemy wykonać rozpatrywanej operacji. Znaczy to tyle, że $b'_i \geqslant b'_{i + 1}$ dla wszystkich możliwych wartości liczby $i$, czyli po prostu $b'_i = b_i$. Finalnie, wartość rozpatrywanego wyrażenia $W$ jest równa
+\[
+	a_1b_1 + a_2b_2 + ... + a_nb_n.
+\]
+Skoro przy każdym ruchu wartość tego wyrażenia rosła, to jego finalna wartość jest większa od wartości początkowej.
+
+\vspace{10px}
+
+\noindent
+Dowodzi to jednej z dwóch postulowanych nierówności. Dowód drugiej z nich jest analogiczny, tylko zamieniamy miejscami $b_i'$ posortowane jednakowo jak ciąg $\{a_i\}$.
+
+\qed
+
+\vspace{10px}
+
+\noindent
+Przyjmijmy, że ciągi $(a_1, a_2, ..., a_n)$ oraz $(b_1, b_2, ..., b_n)$ są \textit{jednakowo monotoniczne}, gdy dla dowolnych indeksów $i$ oraz $j$ zachodzi
+\[
+	a_i > a_j \quad \iff \quad b_i > b_j,
+\]
+zaś \textit{odwrotnie monotoniczne}, gdy
+\[
+	a_i > a_j \quad \iff \quad b_i < b_j.
+\]
+
+\vspace{10px}
+
+\noindent
+Przykładowo ciągi $(2, 1, 3)$ oraz $(101, 100, 102)$ są jednakowo monotoniczne, zaś ciągi $(1, 2, 3)$ oraz $(10, 9, 8)$ są odwrotnie monotoniczne. Możemy teraz inaczej sformułować wykazaną wcześniej nierówność.
+
+\vspace{10px}
+
+\noindent
+Jeśli mamy dwa ciągi $(a_1, a_2, ..., a_n)$ oraz $(b_1, b_2, ..., b_n)$ i rozpatrzymy wszystkie ich możliwe permutacje, to wartość wyrażenia
+\[
+	a_1b_1 + a_2b_2 + ... a_nb_n
+\]
+będzie największa, gdy ciągi $\{a_i\}$ oraz $\{b_i\}$ są jednakowo monotoniczne, zaś najmniejsza, gdy $\{a_i\}$ oraz $\{b_i\}$ są odwrotnie monotoniczne.
+
+\vspace{10px}
+
+\heading{Przykład 2}
+
+\noindent
+Liczby $a_1$, $a_2$, ..., $a_n$ są dodatnie. Wykazać, że zachodzi nierówność
 \[
 	a_1^3 + a_2^3 + ... + a_n^3 \geqslant a_1^2a_2 + a_2^2a_3 + ... + a^2_{n - 1}a_n + a_n^2a_1.
 \]
 
 \heading{Rozwiązanie}
 
+\noindent
+Rozpatrzmy ciągi:
+\[
+	(a_1^2, a_2^2, ..., a_n^2) \quad \text{oraz} \quad (a_1, a_2, ..., a_n).
+\]
+Zauważmy, że są one jednakowo monotoniczne, gdyż
+\[
+	a_i^2 > a_j^2 \iff a_i > a_j.
+\]
+Na mocy nierówności o ciągach jednomonotonicznych prawdą jest, że
+\[
+	a_1^2 \cdot a_1 + a_2^2 \cdot a_2 + ... + a_n^2 \cdot a_n \geqslant a_1^2 \cdot a_2 + a_2^2 \cdot a_3 + ... + a_n^2 \cdot a_1,
+\]
+co jest równoważne tezie.
+
+\newpage
+
 \heading{Cykliczność a symetryczność}
 
-% omówić częsty błąd polegający na bezpodstawnym zakładaniu monotoniczności w przykładzie pierwszym
+\noindent
+Bardzo często przy rozwiązywaniu nierówności zdarzają się stwierdzenia typu ,,bez straty ogólności załóżmy, że''. Zazwyczaj chodzi o to, że rozpatrywany jest jeden przypadek, a inne są do niego analogiczne. Nie zawsze jednak są one analogiczne. Chociażby w Przykładzie 2 nie można założyć bez straty ogólności, że
+\[
+	a_1 \geqslant a_2  \geqslant ... \geqslant a_n,
+\]
+gdyż przypadek, gdy $n = 4$ i $a_1 \geqslant a_3 \geqslant a_2 \geqslant a_4$ nie daje się łatwo sprowadzić do przypadku powyższego.
+\vspace{10px}
+
+\noindent
+Zdefiniujmy wyrażenie algebraiczne jako \textit{symetryczne}, gdy wyrażenie dla liczb $(a_1, a_2, ..., a_n)$ nie zmieni się, gdy rozpatrzymy dowolną ich permutację. Chociażby wyrażenie
+\[
+	abc + a + b + c
+\]
+jest symetryczne. Chociażby rozpatrując permutację $(b, a, c)$ krotki $(a, b, c)$ otrzymamy
+\[
+	bac + b + a + c = abc + a + b + c.
+\]
+
+\noindent
+Wyrażenie algebraiczne nazwiemy \textit{cyklicznym}, gdy wyrażenie dla liczb $(a_1, a_2, ..., a_n)$ nie zmieni się, gdy rozpatrzymy dowolne ich przestawienie cykliczne -- $(a_k, a_{k + 1}, ..., a_n, a_1,  a_{k - 1})$. Wyrażenie
+\[
+	ab^2 + bc^2 + ca^2
+\]
+jest cykliczne. Dla przykładu rozpatrując przestawienie cykliczne $(c, a, b)$ krotki $(a, b, c)$ otrzymamy
+\[
+	ca^2 + ab^2 + bc^2 = ab^2 + bc^2 + ca^2.
+\]
+Nie jest ono symetryczne, gdyż dla permutacji $(b, a, c)$ krotki $(a, b, c)$ mamy
+\[
+	ba^2 + ac^2 + cb^2 \neq ab^2 + bc^2 + ca^2
+\]
+
+\noindent
+Nierówność nazwiemy symetryczną albo cykliczną, gdy rozpatrując odpowiednio permutację lub przestawienie cykliczne zmiennych, w oczywisty sposób otrzymana nierówność jest równoważna nierówności wyjściowej.
+\begin{itemize}
+	\item Gdy nierówność jest symetryczna, to można założyć ustalony porządek liczb. 
+	\item Jeśli zaś nierówność jest jedynie cykliczna, to można chociażby założyć, że pewna zmienna jest największa lub najmniejsza spośród wszystkich. Nie można jednak ustalać sobie ich porządku!
+\end{itemize}
+
+
