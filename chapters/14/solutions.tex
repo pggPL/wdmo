@@ -1,2 +1,127 @@
 \newpage
 \solutions{Twierdzenia z teorii liczb}
+
+%Source: Burek 11
+\begin{problem}{1}
+	Wykazać, że dodatnia liczba całkowita $n$ ma co najwyżej $2\sqrt{n}$ dzielników.
+\end{problem}
+
+\noindent
+Zauważmy, że jeśli liczba $d$ jest dzielnikiem liczby $n$, to również liczba $\frac{n}{d}$ jest dzielnikiem liczby $n$, bo
+\[
+	n = d \cdot \frac{n}{d}.
+\]
+Możemy więc podzielić dzielniki $n$ na pary $(a_1, b_1)$, $(a_2, b_2)$, ..., $(a_k, b_k)$, gdzie $a_i \leqslant b_i$ oraz $a_i \cdot b_i = n$ dla każdego całkowitego $1 \leqslant i \leqslant k$. Zauważmy, że
+\[
+	n = a_ib_i \geqslant a_i^2 \implies \sqrt{n} \geqslant a_i.
+\]
+Jako, że żadne dwie pary nie mają tej samej pierwszej liczby, to jest ich co najwyżej $\sqrt{n}$. Skoro każda para zawiera dwie liczby, a każdy dzielnik będzie w co najmniej jednej parze, to liczba dzielników $n$ nie może przekroczyć $2\sqrt{n}$.
+
+\vspace{10px}
+\noindent
+Przykładowo dla $n = 20$ rozpatrywanymi parami będą:
+\[
+	(1,\; 20), \;\; (2,\; 10), \;\; (4,\; 5).
+\]
+
+%Source: Burek 11
+\begin{problem}{2}
+	Liczbę nazwiemy \textit{wielodzielną}, jeśli ma co najmniej $1000$ dzielników. Rozstrzygnąć, czy istnieje taka liczba całkowita $n$, że liczby
+	\[
+		n, n + 1, n + 2, ..., n + 1000
+	\]
+	są wielodzielne.
+\end{problem}
+
+\noindent
+Wykażemy, że taka liczba istnieje. Rozpatrzmy warunki
+\begin{align*}
+	n &\equiv -k \pmod{p_{k, 1}}, \\
+	n &\equiv -k \pmod{p_{k, 2}}, \\
+	... \\
+	n &\equiv -k \pmod{p_{k, 1000}}
+\end{align*}
+dla każdej liczby całkowitej $0 \leqslant k \leqslant 1000$, przy czym $p_{i, j}$ są parami różnymi liczbami pierwszymi. Na mocy Chińskiego Twierdzenia o Resztach szukana liczba $n$ istnieje. Łatwo zauważyć, że dla każdego $k$ liczba $n + k$ ma co najmniej $1000$ dzielników pierwszych -- $p_{k, 1}$, $p_{k, 2}$, ..., $p_{k, 1000}$.
+
+%Source: Burek 11
+\begin{problem}{3}
+	Niech $d(n)$ oznacza liczbę dodatnich dzielników liczby $n$ -- włączając liczby $1$ i $n$. Wykazać, że istnieje nieskończenie wiele dodatnich liczb całkowitch $n$, dla których liczba $\frac{n}{d(n)}$ również jest całkowita.
+\end{problem}
+
+\noindent
+Rozpatrzmy liczbę $p^{k}$. Ma ona $k + 1$ dzielników. Chcemy, aby liczba $\frac{p^k}{k + 1}$ była całkowita. Wystarczy w tym celu wziąć $k = p - 1$. Jako że liczb pierwszych jest nieskończenie wiele, toteż jesteśmy w ten sposób w stanie uzyskać nieskończenie wiele liczb spełniających warunki zadania.
+
+\vspace{10px}
+
+%Source: own
+\begin{problem}{4}
+	Dana jest nieparzysta liczba pierwsza $p$. Obliczyć wartość wyrażenia
+	\[
+		\left(\frac{0}{p}\right) + 
+		\left(\frac{1}{p}\right) + 
+		... +
+		\left(\frac{p - 1}{p}\right).
+	\]
+\end{problem}
+
+\answer{
+	Wartość danego wyrażenia wynosi $0$, niezależnie od wartości $p$.
+}
+
+\noindent
+Niech $g$ będzie generatorem modulo $p$. Wiemy, że multizbiory $\{1, 2, 3, ..., p - 1\}$ oraz $\{g, g^2, ..., g^{p - 1}\}$ są sobie równe. Czyli
+\[
+		\left(\frac{1}{p}\right) + 
+		\left(\frac{2}{p}\right) + 
+		... +
+		\left(\frac{p - 1}{p}\right) =
+		\left(\frac{g}{p}\right) + 
+		\left(\frac{g^2}{p}\right) + 
+		... +
+		\left(\frac{g^{p - 1}}{p}\right)
+\]
+Wiemy, na mocy Lematu 2, że $\left(\frac{g^k}{p}\right)$ jest równe $1$ jeśli $k$ jest parzyste i $-1$, gdy $k$ jest nieparzyste. Łatwo więc zauważyć, że skoro liczba $p - 1$ jest parzysta, to dana suma wyniesie $0$.
+
+%Source: Burek 12
+\begin{problem}{5}
+	Niech $p$ będzie liczbą pierwszą dającą resztę $2$ z dzielenia przez $3$. Dla pewnych liczb całkowitych $a$, $b$ liczba $a^3 - b^3$ jest podzielna przez $p$. Wykazać, że liczba $a - b$ również jest podzielna przez $p$.
+\end{problem}
+
+\noindent
+Niech $g$ będzie generatorem modulo $p$. Oznaczmy
+\[
+	a \equiv g^x \pmod{p} \quad \text{oraz} \quad b \equiv g^y \pmod{p}.
+\]
+Przekształćmy założenie
+\begin{gather*}
+	a^3 \equiv b^3 \pmod{p} \\
+	g^{3x} \equiv g^{3y} \pmod{p} \\
+	g^{3x - 3y} \equiv 1 \pmod{p}.
+\end{gather*}
+Generator podniesiony do potęgi $3x - 3y$ jest równy $1$ wtedy i tylko wtedy, gdy zachodzi podzielność ${p - 1 \mid 3x - 3y}$. Na mocy założeń liczba $p - 1$ daje resztę $1$ z dzielenia przez~$3$, toteż nie jest ona podzielna przez~$3$. Stąd $p - 1 \mid x - y$, czyli
+\[
+	a \equiv g^x \equiv g^y \equiv b \pmod{p}.
+\]
+
+%Source: Burek P201
+\begin{problem}{6}
+	Niech $a_1, ..., a_n$ oraz $b_1, ..., b_n$ będą dodatnimi liczbami całkowitymi, że dla każdej liczby całkowitej $n - 1\geqslant i \geqslant 0$ zachodzi nierówność $b_{i + 1} \geqslant 2b_{i}$. Wykazać, że istnieje nieskończenie wiele liczb całkowitych $k$, że nie zachodzi żadne z przystawań
+	\begin{gather*}
+		k \equiv a_1 \pmod{b_1}, \\
+		k \equiv a_2 \pmod{b_2}, \\
+		.., \\
+		k \equiv a_n \pmod{b_n}.
+	\end{gather*}
+\end{problem}
+
+\noindent
+Oznaczmy $M = b_1b_2\cdot ... \cdot b_n$. Rozpatrzmy liczby
+\[
+	1, \; 2, \; ..., \; M.
+\]
+Dla każdej liczby $1 \leqslant i \leqslant n$ wykreślmy te spośród nich, które dają resztę $a_i$ z dzielenia przez $b_i$. Tych liczb będzie dokładnie $\frac{M}{b_i}$, gdyż liczba $M$ jest podzielna przez $b_i$.  Rozumujemy tak dla każdego $i$ -- liczba może zostać wykreślona więcej niż raz. Wykreślimy tak co najwyżej
+\[
+	\frac{M}{b_1} + \frac{M}{b_2} + ... + \frac{M}{b_n} \leqslant \frac{M}{2} + \frac{M}{4} + ... + \frac{M}{2^n} < M 
+\]
+liczb. Więc pewna liczba nie zostanie wykreślona -- wówczas nie spełnia ona żadnego z danych przystawań. Wystarczy zauważyć, że jeśli liczba $k$ spełnia warunki zadania, to liczba $k + b_1b_2\cdot ... \cdot b_n$ również -- daje ona takie same reszty w każdym z przystawań.
+
