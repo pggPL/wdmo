@@ -1,2 +1,230 @@
 \newpage
 \solutions{Równania funkcyjne i wielomianowe}
+
+% https://www.isinj.com/mt-usamo/Functional%20Equations%20-%20Marko%20Radovanovic.pdf P3
+\begin{problem}{1}
+	Dana jest funkcja spełniająca dla dowolnej liczby rzeczywistej $x$ równość
+	\[
+		f(f(x)) - f(x) = x.
+	\]
+	Znaleźć liczbę liczb rzeczywistych $a$, takich, że $f(f(a)) = 0$.
+\end{problem}
+
+\answer{Jest jedna taka liczba i jest ona równa 0.}
+
+\noindent
+Podstawmy $x = 0$, aby otrzymać
+\[
+	f(f(0)) = f(0).
+\]
+Wstawiając $x = f(0)$ otrzymujemy
+\[
+	f(0) = f(f(f(0))) - f(f(0)) = f(f(0)) - f(f(0)) = 0.
+\]
+Czyli $a = 0$ jest rozwiązaniem.
+
+\vspace{10px}
+
+\noindent
+Załóżmy, że $f(f(a)) = 0$. Z wyjściowego równania wynika wówczas, że
+\begin{align*}
+	0 - f(a) &= a,
+	f(a) = a.
+\end{align*}
+Stąd
+\[
+	0 = f(f(a)) = f(a) = a.
+\]
+Oznacza to, że żadna liczba różna od $0$ nie może być rozwiązaniem danego równania.
+
+
+% https://artofproblemsolving.com/community/c6h319947
+\begin{problem}{2}
+	Znajdź wszystkie funkcje  $ f: \mathbb{Z}_{>0} \to \mathbb{Z}_{>0}$ takie, że  $f(f(n)) + (f(n))^2 = n^2 + 3n + 3$.
+\end{problem}
+
+\answer{Jedyną funkcją spełniająca warunki zadania jest $f(n) = n + 1$.}
+
+\noindent
+Zauważmy, że dla $n = 1$ mamy
+\[
+	f(f(1)) + f(1)^2 = 7.
+\]
+Jeśli $f(1) = 1$, to $f(f(1)) + f(1)^2 = 1 + 1 \neq 7$. Jeśli zaś $f(1) \geqslant 3$, to
+\[
+	f(f(1)) + f(1)^2 > 3^2 > 7.
+\]
+Stąd $f(1) = 2$. Wykażemy indukcyjnie, że $f(n) = n + 1$. Załóżmy, że ta równość zachodzi dla liczb nie większych niż $n$. Wówczas
+\begin{align*}
+	n^2 + 3n + 3 &= f(f(n)) + f(n)^2 = f(n + 1) + (n + 1)^2, \\
+	f(n + 1) &= n + 2,
+\end{align*}
+co kończy dowód indukcyjny. 
+
+
+% https://web.evanchen.cc/handouts/FuncEq-Intro/FuncEq-Intro.pdf
+\begin{problem}{3}
+	Znajdź wszystkie funkcje $f:\mathbb{R} \to \mathbb{R}$, że dla dowolnych liczb rzeczywistych $x$, $y$ zachodzi równość:
+	\[
+		f(x^2 + y) = f(x^{27} + 2y) + f(x^4).
+	\]
+\end{problem}
+
+\answer{
+	Jedyną funkcją spełniającą warunki zadania jest $f(x) = 0$.
+}
+
+\noindent
+Rozpatrzmy takie $y$, aby 
+\begin{align*}
+	x^2 + y &= x^{27} + 2y \\
+	x^2 - x^{27} &= y.
+\end{align*}
+Więc dla $y = x^2 - x^{27}$ mamy
+\[
+	f(x^2 + y) = f(x^{27} + 2y).
+\]
+A więc na mocy wyjściowego równania
+\[
+	f(x^4) = 0.
+\]
+Stąd $f(x) = 0$ dla dowolnej liczby nieujemnej $x$. Mamy też
+\[
+	f(x^2 + y) = f(x^{27} + 2y) + f(x^4) =  f(x^{27} + 2y)
+\]
+dla wszystkich liczb rzeczywistych $x$, $y$. Wstawiając $y - x^2$ w miejsce $y$ mamy
+\[
+	f(y) = f(x^{27} - 2x^2 + 2y).
+\]
+Niech $y$ będzie dowolną liczbą ujemną. Biorąc odpowiednio duże $x$ otrzymamy, że $x^{27} - 2x^2 + 2y > 0$. Wówczas
+\[
+	f(y) = f(x^{27} - 2x^2 + 2y) = 0.
+\]
+Pozostaje zauważyć, że $f(x) = 0$ spełnia warunki zadania.
+
+%Source: https://artofproblemsolving.com/community/c6h1414672p7967490 Kanada 2017 P2
+\begin{problem}{4}
+	Niech $f(n)$ będzie funckją z dodatnich liczb całkowitych w dodatnie liczby całkowite. Wiadomo, że dla każdej dodatniej liczby całkowitej $n$ liczba  $f(f(n))$ jest liczbą dodatnich dzielników $n$. Wykazać, że jeśli $p$ jest liczbą pierwszą, wówczas $f(p)$ również jest liczbą pierwszą.
+\end{problem}
+
+\noindent
+Niech $d(n)$ oznacza liczbę dzielników $n$. Wówczas
+\begin{align*}
+	f(f(n)) &= d(n), \\
+	f(f(f(n))) &= f(d(n)), \\
+	d(f(n)) &= f(d(n)).
+\end{align*}
+Dla $n = 2$ mamy
+\[
+	f(2) = f(d(2)) = d(f(2)).
+\]
+Zauważmy, że jeśli $f(2) > 2$, to $f(2) - 1$ nie byłoby dzielnikiem $f(2)$, stad $f(2)$ musiało by mieć mniej niż $f(2)$ dzielników. Rozpatrzmy dwa przypadki
+\begin{itemize}
+	\item Jeśli $f(2) = 1$, to gdy $p$ jest liczbą pierwszą, to 
+	\[
+		d(f(p)) = f(d(p)) = f(2) = 1,
+	\]
+	czyli $f(p)$ ma jeden dzielnik, czyli $f(p) = 1$. Mamy wówczas
+	\[
+		1 = f(3) = f(d(p^2)) = f(f(f(p^2))) = d(f(p^2)).
+	\]
+	Skoro $f(p^2)$ ma jeden dzielnik, to również jest równe $1$. Czyli
+	\[
+		2 = d(p) = f(f(p)) = f(1) = f(f(p^2)) = d(p^2) = 3,
+	\]
+	co daje nam sprzeczność.
+	\item Gdy zaś $f(2) = 2$, to jeśli $p$ jest liczbą pierwszą, to 
+	\[
+		d(f(p)) = f(d(p)) = f(2) = 2.
+	\]
+	Skoro $f(p)$ ma dwa dzielniki, to jest liczbą pierwszą, czego należało dowieść.
+\end{itemize}
+
+\begin{problem}{5}
+	Znajdź wszystkie funkcje $f:\mathbb{R}\longrightarrow\mathbb{R}$, że dla dowolnych liczb rzeczywistych $x$, $y$ zachodzi równość:
+	\[
+		f(x^2 + f(y)) = y + f(x)^2.
+	\]
+\end{problem}
+
+\answer{Jedyną funkcją spełniającą warunki zadania jest $f(x) = x$.}
+
+\noindent
+Podstawiając $x = 0$ dostajemy 
+\[
+	f(f(y)) = y + c^2,
+\] 
+gdzie $c = f(0)$ jest stałe. Wykażemy, że $f$ jest różnowartościowa. Jeżeli dla pewnych liczb rzeczywistych $a, b$ zachodzi $f(a) = f(b)$, to 
+\[
+	a+c^2 = f(f(a)) = f(f(b)) = b+c^2,
+\]
+skąd $a = b$.
+Ponadto $y + c^2$ może przyjąć dowolną rzeczywistą wartość, a ponieważ $f(f(y)) = y + c^2$, to $f$ przyjmuje wszystkie wartości rzeczywiste.
+Wiemy zatem, że istnieje liczba rzeczywista $b$ taka, że $f(b) = 0$. Podstawiając $x = b$ i $y = f(y)$ w początkowej równości dostajemy 
+\[
+	f(b^2 + f(f(y))) = f(b^2 + y + c^2) = f(y),
+\]
+skąd, jako że $f$ to funkcja różnowartościowa, zachodzi 
+\begin{align*}
+	b^2 + y + c^2 = y, \\
+	b^2 + c^2 = 0, \\
+	b = c = 0.
+\end{align*}
+Podstawiając w początkowym równaniu $x = 0$ dostajemy 
+\[
+	f(f(y)) = y.
+\] 
+Podstawiając $y = f(y)$  dostajemy 
+\[
+	f(x^2 + y) = f(y) + f(x)^2 \geqslant f(y).
+\]
+Ponieważ $x^2$ może przyjąć dowolną rzeczywistą nieujemną wartość, to równanie to implikuje, że $f$ jest ściśle rosnąca. Wiemy jednak, że $f(f(y)) = y$. Załóżmy, że dla pewnego rzeczywistego $y$ zachodzi $f(y) > y$. Wtedy, ponieważ $f$ jest ściśle rosnąca,
+zachodzi 
+\[
+	f(f(y)) > f(y) > y,
+\] 
+co rodzi sprzeczność. Analogicznie dowodzimy, że nie może zajść $f(y) < y$. Stąd $f(y) = y$ dla dowolnego rzeczywistego $y$, co, jak nietrudno sprawdzić, spełnia podane w zadaniu równanie.
+
+\vspace{10px}
+
+\begin{problem}{6}
+	Wykazać, że istnieje taka funckja $f:\mathbb{R}\longrightarrow\mathbb{R}$, że nie istnieje taka funckja $g:\mathbb{R}\longrightarrow\mathbb{R}$, że zachodzi równość $f(x) = g(g(x))$.
+\end{problem}
+
+\noindent
+Wykażemy, że taka funkcja istnieje. Rozpatrzmy funkcję $f$ daną jako
+\[
+	f(x) = 	\begin{cases} 
+				x &\mbox{jeśli } x \notin \mathbb{Z}_{\geqslant 0} \\ 
+				x + 1 & \mbox{jeśli } x \in \mathbb{Z}_{\geqslant 0}
+			\end{cases}.
+\]
+Ta funkcja ma następujące cechy
+\begin{itemize}
+	\item jest różnowartościowa,
+	\item przyjmuje wszystkie wartości rzeczywiste poza zerem.
+\end{itemize}
+Wykażemy, że $g$ jest róznowartościowa. Jeśli $g(a) = g(b)$, to
+\[
+	f(a) = g(g(a)) = g(g(b)) = f(b).
+\]
+Skoro zaś $f$ jest różnowartościowa, to mamy $a = b$.
+
+\vspace{10px}
+
+\noindent
+Jeśli $g(x)$ przyjmuje wszystkie wartości rzeczywiste, to $g(g(x))$ również. Zaś funkcja $f(x)$ nie ma takiej własności -- sprzeczność.
+
+\vspace{10px}
+
+\noindent
+Jeśli $g(x)$ ma co najmniej dwie ,,dziury'' -- tj. istnieją takie liczby $a$, $b$, które nie są przyjmowane przez $g$, to w szczególności nie są przyjmowane przez $g(g(x))$. Zaś funkcja $f$ ma jedną wartość, której nie przyjmuje. Toteż również w tym przypadku równość zajść nie może.
+
+\vspace{10px}
+
+\noindent
+Załóżmy więc, że $g$ przyjmuje wszystkie wartości rzeczywiste poza pewną liczbą rzeczywistą $a$. Oczywiście $g(g(x))$ również nie przyjmie $a$. Skoro $f$ nie przyjmuje jedynie wartości zero, to $a = 0$. Zauważmy, że $g(g(x))$ nie przyjmuje wartości $g(0)$. Jeśli $g(g(t)) =  g(0)$ dla pewnego $t$, to na mocy różnowartościowości $g(t) = 0$. Jest to sprzeczność. Skoro $g(g(x))$ nie przyjmuje $g(0)$, a $f(x)$ nie przyjmuje jedynie $0$, to jeśli te funkcje mają być sobie równe, to $g(0) = 0$. Ale wówczas
+\[
+	1 = f(0) = g(g(0)) = g(0) = 0,
+\]
+co kończy dowód.
