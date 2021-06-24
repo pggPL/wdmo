@@ -16,6 +16,7 @@
 \usepackage{gensymb}
 \usepackage[many]{tcolorbox}
 \usepackage{mathtools}
+\usetikzlibrary{patterns}
 
 % definicja koloru
 \definecolor{kolor}{RGB}{8, 97, 138}
@@ -35,13 +36,13 @@ arrowMe/.style={postaction=decorate,
 
 
 \newcommand{\heading}[1]{
-	\noindent
-	\textbf{\textcolor{kolor}{#1}}
-	\vspace{5px}
+  \noindent
+  \textbf{\textcolor{kolor}{#1}}
+  \vspace{5px}
 }
 
 \newcommand{\remark}{
-	\noindent\textit{Uwaga}\\
+  \noindent\textit{Uwaga}\\
 }
 
 \newcommand{\theory}[1]{
@@ -128,3 +129,11 @@ arrowMe/.style={postaction=decorate,
 \vspace*{\fill}
 \newpage
 }
+
+
+
+\newcommand{\rotatehint}[1]{
+\vspace{1 px}\noindent\scriptsize{\rotatebox{180}{Podpowiedź: #1}}\normalsize
+\vspace{5px}}
+
+\newcommand{\qed}{\hfill $\blacksquare$}
