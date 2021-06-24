@@ -1,0 +1,134 @@
+\newpage
+\solutions{Bardziej zaawansowane nierówności}
+
+
+%Source: Wędrówki po krainie nierówności 3.5 przykład 2
+\begin{problem}{1}
+	Dane są liczby dodatnie $a$, $b$, $c$. Wykaż, że zachodzi nierównośc
+	\[
+		\frac{a}{2b + c} + \frac{b}{2c + a} + \frac{c}{2a + b} \geqslant 1. 
+	\]
+\end{problem}
+
+\noindent
+Z nierówności Cauchego–Schwarza w formie Engela mamy
+\[
+	\frac{a}{2b + c} + \frac{b}{2c + a} + \frac{c}{2a + b} \geqslant \frac{(a + b + c)^2}{a(2b + c) + b(2c + a) + c(2a + b)} = \frac{(a + b + c)^2}{3(ab + bc + ca)}.
+\]
+Wystarczy wykazać, że
+\[
+	(a + b + c)^2 \geqslant 3(ab + bc + ca).
+\]
+Przekształćmy równoważnie
+\begin{align*}
+	(a + b + c)^2 &\geqslant 3(ab + bc + ca), \\ 
+	a^2 + b^2 + c^2 + 2(ab + bc + ca) &\geqslant 3(ab + bc + ca), \\
+	a^2 + b^2 + c^2 &\geqslant ab + bc + ca, \\
+	2a^2 + 2b^2 + 2c^2 &\geqslant 2ab + 2bc + 2ca, \\
+	(a - b)^2 + (b - c)^2 + (c - a)^2 &\geqslant 0.
+\end{align*}
+Ostatnia nierówność jest oczywiście prawdziwa, co dowodzi tezy.
+
+%Source: Wędrówki po krainie nierówności 3.5 przykład 3
+\begin{problem}{2}
+	Udowodnić, że dla dowolnych liczb dodatnich $a$, $b$, $c$ zachodzi nierówność
+	\[
+		a^3b + b^3c + c^3a \geqslant a^2bc + ab^2c + abc^2.
+	\]
+\end{problem}
+
+\noindent
+Łatwo zauważyć, że ciągi
+\[
+	(bc, ac, ab), \quad \left(\frac{abc}{a}, \frac{abc}{b}, \frac{abc}{c}\right), \quad \left(\frac{1}{a}, \frac{1}{b}, \frac{1}{c}\right)
+\]
+są parami jednakowo monotoniczne. Zaś ciągi
+\[
+	\left(\frac{1}{a}, \frac{1}{b}, \frac{1}{c}\right) \quad \text{oraz} \quad (a^2, b^2, c^2).
+\]
+będą odwrotnie monotoniczne.
+Rozpatrzmy ciągi
+\[
+	(a^2, b^2, c^2) \quad \text{oraz} \quad (bc, ac, ab).
+\]
+Na mocy wyżej poczynionych rozważań są one odwrotnie monotoniczne. Toteż
+\[
+	a^2 \cdot ab  + b^2 \cdot bc  + c^2 \cdot ca  \geqslant a^2 \cdot bc  + b^2 \cdot ca  + c^2 \cdot ab.
+\]
+
+%Source: Wędrówki po krainie nierówności 3.5.3
+\begin{problem}{3}
+	Udowodnić, że dla dowolnych liczb rzeczywistych $\alpha_1, \; \alpha_2, \; \alpha_n$, gdzie $n \geqslant 2$ zachodzi nierówność
+	\[
+		\sin{\alpha_1}\cdot ... \cdot \sin{\alpha_n} + \cos{\alpha_1}\cdot ... \cdot \cos{\alpha_n} \leqslant 1.
+	\]
+\end{problem}
+
+\noindent
+Zauważmy, że na mocy nierówności Cauchego-Schwarza zachodzi
+\begin{gather*}
+	\left(\sin{\alpha_1}\cdot ... \cdot \sin{\alpha_n} + \cos{\alpha_1}\cdot ... \cdot \cos{\alpha_n}\right)^2 = \\
+	= \left((\sin{\alpha_1}\cdot ... \cdot \sin{\alpha_{n - 1}}) \cdot \sin{\alpha_n} + (\cos{\alpha_1}\cdot ... \cdot \cos{\alpha_{n - 1}}) \cdot \cos{\alpha_n}\right)^2 \leqslant \\
+	\leqslant
+	 \left((\sin{\alpha_1}\cdot ... \cdot \sin{\alpha_{n - 1}})^2+ (\cos{\alpha_1}\cdot ... \cdot \cos{\alpha_{n - 1}})^2\right) (\sin{\alpha_n}^2 + \cos{\alpha_n}^2)
+\end{gather*}
+Z jedynki trygonometrycznej
+\[
+	\sin{\alpha_n}^2 + \cos{\alpha_n}^2 = 1.
+\]
+Skoro funkcja $\sin^2{x}$ przyjmuje wartości od 0 do 1, to
+\[
+	\sin^2{\alpha_1} \cdot ... \cdot \sin^2{\alpha_{n - 1}} \leqslant \sin^2{\alpha_1}
+	\quad \text{oraz} \quad
+	\cos^2{\alpha_1} \cdot ... \cdot \cos^2{\alpha_{n - 1}} \leqslant \cos^2{\alpha_1}
+\]
+Stąd
+\[
+	\left((\sin{\alpha_1}\cdot ... \cdot \sin{\alpha_{n - 1}})^2+ (\cos{\alpha_1}\cdot ... \cdot \cos{\alpha_{n - 1}})^2\right) (\sin{\alpha_n}^2 + \cos{\alpha_n}^2) \leqslant \sin^2{\alpha_1} + \cos^2{\alpha_1} = 1,
+\]
+co kończy dowód.
+
+%Source: well-known
+\begin{problem}{4}
+	Dane są liczby rzeczywiste $a_1 \geqslant a_2 \geqslant ... \geqslant a_n$ oraz $b_1 \geqslant b_2 \geqslant ... \geqslant b_n$. Wykazać, że zachodzi nierówność
+	\[
+		n(a_1b_1 + a_2b_2 + ... + a_nb_n) \geqslant (a_1 + a_2 + ... + a_n)(b_1 + b_2 + ... + b_n).
+	\]
+\end{problem}
+
+\noindent
+Przyjmijmy, że $a_{n + t} = a_{t}$ oraz $b_{n + t} = b_{t}$.
+Zauważmy, że dla dowolnej liczby całkowitej $k$ z twierdzenie o ciągach jednomonotonicznych zachodzi nierówność
+\[
+	a_1b_1 + a_2b_2 + ... + a_nb_n \geqslant a_1b_{1 + k} + a_2b_{2 + k} + ... + a_nb_{n + k}.
+\]
+Sumując te nierówności dla wszystkich $k \in \{0, 1, ..., n\}$ otrzymujemy
+\begin{align*}
+	n(a_1b_1 + a_2b_2 + ... + a_nb_n) \geqslant 
+	\sum^{n}_{k = 1} \sum^{n}_{i=1} a_ib_{i + k} 
+	= \sum^{n}_{i = 1} \sum^{n}_{k=1} a_ib_{i + k} = \\
+	= \sum^{n}_{i = 1} \left( a_i \left(\sum^{n}_{k=1} b_{i + k}\right) \right) 
+	= \sum^{n}_{i = 1} \left( a_i \left(\sum^{n}_{k=1} b_{i}\right) \right) 
+	= \left(\sum^{n}_{i = 1} a_i\right)\left(\sum^{n}_{i = 1} b_i\right),
+\end{align*}
+czego należało dowieść.
+
+%Source: https://omj.edu.pl/uploads/attachments/omj2017-tresci.pdf
+% Obóz OMJ 2017 poziom OMJ P 21
+\begin{problem}{5}
+	Rozstrzygnąć, czy dla dowolnych liczb dodatnich $a$, $b$, $c$ zachodzi nierównośc
+	\[
+		a^2b^3 + b^2c^3 + c^2a^3 \leqslant ab^4 + bc^4 + ca^4.
+	\]
+\end{problem}
+
+\noindent
+Zauważmy, że dla $a = 10^{-8}$, $b = 10^{2}$ i  $c = 1$ lewa strona nierówności wynosi więcej niż $b^2c^3 = 10^{4}$, a każdy ze składników prawej strony jest nie większy niż $100$. Łatwo zauważyć, że postulowana nierówność nie zachodzi.
+
+\begin{remark}
+	Niezwykle pomocne przy rozwiązaniu tego zadania jest zobaczenie co się dzieje, gdy jedna ze zmiennych wyniesie $0$. Podstawienie to nie jest to zgodne z treścią zadania, bo rozpatrzamy liczby dodatnie, ale nasuwa ono na pomysł, który pozwala wymyślić rozwiązanie poprawne. Jeśli $a = 0$, to nierówność przybiera postać
+	\[
+		b^2c^3 \leqslant bc^4.
+	\]
+	Jeśli $c$ jest większe niż $b$ to ta nierówność nie zajdzie. Stąd pomysł na wzięcie bardzo małego $a$ i dużej liczby $c$.
+\end{remark}

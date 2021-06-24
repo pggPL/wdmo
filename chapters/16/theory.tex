@@ -1,0 +1,190 @@
+% Rozdział 16 – ciągi
+
+\theory{Ciągi}
+
+% skrypt bardziej zadaniowy
+\noindent
+Ciągiem $(a_n)_{n \geqslant 0}$ nazywamy funkcję ze zbioru liczb nieujemnych całkowitych w zbiór liczb rzeczywistych. Innymi słowy każdemu indeksowi $i$ jest przyporządkowana pewna liczba rzeczywista $a_i$. Najbardziej znanym przykładem ciągu jest \textit{ciąg Fibonacciego}. Jest on dany wzorem
+\[
+	F_0 = 0, \quad F_1 = 1, \quad F_{n + 2} = F_{n + 1} + F_{n} \text{ dla } n \geqslant 0.
+\]
+Można obliczyć, że
+\[
+	F_2 = 1, \; F_3 = 2, \; F_4 = 3, \; F_5 = 5, \; F_6 = 8, \; F_7 = 13, \; F_8 = 21, \; F_9 = 34, \; ...
+\]
+Zauważmy, że każdy kolejny wyraz tego ciągu jest zależny od poprzedzających go elementów. Ciągi tak zdefiniowane nazywamy \textit{ciągami rekurencyjnymi}. Można jednak wyznaczyć wzór na każdy element ciągu Fibonacciego, który nie jest rekurencyjny -- zależy tylko od indeksu danego elementu ciągu. Wyprowadzenie tego wzoru jest bardzo pomysłowe i zastosowanie podobnego postępowania pozwala na wyprowadzenie wzoru ogólnego wielu innych ciągów rekurencyjnych.
+
+\vspace{10px}
+
+\heading{Wzór ogólny na wyrazy ciągu Fibonacciego}
+
+\noindent
+Zapomnijmy na chwilę o warunkach $F_0 = 0, \quad F_1 = 1$ i spróbujmy znaleźć jakieś ciągi, dla których również zachodzi równanie rekurencyjne $a_{n + 2} = a_{n + 1} + a_n$, ale mają one prosty do wyprowadzenie wzór ogólny. Zobaczmy na ciągi dane wzorem $a_n = x^n$ dla pewnej liczby rzeczywistej $x$ -- być może dla pewnej liczby rzeczywistej $x$ będą one spełniały postulowane równanie rekurencyjne. Przyjmuje ono postać
+\begin{align*}
+	x^{n + 2} &= x^{n + 1} + x^n, \\
+	x^2 &= x + 1.
+\end{align*}
+Rozwiązując powyższe równanie kwadratowe możemy dojść do wniosku, że ciągi 
+\[
+	a_n = \alpha^n, \text{ gdzie } \alpha = \frac{1 + \sqrt{5}}{2} \quad \text{i} \quad a_n = \beta^n,  \text{ gdzie } \beta = \frac{1 - \sqrt{5}}{2} 
+\] 
+spełniają daną rekurencję.
+
+\vspace{10px}
+\noindent
+Zauważmy, że dla dowolnych liczb rzeczywistych $A$ oraz $B$ ciąg
+\[
+	c_n = Aa_n + Bb_n
+\]
+również będzie spełniał rekurencję $c_{n + 2} = c_{n + 1} + c_n$. Istotnie
+\begin{align*}
+	c_{n + 2} &= Aa_{n + 2} + Bb_{n + 2} = A(a_{n + 1} + a_n) + B(b_{n + 1} + b_n) = \\
+	&= (Aa_{n + 1}  + Bb_{n + 1}) + (Aa_n + Bb_n) = c_{n + 1} + c_n.
+\end{align*}
+Postaramy się poruszać liczbami $A$ oraz $B$, tak, by ciąg $c_n$ spełniał równości
+\[
+	c_{0} = F_0 = 0, \; c_{1} = F_1 = 1.
+\]
+Wówczas, co nietrudno zauważyć, ciągi $F$ i $c$ będą sobie równe. W tym celu wystarczy rozwiązać układ równań
+\[
+	\begin{cases}
+		Aa_0 + Bb_0 = A + B = 0 \\
+		Aa_1 + Bb_1 = \alpha \cdot A + \beta \cdot B = 1.
+	\end{cases}
+\]
+Powyższe równości zachodzą dla $A = \frac{1}{\sqrt{5}}$ i $B = -\frac{1}{\sqrt{5}}$. Toteż otrzymujemy zależność
+\[
+	F_n = c_n = \frac{1}{\sqrt{5}} \cdot a_n - \frac{1}{\sqrt{5}} \cdot b_n = \frac{\alpha^n - \beta^n}{\sqrt{5}}.
+\]
+
+\heading{Przykład 1}
+
+\noindent
+Wykazać, że dla każdej liczby całkowitej $M > 1$ istnieje taka dodatnia liczba całkowita $n$, że $F_n$ jest podzielne przez $M$.
+
+\vspace{5px}
+
+\heading{Rozwiązanie}
+
+\noindent
+Najpierw wykażemy, że ciąg reszt z dzielenia liczb $F_n$ przez $M$ jest okresowy. Reszt z~dzielenia przez $M$ jest skończenie wiele. Również liczba wartości jakie może przyjąć para $(F_i \pmod{M},\; F_{i + 1}\pmod{M})$ jest skończona. Toteż istnieją takie liczby $i < j$, dla których
+\[
+	F_i \equiv F_j \pmod{M} \quad \text{oraz} \quad F_{i + 1} = F_{j + 1} \pmod{M}.
+\]
+Możemy zauważyć, że
+\[
+	F_{j + 2} \equiv F_{j + 1} + F_j \equiv F_{i + 1} + F_i \equiv F_{i + 2} \pmod{M}.
+\]
+Kontynuując to rozumowanie można wykazać, że $F_{i + k} \equiv F_{j + k} \pmod{M}$ dla dowolnej liczby całkowitej dodatniej $k$.
+Możemy się również ,,cofać'', to jest
+\[
+	F_{j - 1} \equiv F_{j + 1} - F_j \equiv F_{i + 1} - F_i \equiv F_{i - 1} \pmod{M}.
+\]
+i w ten sposób wykazać, że $F_{i + k} \equiv F_{j + k} \pmod{M}$ również zachodzi dla dowolnej liczby całkowitej ujemnej $k$. Otrzymaliśmy więc, że
+\begin{align*}
+	F_{i + k} \equiv F_{j + k} &\pmod{M}\\
+	F_{k} \equiv F_{k + (j - i)} &\pmod{M} \\
+	F_{k} \equiv F_{k + t} &\pmod{M},
+\end{align*}
+dla pewnej dodatniej liczby całkowitej $t$.
+
+\vspace{10px}
+
+\noindent
+Zauważmy, że $F_0 \equiv 0 \pmod{M}$. Wówczas
+\[
+	0 \equiv F_0 \equiv F_t \equiv F_{2t} \equiv F_{3t} \equiv ... \pmod{M},
+\]
+co kończy dowód.
+
+\qed
+
+\noindent
+Przykładowo dla $M = 4$ ciąg reszt $F_n$ z dzielenia przez $M$ wygląda następująco
+\[
+	0,\; 1,\; 1,\; 2,\; 3,\; 1,\; 0,\; 1,\; 1,\; 2,\; ...
+\]
+
+% IMO 2018 P2
+\heading{Przykład 2}
+
+\noindent
+Znajdź wszystkie liczby całkowite $n \geq 3$, dla których istnieją liczby rzeczywiste $a_1, a_2, \dots a_{n + 2}$ spełniające $a_{n + 1} = a_1$, $a_{n + 2} = a_2$ oraz
+\[
+	a_ia_{i + 1} + 1 = a_{i + 2},
+\]
+dla $i = 1, 2, \dots, n$.
+
+
+\newpage
+\heading{Rozwiązanie}
+
+\noindent
+W tego typu zadaniach zawsze warto sprawdzić co się dzieje dla niewielkich liczb $n$. Czytleniczce/czytelnikowi pozostawiamy jako ćwiczenie zobaczenie, że w przypadkach $n = 1$ i $n = 2$ szukany ciąg nie istnieje. Dla $n = 3$ otrzymamy układ równań
+\[
+	\begin{cases}
+		a_1a_2 + 1 = a_3, \\
+		a_2a_3 + 1 = a_1, \\
+		a_3a_1 + 1 = a_2.
+	\end{cases}
+\]
+Metodą zgadywania można sprawdzić, że $a_1 = a_2 = - 1, a_3 = 2$ spełnia warunki zadania. Czytelniczka/czytelnik może zadać pytanie, jak zgadywać takie rzeczy. Warto podstawić sobie kolejno $a_1 = 1, 0, -1$ i zobaczyć co z tego wynika. Jeśli każde z tego typu prostych podstawień doprowadza do sprzeczności, to można postawić hipotezę, że układ nie ma rozwiązań. Niemniej jednak w tym przypadku takie rozwiązania istnieją.
+
+\vspace{10px}
+\noindent
+Można łatwo zauważyć, że skoro dla $n = 3$ szukany ciąg istnieje, to takowy będzie istniał również dla $n = 3k$ dla dowolnej liczby dodatniej całkowitej $k$. Wystarczy bowiem rozpatrzyć ciąg postaci
+\[
+	(a_1, \; a_2, \; a_3, \; a_1, \; a_2, \; a_3, \; ..., \; a_1, \; a_2, \; a_3).
+\]
+
+\vspace{10px}
+\noindent
+Rozpatrzmy ciąg $(a_n)$ spełniający warunki zadania. Mamy
+\[
+	a_ia_{i + 1} + 1 = a_{i + 2},
+\]
+\[
+	a_ia_{i + 1}a_{i + 2} + a_{i + 2} = a_{i + 2}^2,
+\]
+\[
+	\sum_{i = 1}^{n} a_ia_{i + 1}a_{i + 2} + \sum_{i = 1}^{n} a_{i + 2} = \sum_{i = 1}^{n} a_{i + 2}^2.
+\]
+W podobny sposób otrzymujemy
+\[
+	a_ia_{i + 1} + 1 = a_{i + 2},
+\]
+\[
+	a_{i - 1}a_ia_{i + 1} + a_{i - 1} = a_{i + 2}a_{i - 1},
+\]
+\[
+	\sum_{i = 1}^{n} a_{i - 1}a_ia_{i + 1} + \sum_{i = 1}^{n} a_{i - 1} = \sum_{i = 1}^{n} a_{i + 2}a_{i - 1}.
+\]
+Pozostaje zauważyć, że
+\[
+	\sum_{i = 1}^{n} a_{i - 1} = \sum_{i = 1}^{n} a_{i + 2} \quad \text{i} \quad \sum_{i = 1}^{n} a_{i - 1}a_ia_{i + 1} = \sum_{i = 1}^{n} a_ia_{i + 1}a_{i + 2},
+\]
+gdyż jest to sumowanie tych samych liczb, tylko w innej kolejności. Mamy więc równość
+\[
+	\sum_{i = 1}^{n} a_{i + 2}^2 = \sum_{i = 1}^{n} a_{i + 2}a_{i - 1}.
+\]
+Zauważmy, że $\sum_{i = 1}^{n} a_{i + 2}^2 = \sum_{i = 1}^{n} a_{i - 1}^2$, skąd
+\begin{align*}
+	\sum_{i = 1}^{n} \left(a_{i + 2}^2 + a_{i - 1}^2 - 2a_{i + 2}a_{i - 1}\right) = 0, \\
+	\sum_{i = 1}^{n} \left(a_{i + 2} - a_{i - 1}^2\right)^2 = 0.
+\end{align*}
+Otrzymujemy stąd, że $a_{i - 1} = a_{i + 2}$, czyli $a_i = a_{i + 3}$. Jeśli $n$ jest niepodzielne przez $3$, to w ciągu równości
+\[
+	a_1 = a_4 = a_7 = ...
+\]
+pojawią się wszystkie elementy ciągu, toteż wszystkie muszą być równe. Ale jeśli ${a_1 = a_2 = a_3}$, to
+\[
+	a_1^2 + 1 = a_1,
+\]
+co nie ma rozwiązań.
+
+\qed
+
+\noindent
+Powyższe zadanie ma dwa pouczające przesłania. Po pierwsze pokazuje, jak często rozważanie małych przypadków naprowadza na postawienie poprawnych hipotez. Po drugie, warto czasami po prostu nieco pobawić się tożsamościami algebraicznymi, gdyż można dojść w ten sposób do ciekawych wniosków. Może wydawać się, że to rozwiązania wynika znikąd, no ale czasem tak po prostu jest -- trzeba takich rzeczy też poszukać.
+
+\vspace{10px}

@@ -1,0 +1,228 @@
+% Rozdział 13 – Równania funkcyjne i wielomianowe
+
+\theory{Równania funkcyjne 2}
+
+\noindent
+W niniejszym rozdziale poszerzymy naszą wiedzę na temat równań funkcyjnych. Nie będą to już jedynie sztampowe zadania na podstawienia i wykazywanie różnowartościowości/surjektywności funkcji. Na początku zastanówmy się nad funkcjami, które spełniają równanie
+\[
+	f(x) + f(y) = f(x + y).
+\]
+Powyższa zależność jest zwana \textit{równaniem Cauchego}.
+
+\vspace{10px}
+
+\heading{Przykład 1}
+
+\noindent
+Wyznaczyć wszystkie funkcje $f:\mathbb{Q}\longrightarrow\mathbb{Q}$, które dla dowolnych $x, y \in \mathbb{Q}$ spełniają warunek
+\[
+	f(x) + f(y) = f(x + y).
+\]
+
+\heading{Rozwiązanie}
+
+\noindent
+Na początku zauważmy, że dla dowolnej dodatniej liczby całkowitej zachodzą równości
+\begin{align*}
+	f(nx) &= f((n - 1)x) + f(x) = f((n - 2)x) + f(x) + f(x) = ... = \\
+	&=  \underbrace{f(x) + ... + f(x)}_{n} = nf(x).
+\end{align*}
+Wykonując podstawienie $x = y = 0$ otrzymujemy, że
+\begin{align*}
+	f(0) + f(0) &= f(0), \\
+	f(0) &= 0.
+\end{align*}
+Postawmy $y = -x$. Wówczas
+\begin{align*}
+	f(x) + f(-x) &= f(0) = 0, \\
+	f(-x) &= -f(x).
+\end{align*}
+Łącząc powyższą równość z pierwszą z otrzymanych zależności otrzymujemy, że
+\[
+	f(-nx) = -f(nx) = nf(x).
+\]
+Możemy więc wywnioskować, że $f(nx) 
+= nf(x)$ dla dowolnej liczby całkowitej $n$ oraz dowolnej liczby rzeczywistej $x$. Wstawiając $x = \frac{p}{q}$ oraz $n = q$ otrzymamy
+\[
+	qf\left(\frac{p}{q}\right) = f(p).
+\]
+Zaś dla $x = 1$ i $n = p$ mamy
+\[
+	f(p) = pf(1).
+\]
+Stąd
+\begin{align*}
+	qf\left(\frac{p}{q}\right) &= pf(1), \\
+	f\left(\frac{p}{q}\right) &= \frac{p}{q} \cdot f(1).
+\end{align*}
+Skoro $f(1)$ jest stałe, to funkcja $f$ jest funkcją postaci $f(x) = ax$ dla pewnej liczby wymiernej $a$. Łatwo sprawdzić, że takie funkcje spełniają warunki zadania.
+
+\qed
+
+\noindent
+Rozsądną więc wydaje się hipoteza, że jeśli funkcja $f$ jest zdefiniowana na liczbach rzeczywistych i przyjmuje wartości rzeczywiste oraz spełnia równanie Cauchego, to musi być funkcją postaci $f(x) = ax$ dla pewnej liczby rzeczywistej $a$. Nie jest to jednak prawda! Taka implikacja nie zachodzi.
+
+\vspace{10px}
+
+\noindent
+Jaka więc jest funkcja rzeczywista, która spełnia równanie Cauchego, a nie jest funkcją liniową? Skonstruowanie takiej funkcji jest możliwe, gdy założymy \textit{pewnik wyboru}. To ten sam aksjomat, z którego założenia wynika  paradoks Banacha-Tarskiego. Nie będziemy tutaj zgłębiać tego tematu, ważny jest fakt, że z samego równania Cauchego dla funkcji rzeczywistych nie wynika ich liniowość.
+
+\vspace{10px}
+
+\noindent
+Jaka więc jest funkcja rzeczywista, która spełnia równanie Cauchego, a nie jest funkcją liniową? Skonstruowanie takiej funkcji jest możliwe, gdy założymy \textit{pewnik wyboru}. To ten sam aksjomat, z którego założenia wynika  paradoks Banacha-Tarskiego. Nie będziemy tutaj zgłębiać tego tematu, ważny jest fakt, że z samego równania Cauchego dla funkcji rzeczywistych nie wynika ich liniowość.
+
+\vspace{10px}
+
+\noindent
+Można jednak dołożyć pewne założenie do równania Cauchego, aby uzyskać liniowość rozpatrywanej funkcji. Mówi o tym następujące twierdzenie.
+
+\vspace{10px}
+
+\heading{Twierdzenie 1}
+
+\noindent
+Jeśli pewna funkcja $f:\mathbb{R}\longrightarrow\mathbb{R}$ dla dowolnych liczb rzeczywistych $x, y$ spełnia warunek
+
+\[
+	f(x) + f(y) = f(x + y).
+\]
+oraz jest funkcja niemalejącą, to wówczas $f(x) = ax$.
+
+\vspace{10px}
+
+\heading{Dowód}
+
+\noindent
+Przyjmijmy $a = f(1)$. Na mocy Przykładu 1 mamy, że 
+\[
+	f(q) = aq \quad \text{ dla dowolnej liczby wymiernej } q.
+\]
+Załóżmy nie wprost, że dla pewnej liczby rzeczywistej $t$ zachodzi równość
+\[
+	f(t) = a(t + t_0), \; t_0 \neq 0.
+\]
+Przyjmijmy, że $t_0 > 0$. Drugi przypadek będzie analogiczny.
+Znanym faktem jest, że w przedziale $(t, \; t + t_0)$ jest pewna liczba wymierna $q_0$. Mamy wówczas
+\[
+	f(q_0) = aq_0 < a(t + t_0) = f(t).
+\]
+Wiedząc, że $q_0 > t$ otrzymujemy sprzeczność z tym, że $f$ jest niemalejąca.
+
+\qed
+
+\newpage
+\noindent
+Analogiczne twierdzenia można udowodnić, gdy fakt, że $f$ jest malejąca, zastąpić tym, że 
+\begin{itemize}
+	\item $f(x) > 0$, dla dowolnego $x > 0$,
+	\item $f(x) < 0$, dla dowolnego $x < 0$,
+	\item $f$ jest ograniczona na przedziale -- $f(x) < M$, dla dowolnego $a < x < b$, dla pewnych liczb rzeczywistych $a < b$ oraz $M$,
+	\item $f$ jest ciągła.
+\end{itemize}
+Warto zaznaczyć, że różnowartościowość funkcji $f$ nie wystarcza, aby była ona liniowa. 
+
+
+\vspace{10px}
+
+\heading{Przykład 2}
+% https://artofproblemsolving.com/community/q1h1871345p12695350
+
+\noindent
+Znajdź wszystkie funkcje $f$ ze zbioru liczb rzeczywistych w zbiór liczb rzeczywistych, że dla dowolnych liczb rzeczywistych $x$, $y$ zachodzą równości
+\[ 
+	f(x) + f(y) = f(x + y) \quad \text{oraz} \quad f(x)f(y) = f(xy).
+\]
+
+\vspace{5px}
+
+\heading{Rozwiązanie}
+
+\noindent
+Wstawiając do drugiego równania $x = y$ otrzymujemy
+\[
+	f(x^2) = f(x)f(x) = f(x)^2 \geqslant 0.
+\]
+Niech $t$ będzie liczbą nieujemną. Wstawiając $x = \sqrt{t}$ do powyższego równania otrzymujemy $f(t) \geqslant 0$. Czyli $f$ przyjmuje wartości nieujemne dla argumentów nieujemnych.
+
+\vspace{10px}
+\noindent
+Wykażemy, że $f$ jest niemalejąca. W tym celu rozpatrzmy dwie liczby rzeczywiste $a > b$. Mamy
+\[
+	f(a) = f(a - b) + f(b) \geqslant f(b),
+\]
+co dowodzi postulowanej własności.
+
+\vspace{10px}
+\noindent
+Na mocy Twierdzenia 1 mamy, że $f(x) = ax$ dla pewnej liczby rzeczywistej $a$. Podstawiając to do drugiego równania otrzymamy
+\begin{align*}
+	ax \cdot ay &= axy, \\
+	a^2 &= a.
+\end{align*}
+Stąd $a = 0$ lub $a = 1$. Łatwo sprawdzić, że obie funkcje $f(x) = 0$ i $f(x) = x$ spełniają warunki zadania.
+
+\qed
+
+\vspace{10px}
+\noindent 
+Warto zwrócić uwagę na sposób, w jaki wykazano, że funkcja $f$ jest niemalejąca. Da się go spotkać w wielu zadaniach tego rodzaju. 
+
+\vspace{10px}
+
+% https://web.evanchen.cc/handouts/FuncEq-Intro/FuncEq-Intro.pdf Ex 2.1
+\heading{Przykład 3}
+
+\noindent
+Znajdź wszystkie funkcje $ f:\mathbb{R}\to\mathbb{R} $ dla których 
+\[
+	f(f(x)^2 + f(y)) = xf(x) + y,
+\]
+dla dowolnych liczb rzeczywistych $x, y$.
+
+\heading{Rozwiązanie}
+
+\noindent
+Zacznijmy od najprostszego podstawienia. Weźmy $x = y = 0$. Wówczas otrzymamy
+\[
+	f(f(0)^2 + f(0)) = 0.
+\]
+Oznacza to, że istnieje  liczba rzeczywista $a = f(0)^2 + f(0)$, że $f(a) = 0$. Wstawmy $x = a$
+\begin{align*}
+	f(f(a)^2 + f(y)) &= af(a) + y, \\
+	f(f(y)) &= y.
+\end{align*}
+Następnie zastąpmy $x$ przez $f(x)$ w wyjściowym równaniu
+\begin{align*}
+	f(f(f(x))^2 + f(y)) &= f(x)f(f(x)) + y, \\
+	f(x^2 + f(y)) &= xf(x) + y.
+\end{align*}
+W wyjściowym równaniu mieliśmy
+\[
+	f(f(x)^2 + f(y)) = xf(x) + y.
+\]
+Łącząc oba powyższe równania otrzymujemy
+\[
+	f(f(x)^2 + f(y)) = f(x^2 + f(y)).
+\]
+Wykażemy, że funkcja $f$ jest różnowartościowa. Zakładamy w tym celu, że dla pewnych liczb rzeczywistych $a$, $b$ zachodzi $f(a) = f(b)$. Wtedy
+\[
+	a = f(f(a)) = f(f(b)) = b.
+\]
+Stąd
+\begin{align*}
+	f(f(x)^2 + f(y)) &= f(x^2 + f(y)) \\
+	f(x)^2 + f(y) &= x^2 + f(y) \\
+	f(x)^2 &= x^2.
+\end{align*}
+Mamy więc, że dla każdej liczby rzeczywistej $x$ zachodzi $f(x) = x$ lub $f(x) = -x$. Załóżmy więc, że dla pewnych niezerowych liczb rzeczywistych zachodzi $f(a) = -a$ i $f(b) = b$. Biorąc $x = a$ i $y = b$ otrzymujemy
+\[
+	f(a^2 - b) = -a^2 + b.
+\]
+W zależności od tego, czy $f(a^2 - b)$ jest równe $a^2 - b$ czy $-a^2 + b$ otrzymujemy sprzeczność z niezerowością obu liczb $a$, $b$. Stąd albo $f(x) = x$ dla wszystkich liczb rzeczywistych $x$ albo $f(x) = -x$ dla wszystkich liczb rzeczywistych. Sprawdzając otrzymujemy, że obie te funkcje spełniają warunki zadania.
+
+\qed
+
+\vspace{10px}
+\noindent
+Należy zauważyć, że z faktu $f(x)^2 = x^2$ nie wynika jeszcze to, że $f(x) = x$ dla wszystkich $x$ lub $f(x) = -x$ dla wszystkich $x$. Może się bowiem zdarzyć na przykład, że $f(1) = 1$ i~$f(2) = -2$. Jest to dość znana pułapka i~warto zwrócić na nią uwagę.

@@ -1,0 +1,381 @@
+% Rozdział 15 - Grafy skierowane
+
+\theory{Grafy skierowane}
+
+\heading{Definicje}
+
+\noindent
+\textit{Grafem skierowanym} nazywamy taki graf, w którym każda z krawędzi jest skierowana jedną ze stron. Może zdarzyć się, że pomiędzy wierzchołkami są dwie krawędzie, każda skierowana w inną stronę. Przykład takiego grafu znajduje się na poniższym rysunku.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+		\node[vertex] (A) at (-2,2) {};
+		\node[vertex] (B) at (-1,3) {};
+		\node[vertex, label=below:x] (C) at (0,2) {};
+		\node[vertex] (D) at (2,3) {};
+		\node[vertex] (E) at (1,4) {};
+
+		\draw[edge] (B) to (A);
+		\draw[edge] (B) to (C);
+		\draw[edge] (A) to (C);
+		\draw[edge] (C) to (D);
+		\draw[edge] (E) to (D);
+		\draw[edge] (E) to[bend left] (C);
+		\draw[edge] (C) to[bend left] (E);
+
+
+	\end{tikzpicture}
+	\hspace{40px}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+		\node[vertex] (A) at (0,0) {};
+		\node[vertex] (B) at (3,1) {};
+		\node[vertex] (C) at (1,2) {};
+		\node[vertex] (D) at (-1,0.5) {};
+
+		\draw[edge] (A) to (B);
+		\draw[edge] (B) to (C);
+		\draw[edge] (C) to (D);
+		\draw[edge] (D) to (A);
+	\end{tikzpicture}
+\end{center}
+
+\noindent
+\textit{Cyklem} w grafie skierowanym nazywamy taki ciąg krawędzi $e_1$, ..., $e_k$, że wierzchołek końcowy krawędzi $e_i$ jest wierzchołkiem początkowym krawędzi $e_{i + 1}$ dla każdego ${1 \leqslant i \leqslant n}$ -- przyjmujemy $e_{k + 1} = e_1$. Przykład cyklu znajduje się na drugim rysunku powyżej.
+
+\vspace{5px}
+
+\noindent
+Dla każdego wierzchołka definiujemy \text{stopień wejściowy} jako liczbę krawędzi, które ,,wchodzą'' do danego wierzchołka i oznaczamy go symbolem $indeg(v)$. Analogicznie definiujemy \text{stopień wyjściowy} jako liczbę krawędzi, które ,,wychodzą'' z danego wierzchołka -- oznaczamy go jako $outdeg(v)$. Dla przykładowego grafu na rysunku powyżej i jego wierzchołka~$X$ mamy
+\[
+	indeg(x) = 3,  \quad outdeg(x) = 2.
+\]
+
+
+\vspace{10px}
+
+\heading{Lemat 1}
+
+\noindent
+W grafie skierowanym, w którym dla każdego wierzchołka $v$ zachodzi 
+\[
+	out(v) \geqslant 1
+\] 
+istnieje cykl.
+
+\vspace{5px}
+
+\heading{Dowód}
+
+\noindent
+Rozpatrzmy dowolny wierzchołek $v_1$. Z warunków zadania istnieje krawędź wychodząca z niego. Przejdźmy nią do pewnego wierzchołka $v_2$. Kontynuujmy takie przechodzenie -- oznaczmy jako $v_i$ wierzchołek, który odwiedzimy jako $i$-ty. Jako, że wierzchołków jest skończenie wiele, to w pewnym momencie trafimy do wierzchołka, w którym już byliśmy. Załóżmy, że wierzchołek $v_{b + 1}$ jest tym samym wierzchołkiem co wierzchołek $v_a$. Wówczas wierzchołki
+\[
+	v_a, \; v_{a + 1}, \; v_{a + 2}, \; ..., \; v_{b - 1}, \; v_b
+\]
+tworzą cykl.
+
+\qed
+
+\newpage
+
+
+%Source: https://www.comp.nus.edu.sg/~warut/cycles.pdf P1
+\heading{Przykład 1}
+
+\noindent
+Pewne $n \geqslant 2$ osób zostało przydzielonych do $n$ pokoi, przy czym w każdym pokoju znajduje się dokładnie jedna osoba. Każda z osób ustaliła listę preferencji posortowała pokoje w pewnej kolejności. Wiadomo, że jeśli przyporządkowano by pokoje w inny sposób, to znalazła by się osoba, dla której nowy pokój był niżej na jej liście niż pierwotnie przyporządkowany jej pokój. Wykazać, że istnieje osoba, która ma na najwyższym miejscu swojej listy pokój, który został jej przyporządkowany.
+
+\vspace{5px}
+
+\heading{Rozwiązanie}
+
+\noindent
+Zadanie w treści nie zawiera słowa ,,graf''. Jednak czasami warto sobie taki graf stworzyć. Rozpatrzmy więc graf skierowany, który ma $n$ wierzchołków -- ponumerujmy je liczbami od $1$ do $n$. Jeśli osoba, której przyporządkowano pokój $i$ ma na najwyższym miejscy swojej listy preferencji pokój $j$, to graf będzie zawierał krawędź z $i$ do $j$. 
+
+\vspace{5px}
+
+\noindent
+Załóżmy nie wprost, że szukana osoba nie istnieje -- tj. z każdego wierzchołka wychodzi dokładnie jedna krawędź. Wówczas na mocy Lematu $1$ w rozpatrywanym grafie istnieje cykl -- powiedzmy, że przechodzi przez wierzchołki
+\[
+	a_1, \; a_2, \; a_3, \; ..., \; a_k.
+\]
+Wówczas przydzielając osobie z pokoju $a_i$ pokój $a_{i + 1}$ dla każdego $1 \leqslant i \leqslant k$, gdzie $a_{k + 1} = a_1$, otrzymamy przyporządkowanie, w którym każda osoba otrzyma subiektywnie lepszy pokój niż wcześniej. Jest to jednak sprzeczne z założeniami.
+
+\qed
+
+\heading{Turnieje}
+
+\noindent
+Zdarza się, że w zadaniu są rozpatrywane pewne zawody, w których wzięła udział pewna liczba graczy, każda para rozegrała mecz, który zakończył się zwycięstwem jednej ze stron. Możemy wówczas rozpatrzyć graf skierowany, w którym wierzchołki będą odpowiadały graczom. Pomiędzy każdą dwójką graczy będzie występowałą dokładnie jedna krawędź i będzie ona skierowana w stronę zwycięzcy. Taki graf nazywamy $\textit{turniejem}$ -- przykład znajduje się na rysunku.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+		\node[vertex] (A_1) at (0,0) {};
+		\node[vertex] (A_2) at (2,1) {};
+		\node[vertex] (A_3) at (1,3) {};
+		\node[vertex] (A_4) at (-2,1) {};
+		\node[vertex] (A_5) at (-1,3) {};
+
+		\draw[edge] (A_1) to (A_2);
+		\draw[edge] (A_2) to (A_3);
+		\draw[edge] (A_1) to (A_4);
+		\draw[edge] (A_5) to (A_1);
+		\draw[edge] (A_4) to (A_2);
+		\draw[edge] (A_1) to (A_3);
+		\draw[edge] (A_4) to (A_3);
+		\draw[edge] (A_5) to (A_4);
+		\draw[edge] (A_5) to (A_3);
+	\end{tikzpicture}
+\end{center}
+
+\noindent
+Turniej nazwiemy \textit{redukowalnym}, gdy możemy podzielić jego uczestników na dwa niepuste zbiory $A$ oraz $B$, takie, że każdy uczestnik z $A$ wygrał z każdym uczestnikiem z $B$. Przykład takiego turnieju narysowano poniżej po lewej stronie.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+		\node[vertex] (A_1) at (1,2) {};
+		\node[vertex] (A_2) at (2,2.5) {};
+		\node[vertex] (A_3) at (3,2) {};
+		\node[vertex] (B_1) at (1.5,0) {};
+		\node[vertex] (B_2) at (2.5,0) {};
+
+		\draw[edge] (A_1) to (A_2);
+		\draw[edge] (A_2) to (A_3);
+		\draw[edge] (A_1) to (A_3);
+
+		\draw[edge] (A_1) to (B_1);
+		\draw[edge] (A_2) to (B_1);
+		\draw[edge] (A_3) to (B_1);
+		\draw[edge] (A_1) to (B_2);
+		\draw[edge] (A_2) to (B_2);
+		\draw[edge] (A_3) to (B_2);
+
+
+		\draw[edge] (B_2) to (B_1);
+
+
+
+		\node (x) at (0.5,2.3) {A};
+		\node (x) at (0.5,0) {B};
+	\end{tikzpicture}
+	\hspace{80px}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+		\node[vertex] (A_1) at (0,0) {};
+		\node[vertex] (A_2) at (2.5,0) {};
+		\node[vertex] (A_3) at (2,2) {};
+		\node[vertex] (A_4) at (0.5,2) {};
+
+		\draw[edge] (A_1) to (A_2);
+		\draw[edge] (A_2) to (A_3);
+		\draw[edge] (A_3) to (A_4);
+		\draw[edge] (A_4) to (A_1);
+		\draw[edge] (A_1) to (A_3);
+		\draw[edge] (A_4) to (A_2);
+
+
+	\end{tikzpicture}
+\end{center}
+
+\noindent
+Turniej nazwiemy \textit{cyklicznym}, gdy istnieje w nim cykl, który przechodzi przez każdy wierzchołek dokładnie raz. Przykład takiego turnieju znajduje się po prawej stronie powyższego rysunku.
+
+\vspace{10px}
+\noindent
+Zachęcamy do samodzielnego zmierzenia się z poniższymi Lematami.
+
+\vspace{10px}
+
+\heading{Lemat 2}
+
+\noindent
+Turniej jest redukowalny wtedy i tylko wtedy, gdy nie jest cykliczny.
+
+\vspace{5px}
+
+\heading{Dowód}
+
+\noindent
+Zauważmy, że jeśli turniej jest redukowalny, to nie może on zawierać żadnego cyklu. Graf ten wówczas da się podzielić na dwie części $A$ oraz $B$, takie, że każdy uczestnik z $A$ wygrał z każdym uczestnikiem z $B$. Załóżmy, że istnieje pewien cykl $v_1, \; v_2, \;, ..., \; v_k$. Wówczas część jego wierzchołków należy do $A$, a reszta do $B$. Stąd istnieje takie $i$, że $v_i$ należy do~$B$, a $v_{i + 1}$ należy do $A$. Jednak wówczas $v_{i + 1}$ wygrałby z $v_i$, co daje sprzeczność.
+
+\vspace{10px}
+\noindent
+Przejdźmy teraz do trudniejszej części -- tj. wykazania, że jeśli graf nie jest cykliczny, to jest redukowalny. Rozpatrzmy największy cykl
+\[
+	v_1, \; v_{2}, \; v_{3}, \; ..., \; v_k
+\]
+w danym grafie. Skoro graf ten nie jest cykliczny, to istnieje pewien wierzchołek $x$ spoza cyklu.
+
+\vspace{10px}
+\noindent
+\underline{Obserwacja 1.} Jeśli $x$ jest wierzchołkiem spoza cyklu, to albo $x$ przegrał z~wszystkimi \phantom{Obserwacja 1.  }~wierzchołkami z cyklu, albo $x$ wygrał z wszystkimi wierzchołkami z cyklu.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+		\node[vertex, label=left:x] (X) at (0.75,3) {};
+		\node[vertex] (A_1) at (0,0) {};
+		\node[vertex] (A_2) at (0.5,1) {};
+		\node[vertex] (A_3) at (1,1) {};
+		\node[vertex] (A_4) at (1.5,0) {};
+
+
+		\draw[edge] (A_1) to (A_2) {};
+		\draw[edge] (A_2) to (A_3) {};
+		\draw[edge] (A_3) to (A_4) {};
+		\draw[edge] (A_4) to (A_1) {};
+
+
+		\draw[edge] (X) to (A_1) {};
+		\draw[edge] (X) to (A_2) {};
+		\draw[edge] (A_3) to (X) {};
+		\draw[edge] (A_4) to (X) {};
+
+	\end{tikzpicture}
+\end{center}
+
+\vspace{10px}
+\noindent
+Załóżmy, że $x$ przegrał z niektórymi wierzchołkami z cyklu, a z niektórymi wygrał. Wówczas istnieje takie $i$, że $x$ wygrał z $v_{i + 1}$, a przegrał z $v_{i}$ -- oczywiście przyjmujemy $v_{k + 1} = v_{1}$. Wówczas wierzchołki
+\[
+	v_1, \; v_{2}, \; ..., \; v_i, \; x, \;, v_{i + 1}, \; ..., \; v_k
+\]
+tworzyłyby cykl, co przeczy założonej maksymalności cyklu wyjściowego.
+
+
+
+\vspace{10px}
+\noindent
+Możemy więc podzielić wierzchołki na trzy grupy:
+\begin{itemize}
+	\item grupę $A$ -- wierzchołków spoza rozpatrywanego cyklu, które wygrały z każdym z wierzchołków z cyklu,
+	\item grupę $B$ -- wierzchołków spoza rozpatrywanego cyklu, które przegrały z każdym z wierzchołków z cyklu,
+	\item grupę $C$ -- wierzchołki z rozpatrywanego cyklu.
+\end{itemize}
+
+\vspace{10px}
+\noindent
+\underline{Obserwacja 2.} Jeśli $x$ należy do grupy $A$, a $y$ do grupy $B$, to $x$ wygrał z $y$.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+		\node[vertex, label=left:x] (X) at (0.75,2) {};
+		\node[vertex, label=left:y] (Y) at (0.75,-1) {};
+		\node[vertex] (A_1) at (0,0) {};
+		\node[vertex] (A_2) at (0.5,1) {};
+		\node[vertex] (A_3) at (1,1) {};
+		\node[vertex] (A_4) at (1.5,0) {};
+
+
+		\draw[edge] (A_1) to (A_2) {};
+		\draw[edge] (A_2) to (A_3) {};
+		\draw[edge] (A_3) to (A_4) {};
+		\draw[edge] (A_4) to (A_1) {};
+
+
+		\draw[edge] (A_1) to (Y) {};
+		\draw[edge] (Y) to (X) {};
+		\draw[edge] (X) to (A_2) {};
+
+	\end{tikzpicture}
+\end{center}
+
+
+\vspace{10px}
+\noindent
+Załóżmy nie wprost, że $y$ wygrał z $x$. Wówczas wierzchołki
+\[
+	v_1, \; y, \; x, \; v_{2}, \; ..., \; v_k, 
+\]
+tworzyłyby większy cykl -- sprzeczność.
+
+\vspace{10px}
+\noindent
+Skoro nie wszystkie wierzchołki należą do do grupy $C$, to istnieje inna grupa, która jest niepusta -- przyjmijmy bez straty ogólności, że jest to grupa $A$. Wówczas podział na zbiory $A \cup C$ oraz $B$ dowodzi redukowalności grafu.
+
+\qed
+
+
+\heading{Lemat 3}
+
+\noindent
+Jeśli turniej o $n \geqslant 4$ wierzchołkach jest cykliczny, to zawiera cykl o długości równiej $n - 1$.
+
+\vspace{5px}
+
+\heading{Dowód}
+
+\noindent
+Usuńmy pewien wierzchołek $x$. Otrzymany graf zawiera $n - 1$ wierzchołków, więc jeśli jest cykliczny, to wynika z tego teza. Załóżmy więc, że tak nie jest -- na mocy Lematu~$2$ jest on redukowalny. Niech więc rozpatrywany graf składa się z wierzchołka $x$ oraz niepustych zbiorów wierzchołków $A$ oraz $B$, przy czym każdy wierzchołek z $A$ wygrał z każdym wierzchołkiem z $B$.
+
+\vspace{10px}
+\noindent
+Skoro rozpatrywany graf jest cykliczny, to istnieje cykl
+\[
+	x, \; v_1, \;, v_2, \; ...,\; v_{n - 1}.
+\]
+Zauważmy, że jeśli $v_{i + 1}$ należy do $A$, to jako, że $v_{i}$ wygrało z $v_{i + 1}$, to nie może należeć ono do $B$. Stąd również należy do $A$. Stąd też istnieje takie $t$, że
+\[
+	v_1, \;, v_2, \; ...,\; v_{t} \in A, \quad v_t, \;, v_{t + 1}, \; ...,\; v_{n - 1} \in B.
+\]
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+		\node[vertex, label=left:x] (X) at (-1,1) {};
+
+		\node[vertex] (A_1) at (0,2) {};
+		\node[vertex] (A_2) at (0.5,2.5) {};
+		\node[vertex] (A_3) at (1,2) {};
+		\node[vertex] (B_1) at (1,0) {};
+		\node[vertex] (B_2) at (0,0) {};
+		\node[label=left:A] (a) at (0,2.25) {};
+		\node[label=left:B] (b) at (0,0) {};
+
+
+		\draw[edge] (X) to (A_1) {};
+		\draw[edge] (A_1) to (A_2) {};
+		\draw[edge] (A_2) to (A_3) {};
+		\draw[edge] (A_3) to (B_1) {};
+		\draw[edge] (B_1) to (B_2) {};
+		\draw[edge] (B_2) to (X) {};
+
+
+		\draw[edge, dashed] (A_3) to (B_2) {};
+		\draw[edge, dashed] (A_2) to (B_1) {};
+
+	\end{tikzpicture}
+\end{center}
+
+\noindent
+Jeśli $t \geqslant 2$, to oznacza, że istnieje $v_{t - 1}$. Skoro $v_{t - 1} \in A$ oraz $v_{t + 1} \in B$, to $v_{t - 1}$ wygrał~z~$v_{t + 1}$. Czyli
+\[
+	x, \; v_1, \;, v_2, \; ..., \;, v_{t - 1}, \; v_{t + 1}, \; ..., \; v_{n - 1}
+\]
+jest cyklem o długości $n - 1$. Jeśli zaś $t = 1$, to $t + 2 = 3 \leqslant n - 1$. Analogicznie jak powyżej wykazujemy, że $v_{t}$ wygrał z $v_{t + 2}$, czyli
+\[
+	x, \; v_1, \;, v_2, \; ..., \;, v_{t}, \; v_{t + 2}, \; ..., \; v_{n - 1}
+\]
+jest cyklem o długości $n - 1$.
+
+\qed

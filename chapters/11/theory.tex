@@ -1,0 +1,200 @@
+% Rozdział 11 – gry
+
+\theory{Gry}
+
+\noindent
+Zajmiemy się teraz analizą gier. Większość gier, które będziemy rozważać, ma pewne cechy wspólne:
+\begin{itemize}
+	\item dwóch graczy wykonują ruchy na przemian,
+	\item obaj gracze mają wszystkie informacje na temat stanu gry -- nie ma żadnych elementów tajnych,
+	\item gra musi się skończyć -- nie można grać w nieskończoność.
+\end{itemize}
+Oczywiście niektóre zadania wyłamią się z tych zasad.
+
+\vspace{10px}
+\noindent
+Powiemy, że jeden z graczy ma \textit{strategię wygrywającą}, gdy może tak wykonywać ruchy, aby wygrać, niezależnie od tego jak gra przeciwnik. . Przykład takiej strategii ilustruje następujące zadanie.
+
+\vspace{10px}
+
+% coś o tym, czym jest gra i strategia wygrywająca
+
+\heading{Przykład 1}
+
+\noindent
+Ania i Bartek grają w następującą grę. Mają do dyspozycji stół w kształcie koła oraz dowolnie wiele monet o jednakowej średnicy, mniejszej od średnicy stołu. W każdym ruchu gracz kładzie monetę na stole tak, aby nie przykrywała żadnej innej monety. Gdy wykonanie ruchu nie jest możliwe, gracz którego jest kolej przegrywa. Rozstrzygnąć który z graczy ma strategię wygrywającą, jeśli Ania wykonuje pierwszy ruch.
+
+\vspace{5px}
+
+\heading{Rozwiązanie}
+
+\noindent
+Wykażemy, że Ania -- która rozpoczyna grę, ma strategię wygrywającą. Składa się ona z dwóch kroków.
+
+\begin{itemize}
+	\item W pierwszym ruchu Ania kładzie monetę tak, aby środek stołu pokrywał się ze środkiem monety. Może tak zrobić, gdyż średnica stołu jest większa niż średnica monety.
+	\item W kolejnych ruchach Ania kładzie monetę tak, aby była ona symetryczna do monety położonej poprzednio przez Bartka względem środka stołu.
+\end{itemize}
+
+\begin{center}
+	\begin{tikzpicture}[scale = 0.4]
+	    \tkzDefPoint(0,0){O}
+	    \tkzDefPoint(4,0){X}
+	    \tkzDrawCircle(O,X)
+	    \tkzDefPoint(0,0){O_1}
+	    \tkzDefPoint(1,0){X_1}
+	    \tkzDrawCircle(O_1,X_1)
+
+	    \tkzDrawPoint(O)
+
+	    % 1st move
+
+	    \tkzDefPoint(2.3,1.3){OA_1}
+	    \tkzDefPoint(2.3,2.3){A_1}
+	    \tkzDrawCircle(OA_1,A_1)
+	    \tkzDefPoint(-2.3,-1.3){O_1}
+	    \tkzDefPoint(-2.3,-2.3){A_1}
+	    \tkzDrawCircle[dashed](O_1,A_1)
+
+	    % 2nd move
+
+	    \tkzDefPoint(-1.2,2.6){OA_1}
+	    \tkzDefPoint(-1.2,3.6){A_1}
+	    \tkzDrawCircle(OA_1,A_1)
+	    \tkzDefPoint(1.2,-2.6){O_1}
+	    \tkzDefPoint(1.2,-3.6){A_1}
+	    \tkzDrawCircle[dashed](O_1,A_1)
+	\end{tikzpicture}
+
+	\vspace{10px}
+
+	\begin{minipage}{0.6\textwidth}
+	Przykład gry. Okręgi z linii ciągłej zostały położone przez Anię, a te z linii przerywanej przez Bartka.
+	\end{minipage}
+\end{center}
+
+\noindent
+Pozostaje tylko zauważyć, że po ruchu Ani sytuacja na stole jest symetryczna względem środka. Jeśli więc Bartek jest w stanie w pewnym miejscu ułożyć monetę, to oznacza, że jest to możliwe również w miejscu do niego symetrycznym. Łatwo zauważyć, że skoro moneta Bartka nie może zostać położona na środku stołu -- bo już tam leży moneta Ani -- to ruch Bartka nie wpłynie na możliwość położenia monety w miejscu symetrycznym. Stąd też jeśli Bartek jest w stanie wykonać ruch, to jest go w stanie później wykonać Ania. Dowodzi to faktu, że strategia Ani jest wygrywająca.
+
+\qed
+
+\vspace{10px}
+
+\noindent
+Warto zauważyć, że Bartek w drugim ruchu nie jest w stanie położyć monety symetrycznej do monety Ani, gdyż te monety się pokrywają. Pomysłowe ułożenie jej na środku pozwala jednak zastosować Ani pomysł z symetrią. Zapobiega ona w ten sposób sytuacji, w której dwie symetryczne do siebie monety będą na siebie nachodziły.
+
+\vspace{10px}
+
+\noindent
+Motyw gry symetrycznej jest bardzo częsty w grach, stąd też zawsze należy go rozważyć. Warto także spróbować gry w szczególnych przypadkach, gdyż one często pozwalają nam zgadnąć kto ma strategię wygrywającą i nasuwają pomysł na nią. Przykładowo, jeśli dla powyższego zadania rozważymy stół o bardzo niewiele większy niż jedna moneta, to po pierwszym ruchu Ani Bartek nie będzie w stanie położyć kolejnej monety. Nasuwa to pomysł, że Ania ma strategię wygrywającą.
+
+\vspace{10px}
+
+% analiza stanów – przykład gry z kamieniami
+\heading{Przykład 2}
+
+\noindent
+Na stole leży $10000$ kamieni. Ruch polega na zabraniu ze stołu $2$ lub $5$ kamieni. Dwaj gracze wykonują ruch na przemian, gdy gracz nie może wykonać ruchu przegrywa. Rozstrzygnąć, który z graczy – pierwszy czy drugi – ma strategię wygrywającą.
+
+\vspace{5px}
+
+\heading{Rozwiązanie}
+
+\noindent
+Wprowadźmy dwa pojęcia. Jeśli na stole leży $k$ kamieni i gracz wykonujący ruch może grać w taki sposób, aby wygrać niezależnie od ruchów przeciwnika, to powiemy, że $k$ kamieni na stole jest \textit{stanem wygrywającym}. Gdy zaś to gracz, który aktualnie nie wykonuje ruchu ma strategię wygrywającą, to ten stan nazwiemy \textit{stanem przegrywającym}.
+
+\vspace{10px}
+\noindent
+Zauważmy, że $k = 2$ i $k = 5$ są stanami wygrywającymi, gdyż gracz może wziąć wszystkie kamienie, co spowoduje brak możliwości ruchu następnego gracza. Zaś $k = 1$ jest stanem przegrywającym, gdyż gracz, który ma wykonać ruch, nie jest w stanie tego zrobić.
+
+\vspace{10px}
+\noindent
+Zauważmy, że $k = 2$ i $k = 5$ są stanami wygrywającymi, gdyż gracz może wziąć wszystkie kamienie, co spowoduje brak możliwości ruchu następnego gracza. Zaś $k = 1$ jest stanem przegrywającym, gdyż gracz, który ma wykonać ruch, nie jest w stanie tego zrobić.
+
+\vspace{10px}
+\noindent
+Do rozwiązania zadania przydadzą się dwie ważne obserwacje:
+\begin{itemize}
+	\item stan jest wygrywający wtedy i tylko wtedy, gdy wskutek ruchu, można przejść do pewnego stanu przegrywającego; 
+	\item stan jest przegrywający wtedy i tylko wtedy, gdy wskutek dowolnego ruchu gracz go wykonujący przechodzi do stanu wygrywającego.
+\end{itemize}
+Formalne uzasadnienie powyższych zdań pozostawiamy czytelniczce/czytelnikowi jako ćwiczenie. Jednak są to fakty dość intuicyjne.
+
+
+\vspace{10px}
+\noindent
+Zauważmy, że ze stanu $k = 3$ można przejść do stanu $k = 1$, który jest przegrywający. Toteż $k = 3$ jest stanem wygrywającym. Dla $k = 4$ jedynym możliwym ruchem jest zabranie dwóch kamieni -- doprowadza nas to do stanu wygrywającego $k = 2$ -- stąd $k = 4$ jest przegrywający. Dla $k = 6$ zabranie pięciu kamieni doprowadza do stanu przegrywającego, toteż $k = 6$ jest wygrywający. Ciekawa sytuacja ma miejsce dla $k = 7$. Wówczas oba ruchy doprowadzają do stanów wygrywających -- $k = 5$ i $k = 2$, więc $k = 7$ jest stanem przegrywającym.
+
+
+\vspace{10px}
+\noindent
+Rozumując analogicznie możemy stworzyć tabelkę.
+\begin{center}
+\begin{tabular}{ |c|c|} 
+ \hline
+ k & Stan \\ 
+ \hline
+ 1 & P \\ 
+ \hline
+ 2 & W \\ 
+ \hline
+ 3 & W \\ 
+ \hline
+ 4 & P \\ 
+ \hline
+ 5 & W \\ 
+ \hline
+ 6 & W \\ 
+ \hline
+ 7 & P \\ 
+ \hline
+ 8 & P \\ 
+ \hline
+\end{tabular}
+\hspace{30px}
+\begin{tabular}{ |c|c|} 
+ \hline
+ k & Stan \\ 
+ \hline
+ 9 & W \\ 
+ \hline
+ 10 & W \\ 
+ \hline
+ 11 & P \\
+ \hline
+ 12 & W \\ 
+ \hline
+ 13 & W \\ 
+ \hline
+ 14 & P \\ 
+ \hline
+ 15 & P \\ 
+ \hline
+ 16 & W \\ 
+ \hline
+\end{tabular}
+\end{center}
+Można więc postawić hipotezę, że jeśli $k \equiv 0, 1, 4 \pmod{7}$ to stan jest przegrywający, zaś w przeciwnym wypadku jest on wygrywający. Wykażemy, że jest to prawda za pomocą indukcji matematycznej. Za bazę indukcji posłuży nam rozumowanie przeprowadzone powyżej.
+
+\vspace{10px}
+\noindent
+Rozpatrzmy pewne $k \geqslant 8$.
+\begin{itemize}
+	\item Jeśli $k \equiv 0, 1, 4 \pmod{7}$, to łatwo sprawdzić, że z założenia indukcyjnego stany $k - 2$ i $k - 5$ w każdym z tych przypadków są wygrywające. Toteż rozpatrywane stany będą przegrywające.
+	\item Dla $k \equiv 2, 3, 6 \pmod{7}$ zabranie dwóch kamieni doprowadza do stanu przegrywającego, toteż stan $k$ jest wygrywający.
+	\item Dla $k \equiv 5 \pmod{7}$ zabranie $5$ kamieni doprowadza do stanu przegywającego, więc stan $k$ jest wygrywający. 
+\end{itemize}
+Powyższe rozpatrzenie przypadków kończy dowód indukcyjny.
+Wystarczy teraz zauważyć, że $10000 \equiv 4 \pmod{7}$, więc to drugi gracz ma strategię wygrywającą.
+
+\qed
+
+\noindent
+Analiza stanów jest znaną metodą analizy gier. Jest ona bardziej żmudna niż pomysłowa, toteż rzadko można ją spotkać na konkursach czy olimpiadach. Jednak pokazuje ona, jak wiele da się uzyskać z analizy ,,małych'' przypadków -- dzięki nim zarówno postawiliśmy słuszną hipotezę, jak i rozumowanie indukcyjne wypłynęło niejako naturalnie z bawienia się $k \in {1, 2, 3, 4, 5, 6, 7}$.
+
+
+\vspace{10px}
+\noindent
+Niestety nie w każdym zadaniu analiza ,,małych'' przypadków coś daje. Czasem potrzebny jest pomysł, na który trzeba po prostu wpaść, często korzystając z metody prób i błędów. Jest ona tym skuteczniejsza, im więcej jest prób. 
+% komentarz, że to podejście jest bardziej ogólne
+

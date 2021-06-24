@@ -1,0 +1,216 @@
+\newpage
+\solutions{Ciągi}
+
+%Source: 
+\begin{problem}{1}
+	Dana jest liczba pierwsza $p>3$. Wykazać, że istnieje taki ciąg arytmetyczny dodatnich liczb całkowitych $\{x_i\}$, że $x_1x_2\cdot ... \cdot x_p$ jest kwadratem liczby całkowitej.
+\end{problem}
+
+\noindent 
+Rozpatrzmy ciąg $x_i=ip!$.
+Wówczas
+\[
+	\prod_{i=1}^p x_i=\prod_{i=1}^p ip!=(p!)^{p}\cdot p! = (p!)^{p}\cdot p!=(p!)^{p+1}.
+\]
+co oczywiście jest kwadratem liczby całkowitej.
+\\
+
+
+%Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2019.pdf P21
+\begin{problem}{2}
+	Dany jest ciąg $a_1, a_2, ..., a_{2n + 1}$ liczb rzeczywistych, że dla dowolnych liczb całkowitych $2n + 1 \geqslant i, j \geqslant 1$ zachodzi równość
+	\[
+		a_i + a_j \geqslant |i - j|.
+	\]
+	Wyznaczyć najmniejszą możliwą sumę elementów tego ciągu.
+\end{problem}
+
+\answer{Najmniejsza możliwa suma elementów tego ciągu wynosi $n(n + 1)$}
+
+\noindent
+Na mocy założenia zadania zachodzą równości
+\begin{align*}
+	a_1 + a_{2n + 1} \geqslant 2n, \\
+	a_2 + a_{2n} \geqslant 2n - 2, \\
+	..., \\
+	a_n + a_{n + 2} \geqslant 2. \\
+\end{align*}
+Wiemy również, że $a_{n + 1} + a_{n + 1} \geqslant 0$, czyli liczba $a_{n + 1}$ jest nieujemna. Dodając powyższe nierówności stronami otrzymujemy
+\[
+	a_1 + a_2 + ... + a_{2n + 1} \geqslant 2 + 4 + ... + (2n - 2) + 2n = 2(1 + 2 + ... + n) = n(n + 1).
+\]
+Wykażemy, że ciąg dany wzorem
+\[
+	a_k = |n + 1 - k|
+\]
+spełnia warunki zadania. Istotnie, na mocy nierówności trójkąta
+\[
+	a_i + a_j = |n + 1 - i| + |n + 1 - j| \geqslant |(n + 1 - j) - (n + 1 - i)| = |i - j|.
+\]
+Zauważmy, że
+\[
+	a_1 + a_2 + ... + a_{2n + 1} = n + (n - 1) + ... + 1 + 0 + 1 + ... + (n - 1) + n = n(n + 1),
+\]
+co dowodzi tego, że postulowane minimum jest osiągalne.
+
+
+%Source: https://artofproblemsolving.com/community/q1h2494913p21023227
+\begin{problem}{3}
+	Ciąg ${u_n}$ dany jest wzorem $u_0=1, u_{n+1}=\frac{u_n}{u_n+3}$. Wykaż, że $ u_1+u_2+...+u_{2021}<1$
+\end{problem}
+
+\noindent
+Przekształcając równanie rekurencyjnie równoważnie otrzymujemy
+\begin{align*}
+	u_{n + 1} &= \frac{u_n}{u_n + 3}, \\
+	\frac{1}{u_{n + 1}} &= \frac{u_n + 3}{u_n} = 1 + \frac{3}{u_n}.
+\end{align*}
+Podstawmy $a_n = \frac{1}{u_n}$. Wówczas
+\[
+	a_0 = 1, \; a_{n + 1} = 3a_n + 1. 
+\]
+Sprawdzenie wartości $a_n$ dla małych $n$ pozwala postawić hipotezę, że $a_n = \frac{3^{n + 1} - 1}{2}$. Łatwo sprawdzić, że dla $a_0$ postulowana równość zachodzi oraz z tożsamości
+\[
+	\frac{3^{n + 2} - 1}{2} = 3 \cdot \frac{3^{n + 1} - 1}{2} + 1
+\]
+wynika, że jeśli postulowana równość zachodzi dla $a_n$, to zachodzi również dla $a_{n + 1}$. Z zasady indukcji matematycznej możemy więc wywnioskować, że
+\begin{align*}
+	a_{n} &= \frac{3^{n + 1} - 1}{2}, \\
+	u_n &= \frac{1}{a_n} = \frac{2}{3^{n + 1} - 1}.
+\end{align*}
+Mamy więc
+\[
+	u_1 + u_2 + ... + u_{2021} < \sum^{\infty}_{i = 0} \frac{2}{3^{i + 1} - 1} < \sum^{\infty}_{i = 0} \frac{2}{3^{i + 1}} = \frac{2}{3} \cdot \sum^{\infty}_{i = 0} \frac{1}{3^{i}} = \frac{2}{3} \cdot \frac{3}{2} = 1.
+\]
+
+%Source: https://www.math.hkust.edu.hk/excalibur/v18_n3.pdf EX 1
+\begin{problem}{4}
+	Znajdź wszystkie liczby rzeczywiste $x$, że ciąg dany wzorem
+	\[
+		a_0 = x, \quad a_n = 2^n - 3a_n,
+	\]
+	dla dowolnej liczby naturalnej n spełnia zależność
+	\[
+		a_{n} > a_{n - 1}.
+	\]
+\end{problem}
+
+\noindent
+Zauważmy, że
+\begin{align*}
+	a_{n + 1} &= 2^n - 3a_n = 2^n - 3(2^{n - 1} - 3a_{n - 1}) = 2^n - 3 \cdot 2^{n - 1} + 9a_{n - 1} =  \\
+	&= 2^n - 3 \cdot 2^{n - 1} + 9(2^{n - 2} - 3a_{n - 2}) = 2^n - 3 \cdot 2^{n - 1} + 9 \cdot 2^{n - 2} - 27a_{n - 2} = \\
+	&= \sum^{n}_{i = 0} \left(2^{n - i} \cdot (-3)^i\right) + (-3)^{n + 1}a_0 = 2^n \sum^{n}_{i = 0} \left(-\frac{3}{2}\right)^i + (-3)^{n + 1}a_0 = \\
+	&= 2^n \cdot \frac{1 - \left(-\frac{3}{2}\right)^{n + 1}}{1 + \frac{3}{2}} + (-3)^{n + 1}a_0 = \frac{2^{n + 1}}{5} +\left(a_0 - \frac{1}{5}\right)(-3)^{n + 1}.
+\end{align*}
+Jeśli $a_0 \neq \frac{1}{5}$, to liczba $\left(a_0 - \frac{1}{5}\right)(-3)^{n + 1}$ będzie przyjmowała dowolnie duże i dowolnie małe wartości. Toteż $a_n$ również będzie przyjmowała dowolnie małe wartości, toteż ciąg $a_n$ nie może być rosnący. Jeśli zaś $a_0 = \frac{1}{5}$, to z powyższej tożsamości wynika, że ta liczba spełnia warunki zadania.
+
+\vspace{5px}
+
+%Source: 
+\begin{problem}{5}
+	Dany jest ciąg
+	\[
+		a_0 = 1, \quad a_{n + 1} = a_n + \frac{1}{a_n}.
+	\]
+	Rozstrzygnąć, czy $a_{5000} > 100$.
+\end{problem}
+
+\answer{Zachodzi nierówność $a_{5000} > 100$.}
+
+\noindent
+Przekształćmy równanie rekurencyjne ciągu
+\begin{align*}
+	a_{n + 1} &= a_n + \frac{1}{a_n}, \\
+	a_{n + 1}^2 &= \left(a_n + \frac{1}{a_n}\right)^2 = a_n^2 + 2 a_n \cdot \frac{1}{a_n} + \frac{1}{a_n^2}  > a_n^2 + 2.
+\end{align*}
+Z powyższej nierówności wynika, że
+\[
+	a_{5000}^2 > a_{4999}^2 + 2 > a_{4998}^2 + 4 > ... < a_0^2 + 10000 > 10000, 
+\]
+z~czego wynika, że $a_{5000}^2 > 100$.
+
+\vspace{5px}
+
+%Source: mszana 2018
+\begin{problem}{6}
+	Wyznaczyć wszystkie dodatnie liczby rzeczywiste $\alpha$, dla których istnieje ciąg dodatnich liczb rzeczywistych $x_1$, $x_2$, $x_3$, $\dots$ o tej własności, że dla wszystkich $n\geqslant 1$:
+	\[
+		x_{n+2} = \sqrt{\alpha x_{n+1} - x_n}.
+	\]
+\end{problem}
+
+\answer{Szukany ciąg istnieje wtedy i tylko wtedy, gdy $\alpha > 1$.}
+
+\noindent
+Jeśli $\alpha > 1$, to łatwo sprawdzić, że ciąg dany wzorem $x_n  = \alpha - 1$ spełnia warunki zadania. Załóżmy nie wprost, że dla pewnego $\alpha \leqslant 1$ istnieje ciąg spełniający warunki zadania. Wówczas, skoro liczba pod pierwiastkiem musi być dodatnia, mamy
+\begin{align*}
+ 	0 &\leqslant \alpha x_{n+1} - x_n \leqslant x_{n + 1} - x_n, \\
+ 	x_n &\leqslant x_{n + 1},
+\end{align*}
+z czego wynika, że ciąg ten jest rosnący. Wykażemy teraz, że od pewnego momentu ciąg ten przyjmuje wartości mniejsze niż $1$. Istotnie
+\[
+	x_{n + 2}^2 = \alpha x_{n + 1} - x_n < \alpha x_{n + 1} \leqslant x_{n + 1} \leqslant x_{n + 2},
+\]
+z czego wynika postulowana własność.
+Zauważmy, że
+\begin{align*}
+	x_1 < x_{n + 2} = \sqrt{\alpha x_{n+1} - x_n} \leqslant \sqrt{x_{n+1} - x_n}, \\
+	x_1^2 < x_{n+1} - x_n.
+\end{align*}
+Z powyższej nierówności, jak i z wykazanej wyżej własności, wynika, że
+\[
+	1 > x_{n + 1} > x_n + x_{1}^2 > x_{n - 1} + 2x_{1}^2 > ... > nx_{1}^2,
+\]
+co nie może być prawdą dla wszystkich liczb naturalnych $n$.
+
+\vspace{5px}
+
+%Source: https://dominik-burek.u.matinf.uj.edu.pl/Kołkówka2019.pdf P12
+\begin{problem}{7}
+	Dany jest ciąg
+	\[
+		a_0 = 6, \quad a_n = a_{n - 1} + NWD(n, a_{n - 1}).
+	\]
+	Wykazać, że $NWD(n, a_{n - 1})$ jest liczbą pierwszą lub jest równe 1.
+\end{problem}
+
+
+\noindent
+Kluczowe w rozwiązaniu zadania jest następujące umocnienie tezy.
+
+\vspace{5px}
+
+\noindent
+Jeśli dla pewnej liczby całkowitej~$n$ zachodzi nierówność $\mathrm{NWD}(n, a_{n - 1}) > 1$, to $a_n = 3n$ oraz $\mathrm{NWD}(a_{n − 1}, n)$ jest liczbą pierwszą. 
+
+\vspace{10px}
+\noindent
+Wyjściowo ciąg przyjmuje wartości
+\[
+	a_1 = 7, \; a_2 = 8, \; a_3 = 9, \; a_4 = 10, \; a_5 = 15.
+\] 
+Możemy więc zauważyć, że dla $n = 5$ mamy 
+\[
+	\mathrm{NWD}(a_{n − 1}, n) = 5 \;\; \text{oraz} \;\; a_5 = 3 \cdot 5.
+\]
+ Wykażemy tezę indukcyjnie -- zakładamy, że zachodzi ona dla wszystkich liczb mniejszych od $n$. Jeśli $NWD(n, a_n - 1) = 1$, to nic nie trzeba wykazywać. Załóżmy więc, że $NWD(n, a_n - 1) > 1$.  Weźmy największą liczbę $t$, mniejszą niż $n$, że $\mathrm{NWD}(t, a_t − 1) > 1$. Na mocy założenia indukcyjnego mamy $a_t = 3t.$
+ Wówczas 
+ \[
+ 	\mathrm{NWD}(i, a_i − 1) = 1 \text{ dla wszystkich liczb } i \in \{t + 1, t + 2, t + 3, ..., n - 1\},
+ \] 
+czyli $a_{i} = a_{i - 1} + 1$. Stąd
+\[
+	a_n − 1 = a_t + (n − t) − 1 = 3t + (n - t) - 1 =  2t + n − 1.
+\]
+Zatem 
+\[
+	\mathrm{NWD}(a_n − 1,\; n) = \mathrm{NWD}(2t + n - 1,\; n) = \mathrm{NWD}(2t - 1,\; n) = \mathrm{NWD}(2t - 1,\; 2n - (2t - 1)).
+\] 
+Liczba $n$ jest najmniejszą liczbą większą od $t$, dla której wartość powyższego wyrażenia jest większa od $1$. Nietrudno zauważyć, że pierwszą liczbą większą od $t$, dla której jest to prawda, jest takie $n$, że liczba $2n - (2t - 1)$ jest najmniejszym nieparzystym dzielnikiem pierwszym liczby $2t - 1$. Wówczas oczywiście $2n - (2t - 1)$ jest liczbą pierwszą oraz
+\begin{align*}
+	\mathrm{NWD}(n, a_n − 1) &= 2n - (2t - 1), \\
+	a_n &= a_{n - 1} + \mathrm{NWD}(n, a_n − 1) = (2t + n − 1 ) + 2n - (2t - 1) = 3n,
+\end{align*}
+co kończy dowód indukcyjny.
+

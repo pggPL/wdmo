@@ -1,0 +1,248 @@
+\newpage
+\solutions{Indukcja matematyczna 2}
+
+%Source: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxpbW9jYW5hZGF8Z3g6NDA2NGM2NjkwZTJiYTg2Ng Canada Training Camp
+\begin{problem}{1}
+	Udowodnić, że za pomocą monet trzyzłotowych i pięciozłotowych można zapłacić każdą kwotę większą niż $7$ złotych, bez konieczności wydawania reszty.
+\end{problem}
+
+\noindent
+Najpierw zauważymy, że skoro zachodzą równości
+\[
+	8 = 5 + 3, \quad 9 = 3 + 3 + 3, \quad 10 = 5 + 5,
+\]
+skąd wynika, że kwoty 8, 9 i 10 złotych da się zapłacić bez wydawania reszty.
+
+\vspace{5px}
+
+\noindent
+Załóżmy, że dla pewnej liczby całkowitej $k \geqslant 11$, da się we wspomniany sposób zapłacić wszystkie kwoty większe od $7$ złotych, ale nie większe niż $k$. Wówczas w szczególności da się zapłacić kwotę $(k + 1) - 3 \geqslant 8$ złotych. Dokładając jedną monetę trzyzłotową otrzymujemy szukane przestawienie kwoty $k + 1$ złotych. Z zasady indukcji matematycznej wynika teza.
+
+%Source: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxpbW9jYW5hZGF8Z3g6NWVkYTk2MWY5ODMzZGMxNA
+\begin{problem}{2}
+	Dana jest liczba naturalna $n$. Niech $\mathcal{S}$ będzie zbiorem wszystkich punktów postaci $(a, b)$, gdzie $a$ i $b$ są liczbami ze zbioru $\{0, 1, 2, ..., n\}$ oraz $a + b \leqslant n$. 
+
+	\begin{center}
+	\begin{tikzpicture}[scale = 0.5]
+	    \tkzDefPoint(0,0){v_1}
+	    \tkzDefPoint(1,0){v_2}
+	    \tkzDefPoint(2,0){v_3}
+	    \tkzDefPoint(3,0){v_4}
+	    \tkzDefPoint(0,1){v_5}
+	    \tkzDefPoint(1,1){v_6}
+	    \tkzDefPoint(2,1){v_7}
+	    \tkzDefPoint(0,2){v_8}
+	    \tkzDefPoint(1,2){v_9}
+	    \tkzDefPoint(0,3){v_{10}}
+	    \tkzDrawPoints(v_1,v_2, v_3, v_4, v_5, v_6, v_7, v_8, v_9, v_{10})
+	\end{tikzpicture}\\
+	\vspace{5px}
+	Przykład dla $n = 3$.
+	\end{center}
+
+	\noindent
+	Wykazać, że jeśli pewien zbiór prostych zawiera każdy z tych punktów, to zawiera on co najmniej $n + 1$ prostych. 
+\end{problem}
+
+\noindent
+Zauważmy, że dla $n = 0$ teza jest trywialna -- zbiór $\mathcal{S}$ zawiera jedynie punkt $(0, 0)$ i do jego pokrycia jest potrzebna jedna prosta. Rozumując indukcyjnie, załóżmy, że teza zachodzi dla pewnej liczby naturalnej $n$. Wykażmy, że jest prawdziwa również dla $n + 1$.
+
+\vspace{5px}
+
+\begin{center}
+	\begin{tikzpicture}[scale = 0.5]
+	    \tkzDefPoint(0,0){v_1}
+	    \tkzDefPoint(1,0){v_2}
+	    \tkzDefPoint(2,0){v_3}
+	    \tkzDefPoint(3,0){v_4}
+	    \tkzDefPoint(0,1){v_5}
+	    \tkzDefPoint(1,1){v_6}
+	    \tkzDefPoint(2,1){v_7}
+	    \tkzDefPoint(0,2){v_8}
+	    \tkzDefPoint(1,2){v_9}
+	    \tkzDefPoint(0,3){v_{10}}
+	    \tkzDrawPoints(v_1,v_2, v_3, v_4, v_5, v_6, v_7, v_8, v_9, v_{10})
+	    \tkzDrawSegment(v_4,v_{10})
+	\end{tikzpicture}
+	\hspace{40px}
+	\begin{tikzpicture}[scale = 0.5]
+	    \tkzDefPoint(0,0){v_1}
+	    \tkzDefPoint(1,0){v_2}
+	    \tkzDefPoint(2,0){v_3}
+	    \tkzDefPoint(3,0){v_4}
+	    \tkzDefPoint(0,1){v_5}
+	    \tkzDefPoint(1,1){v_6}
+	    \tkzDefPoint(2,1){v_7}
+	    \tkzDefPoint(0,2){v_8}
+	    \tkzDefPoint(1,2){v_9}
+	    \tkzDefPoint(0,3){v_{10}}
+	    \tkzDefPoint(3,-0.5){a}
+	    \tkzDefPoint(3,0.5){b}
+	    \tkzDrawPoints(v_1,v_2, v_3, v_4, v_5, v_6, v_7, v_8, v_9, v_{10})
+	    \tkzDrawSegments(v_1,v_{10} v_2,v_9 v_3,v_7 a,b)
+	\end{tikzpicture}
+\end{center}
+
+\noindent
+Weźmy dowolny zbiór prostych, które przykrywają każdy z punktów zbioru $\mathcal{S}$ dla $n + 1$. Wyróżnijmy punkty $(a, b)$, dla których zachodzi równość $a + b = n + 1$. Zauważmy, że wszystkie te punkty leżą na jednej prostej. Rozpatrzmy dwa przypadki
+\begin{enumerate}
+	\item Istnieje prosta $l$, która przykrywa pewne dwa wyróżnione punkty. Wówczas przykrywa ona wszystkie wyróżnione punkty i żadnego innego punktu ze zbioru $\mathcal{S}$. Zauważmy, że dla zbioru $\mathcal{S}$ z usuniętymi wyróżnionymi punktami, możemy zaaplikować założenie indukcyjne. Wynika z niego, że do pokrycia rozpatrzywanych punktów potrzeba co najmniej $n$ prostych. Dokładając prostą $l$ otrzymujemy, że łącznie prostych jest co najmniej $n + 1$.
+	\item Żadne dwa wyróżnione punkty nie są przykryte przez jedną prostą. Skoro jest $n + 1$ punktów, to do ich przykrycia będzie potrzebnych $n + 1$ prostych. W szczególności do pokrycia zbioru $\mathcal{S}$ potrzeba $n + 1$ prostych.
+\end{enumerate}
+
+
+%Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2015.pdf P 9
+\begin{problem}{3}
+	Wykazać, że istnieje taka dodatnia liczba całkowita, że jest ona podzielna przez $2^{1000}$, oraz ma w zapisie dziesiętnym jedynie cyfry $1$ i $2$.
+\end{problem}
+
+\noindent
+Powiemy, że liczba naturalna $x$ jest \textit{dobra}, jeśli ma dokładnie $n$ cyfr, z których każda jest jedynką lub dwójką, oraz $x$ jest podzielna przez liczbę $2^n$. 
+
+\vspace{5px}
+\noindent
+Wykażemy indukcyjnie, że dla dowolnej dodatniej liczby całkowitej $n$, istnieje $n$ cyfrowa liczba dobra. Zauważmy, że liczba $2$ jest liczbą dobrą. Pozostaje wykazać, że jeśli dla pewnego $n$ istnieje $n$-cyfrowa liczba dobra -- nazwijmy ją $2^n \cdot a_n$, to dla $n + 1$ również.
+
+\vspace{5px}
+\noindent
+Rozpatrzmy dwa przypadki
+\begin{enumerate}
+	\item Jeśli liczba $a_n$ jest nieparzysta, to weźmy liczbę 
+	\[
+		10^{n + 1} + 2^n \cdot a_n = 2^n\left(5^n + a_n\right).
+	\]
+	Powstaje ona przez doklejenie do $2^n \cdot a_n$ cyfry $1$ z lewej strony.
+	W nawiasie jest suma dwóch liczb nieparzystych, a więc jest ona parzysta. Stąd $10^{n + 1} + 2^n \cdot a_n $ jest podzielna przez $2^{n + 1}$.
+	\item Gdy liczba $a_n$ jest parzysta, to rozpatrzmy liczbę 
+	\[
+		2 \cdot 10^{n + 1} + 2^n \cdot a_n = 2^n\left(2 \cdot 5^n + a_n\right).
+	\]
+	Powstaje ona przez doklejenie do $2^n \cdot a_n$ cyfry $2$ z lewej strony.
+	W nawiasie jest suma dwóch liczb parzystych, a więc jest ona parzysta. Więc $2 \cdot 10^{n + 1} + 2^n \cdot a_n $ jest podzielna przez $2^{n + 1}$.
+\end{enumerate}
+W każdym z przypadków rozpatrywana liczba jest $n + 1$-cyfrową liczbą dobrą. Kończy to dowód indukcyjny. Biorąc liczbę dobrą, która ma $1000$ cyfr. Jest ona podzielna przez $2^{1000}$ oraz składa się wyłącznie z cyfr $1$ i $2$.
+
+\begin{remark}
+	Liczby dobre wygenerowane za pomocą powyższego rozumowania to
+	\[
+		2, \; 12, \; 112, \; 2112, \; 22112, \; ...
+	\]
+\end{remark}
+
+%Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2018.pdf P 26
+\begin{problem}{4}
+	Niech $k$ będzie dodatnią liczbą całkowitą. Na przyjęciu spotkało sie $n \geqslant 2$ gości, spośród których niektórzy znają się. Okazało się, że dla każdego niepustego podzbioru gości $A$ istnieje osoba, która zna co najwyżej $k$ osób z $A$. Podzbiór gości, spośród których każde dwie się znają, nazywamy \textit{kilką}. Wykazać, że istnieje co najwyżej $2^k \cdot n$ klik.
+\end{problem}
+
+\noindent
+Zadanie rozwiążemy indukując się po $n$. Jeśli $n = 2$, to teza jest trywialna -- trzeba wykazać, że istnieją co najwyżej 4 kliki, a są 4 możliwe podzbiory zbiorów gości. W dalszej części rozwiązania zakładamy, że $n \geqslant 3$.
+
+\vspace{10px}
+
+\noindent
+Na mocy założenia zadania zastosowanego dla zbioru wszystkich $n$ osób, istnieje pewna osoba $X$, która ma co najwyżej $k$ zajomych. Usuwając osobę $X$, założenie z zadania nadal będzie zachodzić dla pozostałych osób. Na mocy założenia indukcyjnego liczba klik, które nie zawierają $X$ wynosi $2^k \cdot (n - 1)$. 
+
+Klika, która zawiera $X$, nie może zawierać osoby, której $X$ nie zna. Musi więc składać się z $X$ oraz pewnego podzbioru znajomych $X$. Skoro $X$ ma co najwyżej $k$ znajomych, to tych podzbiorów jest co najwyżej $2^k$.
+
+\begin{center}
+	\begin{tikzpicture}[scale = 0.5]
+	    \tkzDefPoint(2.5,4){v}
+	    \tkzDefPoint(-2,1){x_0}
+	    \tkzDefPoint(-1,0){x_1}
+	    \tkzDefPoint(0,0){x_2}
+	    \tkzDefPoint(-2,2.5){x_3}
+	    \tkzDefPoint(1,1){v_2}
+	    \tkzDefPoint(2,0){v_3}
+	    \tkzDefPoint(3,0){v_4}
+	    \tkzDefPoint(4,1){v_5}
+	    \tkzDefPoint(2,0){a}
+	    \tkzDefPoint(4,0){b}
+	    \tkzDrawPoints(v, x_0, x_1, x_2, x_3, v_2, v_3, v_4, v_5)
+	    \tkzDrawSegments(v_2,v_4 v_4,v_5 x_1,x_2 x_2,x_3 x_3,x_0 x_1,x_3 x_2,v_2)
+	    \tkzDrawSegments[dashed](v,v_2 v,v_3 v,v_4 v,v_5)
+	    \tkzLabelSegment[below](a,b){$\leqslant k$ znajomych}
+	    \tkzLabelPoint[above](v){$X$}
+	\end{tikzpicture}
+\end{center}
+
+\vspace{5px}
+
+\noindent
+Łącząc powyższe wnioski otrzymujemy, że klik jest co najmniej $2^k \cdot (n - 1) + 2^k = 2^k \cdot n$. Z zasady indukcji matematycznej wynika teza.
+
+%Source: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxpbW9jYW5hZGF8Z3g6NDA2NGM2NjkwZTJiYTg2Ng P 2
+\begin{problem}{5}
+	Znajdź wszystkie funkcje $f$ z dodatnich liczb całkowitych w dodatnie liczby całkowite, które dla każdej liczby dodatniej całkowitej $n$ spełniają nierówności
+	\[
+		(n - 1)^2 < f(n)f(f(n)) < n^2 + n.
+	\]
+\end{problem}
+
+\noindent
+Podstawiając do wyjściowego równania $n = 1$ otrzymamy
+\[
+	0 < f(1)f(f(1)) < 2,
+\]
+skąd $f(1) = f(f(1)) = 1$.
+Wykażemy indukcyjnie, że $f(n) = n$. Załóżmy, że równość $f(k) = k$ zachodzi dla wszystkich dodatnich liczb całkowitych $k$ mniejszych od $n$. 
+
+\begin{enumerate}
+	\item Jeśli $f(n) \leqslant n - 1$, to z założenia indukcyjnego $f(f(n)) = f(n)$. Wówczas
+	\[
+		f(n)f(f(n)) = f(n)^2 \leqslant (n - 1)^2,
+	\]
+	co daje sprzeczność.
+	\item Gdy $f(n) \geqslant n + 1$, to skoro
+	\[
+		f(n)f(f(n)) < n^2 + n,
+	\]
+	to $f(f(n)) < n$, czyli $f(f(n)) \leqslant n - 1$. Stąd na mocy założenia indukcyjnego $f(f(f(n))) = f(f(n))$. Wstawiając $f(n)$ zamiast $n$ do danej nierówności otrzymamy
+	\[
+		(f(n) - 1)^2 < f(f(f(n)))f(f(n)) = f(f(n))^2 \leqslant (n - 1)^2,
+	\]
+	co przeczy temu, że $f(n) \geqslant n + 1$.
+\end{enumerate}
+
+\noindent
+Stąd musi zajść $f(n) = n$, co kończy rozumowanie indukcyjne.
+
+%Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2019.pdf P 14
+\begin{problem}{6}
+	Niech $\mathcal{R}$ będzie rodziną zbiorów $1000$-elementowych. Moc $\mathcal{R}$ jest większa niż $1000 \cdot 999^{1000}$ Wykazać, że istnieje $1000$-elementowa rodzina $\mathcal{G}$, będąca podrodziną $\mathcal{R}$, oraz taki zbiór $X$, że dla dowolnych zbiorów $A, B \in \mathcal{R}$ zachodzi $A \cap B = X$.
+\end{problem}
+
+\noindent
+Wykażemy nieco ogólniejszą i mocniejszą wersję tezy.
+
+\vspace{10px}
+
+\noindent
+Niech $\mathcal{R}$ będzie rodziną zbiorów $n$-elementowych. Moc $\mathcal{R}$ jest większa niż $n! \cdot k^{n}$ Wówczas istnieje $k+1$-elementowa rodzina $\mathcal{G}$, będąca podrodziną $\mathcal{R}$, oraz taki zbiór $X$, że dla dowolnych zbiorów $A, B \in \mathcal{R}$ zachodzi $A \cap B = X$.
+
+\vspace{10px}
+
+\noindent
+Będziemy przeprowadzać indukcję po liczbie $n$. Dla $n = 1$ moc $\mathcal{R}$ to co najmniej $k + 1$. Każdy ze zbiorów zawiera jeden element, więc każde dwa mają puste przecięcie. Stąd biorąc całą rodzinę $\mathcal{R}$ oraz $X = \emptyset$ otrzymujemy tezę.
+
+\vspace{10px}
+
+\noindent
+Rozpatrzmy największą podrodzinę $\mathcal{H}$ rodziny $R$, że dowolne dwa jej podzbiory mają puste przecięcie. Moc $\mathcal{H}$ jest nie większa niż $k$, gdyż w przeciwnym przypadku biorąc rodzinę $\mathcal{H}$ i $X = \emptyset$ otrzymamy tezę. Stąd każdy zbiór $A \in \mathcal{R}$ ma niepuste przecięcie z pewnym ze zbiorów z rodziny $\mathcal{H}$.
+
+\vspace{10px}
+
+\noindent
+Łącznie zbiory należące do rodziny $\mathcal{H}$ zawierają co najwyżej $k \cdot n$ elementów -- jest co najwyżej $k$ zbiorów $n$-elementowych. Skoro wszystkich zbiorów należących do $\mathcal{R}$ jest więcej niż $n! \cdot k^{n}$, to istnieje element $a$, który należy do
+\[
+	\frac{n! \cdot k^{n}}{n \cdot k} = (n - 1)! \cdot k^{n - 1}
+\]
+zbiorów.
+
+\vspace{10px}
+
+\noindent
+Rozpatrując zbiory zawierające element $a$, następnie usuwając go z każdego z nich, otrzymamy więcej niż $(n - 1)! \cdot k^{n - 1}$ zbiorów, które zawierają po $n - 1$ elementów. Można więc skorzystać z założenia indukcyjnego. Istnieje więc pewien zbiór $X$ oraz pewna podrodzina rozpatrywanej rodziny zbiorów, że $X$ jest przecięciem dowolnych zbiorów należących do danej podrodziny. Dokładając ponownie do każdego z tych zbiorów element $a$ otrzymujemy tezę.
+
+
+
+

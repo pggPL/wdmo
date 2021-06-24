@@ -1,0 +1,290 @@
+\newpage
+\solutions{Grafy skierowane}
+
+%Source: jakiś obóz informatyczny
+\begin{problem}{1}
+	Dany jest graf skierowany zawierający $2m$ krawędzi. Wykazać, że możemy usunąć pewne $m$ z nich, aby graf ten nie zawierał cyklu.
+\end{problem}
+
+\noindent
+Ponumerujmy wierzchołki od $1$ do $n$. Krawędź prowadzącą z wierzchołka $i$ do wierzchołka~$j$ nazwiemy \textit{rosnącą}, jeśli zachodzi $j > i$. W przeciwnym wypadku powiemy, że ta krawędź jest \textit{malejąca}. Jeśli krawędzi rosnących jest nie więcej niż malejących, to usuńmy wszystkie krawędzie malejące. W przeciwnym wypadku usuńmy wszystkie krawędzie rosnące. Łatwo zauważyć, że usuniemy w ten sposób nie więcej niż połowę krawędzi.
+
+\vspace{10px}
+\noindent
+Załóżmy, że usunęliśmy wszystkie krawędzie malejące oraz nie usunęliśmy pewnego cyklu. Idąc po kolejnych wierzchołkach danego cyklu, numer wierzchołka na którym jesteśmy ściśle rośnie. Przeczy to temu, że wrócimy kiedyś do punktu wyjścia.
+
+%Source: https://mathsbeyondlimits.eu/wp-content/uploads/2021/04/MBL-brochure-2019.pdf
+\begin{problem}{2}
+	Wykazać, że w dla każdego turnieju da się ustawić graczy w rzędzie w pewnej kolejności, tak, aby każdy wygrał z graczem po swojej prawej stronie.
+\end{problem}
+
+\noindent
+Wykażemy tezę indukcyjnie. Dla $n = 1$ teza jest trywialna. Załóżmy, że dla dowolnego turnieju z liczbą graczy mniejszą niż $n$ szukane uporządkowanie istnieje. 
+Zauważmy, że jeśli istnieje cykl
+\[
+	v_1, \; v_2, \; ..., \; v_n
+\]
+to dla każdego $i$ gracz $v_{i}$ wygrał z graczem $v_{i + 1}$. Stąd biorąc uporządkowanie $v_1, \; v_2, \; ..., \; v_n$ otrzymujemy tezę.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+
+		\node[vertex] (A_1) at (0,2) {};
+		\node[vertex] (A_2) at (0.5,2) {};
+		\node[vertex] (A_3) at (1,2) {};
+		\node[vertex] (A_4) at (1.5,2) {};
+		\node[vertex] (B_1) at (1.5,0) {};
+		\node[vertex] (B_2) at (0.75,0) {};
+		\node[vertex] (B_3) at (0,0) {};
+		\node[label=left:A] (a) at (0,2.25) {};
+		\node[label=left:B] (b) at (0,0) {};
+
+
+		\draw[edge] (A_1) to (A_2) {};
+		\draw[edge] (A_2) to (A_3) {};
+		\draw[edge] (A_3) to (A_4) {};
+		\draw[edge] (A_4) to (B_1) {};
+		\draw[edge] (B_1) to (B_2) {};
+		\draw[edge] (B_2) to (B_3) {};
+
+
+	\end{tikzpicture}
+\end{center}
+
+\vspace{10px}
+\noindent
+Załóżmy, że dany turniej nie jest cykliczny, na mocy Lematu 2 jest on redukowalny. Rozpatrzmy więc dwa zbiory $A$ i $B$, takie, że każdy gracz z $A$ wygrał z dowolnym graczem z $B$. Wówczas oba te zbiory zawierają ściśle mniej niż $n$ elementów, a więc na mocy założenia indukcyjnego istnieją takie uporządkowania
+\[
+	a_1, \; a_2, \; ..., \; a_t \; \text{graczy z } A 
+	\quad
+	\text{oraz}
+	\quad
+	b_1, \; b_2, \; ..., \; b_{n - t} \; \text{graczy z } B, 
+\]
+że każdy gracz wygrał z kolejnym. Na mocy definicji zbiorów $A$ i $B$ gracz $a_t$ wygrał z graczem $b_1$, czyli uporządkowanie
+\[
+	a_1, \; a_2, \; ..., \; a_t , \; b_1, \; b_2, \; ..., \; b_{n - t}
+\]
+spełnia warunki zadania.
+
+%Source: Olympiad Combinatorics chapter 8 Ex 2
+\begin{problem}{3}
+	Niech $G$ będzie grafem skierowanym, w którym stopnie: wejściowy i wyjściowy każdego z wierzchołków są równe $2$. Wykazać, że możemy podzielić wierzchołki na trzy, być może puste, zbiory, aby żaden wierzchołek $v$ wraz z dwoma wierzchołkami, będącymi końcami wychodzącymi z $v$ krawędzi, nie znajdowały się wszystkie w jednym ze zbiorów.
+\end{problem}
+
+\noindent
+Rozatrzmy taki podział wierzchołków tego grafu na trzy zbiory, aby liczba krawędzi, które mają dwa wierzchołki wewnątrz tego samego zbioru, była minimalna. Nazwijmy te trzy zbiory jako $A$, $B$ i $C$. Wykażemy, że spełnia on warunki zadania.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+
+		\node[vertex] (A_1) at (0,2) {};
+		\node[vertex] (A_2) at (0.5,2) {};
+		\node[vertex, label=above:A] (A_3) at (1,2) {};
+		\node[vertex] (A_4) at (1.5,2) {};
+		\node[vertex] (A_5) at (2,2) {};
+
+		\node[vertex] (B_1) at (1.5,0) {};
+		\node[vertex, label=below:B] (B_2) at (0.75,0) {};
+		\node[vertex] (B_3) at (0,0) {};
+
+		\node[vertex] (C_1) at (3,0.5) {};
+		\node[vertex, label=right:C] (C_2) at (3,1) {};
+		\node[vertex] (C_3) at (3,1.5) {};
+
+		\draw[edge] (A_3) to (A_2);
+		\draw[edge] (A_3) to (A_4);
+		\draw[edge] (B_3) to (A_3);
+		\draw[edge] (C_1) to (A_3);
+
+	\end{tikzpicture}
+\end{center}
+
+\noindent
+Załóżmy nie wprost, że pewien wierzchołek~$v$ oraz dwa wierzchołki~$a$,~$b$, przy czym z~$v$ wychodzą krawędzie zarówno do~$a$, jak~i do~$b$, leżą w jednym ze zbiorów. Bez straty ogólności załóżmy, że~$v$,~$a$,~$b$ należą do zbioru~$A$. Skoro do~$v$ wchodzą dwie krawędzie, to w~jednym ze zbiorów $B$, $C$ jest co najwyżej jeden wierzchołek początkowy takiej krawędzi. Przyjmijmy dla ustalenia uwagi, że jest to zbiór $B$. Jeśli przełożymy wierzchołek~$v$ do zbioru~$B$, to liczba krawędzi o końcach w tym samym zbiorze się zmniejszy, co przeczy minimalności rozpatrywanego podziału.
+
+% QQ MBL
+\begin{problem}{4}
+	W pewnym turnieju brało udział $1000$ osób -- nazwijmy ich $A_1$, $A_2$, ..., $A_{1000}$. Parę uczestników tego turnieju $(A_i, A_j)$ nazwiemy \textit{zwycięską}, gdy nie istnieje inny uczestnik tego turnieju $A_k$, który pokonał obu uczestników z tej pary. Rozstrzygnąć, czy może się tak zdarzyć, aby każda z par $(A_1, A_2)$, $(A_2, A_3)$, ..., $(A_{999}, A_{1000})$, $(A_{1000}, A_{1})$ była zwycięska.
+\end{problem}
+
+\answer{Taka sytuacja nie może się zdarzyć.}
+
+\noindent
+Załóżmy nie wprost, że szukany turniej istnieje. Obliczmy ile zwycięstw odnieśli łącznie gracz $A_{k}$ i $A_{k + 1}$. To, że gracz $A_i$ wygrał z graczem $A_j$ będziemy oznaczać jako $A_i > A_j$. Przyjmiemy też, że $A_{1000 + i} = A_i$. W pojedynku $A_{k}$ i $A_{k + 1}$ jedna osoba wygrała i jedna przegrała. Ponadto na mocy założeń zadania, każdy z graczy spoza tej dwójki musiał przegrać z co najmniej jedną osobą z tej pary. Skoro pozostałych osób jest $998$, to łącznie $A_{k}$ i $A_{k + 1}$ wygrały co najmniej $998 + 1 = 999$ meczów. Rozumując analogicznie dla trójek $(A_1, A_2), \; (A_3, A_4), \; ...,\; (A_{999}, A_{1000})$ otrzymamy, że łączna liczba zwycięstw w turnieju to co najmniej 
+\[
+	500 \cdot 999 = \frac{1000 \cdot 998}{2} = {{1000}\choose{2}}.
+\] 
+Zauważmy, że ta liczba jest równa łącznej liczbie zwycięstw wszystkich drużyn, która zawsze wynosi ${{1000}\choose{2}}$. Toteż we wszystkich powyższych szacowaniach zachodzą równości, czyli w szczególności każdy z graczy wygrał z dokładnie jednym z $A_{2k}$ i $A_{2k + 1}$.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+
+		\node[vertex, label=below:$A_k$] (A_1) at (0,0) {};
+		\node[vertex, label=below:$A_{k+1}$] (A_2) at (2,0) {};
+		\node[vertex, label=above:$A_{k+2}$] (A_3) at (4,1) {};
+
+		\draw[edge] (A_1) to (A_2);
+		\draw[edge] (A_2) to (A_3);
+		\draw[edge] (A_3) to (A_1);
+
+	\end{tikzpicture}
+\end{center}
+
+\noindent
+Załóżmy, bez straty ogólności, że gracz $A_1$ wygrał z graczem $A_2$. 
+Przyjmijmy, że dla pewnego $k$ mamy $A_k > A_{k + 1}$. Wówczas $A_{k + 2} > A_k$, aby $(A_{k + 1}, A_{k + 2})$ była zwycięska. Analogicznie więc $A_{k + 1} > A_{k + 2}$, bo $(A_k, A_{k + 1})$ jest zwycięska. Mamy więc implikację 
+\[
+	A_k > A_{k + 1} \implies A_{k + 1} > A_{k + 2}.
+\]
+Skoro $A_1 > A_2$, to możemy wyciągnąć wniosek, że $A_k > A_{k + 1}$ dla każdego $k$.
+
+\vspace{10px}
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+
+		\node[vertex, label=left:$A_k$] (A_1) at (0,2) {};
+		\node[vertex, label=below:$A_{k+t}$] (A_2) at (2,0) {};
+		\node[vertex, label=right:$A_{k+t+1}$] (A_3) at (4,1) {};
+
+		\draw[edge] (A_1) to (A_2);
+		\draw[edge] (A_3) to (A_1);
+
+	\end{tikzpicture}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+
+		\node[vertex, label=left:$A_k$] (A_1) at (0,2) {};
+		\node[vertex, label=below:$A_{k+t}$] (A_2) at (2,0) {};
+		\node[vertex, label=right:$A_{k+t+1}$] (A_3) at (4,1) {};
+
+		\draw[edge] (A_2) to (A_1);
+		\draw[edge] (A_1) to (A_3);
+
+	\end{tikzpicture}
+\end{center}
+
+\noindent
+Zauważmy, że jeśli $A_k > A_{k + t}$, to na mocy tego co wykazaliśmy w pierwszym akapicie musi zajść $A_{k + t + 1} > A_k$. I analogicznie jeśli $A_{k + t} > A_k$, to $A_k > A_{k + t + 1}$. Skoro ${A_k > A_{k + 1}}$, to wynika z tego, że
+\[
+	A_k > A_{k + i}, \text{ gdy } 2 \mid i \quad \text{oraz} \quad A_k < A_{k + i}, \text{ gdy } 2 \nmid i.
+\]
+Otrzymujemy stąd, że
+\[
+	A_1 > A_{3}, \text{ bo } 3 = 1 + 2 \quad \text{ oraz } A_3 > A_{1001} = A_{1}  \text{ bo } 1001 = 3 + 998.
+\]
+Powyższa sprzeczność kończy rozwiązanie zadania.
+
+%Source: https://math.stackexchange.com/questions/858110/strongly-regular-tournament
+\begin{problem}{5}
+	Dany jest turniej o $n$ uczestnikach oraz pewna dodatnia liczba całkowita $k$. Każdy z uczestników uzyskał jednakową liczbę zwycięstw oraz dla dowolnych dwóch różnych uczestników tego turnieju $a$, $b$, liczba uczestników, którzy przegrali zarówno z $a$, jak i z $b$ wynosi $k$. Wykazać, że liczba $n + 1$ jest podzielna przez 4.
+\end{problem}
+
+\noindent
+Zauważmy, że łączna liczba zwycięstw w turnieju wyniosła ${{n}\choose{2}} = \frac{n} \cdot \frac{n - 1}{2}$. Skoro każdy gracz uzyskał taką samą liczbę zwycięstw, to ta liczba wynosi $\frac{n - 1}{2}$.
+Rozpatrzmy jednego gracza~$x$. Podzielmy pozostałych graczy na dwa zbiory -- zbiór~$A$, który zawiera $\frac{n - 1}{2}$ graczy, którzy wygrali~z~$x$ oraz zbiór~$B$, który zawiera $\frac{n - 1}{2}$ graczy, którzy przegrali~z~$x$. 
+Jeśli gracz~$y$ należy do zbioru~$B$, to liczba graczy pokonanych przez obu~$x$ oraz $y$ wynosi~$k$. Stąd też $y$ pokonał dokładnie~$k$ osób ze zbioru~$B$. Pokonał też~$x$, a skoro pokonał łącznie $\frac{n - 1}{2}$ osób, to pokonał dokładnie $\frac{n - 1}{2} - 1 - k$ osób w zbiorze $A$.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+
+		\node[vertex, label=left:$x$] (x) at (0,0) {};
+		\node[vertex, label=above:$y$] (y) at (3.1,1.5) {};
+		\node[vertex] (a_1) at (3.6,1.5) {};
+		\node[vertex] (a_2) at (4.1,1.5) {};
+		\node[vertex] (a_3) at (4.5,1.5) {};
+		\node[vertex] (a_4) at (4.9,1.5) {};
+
+
+		\node[circle, draw=black, inner sep=0pt, minimum size=60pt] (1) at (4,1.5) {};
+		\node[circle, draw=black, inner sep=0pt, minimum size=60pt] (1) at (4,-1.5) {};
+
+
+
+		\node[vertex] (b_1) at (3.1,-1.5) {};
+		\node[vertex] (b_2) at (3.6,-1.5) {};
+		\node[vertex] (b_3) at (4.1,-1.5) {};
+		\node[vertex] (b_4) at (4.5,-1.5) {};
+		\node[vertex] (b_5) at (4.9,-1.5) {};
+
+		\node[label=right:A] (a) at (5, 1.5) {};
+		\node[label=right:B] (b) at (5, -1.5) {};
+
+
+		\draw[edge] (x) to (b_1);
+		\draw[edge] (x) to (b_2);
+		\draw[edge] (y) to (b_1);
+		\draw[edge] (y) to (b_2);
+
+		\draw[edge] (y) to[bend left] (a_3);
+		\draw[edge] (y) to[bend right] (a_4);
+
+
+	\end{tikzpicture}
+\end{center}
+
+\vspace{10px}
+\noindent
+Skoro zbiór $A$ zawiera $\frac{n - 1}{2}$ osób i każdy pokonał w nim dokładnie $\frac{n - 1}{2} - 1 - k$, czyli stałą liczbę osób, to rozumując analogicznie jak na początku zadania mamy, że każdy pokonał ich dokładnie $\frac{\frac{n - 1}{2}}{2} - 1 = \frac{n - 3}{4}$. Skoro liczba osób jest całkowita, to wynika z tego, że liczba~$n - 3$ jest podzielna przez $4$. Jest to w oczywisty sposób równoważne tezie.
+
+%Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2016.pdf Pierwszy mecz P5
+\begin{problem}{6}
+	Wykazać, że wierzchołki grafu można pokolorować na jeden z $k$ kolorów, tak, by żadne dwa wierzchołki tego samego koloru nie były połączone krawędzią wtedy i tylko wtedy, gdy krawędzie tego grafu da się tak skierować, by nie istniała ścieżka składająca się z $k + 1$ różnych wierzchołków.
+\end{problem}
+
+\noindent
+Najpierw wykażemy, że jeśli istnieje kolorowanie, to istnieje nie szukana ścieżka. Ponumerujmy kolory od $1$ do $k$. Jeśli krawędź występuje pomiędzy wierzchołkami $i$ oraz $j$, to skierujemy ją w stronę $i$ jeśli $i > j$, zaś skierujemy ją w stronę przeciwną, gdy $i < j$. Wówczas na każdej ścieżce kolejny wierzchołek ma zapisaną większą liczbę od poprzedniego. Skoro największa liczba zapisana na wierzchołku wynosi nie więcej niż $k$, to ścieżka o długości $k + 1$ nie istnieje.
+
+\vspace{10px}
+\noindent
+Załóżmy, że graf skierowany nie zawiera ścieżki, która składa się z $k + 1$ wierzchołków. Usuńmy niektóre z jego krawędzi, aby otrzymać spójny graf, który nie zawiera żadnego cyklu, przy czym liczba krawędzi otrzymanego grafu jest największa z możliwych. Każdemu wierzchołkowi przypiszmy kolor o numerze równym długości najdłuższej ścieżki zaczynającej się w danym wierzchołku. Łatwo zauważyć, że jeśli z pewnego wierzchołka $x$ prowadzi krawędź do wierzchołka $y$, to do ścieżki zaczynającej się w wierzchołku $y$ można dołożyć na początek wierzchołek $x$. Toteż w wierzchołku $x$ jest zapisana liczba większa niż liczba w wierzchołku $y$.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tikzset{vertex/.style = {shape=circle,draw, inner sep = 1pt, fill=black}}
+		\tikzset{edge/.style = {arrowMe=stealth}}
+
+
+		\node[vertex, label=below:6] (x_1) at (0,0.5) {};
+		\node[vertex, label=left:5] (x_2) at (-1,1) {};
+		\node[vertex, label=left:4] (x_3) at (-1,2) {};
+		\node[vertex, label=left:3] (x_4) at (-1,3) {};
+		\node[vertex, label=above:2] (x_5) at (0,4) {};
+		\node[vertex, label=right:1] (x_6) at (1,3) {};
+		\node[vertex, label=right:4] (x_7) at (1,2) {};
+
+		\draw[edge] (x_1) to (x_2);
+		\draw[edge] (x_2) to (x_3);
+		\draw[edge] (x_3) to (x_4);
+		\draw[edge] (x_4) to (x_5);
+		\draw[edge] (x_5) to (x_6);
+		\draw[edge] (x_7) to (x_4);
+		\draw[edge] (x_1) to (x_7);
+		\draw[edge, dashed] (x_3) to (x_1);
+		\draw[edge, dashed] (x_6) to (x_4);
+
+
+	\end{tikzpicture}
+\end{center}
+
+\vspace{10px}
+\noindent
+Wykażemy, że jeśli pomiędzy wierzchołkami $x$ i $y$ usunięto krawędź, to również mają zapisaną inną liczbę. Z założonej wcześniej maksymalności grafu bez cyklu, po dołożeniu krawędzi między $x$ i $y$ ten cykl powstanie. Wynika z tego to, że po jej usunięciu istnieje ścieżka z $x$ do $y$, albo z $y$ do $x$. Analogicznie jak poprzednio, wierzchołek w którym ta ścieżka się zaczyna, będzie miał zapisaną większą liczbę, niż ten, w którym się ona kończy. Z powyższych wniosków wynika teza.
