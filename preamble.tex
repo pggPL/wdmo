@@ -45,6 +45,7 @@ arrowMe/.style={postaction=decorate,
 }
 
 \newcommand{\theory}[1]{
+  \addcontentsline{toc}{subsection}{#1}
 	\begin{center}
     \fontsize{26}{20}\selectfont
 	\textbf{\textcolor{kolor}{#1}}
@@ -84,6 +85,7 @@ arrowMe/.style={postaction=decorate,
 \setlist[hints_list]{label=\textbf{\textcolor{kolor}{\arabic*}}.}
 
 \newcommand{\hints}[1]{
+  \addcontentsline{toc}{subsection}{#1}
   \vspace{10px}
 	\begin{center}
     \fontsize{20}{20}\selectfont
@@ -92,6 +94,7 @@ arrowMe/.style={postaction=decorate,
 }
 
 \newcommand{\solutions}[1]{
+  \addcontentsline{toc}{subsection}{#1}
 	\begin{center}
     \fontsize{26}{20}\selectfont
 	\textbf{\textcolor{kolor}{#1}}
