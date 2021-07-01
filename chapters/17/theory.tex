@@ -2,6 +2,12 @@
 
 \theory{Rozstrzygnij, czy}
 
+\noindent
+Pochylimy się nad zadaniami, w którym nie wiemy, czy mamy dowodzić tezy, czy też szukać do niej kontrprzykładu. Czasami, mimo że w zadaniu napisano ,,rozstrzygnij'', tak właściwie jest jasne, że tezę trzeba udowodnić. Nie będziemy w tym rozdziale zajmować się tego typu rzeczami -- w poniższych zadaniach rozpoznanie w którym kierunku należy prowadzić rozumowanie, jest co najmniej nietrywialne.
+
+\vspace{10px}
+\noindent
+Poniższy przykład to nieco uproszczone zadanie 5 z Międzynarodowej Olimpiady Matematycznej z $2010$ roku. Sprawiło ono kłopot wielu bardzo dobrym zawodnikom -- rozwiązał je jeden z sześciu reprezentantów Polski.
 
 % IMO 2010 P5
 \heading{Przykład 1}
@@ -10,32 +16,128 @@
 Każde z sześciu pudeł $B_1$, $B_2$, $B_3$, $B_4$, $B_5$, $B_6$ na początku zawiera po jednej monecie. Następujące operacje są dozwolone
 
 \begin{enumerate}
-	\item Wybrać niepuste pudełko $B_j$, $1\leq j \leq 5$, usunąć jedną monetę z $B_j$ i dołożyć dwie monety do $B_{j+1}$;
+	\item Wybrać niepuste pudełko $B_j$, $1\leq j \leq 5$, usunąć jedną monetę z $B_j$ i dołożyć dwie monety do $B_{j + 1}$;
 
-	\item  Wybrac niepuste pudełko $B_k$, $1\leq k \leq 4$, usunąć jedną monetę z $B_k$ i zamienić kolejnośc pudełek $B_{k+1}$ i $B_{k+2}$.
+	\item  Wybrać niepuste pudełko $B_k$, $1\leq k \leq 4$, usunąć jedną monetę z $B_k$ i zamienić kolejność pudełek $B_{k+1}$ i $B_{k+2}$.
 
 \end{enumerate}
 
 \noindent
-Rozstrzygnąc, czy instieje taki ciąg operacji, że każde z pudełek $B_1$, $B_2$, $B_3$, $B_4$, $B_5$ stanie się puste, zaś pudełko $B_6$ będzie zawierało $2000^{2000^{2000}}$ monet.
+Rozstrzygnąć, czy istnieje taki ciąg operacji, że każde z pudełek $B_1$, $B_2$, $B_3$, $B_4$, $B_5$ stanie się puste, zaś pudełko $B_6$ będzie zawierało $2000^{2000}$ monet.
+
+\vspace{5px}
 
 \heading{Rozwiązanie}
 
+\noindent
+Wykażemy, że istnieje ciąg ruchów spełniający warunki zadania. Przyjmiemy, że 
+\[
+	(a_1, a_2, ....) \rightarrow (b_1, b_2, ...)
+\] 
+jeśli można wykonać pewną liczbę ruchów, że z ciągu kolejnych pudełek w których jest $a_1, a_2, ....$ monet otrzymamy ciąg $b_1, b_2, ....$ monet.
+
+\vspace{10px}
+
+\noindent
+\underline{Obserwacja.} $(a, 0, 0) \rightarrow (0, 2^a, 0)$ dla każdego $a \geqslant 1.$
+
+\vspace{5px}
+\noindent
+Zauważmy,~że
+\[
+	(a, 0, 0) \rightarrow (a - 1, 2, 0)
+\]
+oraz
+\[
+	(x, 2^y, 0) \rightarrow (x, 2^y - 1, 2) \rightarrow ... \rightarrow (x, 0, 2^{y + 1}) \rightarrow (x - 1, 2^{y}, 0).
+\]
+Wykonując najpierw pierwsze~z powyższych przekształceń,~a następnie wykonując ${a - 1}$ razy drugie~z nich otrzymamy tezę.
+
+\vspace{10px}
+\noindent
+Najpierw wykonany takie ruchy, aby otrzymać w ostatnim pudełku bardzo dużą liczbę, a następnie cofniemy ją prawie na początek.
+\begin{align*}
+	&(1, 1, 1, 1, 1, 1) \rightarrow (0, 3, 1, 1, 1, 1) \rightarrow (0, 1, 5, 1, 1, 1)  \rightarrow \\
+	\rightarrow &(0, 1, 1, 9, 1, 1)  \rightarrow (0, 1, 1, 1, 17, 1)  \rightarrow (0, 1, 1, 1, 0, 35) \rightarrow \\
+	\rightarrow  &(0, 1, 1, 0, 35, 0)  \rightarrow (0, 1, 0, 35, 0, 0)  \rightarrow (0, 0, 35, 0, 0, 0).
+\end{align*}
+
+\noindent
+Na mocy obserwacji wykonujemy ruchy
+\[
+	 (0, 0, 35, 0, 0, 0) \rightarrow  (0, 0, 1, 2^{34}, 0, 0) \rightarrow  (0, 0, 1, 0, 2^{2^{34}}, 0) \rightarrow  (0, 0, 0, 2^{2^{34}}, 0 , 0).
+\]
+Zauważmy, że 
+\[
+	2^{2^{34}} > 2^{1000^3} > \left(2^{2000}\right)^{11} > 2000^{2000}.
+\] 
+Przyjmijmy $A = 2000^{2000}$. Wykonując drugi ruch dla $k = 4$ tak właściwie jedynie zabieramy monetę z czwartego pudełka, gdyż pudełka: piąte i szóste są puste. Możemy więc zabrać ich tyle, by w czwartym pudełku zostało $\frac{1}{4}A$ monet. Wówczas wykonując ruchy pierwszego rodzaju otrzymujemy
+\[
+	(0, 0, 0, \tfrac{1}{4}A, 0, 0) \rightarrow (0, 0, 0, 0, \tfrac{1}{2}A, 0) \rightarrow (0, 0, 0, 0, 0, A).
+\]
+
+\qed
+
+\noindent
+Kluczowym elementem rozwiązywania tego typu zadań jest pobawienie się danymi operacjami~i zobaczenie jakie liczby da się uzyskać. Jeśli zrobimy to dobrze, to unikniemy sytuacji, w której przez dłuższy czas bezskutecznie próbujemy dowodzić, że odpowiedzią na postawione pytanie jest ,,Nie''.
+
+\vspace{5px}
+
 % trzeba się pobawić i zobaczyć, jakie liczby da się uzyskać
 
-%Source: Burek
+%Source: 20^2 Problems in Number Theory Dominika Burka
 \heading{Przykład 2}
 
 \noindent
-Dane są takie liczby całkowite $a$, $b$, $c$, $d$, że nie istnieją takie niezerowe liczby całkowite $x$, $y$, $z$, $t$, że
+Dane są takie liczby całkowite $a$, $b$, $c$, $d$, że nie istnieją takie niezerowe liczby całkowite~$x$, $y$, $z$, $t$, że
 \[
 	ax^2 + by^2 + cz^2 + dt^2 = 0.
 \]
 Rozstrzygnąć, czy wynika z tego, że liczby $a$, $b$, $c$, $d$ mają ten sam znak.
 
+\vspace{5px}
+
 \heading{Rozwiązanie}
 
-%tutaj ciężej jest wpaść na to, analizująć drobne przypadki
-% trzeba zauważyć, że trzbe skorzystać z całkowitości – stąd teoria liczb
+\noindent
+Wykażemy, że postulowana implikacja nie zachodzi. Rozpatrzmy liczby
+\[
+	a = b = 3, \; c = d = -1.
+\]
+Udowodnimy, że jeśli zachodzi równość
+\[
+	3x^2 + 3y^2 = z^2 + t^2,
+\]
+to wówczas $x = y = z = t = 0$. Rozumując nie wprost, załóżmy, że istnieje niezerowe rozwiązanie powyższego równania. Rozpatrzmy takie rozwiązanie, dla którego suma~${|x| + |y| + |z| + |t|}$ jest najmniejsza możliwa. Wiemy, że
+\[
+	z^2 + t^2 = 3x^2 + 3y^2 \equiv 0 \pmod{3}
+\]
+Znanym faktem jest, że dla dowolnej liczby całkowitej $n$ mamy
+\[
+	n^2 \equiv 0 \pmod{3},\; \text{gdy } n \equiv 0 \pmod{3} \quad \text{oraz} \quad n^2 \equiv 1 \pmod{3},\; \text{gdy } n \equiv 1, 2 \pmod{3}.
+\]
+Rozpatrując wszystkie możliwe przypadki, w zależności od reszt z dzielenia przez $3$ jakie dają liczby $z$ i $t$, łatwo otrzymać, że
+\[
+	z^2 + t^2  \equiv 0 \pmod{3} \iff z \equiv t \equiv 0 \pmod{3}.
+\]
+Mamy więc $z = 3z_0$ oraz $t = 3t_0$ dla pewnych liczb całkowitych $z_0$,\; $t_0$. Wówczas
+\begin{align*}
+	3x^2 + 3y^2 &= z^2 + t^2 = 9z_0^2 + 9t_0^2, \\
+	3z_0^2 + 3t_0^2 &= x^2 + y^2.
+\end{align*}
+Stąd czwórka $(z_0, t_0, x, y)$ również jest niezerowym rozwiązaniem danego równania. Jeśli obie z liczb $z_0$, $t_0$ są równe zeru, to łatwo zauważyć, że pozostałe dwie również, co przeczy niezerowości danego rozwiązania. W przeciwnym wypadku
+\[
+	|z_0| + |t_0| + |x| + |y| < |x| + |y| + |z| + |t|
+\]
+co przeczy minimalności $|x| + |y| + |z| + |t|$.
 
-% metoda nieskończonego schodzenia
+\qed
+
+\noindent
+Metodę zastosowaną powyżej nazywa się \textit{nieskończonym schodzeniem}. Z pewnego rozwiązania równania uzyskujemy rozwiązanie mniejsze. Nie można jednak schodzić w nieskończoność. Skoro działamy w liczbach całkowitych, to wartość wyrażenia ${|x| + |y| + |z| + |t|}$ nie może przyjmować dowolnie małych wartości.
+
+\vspace{10px}
+\noindent
+Ciężko w powyższym zadaniu wpaść na rozwiązanie obserwując jak teza zachowuje się dla małych liczb $a$, $b$, $c$, $d$. Nie w każdym zadaniu analiza szczególnych przypadków jest pomocna. Ważna była obserwacja, że na mocy założeń liczby $x$, $y$, $z$ i $t$ są całkowite. Trzeba jakoś skorzystać z tej własności -- tutaj nasuwa się modulo.
+
+\vspace{10px}
