@@ -16,6 +16,8 @@
 \usepackage{gensymb}
 \usepackage[many]{tcolorbox}
 \usepackage{mathtools}
+\PassOptionsToPackage{hyphens}{url}
+\usepackage{xurl}
 \usetikzlibrary{patterns}
 
 % definicja koloru
@@ -88,10 +90,27 @@ arrowMe/.style={postaction=decorate,
 \newcommand{\hints}[1]{
   \addcontentsline{toc}{subsection}{#1}
   \vspace{10px}
-	\begin{center}
+  \begin{center}
     \fontsize{20}{20}\selectfont
-	\textbf{\textcolor{kolor}{#1}}
-	\end{center}
+  \textbf{\textcolor{kolor}{#1}}
+  \end{center}
+}
+
+\newcommand{\sources}[1]{
+  \vspace{20px}
+  \addcontentsline{toc}{subsection}{#1}
+  \vspace{10px}
+  \begin{center}
+    \fontsize{20}{20}\selectfont
+  \textbf{\textcolor{kolor}{#1}}
+  \end{center}
+  \vspace{10px}
+}
+
+\newcommand{\source}[1]{
+\noindent
+  \textbf{\textcolor{kolor}{#1}} \; 
+  \noindent
 }
 
 \newcommand{\solutions}[1]{
