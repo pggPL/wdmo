@@ -1,7 +1,6 @@
 \newpage
 \solutions{Indukcja matematyczna 2}
 
-%Source: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxpbW9jYW5hZGF8Z3g6NDA2NGM2NjkwZTJiYTg2Ng Canada Training Camp
 \begin{problem}{1}
 	Udowodnić, że za pomocą monet trzyzłotowych i pięciozłotowych można zapłacić każdą kwotę większą niż $7$ złotych, bez konieczności wydawania reszty.
 \end{problem}
@@ -18,7 +17,6 @@ skąd wynika, że kwoty 8, 9 i 10 złotych da się zapłacić bez wydawania resz
 \noindent
 Załóżmy, że dla pewnej liczby całkowitej $k \geqslant 11$, da się we wspomniany sposób zapłacić wszystkie kwoty większe od $7$ złotych, ale nie większe niż $k$. Wówczas w szczególności da się zapłacić kwotę $(k + 1) - 3 \geqslant 8$ złotych. Dokładając jedną monetę trzyzłotową otrzymujemy szukane przestawienie kwoty $k + 1$ złotych. Z zasady indukcji matematycznej wynika teza.
 
-%Source: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxpbW9jYW5hZGF8Z3g6NWVkYTk2MWY5ODMzZGMxNA
 \begin{problem}{2}
 	Dana jest liczba naturalna $n$. Niech $\mathcal{S}$ będzie zbiorem wszystkich punktów postaci $(a, b)$, gdzie $a$ i $b$ są liczbami ze zbioru $\{0, 1, 2, ..., n\}$ oraz $a + b \leqslant n$. 
 
@@ -86,12 +84,11 @@ Zauważmy, że dla $n = 0$ teza jest trywialna -- zbiór $\mathcal{S}$ zawiera j
 \noindent
 Weźmy dowolny zbiór prostych, które przykrywają każdy z punktów zbioru $\mathcal{S}$ dla $n + 1$. Wyróżnijmy punkty $(a, b)$, dla których zachodzi równość $a + b = n + 1$. Zauważmy, że wszystkie te punkty leżą na jednej prostej. Rozpatrzmy dwa przypadki
 \begin{enumerate}
-	\item Istnieje prosta $l$, która przykrywa pewne dwa wyróżnione punkty. Wówczas przykrywa ona wszystkie wyróżnione punkty i żadnego innego punktu ze zbioru $\mathcal{S}$. Zauważmy, że dla zbioru $\mathcal{S}$ z usuniętymi wyróżnionymi punktami, możemy zaaplikować założenie indukcyjne. Wynika z niego, że do pokrycia rozpatrzywanych punktów potrzeba co najmniej $n$ prostych. Dokładając prostą $l$ otrzymujemy, że łącznie prostych jest co najmniej $n + 1$.
+	\item Istnieje prosta $l$, która przykrywa pewne dwa wyróżnione punkty. Wówczas przykrywa ona wszystkie wyróżnione punkty i żadnego innego punktu ze zbioru $\mathcal{S}$. Zauważmy, że dla zbioru $\mathcal{S}$ z usuniętymi wyróżnionymi punktami, możemy zaaplikować założenie indukcyjne. Wynika z niego, że do pokrycia rozpatrywanych punktów potrzeba co najmniej $n$ prostych. Dokładając prostą $l$ otrzymujemy, że łącznie prostych jest co najmniej $n + 1$.
 	\item Żadne dwa wyróżnione punkty nie są przykryte przez jedną prostą. Skoro jest $n + 1$ punktów, to do ich przykrycia będzie potrzebnych $n + 1$ prostych. W szczególności do pokrycia zbioru $\mathcal{S}$ potrzeba $n + 1$ prostych.
 \end{enumerate}
 
 
-%Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2015.pdf P 9
 \begin{problem}{3}
 	Wykazać, że istnieje taka dodatnia liczba całkowita, że jest ona podzielna przez $2^{1000}$, oraz ma w zapisie dziesiętnym jedynie cyfry $1$ i $2$.
 \end{problem}
@@ -129,7 +126,6 @@ W każdym z przypadków rozpatrywana liczba jest $n + 1$-cyfrową liczbą dobrą
 	\]
 \end{remark}
 
-%Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2018.pdf P 26
 \begin{problem}{4}
 	Niech $k$ będzie dodatnią liczbą całkowitą. Na przyjęciu spotkało sie $n \geqslant 2$ gości, spośród których niektórzy znają się. Okazało się, że dla każdego niepustego podzbioru gości $A$ istnieje osoba, która zna co najwyżej $k$ osób z $A$. Podzbiór gości, spośród których każde dwie się znają, nazywamy \textit{kilką}. Wykazać, że istnieje co najwyżej $2^k \cdot n$ klik.
 \end{problem}
@@ -170,7 +166,6 @@ Klika, która zawiera $X$, nie może zawierać osoby, której $X$ nie zna. Musi 
 \noindent
 Łącząc powyższe wnioski otrzymujemy, że klik jest co najmniej $2^k \cdot (n - 1) + 2^k = 2^k \cdot n$. Z zasady indukcji matematycznej wynika teza.
 
-%Source: https://docs.google.com/viewer?a=v&pid=sites&srcid=ZGVmYXVsdGRvbWFpbnxpbW9jYW5hZGF8Z3g6NDA2NGM2NjkwZTJiYTg2Ng P 2
 \begin{problem}{5}
 	Znajdź wszystkie funkcje $f$ z dodatnich liczb całkowitych w dodatnie liczby całkowite, które dla każdej liczby dodatniej całkowitej $n$ spełniają nierówności
 	\[
@@ -206,7 +201,6 @@ Wykażemy indukcyjnie, że $f(n) = n$. Załóżmy, że równość $f(k) = k$ zac
 \noindent
 Stąd musi zajść $f(n) = n$, co kończy rozumowanie indukcyjne.
 
-%Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2019.pdf P 14
 \begin{problem}{6}
 	Niech $\mathcal{R}$ będzie rodziną zbiorów $1000$-elementowych. Moc $\mathcal{R}$ jest większa niż $1000 \cdot 999^{1000}$ Wykazać, że istnieje $1000$-elementowa rodzina $\mathcal{G}$, będąca podrodziną $\mathcal{R}$, oraz taki zbiór $X$, że dla dowolnych zbiorów $A, B \in \mathcal{R}$ zachodzi $A \cap B = X$.
 \end{problem}

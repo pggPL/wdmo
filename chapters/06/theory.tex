@@ -1,7 +1,5 @@
 % Rozdział 6 – konstrukcje i ekstrema
-% napisać o tym, że jak pokazujemy maksimum, to trzeba pokazać konstrukcję
-% konstrukcje oczywiste i nieoczywiste, pilnowanie równości, analiza małych przypadków
-% 
+
 
 \theory{Konstrukcje}
 
@@ -10,7 +8,6 @@ W tym rozdziale będziemy obracać się wokół zadań, które polegają na kons
 
 \vspace{10px}
 
-% tutaj pokażę jakieś maksimum z konstrukcją
 \heading{Przykład 1}
 
 \noindent
@@ -57,7 +54,7 @@ W powyższym zadaniu konieczne było zarówno udowodnienie, że nie da się post
 \heading{Przykład 2}
 
 \noindent
-Niech $S(k)$ oznacza sume cyfr liczby $k$ w zapisie dziesiętnym. Dodatnią liczbę całkowitą $n$ nazwiemy \textit{piękną} jeśli zachodzi równość $S(n) = S(n^2)$. Wyznaczyć wszystkie wartości jakie przymuje $S(n)$ dla liczb pięknych n.
+Niech $S(k)$ oznacza sumę cyfr liczby $k$ w zapisie dziesiętnym. Dodatnią liczbę całkowitą $n$ nazwiemy \textit{piękną} jeśli zachodzi równość $S(n) = S(n^2)$. Wyznaczyć wszystkie wartości jakie przyjmuje $S(n)$ dla liczb pięknych n.
 
 \newpage
 
@@ -75,7 +72,7 @@ Zauważam, że jest to możliwe jedynie dla $n \equiv 0, 1 \pmod{9}$ -- wystarcz
 \vspace{5px}
 
 \noindent
-Po otrzymaniu powyższej obserwacji można postawić hipotezę, że dla wszystkich liczb dodatnich postaci $k \equiv 0, 1 \pmod{9}$ istnieje liczba piękna $n$, że $S(n) = k$. Aby zweryfikować, czy hipoteza ma sens warto sprawdzić, czy jest ona prawdziwa dla kilku małych wartości~$k$. Łatwo sprawdzić, że liczby $9$ i $10$ są piękne oraz $S(9) = 9$ i $S(10) = 1$. Poszukując większych wartości $S(n)$ dla liczb pięknych otrzymujmey $S(99) = 18$ i ${S(199) = 19}$. Łatwo też sprawdzić, że $99$ i $199$ są piękne. Te obserwacje, poczynione na kilku najmniejszych wartościach, naprowadzają nas na dalszą część rozwiązania.
+Po otrzymaniu powyższej obserwacji można postawić hipotezę, że dla wszystkich liczb dodatnich postaci $k \equiv 0, 1 \pmod{9}$ istnieje liczba piękna $n$, że $S(n) = k$. Aby zweryfikować, czy hipoteza ma sens warto sprawdzić, czy jest ona prawdziwa dla kilku małych wartości~$k$. Łatwo sprawdzić, że liczby $9$ i $10$ są piękne oraz $S(9) = 9$ i $S(10) = 1$. Poszukując większych wartości $S(n)$ dla liczb pięknych otrzymujemy $S(99) = 18$ i ${S(199) = 19}$. Łatwo też sprawdzić, że $99$ i $199$ są piękne. Te obserwacje, poczynione na kilku najmniejszych wartościach, naprowadzają nas na dalszą część rozwiązania.
 
 \vspace{5px}
 
@@ -88,7 +85,7 @@ Następnie weźmy liczbę $b = 2 \cdot 10^{k + 1} - 1$. Wówczas
 \[
     S(b) = S(1\underbrace{99...9}_{k}) = 9k + 1 = S(3\underbrace{99...9}_{k-1}6\underbrace{00...0}_{k-1}1) = S(4\cdot 10^{2k + 2} - 4\cdot 10^{k + 1} + 1) = S(b^2).
 \]
-Zauważamy, że dla dowolnej dodatniej liczby całkowiej $k$ liczby $a$, $b$ są piękne oraz ${S(a) = 9(k + 1)}$ i $S(b) = 9k + 1$.
+Zauważamy, że dla dowolnej dodatniej liczby całkowitej $k$ liczby $a$, $b$ są piękne oraz ${S(a) = 9(k + 1)}$ i $S(b) = 9k + 1$.
 
 \noindent
 Łącząc powyższe wnioski otrzymujemy, że szukanymi liczbami są wszystkie dodatnie liczby całkowite dające resztę 0 lub 1 z dzielenia przez $9$.
@@ -114,7 +111,7 @@ od 1.
 \heading{Rozwiązanie}
 
 \noindent
-Kluczową obserwacją, która pozwoli nam rozwiązać to zadanie jest fakt, że jeśli pewna liczba naturalna $n$ jest podzielna przez pewną liczbę pierwszą $p$, ale nie jest podzielna przez $p^2$, to nie może być ona potęgą liczby całkowitej. Istotnie, bowiem jeśli $n = a^k$ dla pewnych liczb naturalnch $a$, $k \geqslant 2$ to jeśli $p \mid a^k$, to $p \mid a$, czyli $p^k \mid a^k = n$.
+Kluczową obserwacją, która pozwoli nam rozwiązać to zadanie jest fakt, że jeśli pewna liczba naturalna $n$ jest podzielna przez pewną liczbę pierwszą $p$, ale nie jest podzielna przez $p^2$, to nie może być ona potęgą liczby całkowitej. Istotnie, bowiem jeśli $n = a^k$ dla pewnych liczb naturalnych $a$, $k \geqslant 2$ to jeśli $p \mid a^k$, to $p \mid a$, czyli $p^k \mid a^k = n$.
 
 \vspace{5px}
 
@@ -130,7 +127,7 @@ Wówczas jeśli $i_1 < i_2 < ... < i_s$, to każda z liczb $a_{i_2}, \; a_{i_3},
 \[
      a_{i_1} + a_{i_2} +  a_{i_3} +  ... + \; a_{i_s}
 \]
-równiez ma tę własność, więc nie może być potęga liczby całkowitej.
+również ma tę własność, więc nie może być potęga liczby całkowitej.
 
 \qed
 

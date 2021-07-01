@@ -21,7 +21,9 @@ Załóżmy, że dla pewnej liczby dodatniej całkowitej $k$ zachodzi nierównoś
 
 Wykazaliśmy, że jeśli postulowana nierówność zachodzi dla pewnej dodatniej liczby całkowitej $k$, to zachodzi również dla liczby $k + 1$. Skoro zachodzi ona dla $n = 1$, to zachodzi również dla $1 + 1 = 2,\; 2 + 1 = 3,\; 3 + 1 = 4, ...$ -- wszystkich liczb naturalnych.
 
-\vspace{20px}
+\qed
+
+\vspace{10px}
 
 \noindent
 Alternatywnym, ale równoważnym, sposobem zakończenia rozwiązania powyższego przykładu jest rozpatrzenie najmniejszego naturalnego $n$, dla którego teza nie zachodzi. A więc dla $n - 1$ nierówność musi zachodzić, chyba że $n = 1$. Ale w tym przypadku sprawdzamy, że teza zachodzi. Skoro dla $n - 1$ teza jest prawdziwa, a dla $n$ już nie, to otrzymujemy sprzeczność z wcześniej poczynioną obserwacją.
@@ -50,7 +52,7 @@ Indukcję matematyczną da się wykorzystać poza algebrą. Pokażemy jedno jego
 \vspace{5px}
 
 \noindent
-\textit{Grafem} nazywamy pewien zbiór \textit{wierzchołków} na płaszczyźnie, które są połączone \textit{krawędziami}. \textit{Ścieżką} nazywamy ciąg parami różnych krawędzi pewnego grafu, z których dwie kolejne mają wspólny wierzchołek. \textit{Ścieżką Hamiltona} nazwamy ścieżkę, która przechodzi przez każdy wierzchołek dokładnie raz. 
+\textit{Grafem} nazywamy pewien zbiór \textit{wierzchołków} na płaszczyźnie, które są połączone \textit{krawędziami}. \textit{Ścieżką} nazywamy ciąg parami różnych krawędzi pewnego grafu, z których dwie kolejne mają wspólny wierzchołek. \textit{Ścieżką Hamiltona} nazywamy ścieżkę, która przechodzi przez każdy wierzchołek dokładnie raz. 
 
 \vspace{20px}
 
@@ -91,7 +93,7 @@ Indukcję matematyczną da się wykorzystać poza algebrą. Pokażemy jedno jego
 \heading{Przykład 2}
 
 \noindent
-Zdefinujmy ciąg grafów $(G_n)_{n\geqslant1}$ w następujący sposób.
+Zdefiniujmy ciąg grafów $(G_n)_{n\geqslant1}$ w następujący sposób.
 \begin{itemize}
 	\item Graf $G_1$ jest grafem złożonym z dwóch połączonych ze sobą wierzchołków,
 	\item Graf $G_{i + 1}$ dla $i \geqslant 2$ otrzymujemy poprzez połączenie dwóch grafów $G_i$, aby każdy wierzchołek z jednego z tych grafów był połączony z dokładnie jednym wierzchołkiem z drugiego z tych grafów.
@@ -159,18 +161,20 @@ Wykażemy, że teza jest prawdziwa dla każdego $n \geqslant 1$. Co więcej wyka
 
 Zauważmy, że dla $n = 1$ teza jest oczywista -- ścieżka złożona z jednej krawędzi spełnia warunki zadania.
 
-Załóżmy, że dla $G_n$ istnieje ścieżka Hamiltona. Wykażemy, że istnieje ona dla $G_{n + 1}$. Graf $G_{n+1}$ składa się z dwóch połączonych ze sobą cześci izomorficznych z grafem $G_n$ -- nazwijmy je $A$ oraz $B$. Oznaczmy wierzchołki $G_{n + 1}$ kolejno jako
+Załóżmy, że dla $G_n$ istnieje ścieżka Hamiltona. Wykażemy, że istnieje ona dla $G_{n + 1}$. Graf $G_{n+1}$ składa się z dwóch połączonych ze sobą części izomorficznych z grafem $G_n$ -- nazwijmy je $A$ oraz $B$. Oznaczmy wierzchołki $G_{n + 1}$ kolejno jako
 $a_1, a_2, ..., a_{2^n}$ -- cześć $A$ oraz $b_1, b_2, ..., b_{2^n}$ -- część $B$, przy czym $a_i$ jest połączone właśnie z $b_i$. 
 
-Ścieżka Hamiltonowska w grafie $G_{n + 1}$ będzie się składać z 3 cześći:
+Ścieżka Hamiltonowska w grafie $G_{n + 1}$ będzie się składać z 3 części:
 
 \begin{itemize}
-	\item Na mocy założenia istnieje ścieżka zaczynająca się w $a_1$ przechodząca przez wszystkie wierzchołki $A$. Możemy ją przejść od tyłu. Wówczas przejdziemy wszystkie wierzchołki częsci $A$ kończąc w $a_1$.
-	\item Następnie przedziemy krawędzią między $a_1$ i $b_1$ do części $B$.
+	\item Na mocy założenia istnieje ścieżka zaczynająca się w $a_1$ przechodząca przez wszystkie wierzchołki $A$. Możemy ją przejść od tyłu. Wówczas przejdziemy wszystkie wierzchołki części $A$ kończąc w $a_1$.
+	\item Następnie przejdziemy krawędzią między $a_1$ i $b_1$ do części $B$.
 	\item Na mocy założenia z punktu $b_1$ da się poprowadzić ścieżkę, która przejdzie przez każdy z wierzchołków części $B$ dokładnie raz.
 \end{itemize}
 
 \noindent
 Łatwo zauważyć, że podany sposób przejścia grafu $G_{n + 1}$ tworzy ścieżkę Hamiltonowską.
+
+\qed
 
 \newpage

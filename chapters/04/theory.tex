@@ -1,8 +1,5 @@
 % Rozdział 4 – liczby pierwsze i reszty z dzielenia
 
-% p|ab -> p|a or p|b
-% v_p
-% odwracalnośc modulo p
 
 
 \theory{Liczby pierwsze i reszty z dzielenia}
@@ -48,8 +45,11 @@ Zauważamy, że zapis $x^2\equiv 1 \pmod{p}$ jest równoważny zapisowi
     p \mid x^2-1=(x-1)(x+1).
 \]
  Skoro $p$ jest liczbą pierwszą, to na mocy Twierdzenia 1 $p\mid x-1$ lub $p\mid x+1$, a to jest równoważne temu, co było do wykazania.
+ 
+\qed
 
-\vspace{5px}
+\vspace{10px}
+
 \heading{Lemat 2}
 
 \noindent
@@ -72,6 +72,9 @@ Jest to równoważne temu, że
     p\mid a^s(a^{r-s}-1).
 \]
 Skoro $a$ nie jest podzielna przez $p$, to $p\mid a^{r-s}-1$, to zachodzi $a^{r-s}\equiv 1 \pmod{p}$.
+
+\qed
+
 
 \vspace{10 px}
 \heading{Odwrotności modulo p}
@@ -134,6 +137,9 @@ co dowodzi postulowanej implikacji.
 
 Rozpatrzmy liczby $a, \; 2a,\; (p - 1)a$. Oczywiście żadna z nich nie jest podzielna przez~$p$. Z tego, że tych liczb jest $p - 1$, niezerowych reszt z dzielenia przez $p$ również jest $p - 1$, oraz te liczby dają parami różne reszty niezerowe z dzielenia przez $p$, wynika teza.
 
+\qed
+
+
 \newpage
 
 \heading{Małe twierdzenie Fermata}
@@ -163,5 +169,7 @@ Skoro te ciągi zawierają te same elementy modulo $p$, tylko, że w innej kolej
     (p - 1)! \equiv a^{p - 1}(p - 1)! \pmod{p}.
 \]
 Zauważmy, że $(p - 1)! \not\equiv 0 \pmod{p}$. Mnożać przystawanie stronami przez odwrotność liczby~$(p - 1)!$ otrzymujemy tezę.
+
+\qed
 
 \vspace{10px}

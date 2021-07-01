@@ -33,7 +33,7 @@ Rozpatrzmy najdłuższą ścieżkę w tym grafie i załóżmy nie wprost, że je
 \end{problem}
 
 \noindent
-Przekłóżmy zadanie na język teorii grafów. Miasta będa wierzchołkami, połączenie kolejowe niebieską krawędzią, a połączenie drogowe czerwoną.
+Przełóżmy zadanie na język teorii grafów. Miasta będą wierzchołkami, połączenie kolejowe niebieską krawędzią, a połączenie drogowe czerwoną.
 
 \vspace{5px}
 
@@ -69,18 +69,17 @@ Rozpatrzmy przypadek, w którym istnieje kolor $\mathcal{K}$, że tylko jedna kr
 
 
 \noindent
-Teraz przyjrzyjmy się przypadkowi, w którym każdy z kolorów wystepuje co najmniej dwukrotnie na rozpatrywanym cyklu.
+Teraz przyjrzyjmy się przypadkowi, w którym każdy z kolorów występuje co najmniej dwukrotnie na rozpatrywanym cyklu.
 Załóżmy więc bez straty ogólności, że $d_1d_2$ i $d_2d_3$ są czerwone, a $d_3d_4$ i $d_4d_5$ są niebieskie. Przyjmijmy, również bez straty ogólności, że $vd_3$ jest czerwona. Wtedy cykl $d_1d_2$, $d_2d_3$, $d_3v$, $vd_4$, $d_4d_5$, ..., $d_{k-2}d_{k-1}$, $d_{k-1}d_1$ spełnia warunki zadania.
 
 \vspace{5px}
 
-%Source: Tournament of the towns 1986
 \begin{problem}{3}
 	W pewnym turnieju bierze udział $40$ drużyn. Pierwszego dnia każda z drużyn rozegrała jeden mecz. Drugiego dnia również. Wykazać, że istnieje pewne $20$ drużyn, takich, że każde dwie spośród nich jeszcze nie grały ze sobą meczu.
 \end{problem}
 
 \noindent
-Rozpatrzmy graf, w którym wierzchołkami będą drużyny. Krawedź będzie istnieć wtedy i tylko wtedy, gdy drużyny odpowiadające jej końcą rozegrały ze sobą mecz. Zauważmy, że warunek z zadania jest równoważny faktowi, że stopień każdego wierzchołka jest równy~2. 
+Rozpatrzmy graf, w którym wierzchołkami będą drużyny. Krawędź będzie istnieć wtedy i tylko wtedy, gdy drużyny odpowiadające jej końcowi rozegrały ze sobą mecz. Zauważmy, że warunek z zadania jest równoważny faktowi, że stopień każdego wierzchołka jest równy~2. 
 
 Wybierzmy pewien wierzchołek i rozpocznijmy w nim spacer po grafie. Będziemy przechodzić do następnych wierzchołków krawędziami, którymi jeszcze nie szliśmy. Łatwo zauważyć, że musimy w ten sposób otrzymać cykl, w którym każdy wierzchołek odwiedzamy co najwyżej raz. Skoro stopień każdego z wierzchołków wynosi $2$, to żaden z wierzchołków tego cyklu nie ma krawędzi łączącej go z jakimkolwiek wierzchołkiem spoza tego cyklu. Wykonując analogiczne spacery startując z nieodwiedzonych jeszcze wierzchołków - o ile takowe istnieją - otrzymamy, że graf jest sumą rozłącznych cykli.
 
@@ -114,7 +113,6 @@ W każdym z cykli długości parzystej możemy wybrać połowę jego wierzchołk
 
 \newpage
 
-%Source: Tournament of the Towns Senior-O Spring 2011 P5
 \begin{problem}{4}
 	Dany jest graf spójny zawierający parzystą liczbę wierzchołków. Wykazać, że możemy pokolorować niektóre z jego krawędzi, aby z każdego wierzchołka wychodziła nieparzysta liczba pokolorowanych krawędzi.
 \end{problem}
@@ -135,21 +133,20 @@ Rozpatrzmy wierzchołek o największym stopniu. Wyróżnijmy go i usuńmy go wra
 \]
 Także po usunięciu tych wierzchołków inne stopnie mogą się zmniejszyć, ale to jeszcze bardziej zmniejszy naszą sumę.
 
-Wykazaliśmy, że usuwając pewien wierzchołek i jego sąsiadów, zmiejszamy rozpatrywaną sumę o co najwyżej $1$. Powtarzając ten algorytm, wykonamy co najmniej $\sum^{n}_{i = 1} \frac{1}{1 + d_i}$ usunięć. Biorąc pod uwagę wyróżnione wierzchołki otrzymamy zbiór spełniający warunki zadania.
+Wykazaliśmy, że usuwając pewien wierzchołek i jego sąsiadów, zmniejszamy rozpatrywaną sumę o co najwyżej $1$. Powtarzając ten algorytm, wykonamy co najmniej $\sum^{n}_{i = 1} \frac{1}{1 + d_i}$ usunięć. Biorąc pod uwagę wyróżnione wierzchołki otrzymamy zbiór spełniający warunki zadania.
 
 \vspace{5px}
 
-%Source: https://artofproblemsolving.com/community/c6h455746p2560781
 \begin{problem}{6}
-	Hydra składa się z pewnej liczby głów, z której niektóre są połączone szyjami. Herkulers może odciąć wszystkie szyje wychodzące z pewnej głowy, jednak wówczas z tamtej głowy wyrastają szyję, którą łączą ją z głowami, z którymi nie była ona wcześnie połączona. Hydra jest pokonana, gdy rozpada się na dwie rozłączne części. Wyznaczyć najmniejsze $N$, że Herkules jest w stanie pokonać dowolną hydrę składającą się ze $100$ szyi.
+	Hydra składa się z pewnej liczby głów, z której niektóre są połączone szyjami. Herkules może odciąć wszystkie szyje wychodzące z pewnej głowy, jednak wówczas z tamtej głowy wyrastają szyję, którą łączą ją z głowami, z którymi nie była ona wcześnie połączona. Hydra jest pokonana, gdy rozpada się na dwie rozłączne części. Wyznaczyć najmniejsze $N$, że Herkules jest w stanie pokonać dowolną hydrę składającą się ze $100$ szyi.
 \end{problem}
 
 \noindent
-Wykażemy, że $N = 10$. Oczywiście rozpatrzamy dany problem w języku teorii grafów. Rozpatrzmy dwa przypadki.
+Wykażemy, że $N = 10$. Oczywiście rozpatrujemy dany problem w języku teorii grafów. Rozpatrzmy dwa przypadki.
 
 Jeśli istnieje wierzchołek o stopnie nie większym niż $10$, to Herkules może odciąć każdego z jego sąsiadów i wówczas ten wierzchołek nie będzie miał już żadnych sąsiadów. W ten sposób może osiągnąć swój cel.
 
-Załóżmy teraz, że każdy wierzchołek ma stopień co najmniej $11$. Oznaczmy liczbę wierzchołków jako $K$. Wówczas liczba krawędzi wynosi co najmniej $\frac{11K}{2}$. Skoro jest ona równa $100$, to otrzymujemy $K \leqslant 18$. Zauważmy, że po wykonaniu odcięcia wierzchołka o stopniu co najmniej $11$, będzie on miał stopień co najwyżej $18 - 11 - 1 = 6$. Wówczas stosując procedurę analogiczną do poprzedniego prypadku otrzymamy $6 + 1 = 7$ łacznych cięć.
+Załóżmy teraz, że każdy wierzchołek ma stopień co najmniej $11$. Oznaczmy liczbę wierzchołków jako $K$. Wówczas liczba krawędzi wynosi co najmniej $\frac{11K}{2}$. Skoro jest ona równa $100$, to otrzymujemy $K \leqslant 18$. Zauważmy, że po wykonaniu odcięcia wierzchołka o stopniu co najmniej $11$, będzie on miał stopień co najwyżej $18 - 11 - 1 = 6$. Wówczas stosując procedurę analogiczną do poprzedniego przypadku otrzymamy $6 + 1 = 7$ łącznych cięć.
 
 
 Pozostaje wskazać przykład grafu, którego nie da rozciąć się w mniej niż $10$ ruchach. Zauważmy, że graf $K_{a,b}$ może zostać przekształcony na jeden z grafów $K_{a - 1,b + 1}$ lub $K_{a + 1,b - 1}$. Rozpatrując graf $K_{10,10}$ otrzymujemy szukany przykład.

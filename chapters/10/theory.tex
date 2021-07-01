@@ -2,8 +2,6 @@
 
 \theory{Podzielności}
 
-% wprowadzenie symbolu v_p
-
 \heading{Wykładniki peadyczne}
 
 \noindent
@@ -118,13 +116,10 @@ Z powyższego rozumowania warto zrozumieć i zapamiętać zależność
 	v_p(a^k) =  k \cdot v_p(a).
 \]
 
-
 \noindent
 Warto zwrócić uwagę na fakt, że Lemat 2 i Lemat 3 działają w dwie strony. Możemy ich użyć, aby uzyskać pewną własność $v_p$ z założenia o podzielności lub byciu potęgą. Jednak także są przydatne, gdy mamy wykazać, że jakaś podzielność zachodzi lub jakaś liczba jest kwadratem, sześcianem, ... liczby całkowitej.
 
 \vspace{10px}
-
-% Source: XIII OMJ, finals
 
 \heading{Przykład 1}
 
@@ -163,7 +158,7 @@ Dane są niezerowe liczby całkowite $a_1, a_2, ..., a_k$. Niech m będzie najmn
 \heading{Dowód}
 
 \noindent
-Przyjimy $a_i = p^{v_p(a_i)} \cdot b_i$. Wówczas
+Przyjmijmy $a_i = p^{v_p(a_i)} \cdot b_i$. Wówczas
 \begin{align*}
 	a_1 + a_2 + ... + a_n &= p^{v_p(a_1)}b_1 + p^{v_p(a_2)}a_2 + ... + p^{v_p(a_n)}a_n = \\
 	&= p^{v_p(m)}\left(p^{v_p(a_1) - v_p(m)}b_1 + p^{v_p(a_2) - v_p(m)}a_2 + ... + p^{v_p(a_n) - v_p(m)}a_n\right).
@@ -172,7 +167,6 @@ Każda z liczb w nawiasie poza jedną jest podzielna przez $p$, toteż ich suma 
 
 \qed
 
-%Source: https://om.mimuw.edu.pl/static/app_main/problems/om66_1r.pdf P1
 \heading{Przykład 2}
 
 \noindent
@@ -252,9 +246,6 @@ jest podzielna przez $3$. Z Lematu $3$ wynika więc teza.
 
 \qed
 
-
-% Source: https://s3.amazonaws.com/aops-cdn.artofproblemsolving.com/resources/articles/olympiad-number-theory.pdf Ex 3.3.1
-
 \vspace{10px}
 
 \heading{Przykład 3}
@@ -299,7 +290,6 @@ na mocy Lematu 2 nie może być całkowita, co dowodzi tezy.
 
 \qed
 
-
 \heading{Wzór Legendre'a}
 
 \noindent
@@ -307,7 +297,7 @@ Jeśli $n$ jest dodatnią liczbą całkowitą, a $p$ jest liczbą pierwszą, to
 \[
 	v_p(n!) = \left\lfloor \frac{n}{p} \right\rfloor + \left\lfloor \frac{n}{p^2} \right\rfloor + \left\lfloor \frac{n}{p^3} \right\rfloor + ...
 \]
-Mimo że powyższa suma ma nieskończenie wiele składników, będą one od pewnego momentu -- a dokładniej, gdy $p^k > n$ -- równe zero. Powyższa toższamość zwana jest \textit{wzorem Legendre'a}.
+Mimo że powyższa suma ma nieskończenie wiele składników, będą one od pewnego momentu -- a dokładniej, gdy $p^k > n$ -- równe zero. Powyższa tożsamość zwana jest \textit{wzorem Legendre'a}.
 
 \vspace{10px}
 
