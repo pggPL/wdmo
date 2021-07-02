@@ -41,7 +41,6 @@ czego należało dowieść.
 
 \noindent
 Sprawdzamy, że dla $n = 1$ postulowana równość zachodzi.
-
 Załóżmy, że równość
 \[
 	1^2 + 2^2 + 3^2 + ... + n^2 = \frac{n(n + 1)(2n + 1)}{6}
@@ -61,10 +60,9 @@ Przekształcając powyższą równość równoważnie otrzymujemy kolejno
 	6(n + 1)^2 &= 6n^2 + 12n + 6, \\
 	(n + 1)^2 &= n^2 + 2n + 1.
 \end{align*}
-Prawdziwość ostatniej równości dowodzi tezy.
 
 \begin{problem}{3}
-Dana jest nastepująca gra, zwana \textit{wieżami Hanoi}. Na początku ułożono $n$ dysków na jednej igle tak jak na rysunku. W każdym ruchu gracz może przemieścić dysk, wraz z wszystkimi dyskami nań leżącymy, na inną igłę, przy czym dysk ten nie może zostać położony na dysk o innej średnicy. Wykazać, że gracz jest w stanie przenieść wszystkie dyski na trzecią igłę.
+Dana jest następująca gra, zwana \textit{wieżami Hanoi}. Na początku ułożono $n$ dysków na jednej igle tak jak na rysunku. W każdym ruchu gracz może przemieścić dysk, wraz z wszystkimi dyskami nań leżącymi, na inną igłę, przy czym dysk ten nie może zostać położony na dysk o innej średnicy. Wykazać, że gracz jest w stanie przenieść wszystkie dyski na trzecią igłę.
 
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
@@ -86,8 +84,10 @@ Dana jest nastepująca gra, zwana \textit{wieżami Hanoi}. Na początku ułożon
 \noindent
 Tezę wykażemy indukcją po $n$. Zauważmy, że dla $n = 1$ teza jest oczywista -- wystarczy po prostu przełożyć dysk na trzecią igłę.
 
-Załóżmy, że jesteśmy w stanie przełożyć $n - 1$ dysków z pierwszej igły na trzecią. Możemy oczywiście zauważyć, że jest to równoważne chociażby możliwości przełożenia ich z igły pierwszej na drugą.
+\vspace{10px}
 
+\noindent
+Załóżmy, że jesteśmy w stanie przełożyć $n - 1$ dysków z pierwszej igły na trzecią. Możemy oczywiście zauważyć, że jest to równoważne chociażby możliwości przełożenia ich z igły pierwszej na drugą.
 Przełożenia $n$ dysków dokonujemy w następujący sposób:
 
 \begin{enumerate}
@@ -104,8 +104,10 @@ Przełożenia $n$ dysków dokonujemy w następujący sposób:
 
 \noindent
 Dla $n = 3$ mamy trójkąt. Wybierając kolor, na który pomalowano co najmniej dwa odcinki odcinki, postulowana własność będzie spełniona.
+\vspace{10px}
 
-Załóżmy, że dla teza zachodzi dla $n$ punktów. Rozpatrzmy zbiór $n + 1$ punktów. Wyróżnijmy pewien punkt $P$. Punktów poza $P$ jest dokładnie $n$, więc na mocy założenia istnieje kolor -- bez straty ogólności czerwony -- że pomiędzy kążdymi dwoma punktami poza $P$ istnieje łamana tego koloru. 
+\noindent
+Załóżmy, że dla teza zachodzi dla $n$ punktów. Rozpatrzmy zbiór $n + 1$ punktów. Wyróżnijmy pewien punkt $P$. Punktów poza $P$ jest dokładnie $n$, więc na mocy założenia istnieje kolor -- bez straty ogólności czerwony -- że pomiędzy każdymi dwoma punktami poza $P$ istnieje łamana tego koloru. 
 
 \begin{minipage}{0.5\textwidth}
 \begin{center}
@@ -167,9 +169,7 @@ Na początku wykażemy indukcyjnie, że dla każdego $n$ zachodzi równość
 \[
 	a_{n + 1} = 1 - a_1a_2a_3\cdot ... \cdot a_{n}.
 \]
-
-Równośc dla $n = 0$ zachodzi na mocy założeń.
-
+Równość dla $n = 0$ zachodzi na mocy założeń.
 Załóżmy, że
 \[
 	a_{n} = 1 - a_1a_2a_3\cdot ... \cdot a_{n - 1}.
@@ -178,13 +178,12 @@ Skoro $a_{n + 1} = 1 - a_n(1 - a_n)$, to otrzymujemy
 \[
 	a_{n + 1} = 1 - a_n(1 - a_n) = 1 - a_n \cdot a_1a_2a_3\cdot ... \cdot a_{n - 1} = 1 - a_1a_2a_3\cdot ... \cdot a_{n}.
 \]
+Więc na mocy zasady indukcji matematycznej postulowana równość zachodzi.
+\vspace{10px}
 
-Wieć na mocy zasady indukcji matematycznej postulowana równość zachodzi.
-
+\noindent
 Teraz przejdziemy do udowodnienia tezy.
-
 Dla $n = 1$ jest ona oczywista.
-
 Załóżmy, że zachodzi równość
 \[
 	a_1a_2a_3...a_n\left(\frac{1}{a_1} + \frac{1}{a_2} + \frac{1}{a_3} + ... + \frac{1}{a_n}\right) = 1.
@@ -249,20 +248,24 @@ Zauważmy, że plansza $2\times2$ z usuniętym rogiem jest w istocie L-klockiem,
 	\end{tikzpicture}\\
 \end{center}
 
+\noindent
 Załóżmy, że dla planszy $2^{n - 1} \times 2^{n - 1}$ istnieje szukane pokrycie. Pokrycie dla planszy $2^{n} \times 2^{n}$ kontruujemy następująco. Dzielimi plansze dwiema prostymi na trzy jednakowe części i czwartą taką samą, tylko bez rok. Kładziemy jeden klocek na środku tak jak na rysunku. Wówczas plansza jest podzielona na cztery jednakowe puste części, które na mocy założenia indukcyjnego można pokryć.
 
 \begin{problem}{7}
 Niech $n$ będzie nieparzystą liczbą naturalną, a liczby $x_1,\; x_2,\; ...,\; x_n$ będa parami różne. Dla każdych dwóch liczb $x_i$ oraz $x_j$ zapisano na tablicy wartość bezwzględną ich różnicy. Wykazać, że można podzielić zapisane liczby na dwa zbiory o równej sumie.
 \end{problem}
+\noindent
 Przez multizbiór rozumiemy zbiór w którym jeden element może występować kilka razy.
-
 Załóżmy, że $x_1 \geqslant x_2 \geqslant ... \geqslant x_n$. 
+\vspace{10px}
 
+\noindent
 Wykażemy tezę dla $n = 3$. Podział na zbiory $\{x_1 - x_2, x_2 - x_3\}$ oraz $\{x_1 - x_3\}$ spełnia warunki zadania.
+\vspace{10px}
 
+\noindent
 Załóżmy, że teza zachodzi dla $2n + 1$, wykażemy ją dla $2n + 3$.
 Rozpatrzmy szukany podział multizbioru różnic zbioru $\{x_1, x_2, ..., x_{2n + 1}\}$ na multizbiory $A$ i $B$ o równej sumie elementów.
-
 Dorzucamy do multizbioru $A$ liczby
 \[
 	({x_{2k+3}-x_{2k+1},x_{2k+3}-x_{2k},\cdots,x_{2k+3}-x_{k+2}}) \thickspace {\cup}\thickspace ({x_{2k+2}-x_{k+1},\cdots,x_{2k+2}-x_1}),

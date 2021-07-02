@@ -19,6 +19,7 @@ Załóżmy, że dla pewnej liczby dodatniej całkowitej $k$ zachodzi nierównoś
 	2^{k + 1} = 2 \cdot 2^k \geqslant 2 \cdot (k + 1) = 2k + 2 \geqslant k + 2.
 \]
 
+\noindent
 Wykazaliśmy, że jeśli postulowana nierówność zachodzi dla pewnej dodatniej liczby całkowitej $k$, to zachodzi również dla liczby $k + 1$. Skoro zachodzi ona dla $n = 1$, to zachodzi również dla $1 + 1 = 2,\; 2 + 1 = 3,\; 3 + 1 = 4, ...$ -- wszystkich liczb naturalnych.
 
 \qed
@@ -104,7 +105,10 @@ Wykazać, że graf $G_{2020}$ ma ścieżkę Hamiltona.
 
 \vspace{5px}
 
-\remark Można zauważyć, że $G_n$ to w istocie $n$-wymiarowy hipersześcian.
+\begin{remark}
+Można zauważyć, że $G_n$ to w istocie $n$-wymiarowy hipersześcian.
+\end{remark}
+
 
 \vspace{20px}
 
@@ -161,11 +165,16 @@ Wykażemy, że teza jest prawdziwa dla każdego $n \geqslant 1$. Co więcej wyka
 
 Zauważmy, że dla $n = 1$ teza jest oczywista -- ścieżka złożona z jednej krawędzi spełnia warunki zadania.
 
+\vspace{10px}
+
+\noindent
 Załóżmy, że dla $G_n$ istnieje ścieżka Hamiltona. Wykażemy, że istnieje ona dla $G_{n + 1}$. Graf $G_{n+1}$ składa się z dwóch połączonych ze sobą części izomorficznych z grafem $G_n$ -- nazwijmy je $A$ oraz $B$. Oznaczmy wierzchołki $G_{n + 1}$ kolejno jako
 $a_1, a_2, ..., a_{2^n}$ -- cześć $A$ oraz $b_1, b_2, ..., b_{2^n}$ -- część $B$, przy czym $a_i$ jest połączone właśnie z $b_i$. 
 
-Ścieżka Hamiltonowska w grafie $G_{n + 1}$ będzie się składać z 3 części:
+\vspace{10px}
 
+\noindent
+Ścieżka Hamiltonowska w grafie $G_{n + 1}$ będzie się składać z 3 części:
 \begin{itemize}
 	\item Na mocy założenia istnieje ścieżka zaczynająca się w $a_1$ przechodząca przez wszystkie wierzchołki $A$. Możemy ją przejść od tyłu. Wówczas przejdziemy wszystkie wierzchołki części $A$ kończąc w $a_1$.
 	\item Następnie przejdziemy krawędzią między $a_1$ i $b_1$ do części $B$.

@@ -30,7 +30,9 @@ Przyjmijmy, że w drużynie wraz z kapitanem jest $k$ osób. Możliwości wyboru
 
 \noindent
 Zauważmy, że suma wszystkich elementów tego zbioru wynosi $55$. Dla każdego podzbioru $A$ zdefiniujmy jego dopełnienie jako podzbiór $\{1, 2, 3, ..., 10\} - A$. Składa się on z wszystkich elementów nie występujących w $A$. Dla przykładu dopełnieniem zbioru $\{1, 2, 4, 7, 8, 9\}$ będzie zbiór $\{3, 5, 6, 10\}$.
+\vspace{10px}
 
+\noindent
 Zauważmy, że suma elementów dowolnego podzbioru i jego dopełnienia wynosi $55$. Więc dokładnie jeden z tych zbiorów ma sumę elementów większą lub równą $28$. Podzielmy wszystkie rozpatrywane podzbiory na pary zawierające dwa zbiory będące swoim dopełnieniem. Z powyższej obserwacji wynika, że dokładnie połowa podzbiorów -- po jednym z każdej pary -- będzie spełniać warunki zadania. Jest więc ich $\frac{1}{2} \cdot 2^{10} = 2^9 = 512$.
 
 
@@ -47,7 +49,9 @@ Zauważmy, że suma elementów dowolnego podzbioru i jego dopełnienia wynosi $5
 
 \noindent
 Prawa strona równości jest równa liczbie sposobów wyboru $n$ spośród $2n$ osób.
+\vspace{10px}
 
+\noindent
 Podzielmy te $2n$ osób na dwie grupy po $n$ osób. Załóżmy, że z pierwszej grupy wybieramy $k$ osób. Możemy tego dokonać na ${n}\choose{k}$ sposobów. Z drugiej grupy wybieramy $n - k$ osób -- mamy ${{n}\choose{n - k}} = {{n}\choose{k}}$ możliwości. Dla ustalonego $k$ możemy dokonać wyboru na ${{n}\choose{k}}^2$ sposobów. Sumując po wszystkich $k$ otrzymujemy lewą stronę równości.
 
 \begin{problem}{4}
@@ -70,9 +74,13 @@ Ideą poniższego rozwiązania jest fakt, że jak mamy pewną permutację z $A_1
 	\end{cases}
 \]
 Zauważmy, że $f(x) \equiv 2x \pmod{p}$.
+\vspace{10px}
 
+\noindent
 W ten sposób przyporządkujemy każdemu elementowi ze zbioru $A_1$ dokładnie 1 element ze zbioru $A_2$. Czy może się jednak tak zdarzyć, że pewien element z $A_2$ zostanie w ten sposób przyporządkowany nie do jednego, a do innej liczby elementów z $A_1$? Wykażemy, że nie.
+\vspace{10px}
 
+\noindent
 Mianowicie pokażemy, że z dowolnego elementu $A_2$ możemy odzyskać dokładnie jedną przyporządkowaną mu permutację z $A_1$. Zdefiniujmy ,,dzielenie przez $2$ modulo $p$'' wzorem
 \[
 	g(x) = 
@@ -83,12 +91,15 @@ Mianowicie pokażemy, że z dowolnego elementu $A_2$ możemy odzyskać dokładni
 \]
 Mamy $2g(x) \equiv x \pmod{p}$.
 Zauważmy, że jest to funkcja odwrotna do $f$ -- tj. $f(g(x)) = x$.
+\vspace{10px}
 
+\noindent
 Zauważmy, że
 \[
 	(a_1, a_2, ..., a_p) \in A_2 \iff (g(a_1), g(a_2), ..., g(a_p)) \in A_1.
 \] 
 Pozostaje zauważyć, że to permutacja $(a_i)$ była przyporządkowana do permutacji~$(g(a_i))$. Jest tak, bo $f(g(a_i)) = a_i$. Stąd podane parowanie było poprawne, czyli istotnie zbiory $A_1$ i $A_2$ są równoliczne.
+\vspace{10px}
 
 \remark{Kluczowym faktem w powyższym rozumowaniu było istnienie funkcji odwrotnej do funkcji $f$ zdefiniowanej dla każdego elementu zbioru $\{1, 2, ..., p\}$.} 
 
