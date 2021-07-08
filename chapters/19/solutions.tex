@@ -1,2 +1,151 @@
 \newpage
 \solutions{Nierówności z pomysłem}
+\begin{problem}{1}
+	Niech $a$, $b$ będą liczbami rzeczywistymi. Załóżmy, że dla wszystkich liczb rzeczywistych $x$, $y$ zachodzi nierówność
+	\[
+		|(ax + by)(ay + bx)| \leqslant x^2 + y^2.
+	\]
+	Udowodnić, że $a^2 + b^2 \leqslant 2$.
+\end{problem}
+
+\noindent
+Podstawmy $a = b = 1$. Otrzymamy
+\[
+	|(a + a)^2| = (a + b)^2 \leqslant 2.
+\]
+Teraz weźmy $a = 1$ i $b = -1$. Mamy
+\[
+	|(a - b)(b - a)| = (a - b)^2 \leqslant 2.
+\]
+Dodając dwie powyższe nierówności stronami otrzymujemy
+\begin{align*}
+	(a + b)^2 + (a - b)^2 &\leqslant 4, \\
+	a^2 + 2ab + b^2 + a^2 - 2ab + b^2 &\leqslant 4, \\
+	a^2 + b^2 &\leqslant 2.
+\end{align*}
+
+\begin{problem}{2}
+Wykazać, że dla dowolnych liczb $x$, $y$, $z$, $t$ z przedziału $(0, 1)$ zachodzi nierówność
+\[
+	xyzt + (1 - x)(1 - y)(1 - z)(1 - t) < 1.
+\]
+\end{problem}
+
+\noindent
+Zauważmy, że skoro liczby $y$, $z$, $t$ należą do przedziału $(0, 1)$, to liczby $1 - y$, $1 - z$ i $1 - t$ również. Mnożenie liczby dodatniej przez liczbę w tym przedziale ją zmniejsza, stąd
+\[
+	xyzt + (1 - x)(1 - y)(1 - z)(1 - t) < x + (1 - x) = 1.
+\]
+
+\begin{problem}{3}
+Dany jest trójkąt o bokach długości $a$, $b$ i $c$. Wykazać, że zachodzi nierówność
+\[
+	\frac{a}{b + c} + \frac{b}{c + a} + \frac{c}{a + b} < 2.
+\]
+\end{problem}
+
+\noindent
+Wykonajmy identyczne podstawienie jak w Przykładzie 1. Weźmy takie dodatnie $x$, $y$, $z$, aby zachodziły równości
+\[
+	a = x + y, \quad b = y + z, \quad c = z + x.
+\]
+Teza przyjmuje postać
+\[
+	\frac{x + y}{x + y + 2z} + \frac{y + z}{x + 2y + z} + \frac{z + x}{2x + y + z} < 2.
+\]
+Zauwazmy, że
+\begin{align*}
+	\frac{x + y}{x + y + 2z} + \frac{y + z}{x + 2y + z} + \frac{z + x}{2x + y + z} < \frac{x + y}{x + y + z} + \frac{y + z}{x + y + z} + \frac{z + x}{x + y + z} =2.
+\end{align*}
+
+\begin{problem}{4}
+Wykazać, że dla parami różnych liczb nieujemnych $a,b,c$ zachodzi nierówność
+\[
+	\frac{a^2}{(b - c)^2} + \frac{b^2}{(c - a)^2} + \frac{c^2}{(b - a)^2} > 2.
+\]
+\end{problem}
+
+\noindent
+Załóżmy, bez straty ogólności, że $a$ jest najmniejszą liczbą spośród $a$, $b$, $c$. Przyjmijmy
+\[
+	b = a + x, \quad c = a + y, \; \text{dla } x, y > 0.
+\]
+Wówczas nierówność przybiera postać
+\[
+	\frac{a^2}{(x - y)^2} + \frac{(a + x)^2}{y^2} + \frac{(a + y)^2}{x^2} > 2.
+\]
+Zauważmy, że
+\[
+	\frac{a^2}{(x - y)^2} + \frac{(a + x)^2}{y^2} + \frac{(a + y)^2}{x^2} > \frac{x^2}{y^2} + \frac{y^2}{x^2} \geqslant 2 \cdot \frac{x}{y} \cdot \frac{y}{x} = 2.
+\]
+
+\begin{problem}{5}
+Wyznaczyć wszystkie liczby rzeczywiste $k$, takie, że dla dowolnych liczb rzeczywistych $a$, $b$, $c$, $d \geqslant -1$ zachodzi nierówność
+\[
+	a^3 + b^3 + c^3 + d^3 + 1 \geqslant k(a + b + c + d).
+\]
+\end{problem}
+
+\noindent
+Przekształćmy nierówność do postaci
+\[
+	\left(a^3 - ka + \frac{1}{4}\right) + \left(b^3 - kb + \frac{1}{4}\right) + \left(c^3 - kc + \frac{1}{4}\right) + \left(d^3 - kd + \frac{1}{4}\right) \geqslant 0.
+\]
+Teza jest równoważna znalezieniu takich $k$, aby
+\[
+	x^3 - kx + \frac{1}{4} \geqslant 0
+\]
+dla dowolnej liczby $x$ nie mniejszej od $-1$. Istotnie, jesli istniałaby liczba, że ta nierówność nie jest spełniona, to biorąc ją za każdą z liczb $a$, $b$, $c$ i $d$ otrzymalibyśmy sprzeczność.
+
+\noindent
+Zauważmy, że
+\[
+	x^3 - \frac{3}{4}x + \frac{1}{4} = \frac{1}{4}(x + 1)(2x - 1)^2 \geqslant 0,
+\]
+stąd $k = \frac{3}{4}$ spełnia warunki zadania. Wstawiając najpierw $x = -1$, mamy
+\[
+	-1 + k + \frac{1}{4} \geqslant 0 \implies k \geqslant \frac{3}{4}.
+\]
+Następnie $k = \frac12$, aby otrzymać
+\[
+	\frac{1}{8} - \frac12k + \frac14 \geqslant 0 \implies \frac34 \leqslant k.
+\]
+Stąd mamy, że $k = \frac{3}{4}$ jest jedyną liczbą spełniającą warunki zadania.
+\vspace{5px}
+
+\begin{problem}{6}
+Niech  $ a_1,\cdots , a_{25}$ będą nieujemnymi liczbami całkowitymi oraz niech $ k$ będzie najmniejszą z nich. Wykazać, że
+\[
+	\left\lfloor\sqrt{a_1}\right\rfloor + \left\lfloor\sqrt{a_2}\right\rfloor + \cdots + \left\lfloor\sqrt{a_{25}}\right\rfloor \geqslant \left\lfloor\sqrt{a_1 + a_2 + \cdots + a_{25} + 200k}\right\rfloor.
+\]
+\end{problem}
+
+\noindent
+Przyjmijmy, że $k = a_1$.
+Niech $x_i = \left\lfloor a_i \right\rfloor$. Wówczas wiadomo, że $a_i < (x_i + 1)^2$, gdyż w przeciwynym ta podłoga byłaby równa co najmniej $x_i + 1$. Mamy więc, że $a_i \leqslant x_i^2 + 2x_i$. Wykażemy, że zachodzi nierówność
+\[
+	x_1 + x_2 + ... + x_{25} + 1 > \sqrt{a_1 + ... + a_{25} + 200a_1},
+\]
+z czego wyniknie teza.
+Mamy
+\[
+	a_1 + ... + a_{25} + 200k \leqslant x_1^2 + ... + x_{25}^2 + 2(x_1 + ... + x_{25}) + 200(x_1^2 + 2x_1).
+\]
+Chcemy pokazać, że
+\[
+	x_1^2 + ... + x_{25}^2 + 2(x_1 + ... + x_{25}) + 200(x_1^2 + 2x_1) < (x_1 + ... + x_{25} + 1)^2.
+\]
+Czyli pozostaje wykazać, że
+\begin{align*}
+	200(x_1^2 + 2x_1)  &\leqslant  2\sum_{1 \leqslant i < j \leqslant 25} x_ix_j, \\
+	100(x_1^2 + 2x_1)  &\leqslant  \sum_{1 \leqslant i < j \leqslant 25} x_ix_j. \quad (*)
+\end{align*}
+Zauważmy, że dla każdych $i$, $j$ mamy
+\[
+	x_ix_j \geqslant x_1^2 \geqslant x_1.
+\]
+Po prawej stronie nierówności $(*)$ jest dokładnie ${{25}\choose{2}} = 300$ wyrazów, więc $100$ z~nich możemy przeszacować przez $x_{1}^2$, a pozostałe $200$ przez $x_i$.
+
+
+
+

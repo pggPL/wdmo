@@ -2,7 +2,60 @@
 
 \theory{Nierówności z pomysłem}
 
+\noindent
+Wiele nierówności da się rozwiązać za pomocą sztampowych technik -- omówiono niektóre z nich w poprzednich rozdziałach. Teraz zajmiemy się nierównościami, do których rozwiązania potrzebna jest nie tyle wiedza, co wpadniecię na ciekawy pomysł. 
+
+\vspace{10px}
+
+
 \heading{Długości boków w trójkącie}
+
+\noindent
+W zadaniach z nierównościami czasami pojawia się założenie, że liczby $a$, $b$ i $c$ są bokami trójkąta. Innymi słowy
+\[
+	a + b \geqslant c, \quad b + c \geqslant a, \quad c + a \geqslant b.
+\]
+Jest to bardzo niewygodne założenie, niemniej jednak istnieje pewien trik, który pozwala na znaczne jego uproszczenie. Rozpatrzmy liczby
+\[
+	x = \frac{a + b - c}{2}, \quad y = \frac{a + c - b}{2}, \quad z = \frac{b + c - a}{2}.
+\]
+Za mocy założeń wiemy, że są one dodatnie. Mamy też, że
+\[
+	a = x + y, \quad b = y + z, \quad c = z + x.
+\]
+Można także wykazać, że jeśli istnieją liczby dodatnie $x$, $y$, $z$, dla których zachodza powyższe równości, to $a$, $b$ i $c$ są długościami boków trójkąta. Istotnie
+\begin{align*}
+	a + b = (x + y) + (y + z) &\geqslant (z + x) = c, \\
+	b + c = (y + z) + (z + x) &\geqslant (x + y) = a, \\
+	c + a = (z + x) + (x + y) &\geqslant (t + z) = b.
+\end{align*}
+Można także wykazać, że odcinki o długości $x$, $y$, $z$ to są długości odcinków stycznych do okręgu wpisanego w trójkącie o bokach długości~$a$, $b$ i~$c$.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tkzDefPoint(0,0){A};
+		\tkzDefPoint(4,0){B};
+		\tkzDefPoint(3,1.5){C};
+
+		\tkzDefCircle[in](A,B,C) \tkzGetPoint{I}\tkzGetLength{rABpt}
+		\tkzDrawCircle[in](A,B,C)
+		\tkzDefPointBy[projection=onto B--C](I)\tkzGetPoint{D}
+		\tkzDefPointBy[projection=onto C--A](I)\tkzGetPoint{E}
+		\tkzDefPointBy[projection=onto A--B](I)\tkzGetPoint{F}
+
+		\tkzLabelSegment[above left](A,E){$x$}
+		\tkzLabelSegment[below](A,F){$x$}
+		\tkzLabelSegment[above right](B,D){$y$}
+		\tkzLabelSegment[below](B,F){$y$}
+		\tkzLabelSegment[above right](C,D){$z$}
+		\tkzLabelSegment[above left](C,E){$z$}
+
+
+		\tkzDrawPoints(A,B,C,D,E,F);
+		\tkzDrawSegments(A,B B,C C,A);
+	\end{tikzpicture}
+\end{center}
+
 % a = x + y, b = y + z, c = z + y
 % rysunek z okręgiem wpisanym
 
@@ -17,7 +70,30 @@ Dany jest trójkąt o bokach długości $a$, $b$ i $c$. Wykazać, że zachodzi n
 
 \heading{Rozwiązanie}
 
-% Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2018.pdf
+\noindent
+Wykazaliśmy, że warunek zadania jest równoważny temu, że istnieją takie dodatnie liczby $x$, $y$, $z$, dla których
+\[
+	a = x + y, \quad b = y + z, \quad c = z + x.
+\]
+Przepisując postulowaną nierówność za pomocą powyższych podstawień otrzymujemy
+\begin{align*}
+	\frac{1}{-(x + y) + (y + z) + (z + x)} &= \frac{1}{2y}, \\
+	\frac{1}{(x + y) - (y + z) + (z + x)} &= \frac{1}{2x}, \\
+	\frac{1}{(x + y) + (y + z) - (z + x)} &= \frac{1}{2z}. \\
+\end{align*}
+Trzeba więc wykazać, że
+\begin{align*}
+	\frac{1}{2y} + \frac{1}{2x} + \frac{1}{2z} \geqslant \frac{1}{x + y} + \frac{1}{y + z} + \frac{1}{z + x} \\
+	\left(\frac{1}{x} + \frac{1}{y}\right) + \left(\frac{1}{y} + \frac{1}{z}\right) + \left(\frac{1}{z} + \frac{1}{x}\right) \geqslant \frac{4}{x + y} + \frac{4}{y + z} + \frac{4}{z + x}.
+\end{align*}
+Zauważmy, że nierówność
+\[
+	\frac{1}{x} + \frac{1}{y} \geqslant \frac{4}{x + y}
+\]
+wynika wprost z nierówności między średnią arytmetyczną i harmoniczną. Dodając analogicznie nierówności stronami otrzymujemy tezę.
+
+\qed
+
 \heading{Przykład 2}
 
 \noindent
@@ -27,6 +103,28 @@ Liczby $a$, $b$, $c$ i $d$ spełniają równość $abcd = 1$. Wykazać, że
 \]
 
 \heading{Rozwiązanie}
-.
+
+\noindent
+Pomysłem, który należy rozważyć przy tego typu zadaniach są szacowania pomocnicze. Wykażemy, że
+\[
+	\frac{1}{(1 + a)^2} + \frac{1}{(1 + b)^2} \geqslant \frac{1}{1 + ab},
+\]
+dla dowolnych liczb rzeczywistych $a$, $b$. Mamy
+\begin{align*}
+	\frac{1}{(1 + a)^2} + \frac{1}{(1 + b)^2} &\geqslant \frac{1}{1 + ab}, \\
+	(ab + 1)\left( (1 + a)^2 + (1 + b)^2\right) &\geqslant (a + 1)^2(b + 1)^2, 
+\end{align*}
+co po wymnożeniu i redukcji wyrazów podobnych skróci się do postaci
+\begin{align*}
+	1 + a^3b + ab^3 &\geqslant 2ab + a^2b^2 \\
+	ab(a - b)^2 + (ab - 1)^2 &\geqslant 0.
+\end{align*}
+
+\noindent
+Korzystając z wykazanego szacowania mamy
+\[
+	\frac{1}{(1 + a)^2} + \frac{1}{(1 + b)^2} + \frac{1}{(1 + c)^2} + \frac{1}{(1 + d)^2} \geqslant \frac{1}{1 + ab} + \frac{1}{1 + cd} = \frac1{1 + ab} + \frac{ab}{ab + abcd} = 1.
+\]
+\qed
 
 % może jakaś nierówność z podstawieniem
