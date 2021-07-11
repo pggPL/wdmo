@@ -2,48 +2,137 @@
 
 \theory{Klasyczne zadania z teorii liczb}
 
+\noindent
+W niniejszym rozdziale pochylimy się nad kilkoma motywami, które można nazwać ,,klasycznymi''. Najpierw przyjrzyjmy się znanemu trikowi, który często jest używamy w zadaniach, w których mowa o sumie cyfr.
+
+\vspace{10px}
+
 \heading{Przykład 1}
 
 \noindent
-Rozstrzygnąć, czy istnieje taka liczba naturalna $n$, że sumy cyfr liczb $2^n$ oraz $2^{n + 1}$ są sobie równe.
+Niech $S(n)$ oznacza sumę cyfr liczby $n$ w zapisie dziesiętnym.
+Rozstrzygnąć, czy istnieje taka liczba naturalna $n$, że 
+\[
+	S(2^n) = S(2^{n + 1}).
+\]
+
+\vspace{5px}
 
 \heading{Rozwiązanie}
 
+\noindent
+Wykażemy, że dla każdej liczby całkowitej $n$ zachodzi przystawanie
+\[
+	S(n) \equiv n \pmod{9}.
+\]
+Niech
+\[
+	n = a_k \cdot 10^k + a_{k - 1} \cdot 10^{k - 1} + ... + 10 \cdot a_1 + a_0,
+\]
+gdzie liczby $a_i$ są cyframi liczby $n$. Zauważmy, że
+\begin{gather*}
+	10^t \equiv 1^t \equiv 1 \pmod{9} \\
+	n = a_k \cdot 10^k + a_{k - 1} \cdot 10^{k - 1} + ... + 10 \cdot a_1 + a_0 \equiv \\
+	\equiv a_k + a_{k - 1} + ... + a_1 + a_0 = S(n) \pmod{9}.
+\end{gather*}
 
-% Source: https://omj.edu.pl/uploads/attachments/broszura_OM_2014.pdf
+\vspace{10px}
+\noindent
+Mamy więc
+\begin{align*}
+	2^{n + 1} \equiv S(2^{n + 1}) = S(2^n)  \equiv 2^n \pmod{9}\\
+	2^{n + 1} - 2^n = 2^n \equiv 0 \pmod{9}.
+\end{align*}
+Stąd liczba $2^n$ musiałaby być podzielna przez $9$, co daje sprzeczność.
+
+\qed
+
+
+\vspace{10px}
 
 \heading{Przykład 2}
 
 \noindent
-Udowodnij, że w rozwinięciu dziesiętnym liczby $(5 + \sqrt{26})^{2000}$ na pierwszych $2000$ miejscach nie występuje liczba 7.
+Dodatnie liczby całkowite $a$ i $b$ spełniają równość
+\[
+	3a^2 + a = 2b^2 + b.
+\]
+Wykazać, że liczba $b - a$ jest kwadratem liczby całkowitej.
+
+\vspace{5px}
 
 \heading{Rozwiązanie}
 
-% Source: Burek P67
+\noindent
+Daną równość można przekształcić do postaci
+\[
+	a^2 = 2b^2 - 2a^2 + (b - a) = (b - a)(2a + 2b + 1).
+\]
+Wykażemy, że
+\[
+	\mathrm{NWD}(b - a, 2a + 2b + 1) = 1.
+\]
+Załóżmy, że pewna liczba pierwsza $p$ dzieli zarówno $b - a$, jak i $2a + 2b + 1$. Wówczas w szczególności dzieli ich iloczyn, czyli liczbę $a^2$. Stąd, skoro $p$ jest liczbą pierwszą, to $p \mid a$. Rozumując dalej mamy
+\[
+	 p | b - a \;\; \text{i} \;\; p | a \implies \;\; p | b \implies p|2a + 2b
+\]
+Stąd $p$ nie może dzielić liczby $2a + 2b + 1$, co daje sprzeczność.
+
+\vspace{10px}
+\noindent
+Zauważmy, że skoro $b - a$ i $2a + 2b + 1$ są dodatnie i względnie pierwsze oraz ich iloczyn jest kwadratem liczby całkowitej, to obie muszą być kwadratami liczb całkowitych. Istotnie, rozpatrzmy dowolną liczbę pierwszą $p$ -- może on dzielić co najwyżej jedną z liczb $b - a$ i $2a + 2b + 1$. Skoro wykładnik $p$ w rozkładzie $a^2$ na czynniki pierwsze jest parzysty, to mamy że dla jednej z liczb $b - a$ i $2a + 2b + 1$ jest on parzysty, a dla drugiej równy zeru, czyli także parzysty. Dowodzi to postulowanej własności.
+
+\qed
+
+\noindent
+W powyższym zadaniu kluczowa była obserwacja, że pewne dwie liczby są względnie pierwsze. Warto zwracać na takie rzeczy uwagę przy podobnych zadaniach z teorii liczb. Teraz przejdziemy do zadania z bardzo ciekawym motywem.
+
+\vspace{10px}
+
+% Source: QQ MBL
 \heading{Przykład 3}
 
 \noindent
-Dodatnie liczby całkowite $a$, $b$, $c$ są względnie pierwsze oraz spełniają równość
-\[
-	\frac{1}{a} + \frac{1}{b} = \frac{1}{c}.
-\]
-Wykazać, że liczba $a + b$ jest kwadratem liczby całkowitej.
-
-\heading{Rozwiązanie}
-
-% Source: QQ MBL
-\heading{Przykład 4}
-
-\noindent
-Ułamek nieskracalny $\frac{a}{b}$ nazwiemy \textit{zbalansowanym}, jeśli liczby $a$ oraz $b$ są iloczynem tej samej liczby liczb pierwszych -- niekoniecznie różnych. Wykazać, że dla dowolnej dodatniej liczby całkowitej $k$, istnieją takie dodatnie liczby całkowite $x$, $y$, że każda z liczb
+Ułamek $\frac{a}{b}$ nazwiemy \textit{zbilansowanym}, jeśli liczby $a$ oraz $b$ są iloczynem tej samej liczby liczb pierwszych -- niekoniecznie różnych. Dla przykładu ułamki $\frac{2 \cdot 3}{5 \cdot 7}$ oraz $\frac{3 \cdot 11}{5^2}$ są zbilansowane, a ułamek $\frac{3}{2 \cdot 5}$ nie. Wykazać, że dla dowolnej dodatniej liczby całkowitej~$k$, istnieją takie dodatnie liczby całkowite $x$, $y$, że każda z liczb
 \[
 	\frac{x}{y}, \; \frac{x + 1}{y + 1}, \; \frac{x + 2}{y + 2}, \; ..., \; \frac{x + k}{y + k}
 \]  
-jest zbalansowana.
+jest zbilansowana.
 
+\vspace{5px}
 
 \heading{Rozwiązanie}
 
-%enumeratywn
+\noindent
+Niech $\Omega(n)$ oznacza liczbę niekoniecznie różnych dzielników pierwszych liczby $n$.
+Zdefiniujmy dla każdej liczby $n$ jako $f(n)$ ciąg 
+\[
+	f(n) = (\Omega(n),\;\; \Omega(n + 1),\;\; ...,\;\; \Omega(n + k)).
+\]
+Zauważmy, że jeśli $f(x) = f(y)$, to ułamki
+\[
+	\frac{x}{y}, \; \frac{x + 1}{y + 1}, \; \frac{x + 2}{y + 2}, \; ..., \; \frac{x + k}{y + k}
+\]
+spełniają warunki zadania, bo dla każdego z rozpatrywanych $i$ mamy
+\[
+	\Omega(x + i) = \Omega(y + i) \implies \frac{x + i}{y + i} \;\; \text{jest zbilansowany}.
+\]
+Wykażemy, że takie $x$ i $y$ istnieją za pomocą argumentu ilościowego. Rozpatrzmy liczby od $1$ do $2^n$ dla pewnego $n$. Jeśli $a$ jest jedną z nich, to może mieć ona co najwyżej $n$ dzielników pierwszych. W przeciwnym przypadku byłaby równa co najmniej niż $2^{n + 1}$. 
 
+\noindent
+Rozpatrzmy teraz liczby z przedziału od $1$ do $2^n - k$ dla pewnego $n$. Jak wykazaliśmy wyżej, jeśli $1 \leqslant a \leqslant 2^n - k$, to $f(a)$ zawiera $k$ liczb z przedziału od $0$ do $n$, stąd $f$ może przyjąć jedną z $k(n + 1)$ wartości. Jeśli wszystkie 
+\[
+	f(1), \;\; f(2), \;\; ..., \;\; f(2^n - k)
+\]
+miałyby być parami różne, to ich liczba musiałaby być nie większa niż liczba możliwych wartości $f$ na tym przedziale, skąd
+\begin{align*}
+	2^n - k &\leqslant k(n + 1), \\
+	2^n &\leqslant k(n + 2).
+\end{align*}
+Lewa strona tej równości rośnie wykładniczo, a prawa liniowo, stąd dla odpowiednio dużej liczby $n$ taka równość nie będzie zachodzić. Ta sprzeczność dowodzi, że istnieją pewne $x$ i $y$, że $f(x) = f(y)$, z czego jak już pokazaliśmy wynika teza.
 
+\qed
+
+\noindent
+Powyższy motyw jest dość ciekawy. Nie konstruujemy $x$ i $y$ bezpośrednio -- w tym przypadku tego raczej nie da się zrobić. Zamiast tego używamy argumentu, który opiera się na tym, że możliwości wyboru $x$ i $y$ jest dużo w porównaniu do możliwości wyboru konfiguracji liczb dzielników pierwszych liczb $x + i$ oraz $y + i$. Jeśli chcemy wykazać istnienie czegoś, to czasami przydaje się podobne myślenie -- argumenty tego typu rozwiązywały już zadania na finale OM.
+\vspace{10px} 

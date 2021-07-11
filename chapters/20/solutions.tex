@@ -1,2 +1,185 @@
 \newpage
 \solutions{Klasyczne zadania z teorii liczb}
+
+\begin{problem}{1}
+	Wykazać, że dla dowolnych liczb całkowitych $a$, $b$, równanie
+	\[
+		(x^2 - y^2 - a)(x^2 - y^2 - b)(x^2 - y^2 - ab) = 0
+	\]
+	ma przynajmniej jedno rozwiązanie w liczbach całkowitych $x$, $y$.
+\end{problem}
+
+\noindent
+Zauważmy, że
+\[
+	(k + 1)^2 - k^2 = 2k + 1 \quad \text{oraz} \quad (k + 2)^2 - k^2 = 4(k + 1).
+\]
+Stąd wynika, że każda liczba nieparzysta, jak i każda liczba podzielna przez $4$, mogą być przedstawione w postaci różnicy dwóch kwadratów.
+
+\vspace{10px}
+\noindent
+Gdy jedna z liczb $a$, $b$ będzie nieparzysta, to możemy przedstawić ją w postaci różnicy dwóch kwadratów. Zauważmy, że jeśli obie liczby $a$ i $b$ są parzyste, to liczba $ab$ jest podzielna przez $4$, więc również szukane przestawienie jest możliwe. W obu przypadkach da się dobrać takie $x$ i $y$, aby liczba $x^2 - y^2$ była równa jednej z liczb $a$, $b$, $ab$, a to chcieliśmy wykazać.
+
+\vspace{5px}
+
+\begin{problem}{2}
+	Dana jest liczba całkowita $n > 1$, dla której liczba $2^{2^n - 1} - 1$ jest liczbą pierwszą. Wykazać, że $n$ również jest liczbą pierwszą.
+\end{problem}
+
+\noindent
+Zauważmy, że jeśli $a$, $b$ są liczbami całkowitymi większymi od $1$, to
+\[
+	2^{ab} - 1 \equiv (2^a)^b - 1 \equiv 1^b - 1 \equiv 0 \pmod{2^a - 1}.
+\]
+Stąd $2^{ab} - 1$ jest podzielna przez $2^a - 1 > 1$, czyli nie jest liczbą pierwszą. Wynika stąd, że jeśli $2^k - 1$ jest liczbą pierwszą dla pewnej liczby naturalnej $k$, to $k$ nie może być liczbą złożoną. Czyli musi być liczbą pierwszą. 
+
+\vspace{10px}
+\noindent
+Stosując tę obserwację do danej liczby pierwszej $2^{2^n - 1} - 1$ otrzymujemy, że liczba $2^n - 1$ również musi być pierwsza. Stosując tę obserwację po raz drugi otrzymujemy, że skoro liczba $2^n - 1$ jest pierwsza, to liczba $n$ też musi być pierwsza.
+
+\vspace{10px}
+
+\newpage
+
+\begin{problem}{3}
+	Dane są dodatnie liczby całkowite $a$, $b$ i $c$, takie że
+	\[
+		b \mid a^3, \quad c \mid b^3, \quad a \mid c^3.
+	\]
+	Wykazać, że
+	\[
+		abc \mid (a + b + c)^{13}.
+	\]
+\end{problem}
+
+\vspace{10px}
+\noindent
+Zauważmy, że wyrażenie $(a + b + c)^{13}$ po wymnożeniu składa się z wyrażeń postaci $a^kb^lc^{13 - k - l}$ pomnożonych przez pewne całkowite współczynniki. Wykażemy, że każde z wyrażeń postaci $a^kb^lc^{13 - k - l}$ jest podzielne przez liczbę $abc$. 
+
+
+\vspace{10px}
+\noindent
+Zauważmy, że z założeń zadania wynikają podzielności
+\begin{align*}
+	abc &\mid a \cdot a^3 \cdot b^3 \mid a \cdot a^3 \cdot (a^3)^3 = a^{13}, \\
+	abc &\mid c^3 \cdot b \cdot b^3 \mid (b^3)^3 \cdot c \cdot b^3 = b^{13}, \\
+	abc &\mid c^3 \cdot a^3 \cdot c \mid c^3 \cdot (c^3)^3 \cdot c = c^{13}.
+\end{align*}
+Stąd
+\begin{align*}
+	(abc)^k &\mid  a^{13k}, \\
+	(abc)^l &\mid  b^{13l}, \\
+	(abc)^{13(13 - k - l)} &\mid  c^{13(13 - k - l)}.
+\end{align*}
+Mnożąc powyższe podzielności stronami otrzymamy
+\[
+	(abc)^{13} \mid a^{13k}b^{13k}c^{13(13 - k - l)} = (a^kb^lc^{13 - k - l})^{13},
+\]
+czyli
+\[
+	abc \mid a^kb^lc^{13 - k - l}.
+\]
+Skoro $abc$ dzieli każde z tych wyrażeń, to w szczególności dzieli $(a + b + c)^{13}$.
+
+\vspace{5px}
+
+\begin{problem}{4}
+	Niech $x$, $y$, $z$, $t$ będą dodatnimi liczbami całkowitymi, takimi, że zachodzi równość
+	\[
+		x^2 + y^2 + z^2 + t^2 = 2000!.
+	\]
+	Wykazać, że każda z liczb $x$, $y$, $z$, $t$ jest większa niż $10^{200}$.
+\end{problem}
+
+\noindent
+Sprawdzając wszystkie możliwe reszty $x$ z dzielenia przez $8$ mamy, że $x^2$ może dawać następujące reszty z dzielenia przez 8
+\[
+	x^2 \equiv 0, \; 1, \; 4 \pmod{8},
+\]
+przy czym reszta $1$ jest przyjmowana dla wszystkich liczb nieparzystych, a reszty $0$ i $4$ dla liczb parzystych. Jeśli jakakolwiek liczba spośród $x^2$, $y^2$, $z^2$ i $t^2$ dawałaby resztę $1$ z dzielenia przez $8$, to ich suma nie byłaby podzielna przez $8$. Istotnie -- mamy następujące przypadki możliwości wystąpienia reszt wśród tych kwadratów
+\begin{align*}
+	1 + 1 + 1 + 1 & \equiv 4, \quad
+	0 + 1 + 1 + 1  \equiv 3, \\
+	4 + 1 + 1 + 1 & \equiv 7, \quad
+	0 + 0 + 1 + 1  \equiv 2, \\
+	4 + 0 + 1 + 1 & \equiv 6, \quad
+	4 + 4 + 1 + 1  \equiv 2, \\
+	0 + 0 + 0 + 1 & \equiv 1, \quad
+	4 + 0 + 0 + 1  \equiv 5, \\
+	4 + 4 + 0 + 1 & \equiv 1, \quad
+	4 + 4 + 4 + 1  \equiv 5. 
+\end{align*}
+Stąd też jeśli liczba $x^2 + y^2 + z^2 + t^2$ jest podzielna przez $8$, to każda z liczb $x$, $y$, $z$, $t$ musi być parzysta.
+
+\vspace{10px}
+\noindent
+Niech
+\[
+	x^2 + y^2 + z^2 + t^2 = 2000! = 2^M \cdot t
+\]
+dla pewnej liczby całkowitej $M$ oraz pewnej nieparzystej liczby całkowitej $t$. Zauważmy, że ze wzoru Legendre'a mamy
+\[
+	M = \left\lfloor \frac{2000}{2} \right\rfloor + \left\lfloor \frac{2000}{4} \right\rfloor + \left\lfloor \frac{2000}{8} \right\rfloor + ... > 1000 + 500 + 250 = 1750.
+\]
+Niech $2^k$ będzie największą potęgą liczby $2$, która dzieli każdą z liczb $x$, $y$, $z$ i $t$. Załóżmy, bez straty ogólności
+\begin{gather*}
+	x = 2^{k}x_1, \;\; y = 2^{k}y_1, \;\; z = 2^{k}z_1, \;\; t = 2^{l}t_1, \\
+	x^2 + y^2 + z^2 + t^2 = 2^{2k} \left(x_1^2 + y_1^2 + z_1^2 + t_1^2\right) = 2^M \cdot t, \\
+	x_1^2 + y_1^2 + z_1^2 + t_1^2 = 2^{M - 2k} \cdot t.
+\end{gather*}
+Na mocy maksymalności liczby $k$, pewna liczba spośród $x_1$, $y_1$, $z_1$, $t_1$ jest nieparzysta. Toteż suma ich kwadratów, na mocy tego co pokazaliśmy wcześniej, nie może się dzielić przez $8$. Czyli
+\[
+ M - 2k < 3 \implies k > \frac{M - 3}{2} > \frac{1750 - 3}{2} > 800.
+\]
+Każda z liczb $x$, $y$, $z$ i $t$ jest podzielna przez $2^{k}$, a skoro
+\[
+	2^k > 2^{800} > \left(2^{8}\right)^{100} > \left(10^{2}\right)^{100} > 10^{200},
+\]
+to każda z nich będzie większa niż $10^{200}$.
+\vspace{5px}
+
+\begin{problem}{5}
+	Niech $n$ będzie liczbą całkowitą, a $p$ liczbą pierwszą. Wiadomo, że liczba $np + 1$ jest kwadratem liczby całkowitej. Wykazać, że $n + 1$ można zapisać za pomocą sumy $p$ kwadratów liczb całkowitych.
+\end{problem}
+
+\noindent
+Przyjmijmy, że $np + 1 = a^2$. Stąd mamy, że $a^2 \equiv 1 \pmod{p}$, czyli $a \equiv \pm 1 \pmod{p}$. Niech
+\begin{align*}
+	a &= kp \pm 1, \\
+	np + 1 &= (kp \pm 1)^2 = k^2p^2 \pm 2kp + 1, \\
+	n &= k^2p \pm 2k, \\
+	n + 1 &= (p - 1) \cdot k^2 + (k \pm 1)^2.
+\end{align*}
+Stąd też liczbę $n + 1$ da się przedstawić w postaci sumy $p - 1$ kwadratów liczby $k$ oraz kwadratu jednej z liczb $k - 1$, $k + 1$.
+\vspace{5px}
+
+\begin{problem}{6}
+	(a) Wykazać, że dla dowolnej liczby całkowitej $m$ istnieje taka liczba całkowita $n \geqslant m$, że
+\[
+	\left \lfloor \frac{n}{1} \right \rfloor \cdot \left \lfloor \frac{n}{2} \right \rfloor \cdots \left \lfloor \frac{n}{m} \right \rfloor = \binom{n}{m}         (*)
+\]
+(b) Niech $p(m)$ będzie najmniejszą liczbą $n \geqslant m$, że zachodzi równanie  $(*)$. Udowodnić, że $p(2018) = p(2019).$
+\end{problem}
+
+\noindent
+Wykażemy, że dla dowolnej liczby całkowitej $1 \leqslant k \leqslant n$ zachodzi nierówność
+\begin{align*}
+	\left \lfloor \frac{n}{k} \right \rfloor \geqslant \frac{n - k + 1}{k}.
+\end{align*}
+Weźmy $n = \left \lfloor \frac{n}{k} \right \rfloor \cdot k + r$, gdzie $r$ jest resztą z dzielenia $n$ przez $k$. Wówczas $r \leqslant k - 1$ oraz 
+\[
+	\frac{n - k + 1}{k} = \frac{\left (\left \lfloor \frac{n}{k} \right \rfloor \cdot k + r\right ) - k + 1}{k} = \left \lfloor \frac{n}{k} \right \rfloor + \frac{r - (k - 1)}{k} \leqslant \left \lfloor \frac{n}{k} \right \rfloor,
+\]
+przy czym równość w powyższej nierówności zachodzi wtedy i tylko wtedy, gdy $r = k - 1$, czyli gdy liczba $n + 1$ jest podzielna przez $k$. Mamy więc
+\[
+\left \lfloor \frac{n}{1} \right \rfloor \cdot \left \lfloor \frac{n}{2} \right \rfloor \cdots \left \lfloor \frac{n}{m} \right \rfloor \geqslant \frac{n}{1} \cdot \frac{n - 1}{2} \cdot ... \cdot \frac{n - m + 1}{m} = {{n}\choose{m}}.
+\]
+Równość w powyższej równości zachodzi wtedy i tylko wtedy, gdy $n + 1$ jest podzielna przez każdą z liczb $1$, $2$, ..., $m$. Stąd łatwo wynika $(a)$. Najmniejszą liczbą, dla której wszystkie te równości zachodzą jest liczba
+\[
+	p(m) = \mathrm{NWW}(1, 2, 3, ..., m).
+\]
+Zauważmy, że $2019 = 3 \cdot 673$. Skoro obie z liczb $3$ i $673$  dzielą liczbę $\mathrm{NWW}(1, 2, 3, ..., 2018)$, to jest ona również podzielna przez $2019$. Stąd
+\[
+	p(2018) = \mathrm{NWW}(1, 2, 3, ..., 2018) = \mathrm{NWW}(1, 2, 3, ..., 2019) = p(2019). 
+\]
+
