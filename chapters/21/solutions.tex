@@ -1,2 +1,183 @@
 \newpage
-\solutions{Stawianie hipotez}
+\solutions{Maksima, niezmienniki i procesy}
+
+\begin{problem}{1}
+	Danych jest $n$ punktów i $n$ prostych, przy czym żadne trzy punkty nie są współliniowe oraz żadne dwie proste nie są równoległe. Wykazać, że można tak pogrupować punkty i proste w pary, aby odcinki łączące punkt z jego rzutem prostokątnym na przyporządkowaną do niego prostą, nie przecinały się.
+\end{problem}
+
+\noindent
+Rozpatrzmy takie przyporządkowanie w pary, dla których suma długości rozpatrywanych odcinków jest minimalna. Wykażemy, że spełnia ono warunki zadania.
+
+\vspace{10px}
+\noindent
+Załóżmy nie wprost, że to przyporządkowanie nie spełnia warunków zadania. Czyli istnieją takie punkty $X$ i $Y$ i proste $k$ i $l$, że odcinki łączące rzuty $X$ i $Y$ na $k$ i $l$ odpowiednio się przecinają w pewnym punkcie $P$. Oznaczmy te rzuty jako $X'$ i $Y'$ odpowiednio. Rzut $X$ na $k$ oznaczmy jako $X_1$, a rzut $Y$ na $l$ jako $Y_1$.
+
+\begin{center}
+	\begin{tikzpicture}
+		\tkzDefPoint(1,0){X}
+		\tkzDefPoint(0,0){Y}
+		\tkzDefPoint(-4,-0.1){k_1}
+		\tkzDefPoint(0.5,2){k_2}
+		\tkzDefPoint(0.5,2){l_1}
+		\tkzDefPoint(4,0){l_2}
+		\tkzDefPointBy[projection=onto k_1--k_2](X)\tkzGetPoint{X'}
+		\tkzDefPointBy[projection=onto l_1--l_2](Y)\tkzGetPoint{Y'}
+		\tkzDefPointBy[projection=onto l_1--l_2](X)\tkzGetPoint{X_1}
+		\tkzDefPointBy[projection=onto k_1--k_2](Y)\tkzGetPoint{Y_1}
+		\tkzInterLL(X,X')(Y,Y')\tkzGetPoint{P}
+
+		\tkzDrawPoints(X, Y, X', Y', X_1, Y_1,P)
+		\tkzLabelPoint[above right](Y'){$Y'$}
+		\tkzLabelPoint[above right](X_1){$X_1$}
+		\tkzLabelPoint[above left](Y_1){$Y_1$}
+		\tkzLabelPoint[above left](X'){$X'$}
+		\tkzLabelPoint[below](X){$X$}
+		\tkzLabelPoint[below](Y){$Y$}
+		\tkzLabelPoint[left](P){$P$}
+		\tkzLabelPoint[above left](k_1){$k$}
+		\tkzLabelPoint[above right](l_2){$l$}
+
+		\tkzDrawSegments(k_1,k_2 l_1,l_2 X,X' Y,Y')
+		\tkzDrawSegments[dashed](X,X_1 Y,Y_1)
+		\tkzMarkRightAngles[german](X,X',k_2 l_1,Y',Y)
+		\tkzMarkRightAngles[german](l_1,X_1,X Y,Y_1,k_2)
+	\end{tikzpicture}
+\end{center}
+
+\noindent
+Zauważmy, że zachodzą nierówności
+\[
+	XP + PY' > XY' > XX_1 \quad \text{oraz} \quad YP + PX' > YX' > YY_1.
+\]
+Dodając te nierówności stronami otrzymujemy, że
+\[
+	XX' + YY' = (XP + PX') + (YP + PY') = (XP + PY') + (YP + PX') > XX_1 + YY_1.
+\]
+Przyporządkowując prostą $k$ do punktu $Y$ i prostą $l$ do punktu $X$ otrzymamy przyporządkowanie o mniejszej sumie rozpatrywanych odcinków. Przeczyłoby to jednak minimalności, którą założyliśmy na początku. Zatem żadne dwa rozpatrywane odcinki się nie przecinają.
+
+\vspace{5px}
+
+\begin{problem}{2}
+	Niech $n \geqslant 2$ będzie dodatnią liczbą całkowitą i niech $S$ będzie zbiorem zawierającym dokładnie $n$ różnych liczb rzeczywistych. Niech $T$ będzie zbiorem wszystkich liczb postaci $x_i + x_j$, gdzie $x_i$ oraz $x_j$ są różnymi elementami $S$. Wykazać, że zbiór $T$ zawiera co najmniej $2n - 3$ elementów.
+\end{problem}
+
+\noindent
+Załóżmy, że zbiór $S$ zawiera liczby
+\[
+	x_n > x_{n - 1} > ... > x_2 > x_1.
+\]
+Zauważmy, że
+\[
+	x_1 + x_2 < x_1 + x_3 <  ... <  x_1 + x_n <  x_2 + x_n <  x_3 + x_n < ... < x_{n - 1} + x_n.
+\]
+W powyższym ciągu nierówności znajdują się $2n - 3$ liczby, z których każda należy do~$T$. Oczywiście żadne dwie z nich nie moga być sobie równe, czyli $T$ zawiera co najmniej $2n - 3$ elementów.
+
+\vspace{10px}
+
+\begin{remark}
+	Jeśli $x_i = i$ dla każdej liczby całkowitej $n \geqslant i \geqslant 1$, to wówczas zbiór $T$ zawiera liczby całkowite od $3$ do $2n - 1$ -- jest ich dokładnie $2n - 3$. Czyli oszacowania tego nie da się poprawić.
+\end{remark}
+
+\vspace{5px}
+
+\begin{problem}{3}
+	Niech $p_1, p_2, p_3, \ldots$ będą kolejnymi liczbami pierwszymi, zaś $x_0$ niech będzie liczbą rzeczywista pomiędzy 0 i 1. Dla każdej dodatniej liczby całkowitej $k$, przyjmijmy
+\[
+	x_k = \begin{cases} 
+	0 & \text{jeśli} \; x_{k-1} = 0, \\
+	\left\{ \dfrac{p_k}{x_{k-1}} \right\} & \text{jeśli} \; x_{k-1} \neq 0, 
+	\end{cases}  
+\]
+gdzie $\{x\}$ oznacza część ułamkową $x$. (Część ułamkowa $x$ jest równa $x - \lfloor x \rfloor$) Znajdź wszystkie liczby $x_0$ spełniające $0 < x_0 < 1$, dla których ciąg $x_0, x_1, x_2, \ldots$ od pewnego momentu jest równy 0.
+\end{problem}
+
+\answer{Zbiorem szukanych liczb jest zbiór liczb wymiernych.}
+
+\noindent
+Najpierw wykażemy, że dla $x_0$ niewymiernego w danym ciągu nigdy nie pojawi się liczba~$0$. Co więcej, wykażemy, że jeśli liczba $x_i$ jest niewymierna, to liczba $x_{i + 1}$ również będzie niewymierna. Skoro $x_i$ jest niewymierna, to liczba $\frac{p_i}{x_i}$ również. Wiemy, że liczba
+\[
+	\left\{ \dfrac{p_k}{x_{k-1}} \right\} - \dfrac{p_k}{x_{k-1}}
+\]
+jest całkowita, toteż skoro liczb $\frac{p_i}{x_i}$ jest niewymierna, to liczba $x_{i + 1} = \left\{ \dfrac{p_k}{x_{k-1}} \right\}$ będzie niewymierna.
+
+\vspace{10px}
+\noindent
+Wykażemy teraz, że jeśli $x_0$ jest liczbą wymierną, to w pewnym momencie w ciągu $x_i$ pojawi się $0$. Najpierw zauważmy, że dla każdego nieujemnego całkowitego $i$ zachodzi 
+\[
+	1 \geqslant x_i \geqslant 0.
+\] 
+Wynika to z analogicznej własności części ułamkowej. Załóżmy, że $x_i$ jest liczbą wymierną, różną od 0. Niech $x_i = \frac{p}{q}$ -- oczywiście $p < q$. Wówczas
+\[
+	x_{i + 1} = \left\{ \dfrac{p_k}{x_{k-1}} \right\} = \left\{ \dfrac{qp_k}{p} \right\} = \frac{qp_k \text{ mod } p}{p},
+\]
+gdzie $qp_k \text{ mod } p$ oznacza resztę z dzielenia $qp_k$ przez $p$. Zauważmy, że
+\[
+	0 \leqslant qp_k \text{ mod } p < p,
+\]
+czyli $x_{i + 1}$ ma mniejszy licznik niż $x_i$. Jako że licznik jest nieujemną liczbą całkowitą, to nie może on się zmniejszać w nieskończoność. Toteż dla pewnego $i$ otrzymamy $x_i = 0$.
+
+\begin{problem}{4}
+	Dana jest kratka $1000\times 1000$. W każdą kratkę wpisano strzałkę, która wskazuje jeden z boków kratki. W jednej z tych kratek stoi mrówka. Co sekundę wykonuje ona ruch -- rusza się na pole wskazane przez strzałkę w polu, na którym stoi, a następnie obraca tę strzałkę o $90\degree$ zgodnie z ruchem wskazówek zegara. Wykazać, że mrówka wyjdzie kiedyś z wyjściowego kwadratu.
+\end{problem}
+
+\noindent
+Zauważmy, że jeśli na pewnym polu mrówka stanie co najmniej $4n$ razy, to stanie na nim co najmniej $n$ razy, gdy strzałka jest skierowana w górę. Toteż co najmniej $n$ razy przejdzie w górę. Czyli na polu powyżej rozpatrywanego pola mrówka stanie co najmniej $n$ razy.
+
+\vspace{10px}
+\noindent
+Wykażemy, że po co najwyżej $4^{1000} \cdot 1000^2$ ruchach mrówka opuści planszę. Załóżmy nie wprost, że tak się nie stało -- mrówka po tylu ruchach wciąż stoi na planszy. Skoro jest $1000^2$ pól, to istnieje pole, na którym mrówka stanęła co najmniej $4^{1000}$ razy. Wówczas na polu powyżej niego stanęła co najmniej $4^{999}$ razy, na polu dwa pola powyżej stanęła co najmniej $4^{998}$ razy, ..., na polu $k$ pól powyżej rozpatrywanego pola stanęła $4{1000 - k}$ razy. Skoro plansza ma $1000$ wierszy to dojdziemy w pewnym momencie do pola brzegowego i~otrzymamy, że staniemy na nim co najmniej $4$ razy. Toteż co najmniej raz staniemy, gdy strzałka jest skierowana w górę i opuścimy planszę.
+\vspace{5px}
+
+\begin{problem}{5}
+Na tablicy zapisano pewną liczbę naturalną. W każdym ruchu możemy zastąpić aktualnie zapisaną liczbę $x$ jedną z liczb 
+\[
+    2x + 1 \quad  \text{lub} \quad \dfrac{x}{x + 2}.
+\]
+Wykazać, że jeśli na tablicy pojawiła się liczba 2000, to była tam ona od samego początku.
+\end{problem}
+
+\noindent
+Rozpatrzmy następującą wartość -- jeśli na tablicy jest zapisana liczba $\frac{a}{b}$, przy czym ułamek $\frac{a}{b}$ jest nieskracalny -- to weźmy liczbę $a + b$.
+
+\vspace{10px}
+\noindent
+Załóżmy, że w pewnym momencie na tablicy nieskracalny ułamek $\frac{a}{b}$. Wówczas możemy go zamienić na jedną z liczb 
+\[
+	2\cdot \frac{a}{b} + 1 = \frac{2a + b}{b} \quad \text{oraz} \quad \frac{\frac{a}{b}}{\frac{a}{b} + 2} = \frac{a}{a + 2b}.
+\]
+Mamy
+\[
+	\mathrm{NWD}(2a + b, b) = \mathrm{NWD}(2a, b) \quad \text{oraz} \quad \mathrm{NWD}(a, a + 2b) = \mathrm{NWD}(a, 2b). 
+\]
+Skoro $\mathrm{NWD}(a, b) = 1$, to mamy, że każde z tych $\mathrm{NWD}$ wynosi co najwyżej $2$. Stąd suma licznika i mianownika w formie nieskracalnej wynosi $2a + 2b$ lub $\frac{2a + 2b}{2} = a + b$. 
+
+\vspace{10px}
+\noindent
+Załóżmy, że na początku na tablicy zapisano liczbę naturalną $n = \frac{n}{1}$. Wyjściowo suma licznika i mianownika wynosi $n + 1$. Po wykonaniu pewnej liczby ruchów suma licznika i mianownika wynosi $2^{\alpha}(n + 1)$. Skoro otrzymano liczbę $\frac{2000}{1}$, to $\alpha = 0$ oraz $n + 1 = 2001$. Czyli na początku istotnie zapisano liczbę $n = 2000$.
+
+\vspace{5px}
+
+\begin{problem}{6}
+Niech $n$ będzie dodatnią liczbą całkowitą. Syzyf wykonuje ruchu na planszy, która zawiera $n + 1$ pól, ponumerowanych $0$ do $n$ od lewej do prawej. Początkowo $n$ kamieni znajduje się nie polu o numerze $0$, zaś inne pola są puste. W każdym ruchu, Syzyf wybiera niepuste pole, niech ono zawiera $k$ kamieni, bierze jeden kamień i przesuwa go w prawo o co najwyżej $k$ pól (kamień musi pozostać na planszy). Celem Syzyfa jest przeniesienie wszystkich kamieni z pola o numerze $0$ na pole o numerze $n$.
+Wykazać, że Syzyf nie może osiągnąć swojego celu w mniej niż
+\[ 
+	\left \lceil \frac{n}{1} \right \rceil + \left \lceil \frac{n}{2} \right \rceil + \left \lceil \frac{n}{3} \right \rceil + \dots + \left \lceil \frac{n}{n} \right \rceil 
+\]
+ruchach.
+\end{problem}
+
+\noindent
+Ponumerujmy kamienie liczbami od $1$ do $n$. Jeśli na polu jest kilka kamieni, przyjmiemy, że Syzyf użyje kamienia o największym numerze. Zauważmy, że to ponumerowanie nie zmienia istoty tego procesu, gdyż tak właściwie liczy się jedynie liczba kamieni na każdym z pól.
+
+\vspace{10px}
+\noindent
+Zauważmy, że kamień o numerze $k$ może zostać użyty wtedy i tylko wtedy, gdy na rozpatrywanym polu jest nie więcej niż $k$ kamieni. Gdyby tych kamieni było co najmniej $k + 1$, to musiałby na tym polu leżeć kamień o numerze nie mniejszym niż $k + 1$. Wówczas on miałby numer większy niż $k$, więc Syzyf przełożyłby właśnie go.
+
+
+\vspace{10px}
+\noindent
+Z powyższego akapitu wynika, że kamień o numerze $k$ może zostać przesunięty w jednym ruchu o nie więcej niż $k$ pól w prawo. Aby ten kamień znalazł się na polu o numerze $n$ potrzeba więc ruszyć go co najmniej $\left \lceil \frac{n}{k} \right \rceil$ razy. Przeprowadzając analogiczne rozumowania dla każdego $k$ od $1$ do $n$ otrzymujemy tezę.
+
+
+
+

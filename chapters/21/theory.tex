@@ -2,26 +2,77 @@
 
 \theory{Maksima, niezmienniki i procesy}
 
+
 \heading{Przykład 1}
 
-%Source: http://web.mit.edu/yufeiz/www/wc08/invariants.pdf Sample problem 2
 \noindent
-W ciągu $(1,\; 0,\; 1,\; 0,\; 1,\; 0,\; 3,\; 5,\; ...)$ każdy element, począwszy od siódmego jest równy sumie sześciu poprzedzających go elementów. Wykazać, że ten ciąg nie zawiera spójnego podciągu $(0, \;1, \;0, \;1,\; 0,\;1)$.
+Na stole leży $999$ monet w jednym stosie. W każdym ruchu można wziąć jedną monetę z pewnego stosu, który zawiera co najmniej dwie monety, a następnie dowolnie podzielić pozostałe monety na dwa niepuste stosy. Rozstrzygnąć, czy można tak wykonywać ruchy, aby na końcu zostały jedynie stosy, w których jest $5$ monet.
 
+\vspace{5px}
 \heading{Rozwiązanie}
 
-%Source: https://alexanderrem.weebly.com/uploads/7/2/5/6/72566533/miscellaneousproblems.pdf
-\heading{Przykład 2}
-
 \noindent
-Na tablicy zapisano dwie dodatnie i różne liczby całkowite. W każdym ruchu, przed którym na tablicy znajdowały się liczby $a > b$, mniejsza z obu liczb jest zmazywana i zastępowana liczbą 
-\[	
-	\frac{ab}{|a - b|}.
+Wykażemy, że nie jest to możliwe. Zauważmy, że w każdym ruchu liczba monet na stole zmniejsza się o $1$, a liczba stosów zwiększa się o $1$. Toteż suma tych dwóch liczb się nie zmienia. Skoro początku wynosi ona $999 + 1 = 1000$, to zawsze będzie tyle wynosić.
+
+\vspace{10px}
+\noindent
+Jeśli po wykonaniu pewnej liczby ruchów na stole będzie $n$ stosów po $5$ monet w każdym z nich, to suma liczby monet na stole i liczby stosów wyniesie $5n + n = 6n$. Z tego co wykazaliśmy musiałaby zajść równość
+\[
+	1000 = 6n,
 \]
-Wykazać, że ten proces zakończy się po skończonej liczbie ruchów.\\
+co daje sprzeczność, bo liczba $1000$ nie jest podzielna przez $6$.
 
+\qed
+
+\noindent
+Sumę liczby monet na stole i liczby stosów nazwiemy \textit{niezmiennikiem}. Jest to taka własność, która nie zmienia się wskutek wykonywanych ruchów. W zadaniach, w których mowa o pewnych procesach, warto zawsze takowych poszukać. Teraz pokażemy, jak bardzo przydatne może być analizowanie pewnego elementu maksymalnego.
+
+\vspace{10px}
+
+\heading{Przykład 2}
+% tw. Sylvestera-Gallai
+
+\noindent
+Danych jest $n \geqslant 3$ punktów na płaszczyźnie, przy czym nie istnieje prosta, która zawiera je wszystkie. Wykazać, że istnieje prosta, która zawiera dokładnie dwa spośród tych $n$ punktów.
+
+\vspace{5px}
 \heading{Rozwiązanie}
 
-% to da się skończyć nie mówiąc, że to jest algorytm Euklidesa
+\noindent
+Rozpatrzmy parę: prostą~$l$, która przechodzi przez co najmniej dwa z rozpatrywanych punktów, i punkt~$X$, który do niej nie należy, przy czym odległość punktu~$X$ od prostej~$l$ jest najmniejsza możliwa spośród wszystkich par tego typu. Zauważmy, że istnieje co najmniej jedna taka para, gdyż w przeciwnym wypadku wszystkie punkty leżały by na jednej prostej. 
 
-\heading{Algorytm Euklidesa}
+\begin{center}
+	\begin{tikzpicture}
+		\tkzDefPoint(-1,-1){X}
+		\tkzDefPoint(-2,1.3){A}
+		\tkzDefPoint(-1,0.3){B}
+		\tkzDefPoint(1,-1.7){C}
+		\tkzDefPointBy[projection=onto A--B](X)\tkzGetPoint{P}
+		\tkzDefPointBy[projection=onto A--X](B)\tkzGetPoint{P_1}
+
+		\tkzDrawPoints(A,B,C, X, P)
+		\tkzLabelPoint[above right](A){$A$}
+		\tkzLabelPoint[above right](B){$B$}
+		\tkzLabelPoint[above right](P){$P$}
+		\tkzLabelPoint[above right](C){$C$}
+		\tkzLabelPoint[below](X){$X$}
+
+		\tkzDrawSegments(A,C A,X)
+		\tkzDrawSegments[dashed](X,P B,P_1)
+		\tkzMarkRightAngles[german](A,P,X B,P_1,A)
+	\end{tikzpicture}
+\end{center}
+
+\vspace{10px}
+\noindent
+Załóżmy nie wprost, że na prostej~$l$ leżą co najmniej trzy punkty -- oznaczmy dowolne trzy z nich jako~$A$, $B$ i $C$ -- przy czym leżą one w tej kolejności na prostej~$l$. Niech $P$ będzie rzutem prostokątnym punktu~$X$ na prostą~$l$. Załóżmy, bez straty ogólności, że punkty~$A$ i~$B$ leżą po tej samej stronie lub pokrywają się z punktem~$P$, oraz kolejność punktów na prostej to~$A$, $B$ i~$P$. Wówczas punkt~$B$ leży bliżej prostej~$AX$ niż wynosi odległość punktu~$X$ do prostej~$l$. Przeczy to jednak założonej wcześniej minimalności tej odległości.
+
+\qed
+
+\noindent
+Trzeba zwrócić uwagę, na pewną pułapkę, w którą bardzo często liczni olimpijczycy dają się złapać. Mianowicie na początku tego zadania stwierdziliśmy, że bierzemy najmniejszy element z pewnego zbioru. Aby to jednak było możliwe, to ten zbiór musi być niepusty! Co więcej musi on być ogarniczony od dołu. Chociażby nie istnieje najmniejsza liczba całkowita.
+
+\vspace{10px}
+\noindent
+W sytuacji, gdy w rozwiązaniu ,,rozpatrzamy pewien element $X$'', to trzeba zadać sobie pytanie, czy on w ogóle istnieje. Jeśli może zdarzyć się, że nie, to popełniamy błąd. Chociażby pisząc ,,niech punkt $P$ będzie przecięciem prostych $AB$ i $CD$'' zakładamy po cichu, że taki punkt istnieje tj. wspomniane proste nie są do siebie równoległe. Jednak co w przypadku, gdy tak nie jest? Trzeba być czujnym na takie pułapki.
+\vspace{10px}
