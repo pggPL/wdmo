@@ -1,5 +1,32 @@
-\hints{Geometria kombinatoryczna}
+\hints{Kombinatoryka z elementami geometrii}
 
 \begin{hints_list}
-	\item
+	\item Rozpatrz nastepujące punkty\\
+	\begin{center}
+	\begin{tikzpicture}
+		\tkzDefPoint(0,0){A}
+		\tkzDefPoint(2,0){B}
+		\tkzDefTriangle[equilateral](A,B) \tkzGetPoint{C}
+		\tkzDefMidPoint(A,B) \tkzGetPoint{M}
+		\tkzDefMidPoint(B,C) \tkzGetPoint{K}
+		\tkzDefMidPoint(A,C) \tkzGetPoint{L}
+
+		\tkzCentroid(A,B,C) \tkzGetPoint{O}
+		\tkzCentroid(A,L,M) \tkzGetPoint{O_1}
+		\tkzCentroid(B,K,M) \tkzGetPoint{O_2}
+		\tkzCentroid(C,K,L) \tkzGetPoint{O_3}
+
+		\tkzDrawPoints(A,B,C,K,L,M,O,O_1,O_2,O_3)
+		\tkzDrawSegments(A,B B,C C,A K,L L,M M,K)
+		\tkzLabelPoints[below](A,M,B)
+		\tkzLabelPoints[right](K)
+		\tkzLabelPoints[above](C)
+		\tkzLabelPoints[left](L)
+	\end{tikzpicture}
+	\end{center}
+	\item Zauważ, że te punkty leżą na jednym okręgu oraz trzeba pokazać, że odległość między pewnymi dwoma kolejnymi jest ogarniczona.
+	\item Rozpatrz najdłuższy bok danego wielokąta.
+	\item Weź dowolny punkt i dowolną prostą. Zacznij ją obracać, aż obróci się o $180\degree$. Wykaż, że w pewnym momencie była ona prostą dzielącą.
+	\item Zauważ, że wszystkie trójkąty przybrzeżne są tego samego koloru -- przyjmijmy bez straty ogólności, że są czarne.
+	\item 
 \end{hints_list}
