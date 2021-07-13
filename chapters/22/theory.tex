@@ -2,17 +2,43 @@
 
 \theory{Wielomiany 2}
 
+\noindent
+W tym rozdziale przedstawione zostaną trzy twierdzenia na temat wielomianów. Są to dwa twierdzenia teorioliczbowe i jedno z analizy matematycznej. Pokazuje to, że wielomiany są strukturą, która znajduje zastosowanie w wielu działach matematyki.
+
+\vspace{10px}
 \heading{Twierdzenie 1}
 
 \noindent
-Dany jest wielomian $P(x)$ o współczynnikach całkowitych oraz dwie różne liczby całkowite $a$, $b$. Wówczas
+Dany jest wielomian $P(x)$ o współczynnikach całkowitych oraz dwie różne liczby całkowite~$a$, $b$. Wówczas zachodzi podzielność
 \[
 	a - b \mid P(a) - P(b).
 \]
 
 \heading{Dowód}
 
-% tutaj trochę opisać, że a = b mod n, to f(a) = f(b)
+\noindent
+Zauważmy, że dla dowolnej liczby naturalnej $k$ prawdziwa jest podzielność
+\[
+	a - b \mid a^k - b^k.
+\]
+Powyższe twierdzenie wprost z niej wynika, gdyż jeśli przyjmiemy, że $P(x) = \sum^{n}_{i = 0} c_ix^i$, to
+\[
+	P(a) - P(b) = \sum^{n}_{i = 0} c_ia^i - \sum^{n}_{i = 0} c_ib^i = \sum^{n}_{i = 0} c_i(a^i - b^i).
+\]
+Skoro każdy ze składników jest podzielny przez $a - b$, to w szczególności cała suma jest podzielna.
+
+\qed
+
+\noindent
+Powyższe twierdzenie można przedstawić w następującej formie. Jeśli mamy pewien wielomian $P$ o współczynnikach całkowitych oraz liczby całkowite $a$, $b$ i $n > 0$, przy czym
+\[
+	a \equiv b \pmod{n},
+\]
+to wówczas
+\[
+	P(a) \equiv P(b) \pmod{n}.
+\]
+
 
 
 \heading{Twierdzenie 2}
@@ -29,20 +55,79 @@ Dane są liczby całkowite $a_0$, $a_1$, ..., $a_n$, liczba wymierna $\frac{p}{q
 
 \heading{Dowód}
 
+\noindent
+Rozpiszmy równośc $W\left(\frac{p}{q}\right) = 0$ i pomnóżmy ją przez $q^n$ stronami
+\begin{align*}
+	a_n \cdot \frac{p^n}{q^n} + a_{n - 1} \cdot \frac{p^{n - 1}}{q^{n - 1}} + ... + a_1 \cdot \frac{p}{q} + a_0 = 0, \\
+	a_n \cdot p^n + a_{n - 1} \cdot p^{n-1}q + ... + a_1 \cdot p^1q^{n - 1} + a_0 \cdot q^n = 0.
+\end{align*}
+Zauważmy, że po lewej stronie wszystkie jednomiany poza $a_n \cdot p^n$ dzielą się przez $q$. Skoro sumują się do zera, czyli do liczby podzielnej przez $q$, to liczba $a_n \cdot p^n$ musi się dzielić przez $q$. Skoro $p$ i $q$ są względnie pierwsze, to $p^n$ i $q$ będą względnie pierwsze, czyli $q$ musi dzielić $a_n$. Dowód, że $p$ dzieli $a_0$ jest analogiczny i wynika z faktu, że wszystkie wielomiany poza $a_0 \cdot q^n$ dzielą się przez $p$.
+
+\qed
+
 \heading{Przykład 1}
 
-Dany jest niestały wielomian $W(x)$ o wspołczynnikach całkowitych. Wykazać, że istnieje nieskończenie wiele liczb pierwszych $p_i$, dla których istnieje taka liczba całkowita $n$, że $p_i \mid W(n)$.
+\noindent
+Dany jest niestały wielomian $W(x)$ o współczynnikach całkowitych. Wykazać, że istnieje nieskończenie wiele liczb pierwszych $p_i$, dla których istnieje taka liczba całkowita $n$, że $p_i \mid W(n)$.
+
+\vspace{5px}
 
 \heading{Dowód}
 
+\noindent
+Załóżmy, że zbiór liczb pierwszych, dla których istnieje element $W$ przez nią podzielny, jest skończony. Oznaczmy te liczby jako $p_1$, $p_2$, ..., $p_k$.  Niech 
+\[
+	a = \text{max}(v_{p_1}(P(0)),\; v_{p_2}(P(0)),\; ...,\; v_{p_k}(P(0))) \quad \text{oraz} \quad M = (p_1 \cdot p_2 \cdot ... \cdot p_k)^{a + 1}.
+\]
+
+\vspace{10px}
+\noindent
+Wykażemy, że dla dowolnej liczby całkowitej $t$ oraz liczby całkowitej $1 \leqslant i \leqslant k$ zachodzi nierówność
+\[
+	v_p(W(t \cdot M)) < v_p(M).
+\]
+Zauważmy, że dla dowolnej liczby całkowitej $t$ na mocy Twierdzenia 1 mamy
+\begin{align*}
+	M \mid t \cdot M \mid W(t \cdot M) - W(0).
+\end{align*}
+Jeśli liczba $W(t \cdot M)$ byłaby podzielna przez $p_i^{a + 1}$, to skoro liczba $W(0)$ nie jest podzielna przez $p_i^{a + 1}$, to ich suma rónwież by nie była. Zaś ich dzielnik -- liczba $M$ -- jest podzielna przez $p_i^{a + 1}$. Stąd liczba $W(t \cdot M)$ nie może być podzielna przez $p_i^{a + 1}$. Stąd
+\[
+	v_{p_i}(W(t\cdot M)) < a + 1 = v_{p_i}(M).
+\] 
+Skoro $W(t\cdot M)$ na mocy założeń nie ma innych dzielników pierwszych niż liczby $p_i$, to $W(t\cdot M)$ jest dzielnikiem liczby $M$. Liczba dzielników liczby $M$ jest skończona, a liczb postaci $t\cdot M$ jest nieskończenie wiele. Toteż pewien dzielnik $M$ jest przyjmowany nieskończenie wiele razy przez wielomian $W$. Nie jest to możliwe, gdy wielomian $W$ nie jest stały.
+
+\qed
+
+\noindent
+Następnego twierdzenia nie będziemy dowodzić, gdyż jest ono bardzo intuicyjne, a dowód jest trudny i bardzo formalny.
+
+\vspace{5px}
 \heading{Twierdzenie 3}
 
 \noindent
 Niech $W(x)$ będzie wielomianem o współczynnikach rzeczywistych. Jeśli $a < b$ są liczbami rzeczywistymi, przy czym $W(a) < 0$ i $W(b) > 0$, to istnieje takie $x \in (x, y)$, że $W(x) = 0$
+\begin{center}
+	
+\begin{tikzpicture}
+\begin{axis}[axis lines=middle,axis equal,restrict y to domain=-10:10,yticklabels={}, xticklabels={}]
+\addplot[samples=100] {-(x+1.3)^3 + 2*(x+1.3)};
+\node[label={90:{$a$}},circle,fill,inner sep=1pt] at (axis cs:-0.6,1.05) {};
+\node[label={270:{$b$}},circle,fill,inner sep=1pt] at (axis cs:-2,-1.05) {};
+\node[label={110:{$x$}},circle,fill,inner sep=1pt] at (axis cs:-1.3,0) {};
+\end{axis}
+\end{tikzpicture}
+\end{center}
 
-% napisać, że to jest własność Darboux i jakiś rysunek dać
+\vspace{20px}
+\noindent
+Powyższe twierdzenie nazywane jest \textit{własnością Darboux}. Mówi ono tyle, że jeśli w pewnym momencie wartość wielomianu jest poniżej zera, a w innym powyżej, to wielomian musi przeciąć oś OX. Powyższe twierdzenie jest prawdziwe dla wszystkich funkcji ciągłych.
+\vspace{5px}
 
-% Source: https://om.mimuw.edu.pl/static/app_main/camps/oboz2018.pdf P3
+
+\noindent
+Teraz pokażemy zadanie, w którym trzeba udowodnić, że pewien wielomian jest nierozkładalny na wielomiany o współczynnikach całkowitych. Ten motyw powtarza się w zadaniach olimpijskich.
+\vspace{5px}
+
 \heading{Przykład 2}
 
 \noindent
@@ -51,5 +136,62 @@ Dane są parami różne liczby całkowite $a_1, a_2, ..., a_n$, gdzie $n \geqsla
 	P(x)=((x − a_1)(x − a_2)\cdot ...\cdot (x − a_n))^2 + 1
 \]
 nie jest iloczynem dwóch wielomianów dodatnich stopni o współczynnikach całkowitych.
+\vspace{5px}
 
 \heading{Dowód}
+
+\noindent
+Załóżmy nie wprost, że istnieją takie niestałe wielomiany o współczynnikach całkowitych $A$ i $B$, że
+\[
+	P(x) = A(x)B(x).
+\]
+Wówczas dla każdego $1 \leqslant i \leqslant n$ zachodzi
+\[
+	A(a_i)B(a_i) = P(a_i) = 1.
+\]
+Więc $A(a_i) = B(a_i) = \pm 1$. 
+
+\vspace{10px}
+\noindent
+Jeśli $A$ byłoby równe $1$ dla pewnego $a_i$, zaś równe $-1$ dla pewnego $a_j$, to wówczas na mocy własności Darboux ma pierwiastek. Jeśli istnieje takie $\alpha$, że $A(\alpha) = 0$, to
+\[
+	P(\alpha) = A(\alpha)B(\alpha) = 0.
+\]
+Łatwo zauważyć, że
+\[
+	P(\alpha) = ((\alpha − a_1)(\alpha − a_2)\cdot ...\cdot (\alpha − a_n))^2 + 1 \geqslant 1 > 0,
+\]
+co daje sprzeczność.
+
+\noindent
+Stąd albo
+\[
+	A(a_i) = B(b_i) = 1
+\]
+dla wszystkich $i$, albo
+\[
+	A(a_i) = B(b_i) = -1
+\]
+dla wszystkich $i$.
+Rozpatrzmy pierwszy przypadek, drugi będzie analogiczny.
+Jeśli $A$ dla $n$ liczb przyjmuje wartość $1$ oraz jest niestały, to jego stopień wynosi co najmniej $n$. Suma ich stopnie wynosi tyle, ile wynosi stopień ich iloczynu $A(x)B(x) = P(x)$, czyli $2n$. Stąd też oba te wielomiany mają stopień $n$. Zauważmy również, że skoro wielomian $P(x) = A(x)B(x)$ jest unormowany, to współczynniki wiodące $A$ i $B$ są albo oba równe~$1$, albo oba równe $-1$.
+
+\vspace{10px}
+\noindent
+Rozpatrzmy wielomian $A(x) - B(x)$. Dla każdego $x = a_i$, których jest łącznie $n$, przyjmuje wartość $0$. Skoro wielomiany $A$ i $B$ mają stopień $n$ i równy współczynnik wiodący, to ich różnica będzie miała współczynnik wiodący nie większy niż $n - 1$. Łącząc powyższe wnioski, na mocy jednego z twierdzeń wykazanych w rozdziale Wielomiany, mamy 
+\[
+	A(x) = B(x).
+\]
+Stąd
+\begin{gather*}
+	A(x)^2 = A(x)B(x) = P(x) = ((x − a_1)(x − a_2)\cdot ...\cdot (x − a_n))^2 + 1 \\
+	A(x)^2 = ((x − a_1)(x − a_2)\cdot ...\cdot (x − a_n))^2 + 1, \\
+	\left(A(x) - (x − a_1)(x − a_2)\cdot ...\cdot (x − a_n)\right)\left(A(x) + (x − a_1)(x − a_2)\cdot ...\cdot (x − a_n)\right) = 1.
+\end{gather*}
+Po lewej stronie mamy iloczyn dwóch niezerowych wielomianów, z których co najmniej jeden ma stopień $n$. Toteż ich iloczyn ma stopień co najmniej $n$, co oczywiście jest sprzeczne z powyższą równością.
+
+\qed
+
+\noindent
+Z powyższego rozwiązania warto zapamiętać użycie własności Darboux do wykazania, że wielomian ma pierwiastek. Warto też patrzyć na współczynniki wiodące wielomianów -- w powyższym rozwiązaniu odegrało to ważną rolę.
+\vspace{5px}

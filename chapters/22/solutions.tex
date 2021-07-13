@@ -1,2 +1,190 @@
 \newpage
 \solutions{Wielomiany 2}
+
+\begin{problem}{1}
+	Niech $a,b,c$ będą trzema parami różnymi liczbami całkowitymi. Wykazać, że nie istnieje taki wielomian $P(x)$ o współczynnikach całkowitych, że zachodzą równości
+    \[
+        P(a) = b,\; P(b) = c,\; P(c) = a.
+    \]
+\end{problem}
+
+\noindent
+Załóżmy nie wprost, że takie liczby istnieją. 
+Na mocy Twierdzenia $1$ mamy
+\begin{align*}
+	a - c &\big| P(a) - P(c) = b - a, \\ 
+	a - b &\big| P(a) - P(b) = b - c, \\
+	b - c &\big| P(b) - P(c) = c - a.
+\end{align*}
+W szczególności wynika, że każda z liczb
+\[
+	|a - b|, \;|b - c|,\; |c - a|,\; |a - b|
+\]
+jest podzielna przez kolejną z nich. Skoro pierwsza jest równa ostatniej, to wszystkie one muszą być sobie równe, czyli
+\[
+	|a - b| = |b - c| = |c - a|.
+\]
+Bez straty ogólności przyjmijmy, że $a$ jest największą spośród liczb $a$, $b$, $c$. Wówczas
+\[
+	|a - b| = |c - a| \implies a - b = a - c \implies b = c.
+\]
+Jest to sprzeczność z założeniem, że liczby te są parami różne.
+
+\begin{problem}{2}
+	Udowodnić, że istnieje taki wielomian $W$ stopnia $100$ o współczynnikach całkowitych, że dla każdej liczby całkowitej $n$ liczby
+	\[
+		n,\;\; W(n),\;\; W(W(n)),\;\; W(W(W(n))), ...
+	\]
+	są parami względnie pierwsze.
+\end{problem}
+
+\noindent
+Wykażemy, że wielomian
+\[
+	W(x) = x^{100} - x + 1
+\]
+spełnia warunki zadania. Wynikną one z dwóch własności
+\begin{enumerate}
+	\item Jeśli pewna liczba pierwsza $p$ dzieli pewne $n$, to
+	\[
+		W(n) = n^{100} - n + 1 \equiv 1 \pmod{p}.
+	\]
+	\item Jeśli $n \equiv 1 \pmod{p}$, to wówczas
+	\[
+		W(n) = n^{100} - n + 1 \equiv 1 - 1 + 1 \equiv 1 \pmod{p}.
+	\]
+\end{enumerate}
+Stąd też jeśli pewna liczba pierwsza $p$ dzieli jeden z wyrazów ciągu
+\[
+	n,\;\; W(n),\;\; W(W(n)),\;\; W(W(W(n))), ...,
+\]
+to każdy kolejny daje resztę $1$ z dzielenia przez $p$. Stąd też nie mogą istnieć dwa elementy tego ciągu, które mają wspólny dzielnik pierwszy, z czego wynika teza.
+
+\begin{problem}{3}
+	Dany jest wielomian $W(x)$ o współczynnikach rzeczywistych, który ma niezerowy współczynnik przy $x^1$. Wykazać, że istnieje taka liczba rzeczywista $a$, że
+	\[
+		W(a) \neq W(-a).
+	\]
+\end{problem}
+
+\noindent
+Załóżmy nie wprost, że taka liczba nie istnieje. Wówczas dla dowolnej liczby rzeczywistej $x$ mamy
+\[
+	W(x) = W(-x).
+\]
+Niech
+\[
+	W(x) = a_nx^n + a_{n - 1}x^{n - 1} + ... + a_1x + a_0.
+\]
+Z założenia wiemy, że $a_1 \neq 0$. Zauważmy, że $W(-x)$ ma przy $x^1$ współczynnik $-a_1$. Czyli różnica $W(x) - W(-x)$ ma ten współczynnik równy $2a_1 \neq 0$. Założyliśmy, że ten wielomian dla każdej liczby rzeczywistej przyjmuje wartość $0$. To oznacza, że jest to wielomian zerowy, co przeczy niezerowości współczynnika przy $x^1$.
+
+\begin{problem}{4}
+	Niech $P$, $Q$ będą wielomianami o współczynnikach rzeczywistych, dla których zachodzi równość 
+	\[
+		P(Q(x)) = Q(P(x)).
+	\] 
+	Wykazać, że jeśli nie istnieje taka liczba rzeczywista $x$ dla której $P(x) = Q(x)$, wówczas również nie istnieje taka liczba rzeczywista $x$, dla której prawdą jest, że $P(P(x)) = Q(Q(x))$.
+\end{problem}
+
+\noindent
+Jeśli istniałyby liczby $a$, $b$, dla których 
+\[
+	P(a) > Q(a) \;\; \text{i} \;\; P(b) < Q(b),
+\] 
+to rozpatrując wielomian $W(x) = P(x) - Q(x)$ mielibyśmy $W(a) < 0$ i $W(b) > 0$. Z własności Darboux ten wielomian miałby pierwiastek, czyli równanie $P(x) = Q(x)$ miałoby rozwiązanie. Ale z założeń tak nie jest, czyli albo 
+\[
+	P(x) > Q(x) \text{ dla wszystkich liczb rzeczywistych } x,
+\] 
+albo $Q(x) > P(x)$ dla wszystkich liczb rzeczywistych~$x$. Bez straty ogólności załóżmy, że prawdziwa jest pierwsza nierówność.
+
+\vspace{10px}
+\noindent
+Mamy 
+\[
+	P(P(x)) > Q(P(x)) = P(Q(x)) > Q(Q(x)),
+\]
+z czego wprost wynika teza.
+
+\begin{problem}{5}
+	Znaleźć wszystkie wielomiany $W$ o współczynnikach rzeczywistych, mających następującą własność:
+	jeśli $x + y$ jest liczbą wymierną, to $W(x) + W(y)$ jest liczbą wymierną.
+\end{problem}
+
+\answer{Warunek zadania spełniają jedynie wielomiany postaci $W(x) = ax + b$ dla liczb wymiernych $a$ i $b$.}
+
+\noindent
+Podstawmy $y = 2q - x$ dla pewnej liczby wymiernej $q$. Wówczas dla każdej liczby wymiernej $x$ suma $x + y = 2q$ jest liczbą wymierną. Toteż wielomian
+\[
+	W(x) + W(2q - x)
+\]
+jest liczbą wymierną. Zauważmy, że jeśli ten wielomian przyjmowałby dwie różne wartości $a < b$, to przyjmowałby wszystkie wartości w przedziale $[a, b]$. Każdy taki przedział zawiera pewną liczbę niewymierną. Stąd też wielomian
+\[
+	W(x) + W(2q - x)
+\]
+musi być wielomianem stałym. Dla $x = q$ przyjmuje on wartość $2W(q)$, czyli dla dowolnego $x$ mamy
+\[
+	W(x) + W(2q - x) = 2W(q).
+\]
+Podstawiając $q = n \in \mathbb{Z}$ oraz $x = n - 1$ otrzymamy
+\[
+	W(n - 1) + W(n + 1) = 2W(n) \implies W(n + 1) - W(n) = W(n) - W(n - 1).
+\]
+Zdefiniujmy wielomian $P(x) = W(x + 1) - W(x)$. Na mocy powyższego warunku mamy, że $P(n) = P(n - 1)$ dla dowolnej liczby całkowitej $n$. Stąd ten wielomian przyjmuje pewną wartość nieskończenie wiele razy, czyli jest to wielomian stały. Mamy więc, że
+\[
+	W(n) - W(n - 1) = c \quad \text{dla pewnej liczby rzeczywistej } c.
+\]
+Można wykazać za pomocą indukcji, że 
+\[
+	W(n) = c \cdot n + W(0)
+\]
+dla dowolnej liczby naturalnej $n$. Jeśli wielomiany $W(x)$ i $c \cdot x + W(0)$ są równe dla nieskończenie wielu liczb -- w tym przypadku wszystkich liczb całkowitych, to te wielomiany są sobie równe. 
+
+\vspace{10px}
+\noindent
+Rozpatrzmy wszystkie wielomiany liniowe tj. te postaci
+\[
+	W(x) = ax + b.
+\]
+Podstawiając $x = y = 0$ do danego warunku, otrzymamy, że $2W(0)$ jest liczbą wymierną. Wynika stąd, że $b$ jest liczbą wymierną. Jeśli podstawimy $x = 1$ i $y = 0$ otrzymamy, że $W(1) = a + b$ jest liczbą wymierną, skąd $a$ jest wymierne. Wówczas mamy
+\[
+	W(x) + W(y) = ax + b + ay + b = a(x + y) + 2b,
+\]
+co jest wymierne, gdy liczba $x + y$ jest wymierna.
+
+\begin{problem}{6}
+	Jaś i Małgosia grają w grę. Jaś ma pewną funkcję 
+	\[
+		f(x)= a_nx^n + \dots + a_1x + a_0,
+	\] 
+	gdzie $a_0$, $a_1$, $\dots$, $a_n$ to są liczby dodatnie całkowite i $n\geqslant 3$. W każdym ruchu Małgosia podaje pewną liczbę rzeczywistą $x$, po czym Jaś musi podać Małgosi wartość~$f(x).$ Taki ruch powtarzają kilkukrotnie. Małgosia wygrywa, jak wie, ile wynoszą wszystkie liczby $a_0$, $a_1$, $\dots$, $a_n.$ Znajdź, w zależności od $n$, taką liczbę ruchów, że Małgosia na pewno w tylu ruchach wygra.
+\end{problem}
+
+\answer{Małgosia zawsze jest w stanie wygrać w $2$ ruchach.}
+
+\noindent
+Zauważmy, że jeśli po pierwszym ruchu Małgosia podała liczbę $a$, to jeśli Jaś trzyma jeden z wielomianów
+\[
+	f(x) = a + 1 \quad \text{lub} \quad f(x) = x + 1,
+\]
+Małgosia nie będzie w stanie stwierdzić który, bo w obu przypadkach otrzymałaby tę samą odpowiedź.
+
+\vspace{10px}
+\noindent
+Teraz pokażemy strategię, która pozwala Małgosi wygrać w $2$ ruchach. W pierwszym ruchu dowiaduje się o wartości $f(1)$. W drugim o pyta się o wartość $f(A)$ dla dowolnego~${A > f(1)}$. Wówczas otrzyma liczbę
+\[
+	f(N) = a_nA^n + a_{n-1}A^{n-1} + \dots + a_1A + a_0.
+\] 
+Zauważmy, że $A > a_i$ dla dowolnego $0 \leqslant i \leqslant n$. Stąd też powyższe wyrażenie jest liczbą $\overline{a_na_{n-1}...a_1a_0} $ w systemie o podstawie $A$. Małgosia może więc przekonwertować liczbę~$f(A)$ z systemu dziesiętnego na system o podstawie $A$, wówczas cyfry otrzymanej liczby będą równe $a_0$, $a_1$, $\dots$, $a_{n-1}$, $a_n$.
+
+\vspace{10px}
+\begin{remark}
+	Aby lepiej zobrazować ideę rozwiązania, niech
+	\[
+		f(x) = 3x^2 + 7x + 1.
+	\]
+	Wówczas mamy $f(1) = 11$. W drugim kroku można rozpatrzyć chociażby
+	\[
+		f(100) = 30701.
+	\]
+	Łatwo z tego zapisu odczytać kolejne współczynniki danego wielomianu. W ogólności biorąc $f(10^k)$ dla odpowiednio dużego $k$ będzie to możliwe. W pierwszym ruchu ustalamy jak duże $k$ wystarczy, a w drugim je bierzemy i odczytujemy współczynniki wielomianu.
+\end{remark}
