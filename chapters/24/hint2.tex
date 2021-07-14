@@ -1,5 +1,45 @@
 \hints{Szachownice, klocki i kolorowanie}
 
 \begin{hints_list}
-	\item
+	\item Zauważ, że każdy wiersz składa się z $15$ klocków, a każda płytka $2\times2$ pokrywa ich parzystą liczbę.
+	\item Rozpatrz punkty $X$, $X'$, $A$ i $B$, takie, że trójkąty $ABX$ i $ABX'$ są równoboczne. 
+	\item Pokoloruj planszę w kwadraty $2\times2$ jak na rysunku.
+	\begin{center}
+	\begin{tikzpicture}[scale=0.5]
+
+		\fill[color=kolor!30] (0,0) -- (2,0) -- (2,2) -- (0,2) -- (0,0);
+		\fill[color=kolor!30] (0,4) -- (2,4) -- (2,6) -- (0,6) -- (0,4);
+
+		\fill[color=kolor!30] (2,2) -- (4,2) -- (4,4) -- (2,4) -- (2,2);
+		\fill[color=kolor!30] (2,6) -- (4,6) -- (4,8) -- (2,8) -- (2,6);
+
+		\fill[color=kolor!30] (4,0) -- (6,0) -- (6,2) -- (4,2) -- (4,0);
+		\fill[color=kolor!30] (4,4) -- (6,4) -- (6,6) -- (4,6) -- (4,4);
+
+		\fill[color=kolor!30] (6,2) -- (8,2) -- (8,4) -- (6,4) -- (6,2);
+		\fill[color=kolor!30] (6,6) -- (8,6) -- (8,8) -- (6,8) -- (6,6);
+
+		\draw (0,0) -- (8,0) -- (8,8) -- (0,8) -- cycle;
+		\draw (0,1) -- (8,1);
+		\draw (0,2) -- (8,2);
+		\draw (0,3) -- (8,3);
+		\draw (0,4) -- (8,4);
+		\draw (0,5) -- (8,5);
+		\draw (0,6) -- (8,6);
+		\draw (0,7) -- (8,7);
+
+
+		\draw (1,0) -- (1,8);
+		\draw (2,0) -- (2,8);
+		\draw (3,0) -- (3,8);
+		\draw (4,0) -- (4,8);
+		\draw (5,0) -- (5,8);
+		\draw (6,0) -- (6,8);
+		\draw (7,0) -- (7,8);
+
+	\end{tikzpicture}
+\end{center}
+	\item Wykaż, że ten obwód w każdym ruchu maleje.
+	\item Udowodnij, że istnieje odcinek, że jego wierzchołki i środek są jednakowego koloru.
+	\item Zauważ, że wyjściowy prostokąt ma czterech czarne pola narożne. Wykaż, że pewien z prostokątów z podziału również spełnia tę własność.
 \end{hints_list}
