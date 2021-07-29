@@ -36,7 +36,7 @@ W tym rozdziale będziemy analizować różne zbiory i relacje między nimi. W c
 \vspace{10px}
 
 \noindent
-Aby stwierdzić czy przyporządkowanie jest bijekcją wystarczy sprawdzić, czy każdy element jednego zbioru jest przyporządkowany do \textit{dokładnie} jednego elementu drugiego zbioru. Poniżej dwa przykłady przyporządkowania, które nie jest bijekcją.
+Aby stwierdzić czy przyporządkowanie jest bijekcją wystarczy sprawdzić, czy każdy element jednego zbioru jest przyporządkowany do \textit{dokładnie} jednego elementu drugiego zbioru. Poniżej dwa przykłady przyporządkowań, które nie są bijekcjami.
 
 \begin{center}
     \begin{tikzpicture}[scale=0.5]
@@ -160,10 +160,16 @@ W każdym kolejnym wierszu znajduje się tyle kropek, ile wynosi kolejny składn
 Zastanówmy się co znaczą założenia zadania w języku rozpatrywanych diagramów.
 Jeśli w podziale jest dokładnie $k$ liczb, to diagram Ferrera będzie składał się dokładnie z $k$ wierszy. Jeśli  największy składnik podziału jest równy $k$, to kolumn będzie dokładnie $k$.
 
+\vspace{10px}
+\noindent
 Zauważmy, że patrząc na dowolny diagram Ferrera ,,od góry'' -- traktujemy kolumny jako wiersze i vice versa -- otrzymamy inny diagram Ferrera. W podanym przykładzie z podziału $12 = 4 + 4 + 3 + 1$ otrzymamy w ten sposób podział $12 = 4 + 3 + 3 + 2$.
 
+\vspace{10px}
+\noindent
 Jeśli diagram Ferrera przedstawiał podział $n$, który składa się dokładnie z $k$ liczb, to podział otrzymany w powyższy sposób ma największy składnik każdego z nich jest równy dokładnie $k$. Obie z tych własności są równoważne temu, że diagram na $k$ wierszy.
 
+\vspace{10px}
+\noindent
 Powyższe przyporządkowanie łączy elementy danych w zadaniu zbiorów w pary -- dokładnie jeden podział pierwszego rodzaju z dokładnie jednym podziałem drugiego rodzaju. Rysując diagram dla pewnego podziału otrzymamy dokładnie jeden podział z drugiego zbioru, więc to parowanie jest dobre. Stąd wynika, że rozpatrywane zbiory mają tyle samo elementów.
 
 \qed

@@ -139,8 +139,8 @@ Podzielmy płaszczyznę na kratkę, tak że przekątna każdej kratki ma długo�
     \draw[line width=1] (0,0)--(4,0);
     \draw[line width=1] (0,0)--(0,4);
     \node at (0,0)[circle,fill,inner sep=1.5pt]{};
-    \node at (0,4)[circle,fill=white,draw,outer sep=0pt,inner sep=1.5pt]{};
-    \node at (4,0)[circle,fill=white,draw,outer sep=0pt,inner sep=1.5pt]{};
+    %\node at (0,4)[circle,fill=white,draw,outer sep=0pt,inner sep=1.5pt]{};
+    %\node at (4,0)[circle,fill=white,draw,outer sep=0pt,inner sep=1.5pt]{};
     \fill[pattern=north west lines] (0,0) rectangle (4,4);
     \end{tikzpicture}
 \end{center}
@@ -219,7 +219,7 @@ Wystarczy więc podzielić wyjściowy trójkąt na $1000$ trójkątów jak na ry
 \vspace{5px}
 
 \noindent
-Przyjmijmy $p_1 = 2,\; p_2 = 3, \; ...$ jako kolejne liczby pierwsze. Liczbę $1$ kolorujemy dowolnym kolorem. Niech $p_i$ to będzie najmniejszy dzielnik pierwszy pewnej liczby $n$. Wówczas jeśli $i \geqslant 1000$ kolorujemy $n$ kolorem o numerze $i$. W przeciwnym wypadku kolorujemy go kolorem o numerze $1000$.
+Przyjmijmy $p_1 = 2,\; p_2 = 3, \; ...$ jako kolejne liczby pierwsze. Liczbę $1$ kolorujemy dowolnym kolorem. Niech $p_i$ to będzie najmniejszy dzielnik pierwszy pewnej liczby $n$. Wówczas jeśli $i \leqslant 1000$ kolorujemy $n$ kolorem o numerze $i$. W przeciwnym wypadku kolorujemy go kolorem o numerze $1000$.
 
 \vspace{5px}
 
@@ -258,6 +258,11 @@ Zinterpretujmy te $49$ osób jako planszę 7 na 7, gdzie każdemu polu przyporz�
 \noindent
 Rozpatrzmy wszystkie takie kolorowania i dla każdego weźmy osoby przyporządkowane pokolorowanym polom na rejs. Wykażemy, że dowolne dwa pola są jednocześnie pokolorowane w dokładnie jednym kolorowaniu. Przyjmijmy, że te dwa pola są oddalone o $y \neq 0$ wierszy w pionie i $x$ kolumn w poziomie. Zauważmy, że wówczas musi zajść ${x \equiv yk \pmod{7}}$, co jest prawdą dla dokładnie jednego $k$. Skoro $k$ jest jednoznacznie wyznaczone i znamy położenie jednego pola z kolorowania, to możemy odtworzyć położenie wszystkich. Skoro z dwóch pól możemy jednoznacznie odtworzyć kolorowanie, do którego oba należą, to teza jest prawdziwa.
 
+
+\vspace{10px}
+\noindent
+Dla każdego kolorowania weźmy osoby odpowiadające pomalowanym polom na rejs. Wówczas każde dwie osoby będą razem na rejsie dokładnie raz, co było do wykazania.
+
 \vspace{10px}
 
 \begin{problem}{6}
@@ -267,10 +272,10 @@ Rozpatrzmy wszystkie takie kolorowania i dla każdego weźmy osoby przyporządko
 \noindent
 Załóżmy, że dla pewnej liczb całkowitych $a$ zapisano liczby
 \[
-	a,\; a + 1,\; a + 2,\; ...,\; a + 2019 \quad \text{oraz} \quad
-	a,\; a + 1,\; a + 2,\; ..., \; a + 100.
+	a,\; a + 1,\; a + 2,\; ...,\; a + 1999 \quad \text{oraz} \quad
+	a,\; a + 1,\; a + 2,\; ..., \; a + 99.
 \]
-Zauważmy, że wykonując ruch dla $a$ otrzymujemy analogiczną konfigurację dla $a + 1$. Wypisując na starcie taką konfigurację chociażby dla $a = 0$ Jaś będzie w stanie wykonywać ruchy w nieskończoność.
+Zauważmy, że wykonując ruch zamieniający dwie liczby $a$ na liczby $a + 100$ i $a + 2000$, otrzymujemy analogiczną konfigurację dla $a + 1$. Wypisując na starcie taką konfigurację chociażby dla $a = 0$, Jaś będzie w stanie wykonywać ruchy w nieskończoność.
 
 
 

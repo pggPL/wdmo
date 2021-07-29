@@ -249,7 +249,7 @@ Zauważmy, że plansza $2\times2$ z usuniętym rogiem jest w istocie L-klockiem,
 \end{center}
 
 \noindent
-Załóżmy, że dla planszy $2^{n - 1} \times 2^{n - 1}$ istnieje szukane pokrycie. Pokrycie dla planszy $2^{n} \times 2^{n}$ kontruujemy następująco. Dzielimi plansze dwiema prostymi na trzy jednakowe części i czwartą taką samą, tylko bez rok. Kładziemy jeden klocek na środku tak jak na rysunku. Wówczas plansza jest podzielona na cztery jednakowe puste części, które na mocy założenia indukcyjnego można pokryć.
+Załóżmy, że dla planszy $2^{n - 1} \times 2^{n - 1}$ istnieje szukane pokrycie. Pokrycie dla planszy $2^{n} \times 2^{n}$ kontruujemy następująco. Dzielimi plansze dwiema prostymi na trzy jednakowe części i czwartą taką samą, tylko bez rogu. Kładziemy jeden klocek na środku tak jak na rysunku. Wówczas plansza jest podzielona na cztery jednakowe puste części, które na mocy założenia indukcyjnego można pokryć.
 
 \begin{problem}{7}
 Niech $n$ będzie nieparzystą liczbą naturalną, a liczby $x_1,\; x_2,\; ...,\; x_n$ będa parami różne. Dla każdych dwóch liczb $x_i$ oraz $x_j$ zapisano na tablicy wartość bezwzględną ich różnicy. Wykazać, że można podzielić zapisane liczby na dwa zbiory o równej sumie.
@@ -268,10 +268,10 @@ Załóżmy, że teza zachodzi dla $2n + 1$, wykażemy ją dla $2n + 3$.
 Rozpatrzmy szukany podział multizbioru różnic zbioru $\{x_1, x_2, ..., x_{2n + 1}\}$ na multizbiory $A$ i $B$ o równej sumie elementów.
 Dorzucamy do multizbioru $A$ liczby
 \[
-	({x_{2k+3}-x_{2k+1},x_{2k+3}-x_{2k},\cdots,x_{2k+3}-x_{k+2}}) \thickspace {\cup}\thickspace ({x_{2k+2}-x_{k+1},\cdots,x_{2k+2}-x_1}),
+	{x_{2k+3}-x_{2k+1}, \; x_{2k+3}-x_{2k},\; \cdots, \; x_{2k+3}-x_{k+2}} \quad \text{i} \quad {x_{2k+2}-x_{k+1},\; \cdots, \; x_{2k+2}-x_1},
 \]
 a do multizbioru $B$ liczby
 \begin{gather*}
-	(x_{2k+3} - x_{2k+2}) \thickspace {\cup}\thickspace ({x_{2k+2} - x_{2k+1}, x_{2k+2} - x_{2k}, \cdots, x_{2k+3} - x_{k+2}}) \thickspace {\cup} \\ {\cup} \thickspace({x_{2k+3}-x_{k+1},\cdots,x_{2k+3}-x_1}).
+	x_{2k+3} - x_{2k+2} \quad \text{i} \quad x_{2k+2} - x_{2k+1},\; x_{2k+2} - x_{2k},\; \cdots,\; x_{2k+3} - x_{k+2}  \\ \text{oraz} \quad {x_{2k+3} - x_{k+1},\; \cdots, \; x_{2k+3}-x_1}.
 \end{gather*}
-Łatwo sprawdzić, że suma dorzuconych elementów jest równa.
+Łatwo sprawdzić, że suma dorzuconych elementów jest równa. Stąd wynika, że otrzymane zbiory również mają równą sumę elementów, co jest równoważne tezie.

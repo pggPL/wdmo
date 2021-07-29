@@ -9,13 +9,16 @@
 \begin{problem}{3}
 	Niech $p_1, p_2, p_3, \ldots$ będą kolejnymi liczbami pierwszymi, zaś $x_0$ niech będzie liczbą rzeczywista pomiędzy 0 i 1. Dla każdej dodatniej liczby całkowitej $k$, przyjmijmy
 \[
-	x_k = \begin{cases} 0 & \mbox{if} \; x_{k-1} = 0, \\[.1in] {\displaystyle \left\{ \frac{p_k}{x_{k-1}} \right\}} & \mbox{if} \; x_{k-1} \neq 0, \end{cases}  
+	x_k = \begin{cases} 
+	0 & \text{jeśli} \; x_{k-1} = 0, \\
+	\left\{ \dfrac{p_k}{x_{k-1}} \right\} & \text{jeśli} \; x_{k-1} \neq 0, 
+	\end{cases}  
 \]
 gdzie $\{x\}$ oznacza część ułamkową $x$. (Część ułamkowa $x$ jest równa $x - \lfloor x \rfloor$) Znajdź wszystkie liczby $x_0$ spełniające $0 < x_0 < 1$, dla których ciąg $x_0, x_1, x_2, \ldots$ od pewnego momentu jest równy 0.
 \end{problem}
 
 \begin{problem}{4}
-	Dana jest kratka $1000\times 1000$. W każdą kratkę wpisano strzałkę, która wskazuje jeden z boków kratki. W jednej z tych kratek stoi mrówka. Co sekundę wykonuje ona ruch -- rusza się na pole wskazane przez strzałkę w polu, na którym stoi, a następnie obraca tę strzałkę o $90\degree$ zgodnie z ruchem wskazówek zegara. Wykazać, że mrówka wyjdzie kiedyś z wyjściowego kwadratu.
+	Dana jest plansza będąca kratką $1000\times 1000$. W każdą kratkę wpisano strzałkę, która wskazuje jeden z boków kratki. W jednej z tych kratek stoi mrówka. Co sekundę wykonuje ona ruch -- rusza się na pole wskazane przez strzałkę w polu, na którym stoi, a następnie obraca tę strzałkę o $90\degree$ zgodnie z ruchem wskazówek zegara. Wykazać, że mrówka wyjdzie kiedyś z wyjściowej planszy.
 \end{problem}
 
 \begin{problem}{5}
@@ -25,8 +28,6 @@ Na tablicy zapisano pewną liczbę naturalną. W każdym ruchu możemy zastąpi�
 \]
 Wykazać, że jeśli na tablicy pojawiła się liczba 2000, to była tam ona od samego początku.
 \end{problem}
-
-% rozw: Niech w pewnym ruchu na tablicy znajdzie się nieskracalny ułamek $\frac{a}{b}$. Wówczas możemy go zamienić na jedną z liczb $\frac{2a + b}{b}$ lub $\frac{a}{a + 2b}$. Oba te ułamki są nieskracalne. Łatwo zauważyć, że biorąc za niezmiennik sumę licznika i mianownika w każdym ruchu ona się podwaja. Natomiast dla liczby $\frac{2020}{1}$ ta suma jest nieparzysta, co dowodzi tego, że ta liczba musiała tam być od samego początku.
 
 
 \begin{problem}{6}

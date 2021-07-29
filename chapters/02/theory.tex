@@ -72,7 +72,7 @@ Rozwiązanie rozpoczniemy od wykazania następującego lematu.
 \noindent
 Podstawmy $\dfrac{a - f(y)}{2}$ w miejsce zmiennej $x$
 \[
-    f\left(f\left(\frac{a - f(y)}{2}\right) + f(y)\right) = 2(\frac{a - f(y)}{2}) + f(y) = a.
+    f\left(f\left(\frac{a - f(y)}{2}\right) + f(y)\right) = 2\left(\frac{a - f(y)}{2}\right) + f(y) = a.
 \]
 
 \noindent
@@ -81,9 +81,10 @@ Zauważmy, że z otrzymanej równości wynika teza lematu – liczbę $a$ można
 \vspace{10px}
 
 \noindent
-Korzystając z lematu, podstawmy w miejsce $y$ taką liczbę $a$, aby $f(a) = -2f(a)$. Wówczas
+Korzystając z lematu, podstawmy w miejsce $y$ taką liczbę $a$, aby $f(a) = -2f(x)$. Wówczas
 \begin{gather*}
-    f(0) = 2x - 2f(x) \\
+    f(2f(x) + f(a)) = 2x + f(a) \\
+     f(0) = 2x - 2f(x) \\
     f(x) = x  + \frac{1}{2}f(0).
 \end{gather*}
 Podstawiając do powyższej równości $x = 0$ otrzymujemy, że $f(0) = 0$. Stąd
@@ -101,11 +102,11 @@ W powyższym rozumowaniu kluczowe było wykazanie, że dana funkcja przyjmuje ws
 \[
     f(2f(a) + f(y)) = 2a + f(y) \quad \text{oraz} \quad f(2f(b) + f(y)) = 2b + f(y).
 \]
-Na mocy wyżej założonej równości lewe strony obu zależności są sobie równe. Stąd prawe również, skąd $a = b$. Implikacja $f(a) = f(b) \implies a = b$ jest równoważna temu, że funkcja $f$ jest różnowartościowa.
+Na mocy wyżej założonej równości lewe strony obu zależności są sobie równe. Stąd prawe również, skąd $a = b$. Implikacja $f(a) = f(b) \implies a = b$ jest równoważna temu, że funkcja~$f$ jest różnowartościowa.
 
 \vspace{10px}
 
 \noindent
-W większości rozwiązań funkcyjnych konieczne będzie wykonanie wielu ,,sztampowych'' podstawień i spróbować wykazać własności funkcji -- chociażby te wspomniane wyżej. Niekiedy do rozwiązania zadania potrzebny będzie błyskotliwy pomysł czy niesztampowe połączenie faktów. W innych zaś przypadkach samo rzetelne i uważne próbowanie znanych trików może okazać się wystarczające. 
+W większości rozwiązań funkcyjnych konieczne będzie wykonanie wielu ,,sztampowych'' podstawień i spróbować wykazać własności funkcji -- chociażby te wspomniane wyżej. Niekiedy do rozwiązania zadania potrzebny będzie błyskotliwy pomysł czy nietypowe połączenie faktów. W innych zaś przypadkach samo rzetelne i uważne próbowanie znanych trików może okazać się wystarczające. 
 
 \vspace{10px}

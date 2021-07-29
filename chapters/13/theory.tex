@@ -1,4 +1,4 @@
-% Rozdział 13 – Równania funkcyjne i wielomianowe
+% Rozdział 13 – Równania funkcyjne 2
 
 \theory{Równania funkcyjne 2}
 
@@ -55,7 +55,7 @@ Stąd
 	qf\left(\frac{p}{q}\right) &= pf(1), \\
 	f\left(\frac{p}{q}\right) &= \frac{p}{q} \cdot f(1).
 \end{align*}
-Skoro $f(1)$ jest stałe, to funkcja $f$ jest funkcją postaci $f(x) = ax$ dla pewnej liczby wymiernej $a$. Łatwo sprawdzić, że takie funkcje spełniają warunki zadania.
+Skoro $f(1)$ jest stałe, to funkcja $f$ jest funkcją postaci $f(x) = ax$ dla pewnej liczby wymiernej $a$. Łatwo sprawdzić, że takie funkcje spełniają równanie Cauchego.
 
 \qed
 
@@ -69,10 +69,6 @@ Jaka więc jest funkcja rzeczywista, która spełnia równanie Cauchego, a nie j
 
 \vspace{10px}
 
-\noindent
-Jaka więc jest funkcja rzeczywista, która spełnia równanie Cauchego, a nie jest funkcją liniową? Skonstruowanie takiej funkcji jest możliwe, gdy założymy \textit{pewnik wyboru}. To ten sam aksjomat, z którego założenia wynika  paradoks Banacha-Tarskiego. Nie będziemy tutaj zgłębiać tego tematu, ważny jest fakt, że z samego równania Cauchego dla funkcji rzeczywistych nie wynika ich liniowość.
-
-\vspace{10px}
 
 \noindent
 Można jednak dołożyć pewne założenie do równania Cauchego, aby uzyskać liniowość rozpatrywanej funkcji. Mówi o tym następujące twierdzenie.
@@ -98,6 +94,7 @@ Przyjmijmy $a = f(1)$. Na mocy Przykładu 1 mamy, że
 \[
 	f(q) = aq \quad \text{ dla dowolnej liczby wymiernej } q.
 \]
+Skoro $f$ jest funkcją niemalejącą, to oczywiście $a \geqslant 0$.
 Załóżmy nie wprost, że dla pewnej liczby rzeczywistej $t$ zachodzi równość
 \[
 	f(t) = a(t + t_0), \; t_0 \neq 0.
@@ -113,7 +110,7 @@ Wiedząc, że $q_0 > t$ otrzymujemy sprzeczność z tym, że $f$ jest niemaleją
 
 \newpage
 \noindent
-Analogiczne twierdzenia można udowodnić, gdy fakt, że $f$ jest malejąca, zastąpić tym, że 
+Analogiczne twierdzenia można udowodnić, gdy fakt, że $f$ jest niemalejąca, zastąpić tym, że 
 \begin{itemize}
 	\item $f(x) > 0$, dla dowolnego $x > 0$,
 	\item $f(x) < 0$, dla dowolnego $x < 0$,
@@ -207,7 +204,7 @@ Wykażemy, że funkcja $f$ jest różnowartościowa. Zakładamy w tym celu, że 
 \[
 	a = f(f(a)) = f(f(b)) = b.
 \]
-Stąd
+Z różnowartościowości $f$ mamy
 \begin{align*}
 	f(f(x)^2 + f(y)) &= f(x^2 + f(y)) \\
 	f(x)^2 + f(y) &= x^2 + f(y) \\
@@ -217,10 +214,10 @@ Mamy więc, że dla każdej liczby rzeczywistej $x$ zachodzi $f(x) = x$ lub $f(x
 \[
 	f(a^2 - b) = -a^2 + b.
 \]
-W zależności od tego, czy $f(a^2 - b)$ jest równe $a^2 - b$ czy $-a^2 + b$ otrzymujemy sprzeczność z niezerowością obu liczb $a$, $b$. Stąd albo $f(x) = x$ dla wszystkich liczb rzeczywistych $x$ albo $f(x) = -x$ dla wszystkich liczb rzeczywistych. Sprawdzając otrzymujemy, że obie te funkcje spełniają warunki zadania.
+W zależności od tego, czy $f(a^2 - b)$ jest równe $a^2 - b$ czy $-a^2 + b$ otrzymujemy sprzeczność z niezerowością obu liczb $a$, $b$. Stąd albo $f(x) = x$ dla wszystkich liczb rzeczywistych~$x$ albo $f(x) = -x$ dla wszystkich liczb rzeczywistych. Sprawdzając otrzymujemy, że obie te funkcje spełniają warunki zadania.
 
 \qed
 
 \vspace{10px}
 \noindent
-Należy zauważyć, że z faktu $f(x)^2 = x^2$ nie wynika jeszcze to, że $f(x) = x$ dla wszystkich $x$ lub $f(x) = -x$ dla wszystkich $x$. Może się bowiem zdarzyć na przykład, że $f(1) = 1$ i~$f(2) = -2$. Jest to dość znana pułapka i~warto zwrócić na nią uwagę.
+Należy zauważyć, że z faktu $f(x)^2 = x^2$ nie wynika jeszcze to, że $f(x) = x$ dla wszystkich~$x$ lub $f(x) = -x$ dla wszystkich~$x$. Może się bowiem zdarzyć na przykład, że $f(1) = 1$ i~$f(2) = -2$. Jest to dość znana pułapka i~warto zwrócić na nią uwagę.

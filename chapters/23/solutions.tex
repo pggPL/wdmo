@@ -61,9 +61,9 @@ Zauważmy, że dla dowolnego punktu na płaszczyźnie można wybrać taki trójk
 	\[
 		x_i^2 + y_i^2 = 1.
 	\]
-	Wykazać, że istnieje taka liczba $i$, że zachodzi nierówność
+	Wykazać, że istnieją takie liczby $i$ oraz $j$, że zachodzi nierówność
 	\[
-		(x_i - x_{i + 1})^2 + (y_i - y_{i + 1})^2 \leqslant \frac{4\pi^2}{n^2},
+		(x_i - x_{j})^2 + (y_i - y_{j})^2 \leqslant \frac{4\pi^2}{n^2},
 	\]
 	przy czym $x_{n + 1} = x_1$ oraz $y_{n + 1} = y_1$.
 \end{problem}
@@ -73,13 +73,13 @@ Rozpatrzmy punkty $A_1$, $A_2$, ..., $A_n$ na płaszczyźnie kartezjańskiej, pr
 \[
 	A_i = (x_i, \; y_i).
 \]
-Zauważmy, że punkty te leżą na okręgu o środku w punkcie $(0,\; 0)$ i promieniu $1$. Chcemy wykazać, że dla pewnego $i$ zachodzi nierówność
+Zauważmy, że punkty te leżą na okręgu o środku w punkcie $(0,\; 0)$ i promieniu $1$. Chcemy wykazać, że dla pewnych $i$ oraz $j$ zachodzi nierówność
 \[
-	(A_iA_{i + 1})^2 = (x_i - x_{i + 1})^2 + (y_i - y_{i + 1})^2 \leqslant \frac{4\pi^2}{n^2},
+	(A_iA_{j})^2 = (x_i - x_j)^2 + (y_i - y_j)^2 \leqslant \frac{4\pi^2}{n^2},
 \]
 czyli równoważnie
 \[
-	A_iA_{i + 1} \leqslant \frac{2\pi}{n}.
+	A_iA_{j} \leqslant \frac{2\pi}{n}.
 \]
 
 \begin{center}
@@ -103,6 +103,10 @@ czyli równoważnie
 	\end{tikzpicture}
 \end{center}
 
+\noindent
+Załóżmy bez straty ogólności, że punkty leża na danym okręgu w takiej kolejności, w jakiej są one ponumerowane.
+
+\vspace{10px}
 \noindent
 Zauważmy, że skoro każdy odcinek $A_iA_{i + 1}$ jest krótszy od odpowiadającego mu łukowi, to suma
 \[
@@ -173,7 +177,11 @@ Wykażemy, że przez każdy punkt przechodzi co najmniej jedna prosta dzieląca.
 
 \vspace{10px}
 \noindent
- Niech $l$ będzie prostą przechodzącą pewne dwa dowolne czerwone punkty $X$ i $Y$. Nadajmy prostej $l$ zwrot (dowolny). Niech $a$ oznacza liczbę czerwonych punktów po lewej stronie prostej $l$, zaś $b$ po prawej stronie. Obracajmy prostą $l$ wokół $X$, aż wykona ona obrót o $180\degree$. Wówczas prosta wróci do swojego początkowego kierunku, ale ze zmienionym zwrotem. Zatem po lewej stronie jest teraz będzie $b$ czerwonych punktów, zaś po prawej~$a$. Wiemy, że $a+b=98$, zatem jedna z liczb $a$ lub $b$ jest nie mniejsza niż 49, wtedy druga jest nie większa niż 49. Początkowo po lewej stronie było $a$ punktów, a~po wykonaniu całego obrotu jest tam $b$ punktów. Liczba punktów po lewej stronie nie zmieniała się naraz o więcej niż 1, gdyż prosta $l$ (przechodząca przez czerwony punkt $X$) może przechodzić przez co najwyżej jeden czerwony punkt różny od $X$. Zatem w~pewnym momencie podczas obrotu był taki moment, że po lewej stronie tej prostej było 49 punktów (gdyż jedna z liczb $a, b$ jest większa od 49, zaś druga mniejsza). Wtedy po prawej też musiało być $98-49=49$ punktów. Czyli istnieje prosta ,,dzieląca'' przechodząca przez $X$, co kończy rozwiązanie zadania.
+Niech $l$ będzie prostą przechodzącą pewne dwa dowolne czerwone punkty $X$ i $Y$. Nadajmy prostej $l$ zwrot (dowolny). Niech $a$ oznacza liczbę czerwonych punktów po lewej stronie prostej $l$, zaś $b$ po prawej stronie. Obracajmy prostą $l$ wokół $X$, aż wykona ona obrót o $180\degree$. Wówczas prosta wróci do swojego początkowego kierunku, ale ze zmienionym zwrotem. Zatem po lewej stronie jest teraz będzie $b$ czerwonych punktów, zaś po prawej~$a$. 
+
+\vspace{10px}
+\noindent
+Wiemy, że $a+b=98$, zatem jedna z liczb $a$ lub $b$ jest nie mniejsza niż 49, wtedy druga jest nie większa niż 49. Początkowo po lewej stronie było $a$ punktów, a~po wykonaniu całego obrotu jest tam $b$ punktów. Liczba punktów po lewej stronie nie zmieniała się naraz o więcej niż 1, gdyż prosta $l$ (przechodząca przez czerwony punkt $X$) może przechodzić przez co najwyżej jeden czerwony punkt różny od $X$. Zatem w~pewnym momencie podczas obrotu był taki moment, że po lewej stronie tej prostej było 49 punktów (gdyż jedna z liczb $a, b$ jest większa od 49, zaś druga mniejsza). Wtedy po prawej też musiało być $98-49=49$ punktów. Czyli istnieje prosta ,,dzieląca'' przechodząca przez $X$, co kończy rozwiązanie zadania.
 
  \vspace{5px}
 

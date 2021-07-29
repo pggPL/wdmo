@@ -21,7 +21,7 @@ W rozdziale o indukcji matematycznej wprowadziliśmy pojęcie grafu. Przypominaj
 \end{itemize}
 
 \begin{remark}
-    Często można spotkać się z innymi definicjami cyklu i ścieżki -- niekiedy przyjmuje się, że zawierają każdy z wierzchołków dokładnie raz. Niemniej jednak będzie to doprecyzowane w zadaniu.
+    Często można spotkać się z innymi definicjami cyklu i ścieżki -- niekiedy przyjmuje się, że zawierają każdy z wierzchołków co najwyżej raz. Niemniej jednak zawsze będzie to doprecyzowane w zadaniu.
 \end{remark}
 
 \begin{minipage}{0.33\textwidth}
@@ -153,12 +153,18 @@ Dany jest graf spójny $G$, który ma $n$ wierzchołków. Następujące warunki 
 \heading{Dowód}
 
 \noindent
-Zauważmy, że dla $n = 1$ teza jest oczywista. Załóżmy, że $n \geqslant 1$. Najpierw wykażemy, że każdego z tych warunków wynika istnienie wierzchołka o stopniu $1$.
+Zauważmy, że dla $n = 1$ teza jest oczywista. Załóżmy, że $n \geqslant 2$. Najpierw wykażemy, że każdego z tych warunków wynika istnienie wierzchołka o stopniu $1$.
 
+\vspace{10 px}
+\noindent
 Załóżmy nie wprost, że każdy wierzchołek ma stopień co najmniej $2$. Wówczas można łatwo obliczyć, że krawędzi jest co najmniej $\frac{2 \cdot n}{2} = n$, czyli pierwszy warunek nie może zajść.
 
+\vspace{10 px}
+\noindent
 Wybierzmy pewien wierzchołek i rozpocznijmy w nim spacer po grafie. Z wierzchołka, w którym będziemy, wybierzemy krawędź, którą jeszcze nie szliśmy. Algorytm zakończymy, gdy trafimy w ten sposób do wierzchołka, w którym jeszcze nie byliśmy. Skoro stopień każdego grafu wynosi $2$, to nigdy nie utkniemy w żadnym z wierzchołków. Jeśli tak się stanie, to znaczy, że weszliśmy do tego wierzchołka co najmniej raz, a wtedy kończymy spacer. W taki sposób otrzymujemy cykl. Łatwo zauważyć, że z istnienia cyklu wynika istnienie dwóch ścieżek między dowolnymi jego dwoma wierzchołkami.
 
+\vspace{10 px}
+\noindent
 Rozpatrzmy więc wierzchołek o stopniu $1$. Usuwając go wraz z krawędzią otrzymam graf o $n - 1$ wierzchołkach. W ten sposób nie zmieni się prawdziwość żadnego z warunków -- wierzchołek o stopniu $1$ nie może być częścią ani cyklu, ani dwóch ścieżek. Relacja liczby krawędzi do liczby cykli zostanie zachowana. Możemy więc skorzystać z zasady indukcji matematycznej i otrzymujemy tezę.
 
 \vspace{10px}
@@ -175,6 +181,7 @@ Dany jest prostokąt $m \times n$. Pokolorowano w nim $m + n$ pól. Wykazać, ż
 
 \noindent
 Rozpatrzmy graf, w którym wierzchołkami będą wiersze i kolumny. Jeśli pole zostało pokolorowane, to połączymy przyporządkowane mu wiersz i kolumnę. Otrzymany graf ma $m + n$ wierzchołków i $m + n$ krawędzi, czyli musi zawierać cykl. Wybierając przyporządkowane jego krawędziom pola otrzymujemy zbiór spełniający warunki zadania.
+\qed
 
 \vspace{10px}
 
@@ -262,7 +269,7 @@ Poniżej przestawiono rysunki poglądowe. Aby były czytelne, cykle przechodzą 
     \tkzDefPoint(2,2){v_4}
     \tkzDefPoint(0,1.8){v_5}
     \tkzDrawPoints(v_1,v_2, v_3, v_4, v_5)
-    \tkzDrawSegments[arrowMe=stealth](v_1,v_2 v_2,v_3 v_3,v_4 v_4,v_5 v_1,v_5)
+    \tkzDrawSegments[arrowMe=stealth](v_1,v_2 v_2,v_3 v_3,v_4 v_4,v_5 v_5,v_1)
 
 
     \tkzDefPoint(3,0){a_1}
@@ -270,7 +277,7 @@ Poniżej przestawiono rysunki poglądowe. Aby były czytelne, cykle przechodzą 
     \tkzDefPoint(5.2,1){a_3}
     \tkzDefPoint(5,2){a_4}
     \tkzDrawPoints(a_1,a_2, a_3, a_4)
-    \tkzDrawSegments[arrowMe=stealth](a_1,a_2 a_2,a_3 a_3,a_4 v_3,a_4 v_3,a_1)
+    \tkzDrawSegments[arrowMe=stealth](a_1,a_2 a_2,a_3 a_3,a_4 a_4,v_3 v_3,a_1)
     \end{tikzpicture}\\
 \end{center}
 \end{minipage}

@@ -27,8 +27,8 @@ Czyli $a = 0$ jest rozwiązaniem.
 \noindent
 Załóżmy, że $f(f(a)) = 0$. Z wyjściowego równania wynika wówczas, że
 \begin{align*}
-	0 - f(a) &= a,
-	f(a) = a.
+	0 - f(a) &= a, \\
+	f(a) &= a.
 \end{align*}
 Stąd
 \[
@@ -144,40 +144,40 @@ Zauważmy, że jeśli $f(2) > 2$, to $f(2) - 1$ nie byłoby dzielnikiem $f(2)$, 
 \answer{Jedyną funkcją spełniającą warunki zadania jest $f(x) = x$.}
 
 \noindent
-Podstawiając $x = 0$ dostajemy 
+Podstawmy $x = 0$ 
 \[
-	f(f(y)) = y + c^2,
+	f(f(y)) = y + f(0)^2.
 \] 
-gdzie $c = f(0)$ jest stałe. Wykażemy, że $f$ jest różnowartościowa. Jeżeli dla pewnych liczb rzeczywistych $a, b$ zachodzi $f(a) = f(b)$, to 
+Przyjmijmy $a = f(0)$ jest stałe. Wykażemy, że $f$ jest różnowartościowa. Jeżeli dla pewnych liczb rzeczywistych $x_1, x_2$ zachodzi $f(x_1) = f(x_2)$, to 
 \[
-	a+c^2 = f(f(a)) = f(f(b)) = b+c^2,
+	x_1 + a^2 = f(f(x_1)) = f(f(x_2)) = x_2 + a^2,
 \]
-skąd $a = b$.
-Ponadto $y + c^2$ może przyjąć dowolną rzeczywistą wartość, a ponieważ $f(f(y)) = y + c^2$, to $f$ przyjmuje wszystkie wartości rzeczywiste.
-Wiemy zatem, że istnieje liczba rzeczywista $b$ taka, że $f(b) = 0$. Podstawiając $x = b$ i $y = f(y)$ w początkowej równości dostajemy 
+skąd $x_1 = x_2$.
+Wyrażenie $y + a^2$ może przyjąć dowolną rzeczywistą wartość. Skoro $f(f(y)) = y + a^2$, to $f$ przyjmuje wszystkie wartości rzeczywiste.
+Wiemy zatem, że istnieje liczba rzeczywista $b$ taka, że $f(b) = 0$. Podstawiając $x = b$ i $f(y)$ w miejsce $y$ w początkowej równości dostajemy 
 \[
-	f(b^2 + f(f(y))) = f(b^2 + y + c^2) = f(y),
+	f(b^2 + f(f(y))) = f(b^2 + y + a^2) = f(y),
 \]
 skąd, jako że $f$ to funkcja różnowartościowa, zachodzi 
 \begin{align*}
-	b^2 + y + c^2 = y, \\
-	b^2 + c^2 = 0, \\
-	b = c = 0.
+	b^2 + y + a^2 = y, \\
+	a^2 + b^2 = 0, \\
+	a = b = 0.
 \end{align*}
-Podstawiając w początkowym równaniu $x = 0$ dostajemy 
+Wstawmy $x = 0$ do danego równania 
 \[
 	f(f(y)) = y.
 \] 
-Podstawiając $y = f(y)$  dostajemy 
+Zaś podstawiając $y = f(y)$  otrzymamy 
 \[
 	f(x^2 + y) = f(y) + f(x)^2 \geqslant f(y).
 \]
-Ponieważ $x^2$ może przyjąć dowolną rzeczywistą nieujemną wartość, to równanie to implikuje, że $f$ jest ściśle rosnąca. Wiemy jednak, że $f(f(y)) = y$. Załóżmy, że dla pewnego rzeczywistego $y$ zachodzi $f(y) > y$. Wtedy, ponieważ $f$ jest ściśle rosnąca,
-zachodzi 
+Skoro $x^$ może być dowolną liczbą nieujemną, to z powyższej zależności wynika, że $f$ jest niemalejąca. Przyjmijmy, że dla pewnego rzeczywistego $x_0$ zachodzi $f(x_0) > x_0$. Wtedy, ponieważ $f$ jest niemalejąca,
+mamy 
 \[
-	f(f(y)) > f(y) > y,
+	x_0 = f(f(x_0)) > f(x_0) \geqslant x_0,
 \] 
-co rodzi sprzeczność. Analogicznie dowodzimy, że nie może zajść $f(y) < y$. Stąd $f(y) = y$ dla dowolnego rzeczywistego $y$, co, jak nietrudno sprawdzić, spełnia podane w zadaniu równanie.
+co zajść nie może. Jeśli $f(x_0) < x_0$, to w analogiczny sposób otrzymujemy sprzeczność. Stąd $f(x_0) = x_0$ dla dowolnej liczby rzeczywistej $x_0$. Pozostaje zauważyć, że funkcja $f(x) = x$ spełnia warunki zadania.
 
 \vspace{10px}
 

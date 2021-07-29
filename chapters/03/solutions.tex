@@ -14,8 +14,12 @@
 \noindent
 Spośród $n$ osób będziemy chcieli wybrać drużynę i mianować jednego jej członka kapitanem. Wykażemy, że wyrażenia po obu stronach równości są liczbą możliwości takiego wyboru.
 
+\vspace{10px}
+\noindent
 Wybierając najpierw kapitana -- możemy go wybrać na $n$ sposobów -- a następnie dobierając mu zawodników -- których można wybrać na $2^{n - 1}$ sposobów, gdyż wybieramy dowolny podzbiór $n - 1$ osób -- otrzymamy $n \cdot 2^{n - 1}$ osób.
 
+\vspace{10px}
+\noindent
 Przyjmijmy, że w drużynie wraz z kapitanem jest $k$ osób. Możliwości wyboru $k$ osób spośród $n$ jest ${n}\choose{k}$, a opcji wyboru kapitana spośród tych $k$ osób jest dokładnie $k$. Stąd też dla dowolnego $k$ liczba wariantów wynosi $k \cdot {{n}\choose{k}} $. Sumując po wszystkich możliwych $k$ otrzymujemy, że łączna liczba możliwości wynosi $\sum^{n}_{k=0} k \cdot {{n}\choose{k}}$.
 
 \vspace{5px}
@@ -59,7 +63,7 @@ Podzielmy te $2n$ osób na dwie grupy po $n$ osób. Załóżmy, że z pierwszej 
 	\[
 		a_1 + 2a_2 + 3a_3 + ... + pa_p - k
 	\]
-	jest podzielna przez $p$. Wykazać, że zbiory $A_1$, $A_2$ mają tyle samo elementów.
+	jest podzielna przez $p$. Wykazać, że zbiory $A_1$ oraz $A_2$ mają tyle samo elementów.
 \end{problem}
 
 \vspace{5px}
@@ -115,10 +119,16 @@ Pozostaje zauważyć, że to permutacja $(a_i)$ była przyporządkowana do permu
 \noindent
 Rozpatrzmy liczbę podziałów $kn$ osób na $k$ grup po $n$ osób. Nie bierzemy pod uwagę żadnej kolejności grup, ani kolejności osób w grupie. 
 
+\vspace{10px}
+\noindent
 Możemy ustawić $kn$ osób w kolejce na $(kn)!$ sposobów, a następnie pierwsze $n$ osób dać do jednej grupy, drugie $n$ osób do drugiej, itd. 
 
+\vspace{10px}
+\noindent
 Każdą z $k$ grup możemy ustawić w kolejności na $n!$ sposobów. Te grupy możemy ustawić w kolejności na $k!$ sposobów. W ten sposób z jednego podziału na grupu możemy uzyskać dokładnie $(n!)^k \cdot k!$ kolejek. 
 
+\vspace{10px}
+\noindent
 Więc liczba podziałów na grupy wynosi $\frac{(kn)!}{(n!)^k \cdot k!}$. Skoro jest ona całkowita, to musi zachodzić rozpatrywana podzielność.
 
 \vspace{5px}

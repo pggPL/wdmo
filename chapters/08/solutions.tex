@@ -6,7 +6,7 @@
 \end{problem}
 
 \noindent
-Rozpatrzmy najdłuższą ścieżkę w tym grafie i załóżmy nie wprost, że jest ona długości nie większej niż $100$. Wierzchołek początkowy tej ścieżki $V$ jest połączony z co najmniej $101$ wierzchołkami. Co najwyżej $99$ z nich leży na rozpatrywanej ścieżce -- $100$ wierzchołków z wyłączeniem $V$. Stąd $V$ jest połączony z pewnym wierzchołkiem spoza ścieżki – możemy więc wydłużyć tę ścieżkę o tego sąsiada. Przeczy to maksymalności długości tej ścieżki.
+Rozpatrzmy najdłuższą ścieżkę w tym grafie i załóżmy nie wprost, że jest ona długości nie większej niż $100$. Wierzchołek początkowy tej ścieżki $V$ jest połączony z co najmniej $100$ wierzchołkami. Co najwyżej $99$ z nich leży na rozpatrywanej ścieżce -- co najwyżej $100$ wierzchołków z wyłączeniem $V$. Stąd $V$ jest połączony z pewnym wierzchołkiem spoza ścieżki – możemy więc wydłużyć tę ścieżkę o tego sąsiada. Przeczy to maksymalności długości tej ścieżki.
 
 \begin{center}
     \begin{tikzpicture}
@@ -48,7 +48,7 @@ Wyróżnijmy pewien wierzchołek $v$. Wszystkie inne wierzchołki tworzą graf, 
 \vspace{5px}
 
 \noindent
-Rozpatrzmy przypadek, w którym istnieje kolor $\mathcal{K}$, że tylko jedna krawędź jest koloru $x$. Załóżmy, bez straty ogólności, że $d_1d_2$ jest koloru $\mathcal{K}$, a inne krawędzie są innego koloru. Wtedy cykl $d_1v$, $vd_2$, $d_2d_3$, ..., $d_{k-1}d_1$ spełnia warunki zadania. 
+Rozpatrzmy przypadek, w którym istnieje kolor $\mathcal{K}$, że tylko jedna krawędź jest koloru $x$. Załóżmy, bez straty ogólności, że $d_1d_2$ jest koloru $\mathcal{K}$, a inne krawędzie są innego koloru. Wtedy cykl $d_1v$, $vd_2$, $d_2d_3$, ..., $d_{n - 1}d_1$ spełnia warunki zadania. 
 
 \vspace{5px}
 
@@ -64,13 +64,19 @@ Rozpatrzmy przypadek, w którym istnieje kolor $\mathcal{K}$, że tylko jedna kr
     \tkzDrawPoints(v_1,v_2, v_3, v_4, v_5, v_6, v)
     \tkzDrawSegments(v_1,v_2 v_2,v_3 v_1,v_6 v_5,v_6 v,v_5)
     \tkzDrawSegments[dashed](v_4,v_5 v_3,v_4 v,v_4)
+    \tkzLabelPoint[below](v_1){$d_1$}
+    \tkzLabelPoint[left](v_6){$d_2$}
+    \tkzLabelPoint[below](v_5){$d_3$}
+    \tkzLabelPoint[below](v_4){$d_4$}
+    \tkzLabelPoint[right](v_3){$d_5$}
+    \tkzLabelPoint[above](v){$v$}
     \end{tikzpicture}
 \end{center}
 
 
 \noindent
 Teraz przyjrzyjmy się przypadkowi, w którym każdy z kolorów występuje co najmniej dwukrotnie na rozpatrywanym cyklu.
-Załóżmy więc bez straty ogólności, że $d_1d_2$ i $d_2d_3$ są czerwone, a $d_3d_4$ i $d_4d_5$ są niebieskie. Przyjmijmy, również bez straty ogólności, że $vd_3$ jest czerwona. Wtedy cykl $d_1d_2$, $d_2d_3$, $d_3v$, $vd_4$, $d_4d_5$, ..., $d_{k-2}d_{k-1}$, $d_{k-1}d_1$ spełnia warunki zadania.
+Załóżmy więc bez straty ogólności, że $d_1d_2$ i $d_2d_3$ są czerwone, a $d_3d_4$ i $d_4d_5$ są niebieskie. Przyjmijmy, również bez straty ogólności, że $vd_3$ jest czerwona. Wtedy cykl $d_1d_2$, $d_2d_3$, $d_3v$, $vd_4$, $d_4d_5$, ..., $d_{n - 2}d_{n - 1}$, $d_{n - 1}d_1$ spełnia warunki zadania.
 
 \vspace{5px}
 
@@ -81,8 +87,12 @@ Załóżmy więc bez straty ogólności, że $d_1d_2$ i $d_2d_3$ są czerwone, a
 \noindent
 Rozpatrzmy graf, w którym wierzchołkami będą drużyny. Krawędź będzie istnieć wtedy i tylko wtedy, gdy drużyny odpowiadające jej końcowi rozegrały ze sobą mecz. Zauważmy, że warunek z zadania jest równoważny faktowi, że stopień każdego wierzchołka jest równy~2. 
 
+\vspace{10px}
+\noindent
 Wybierzmy pewien wierzchołek i rozpocznijmy w nim spacer po grafie. Będziemy przechodzić do następnych wierzchołków krawędziami, którymi jeszcze nie szliśmy. Łatwo zauważyć, że musimy w ten sposób otrzymać cykl, w którym każdy wierzchołek odwiedzamy co najwyżej raz. Skoro stopień każdego z wierzchołków wynosi $2$, to żaden z wierzchołków tego cyklu nie ma krawędzi łączącej go z jakimkolwiek wierzchołkiem spoza tego cyklu. Wykonując analogiczne spacery startując z nieodwiedzonych jeszcze wierzchołków - o ile takowe istnieją - otrzymamy, że graf jest sumą rozłącznych cykli.
 
+\vspace{10px}
+\noindent
 Pokolorujmy każdą z krawędzi na czerwono, jeśli mecz odbył się pierwszego dnia, lub na zielono, jeśli odbył się drugiego dnia. Zauważmy, że z każdego wierzchołka wychodzi jedna zielona i jedna czerwona krawędź. Stąd w każdym cyklu krawędzie na przemian: zielona, czerwona, zielona, czerwona, ... itd. Stąd każdy z cykli jest parzystej długości. 
 
 \begin{center}
@@ -104,9 +114,12 @@ Pokolorujmy każdą z krawędzi na czerwono, jeśli mecz odbył się pierwszego 
     \tkzDrawPoints(v_1,v_2, v_3, v_4)
     \tkzDrawSegments(v_1,v_2 v_3,v_4)
     \tkzDrawSegments[dashed](v_2,v_3 v_4,v_1)
+
     \end{tikzpicture}
 \end{center}
 
+\vspace{10px}
+\noindent
 W każdym z cykli długości parzystej możemy wybrać połowę jego wierzchołków, aby żadne dwa z nich nie grały ze sobą meczu. Wybierając takie wierzchołki dla każdego z cykli otrzymamy połowę wierzchołków z całego grafu, które nie są połączone ze sobą. Odpowiadające im $20$ drużyn spełniają warunki zadania.
 
 \vspace{5px}
@@ -129,23 +142,29 @@ Rozpatrzmy dwa wierzchołki $u$ i $v$. Skoro graf jest spójny, to istnieje ró�
 \noindent
 Rozpatrzmy wierzchołek o największym stopniu. Wyróżnijmy go i usuńmy go wraz ze wszystkimi sąsiadującymi wierzchołkami. Bez straty ogólności $d_1 \geqslant d_2 \geqslant ... \geqslant d_{d_1 + 1}$ to będą stopnie usuniętych wierzchołków. Wówczas rozpatrywana suma ułamków zmniejszy się o sumę
 \[
-	\sum^{d_1 + 1}_{i = 0} \frac{1}{d_i + 1} \geqslant \sum^{d_1 + 1}_{i = 0} \frac{1}{d_1 + 1} = 1.
+	\sum^{d_1 + 1}_{i = 1} \frac{1}{d_i + 1} \geqslant \sum^{d_1 + 1}_{i = 1} \frac{1}{d_1 + 1} = 1.
 \]
 Także po usunięciu tych wierzchołków inne stopnie mogą się zmniejszyć, ale to jeszcze bardziej zmniejszy naszą sumę.
 
+\vspace{10px}
+\noindent
 Wykazaliśmy, że usuwając pewien wierzchołek i jego sąsiadów, zmniejszamy rozpatrywaną sumę o co najwyżej $1$. Powtarzając ten algorytm, wykonamy co najmniej $\sum^{n}_{i = 1} \frac{1}{1 + d_i}$ usunięć. Biorąc pod uwagę wyróżnione wierzchołki otrzymamy zbiór spełniający warunki zadania.
 
 \vspace{5px}
 
 \begin{problem}{6}
-	Hydra składa się z pewnej liczby głów, z której niektóre są połączone szyjami. Herkules może odciąć wszystkie szyje wychodzące z pewnej głowy, jednak wówczas z tamtej głowy wyrastają szyję, którą łączą ją z głowami, z którymi nie była ona wcześnie połączona. Hydra jest pokonana, gdy rozpada się na dwie rozłączne części. Wyznaczyć najmniejsze $N$, że Herkules jest w stanie pokonać dowolną hydrę składającą się ze $100$ szyi.
+	Hydra składa się z pewnej liczby głów, z której niektóre są połączone szyjami. Herkules może odciąć wszystkie szyje wychodzące z pewnej głowy, jednak wówczas z tamtej głowy wyrastają szyje, którą łączą ją z głowami, z którymi nie była ona wcześnie połączona. Hydra jest pokonana, gdy rozpada się na dwie rozłączne części. Wyznaczyć najmniejsze $N$, że Herkules jest w stanie pokonać dowolną hydrę składającą się ze $100$ szyi.
 \end{problem}
 
 \noindent
 Wykażemy, że $N = 10$. Oczywiście rozpatrujemy dany problem w języku teorii grafów. Rozpatrzmy dwa przypadki.
 
+\vspace{10px}
+\noindent
 Jeśli istnieje wierzchołek o stopnie nie większym niż $10$, to Herkules może odciąć każdego z jego sąsiadów i wówczas ten wierzchołek nie będzie miał już żadnych sąsiadów. W ten sposób może osiągnąć swój cel.
 
+\vspace{10px}
+\noindent
 Załóżmy teraz, że każdy wierzchołek ma stopień co najmniej $11$. Oznaczmy liczbę wierzchołków jako $K$. Wówczas liczba krawędzi wynosi co najmniej $\frac{11K}{2}$. Skoro jest ona równa $100$, to otrzymujemy $K \leqslant 18$. Zauważmy, że po wykonaniu odcięcia wierzchołka o stopniu co najmniej $11$, będzie on miał stopień co najwyżej $18 - 11 - 1 = 6$. Wówczas stosując procedurę analogiczną do poprzedniego przypadku otrzymamy $6 + 1 = 7$ łącznych cięć.
 
 

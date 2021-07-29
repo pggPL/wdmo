@@ -16,7 +16,7 @@ co oczywiście jest kwadratem liczby całkowitej.
 
 
 \begin{problem}{2}
-	Dany jest ciąg $a_1, a_2, ..., a_{2n + 1}$ liczb rzeczywistych, że dla dowolnych liczb całkowitych $2n + 1 \geqslant i, j \geqslant 1$ zachodzi równość
+	Dany jest ciąg $a_1, a_2, ..., a_{2n + 1}$ liczb rzeczywistych, że dla dowolnych liczb całkowitych ${2n + 1 \geqslant i, j \geqslant 1}$ zachodzi równość
 	\[
 		a_i + a_j \geqslant |i - j|.
 	\]
@@ -99,7 +99,7 @@ Zauważmy, że
 	&= \sum^{n}_{i = 0} \left(2^{n - i} \cdot (-3)^i\right) + (-3)^{n + 1}a_0 = 2^n \sum^{n}_{i = 0} \left(-\frac{3}{2}\right)^i + (-3)^{n + 1}a_0 = \\
 	&= 2^n \cdot \frac{1 - \left(-\frac{3}{2}\right)^{n + 1}}{1 + \frac{3}{2}} + (-3)^{n + 1}a_0 = \frac{2^{n + 1}}{5} +\left(a_0 - \frac{1}{5}\right)(-3)^{n + 1}.
 \end{align*}
-Jeśli $a_0 \neq \frac{1}{5}$, to liczba $\left(a_0 - \frac{1}{5}\right)(-3)^{n + 1}$ będzie przyjmowała dowolnie duże i dowolnie małe wartości. Toteż $a_n$ również będzie przyjmowała dowolnie małe wartości, toteż ciąg $a_n$ nie może być rosnący. Jeśli zaś $a_0 = \frac{1}{5}$, to z powyższej tożsamości wynika, że ta liczba spełnia warunki zadania.
+Jeśli $a_0 \neq \frac{1}{5}$, to liczba $\left(a_0 - \frac{1}{5}\right)(-3)^{n + 1}$ będzie przyjmowała dowolnie duże i dowolnie małe wartości. Ich wartość bezwzględna będzie odpowiednio dużych $n$ rzędy większa niż $\frac{2^{n + 1}}{5}$. Toteż $a_n$ również będzie przyjmowała dowolnie małe wartości, toteż ciąg $a_n$ nie może być rosnący. Jeśli zaś $a_0 = \frac{1}{5}$, to z powyższej tożsamości wynika, że ta liczba spełnia warunki zadania.
 
 \vspace{5px}
 
@@ -121,7 +121,7 @@ Przekształćmy równanie rekurencyjne ciągu
 \end{align*}
 Z powyższej nierówności wynika, że
 \[
-	a_{5000}^2 > a_{4999}^2 + 2 > a_{4998}^2 + 4 > ... < a_0^2 + 10000 > 10000, 
+	a_{5000}^2 > a_{4999}^2 + 2 > a_{4998}^2 + 4 > ... > a_0^2 + 10000 > 10000, 
 \]
 z~czego wynika, że $a_{5000}^2 > 100$.
 

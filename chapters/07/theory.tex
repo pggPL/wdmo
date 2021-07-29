@@ -1,9 +1,4 @@
 % Rozdział 7 – Wielomiany
-% definicja, tw. Bezouta z dowodem
-% lemat o równych wielomianach
-% zadania z wyrażeniami algebraicznymi
-% wielomiany całkowite
-% wzory Vieta
 
 \theory{Wielomiany}
 
@@ -14,7 +9,7 @@ Wyrażenie algebraiczne postaci
 \[
     W(x) = a_nx^n + a_{n - 1}x^{n - 1} + ... + a_1x + a_0
 \]
-dla pewnych liczb rzeczywistych $a_n \neq 0$, $a_1$, $a_2$, ..., $a_{n - 1}$.
+dla pewnych liczb rzeczywistych $a_n \neq 0$, $a_1$, $a_2$, ..., $a_{n - 1}$ nazywamy \textit{wielomianem}.
 \begin{itemize}
     \item Liczbę $n$ nazywamy stopniem tego wielomianu i oznaczamy jako $deg \; W = n$.
 
@@ -54,7 +49,7 @@ Zauważmy, że zachodzą równości
     &= n^3 - n + \frac{3(n^2 + 1) + n - 2}{n^2 + 1}
     =  n^3 - n + 3 + \frac{n - 2}{n^2 + 1}, 
 \end{align*} 
-z czego wynika, że liczba $\frac{n^5 + 3n^2 + 1}{n^2 + 1}$ będzie całkowita wtedy i tylko wtedy, gdy liczba $\frac{n - 2}{n^2 + 1}$ będzie całkowita. Gdy $n = 0$ to rozpatrywana liczba jest całkowita. Łatwo wykazać, że dla $n \neq 0$ zachodzi nierówność $n^2 + 1 > |n - 2|$. Stąd moduł liczby $\frac{n - 2}{n^2 + 1}$ jest mniejszy od $1$. Jeśli więc ma on być całkowity, to musi być on równy zeru. Jest to prawdą jedynie dla $n = 2$.
+z czego wynika, że liczba $\frac{n^5 + 3n^2 + 1}{n^2 + 1}$ będzie całkowita wtedy i tylko wtedy, gdy liczba $\frac{n - 2}{n^2 + 1}$ będzie całkowita. Gdy $n = 0$ to rozpatrywana liczba jest całkowita. Łatwo wykazać, że dla $n \neq 0$ zachodzi nierówność $n^2 + 1 > |n - 2|$. Stąd moduł liczby $\frac{n - 2}{n^2 + 1}$ jest mniejszy od~$1$. Jeśli więc ma on być całkowity, to musi być on równy zeru. Jest to prawdą jedynie dla $n = 2$.
 
 \vspace{5px}
 
@@ -101,7 +96,7 @@ gdzie $deg \; R$ jest najmniejsze możliwe. Jeżeli $deg \; R < deg\; P$ to zach
 \[  
     R(x) = b_{n + k}x^{n + k} + b_{n + k - 1}x^{n + k - 1} + ... + b_1x + b_0.
 \]
-Zauważmy, że wielomiany $R(x)$ oraz $\frac{b_{n + k}}{a_n}x^kP(x)$ mają równe stopień i współczynnik wiodący. Odejmując je od siebie skróci się on, stąd wielomian $R(x) - \frac{b_{n + k}}{a_n}x^kP(x)$ ma mniejszy stopień niż wielomian $R(x)$. Możemy zapisać
+Zauważmy, że wielomiany $R(x)$ oraz $\frac{b_{n + k}}{a_n}x^kP(x)$ mają równy stopień i współczynnik wiodący. Odejmując je od siebie skróci się on, stąd wielomian $R(x) - \frac{b_{n + k}}{a_n}x^kP(x)$ ma mniejszy stopień niż wielomian $R(x)$. Możemy zapisać
 \[
     W(x) = \left(G(x) + \frac{b_{n + k}}{a_n}x^k\right) \cdot  P(x) + \left(R(x) - \frac{b_{n + k}}{a_n}x^k\right),
 \]
@@ -223,6 +218,8 @@ Jeśli wielomian $W$ da się zapisać w formie
 \]
 gdzie $\alpha_1, \alpha_2, ..., \alpha_{n}$ są parami różne to powiemy, że pierwiastek $\alpha_i$ ma \textit{krotność} równą $k_i$. 
 
+\vspace{10px}
+\noindent
 Mówienie o zbiorze pierwiastków nie ma większego sensu, gdyż struktura zbioru nie przewiduje czegoś takiego jak element występujący kilkukrotnie. Stąd zdefiniujmy \textit{multizbiór} analogicznie do zbioru, z tym, że jeden element może należeć do niego kilka razy. Będziemy mówić o multizbiorach pierwiastków.
 
 \vspace{5px}
@@ -233,13 +230,13 @@ Mówienie o zbiorze pierwiastków nie ma większego sensu, gdyż struktura zbior
 Następujące warunki równości wielomianów są sobie równoważne, tj. gdy zachodzi jeden, to zachodzą wszystkie:
 \begin{itemize}
     \item wielomiany przyjmują równe wartości dla każdej liczby rzeczywistej,
-    \item współczynniki obu wielomianów przy tych samych potęgach są równe,
-    \item multizbiory pierwiastków rzeczywistych są sobie równe.
+    \item współczynniki obu wielomianów przy tych samych potęgach są równe.
 \end{itemize}
+Jeśli wielomiany są sobie równe, to wówczas mają one te same multizbiory pierwiastków rzeczywistych.
 
 \vspace{5px}
 \noindent
-Wykazanie, że powyższe warunki są równoważne pozostawiamy czytelnikowi, jeśli ma chęć. Po zapoznaniu się z powyższą teorią powinno być to dość łatwe. Przejdźmy teraz do pierwszego nietrywialnego zastosowania wielomianów.
+Wykazanie, że powyższe warunki są równoważne pozostawiamy czytelnikowi, jeśli ma taką chęć. Po zapoznaniu się z powyższą teorią powinno być to dość łatwe. Przejdźmy teraz do pierwszego nietrywialnego zastosowania wielomianów.
 
 \vspace{5px}
 

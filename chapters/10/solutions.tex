@@ -16,7 +16,7 @@ Innymi słowy $k$ jest największą liczbą całkowitą, taką, że $k^2$ jest n
 \[
 	k + 1 > \sqrt{n} \geqslant k,
 \]
-czyli $\left\lfloor n \right\rfloor = k$. Jedynymi liczbami w przedziale $[k^2, (k + 1)^2)$, które są podzielne przez $k$ są $k^2$, $k^k + k$ i $k^2 + 2k$.
+czyli $\left\lfloor \sqrt{n} \right\rfloor = k$. Jedynymi liczbami w przedziale $[k^2, (k + 1)^2)$, które są podzielne przez $k$ są $k^2$, $k^k + k$ i $k^2 + 2k$.
 
 
 \begin{problem}{2}
@@ -152,7 +152,7 @@ czyli
 \vspace{10px}
 
 \noindent
-Rozpatrzmy dowolną liczbę pierwszą $p$. Wykażemy, że $k \mid v_p(a)$, z czego wyniknie teza. Załóżmy nie wprost, że $v_p(a) = x \cdot k + r$, gdzie $x$ i $0 < r < k$ są dodatnimi liczbami całkowitymi. Weźmy $a = p^{xk}$. Wówczas istnieje takie $b$, że
+Rozpatrzmy dowolną liczbę pierwszą $p$. Wykażemy, że $k \mid v_p(a)$, z czego wyniknie teza. Załóżmy nie wprost, że $v_p(a) = x \cdot k + r$, gdzie $x$ i $0 < r < k$ są dodatnimi liczbami całkowitymi. Weźmy $n = p^{xk + k}$. Wówczas istnieje takie $b$, że
 \[
 	p^{xk + k} \mid a - b^k.
 \]

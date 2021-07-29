@@ -3,7 +3,7 @@
 \theory{Nierówności z pomysłem}
 
 \noindent
-Wiele nierówności da się rozwiązać za pomocą sztampowych technik -- omówiono niektóre z nich w poprzednich rozdziałach. Teraz zajmiemy się nierównościami, do których rozwiązania potrzebna jest nie tyle wiedza, co wpadniecię na ciekawy pomysł. 
+Wiele nierówności da się rozwiązać za pomocą sztampowych technik -- omówiono niektóre z nich w poprzednich rozdziałach. Teraz zajmiemy się nierównościami, do których rozwiązania potrzebna jest nie tyle wiedza, co wpadniecie na ciekawy pomysł. 
 
 \vspace{10px}
 
@@ -21,13 +21,13 @@ Jest to bardzo niewygodne założenie, niemniej jednak istnieje pewien trik, kt�
 \]
 Za mocy założeń wiemy, że są one dodatnie. Mamy też, że
 \[
-	a = x + y, \quad b = y + z, \quad c = z + x.
+	a = x + y, \quad b = x + z, \quad c = y + z.
 \]
 Można także wykazać, że jeśli istnieją liczby dodatnie $x$, $y$, $z$, dla których zachodza powyższe równości, to $a$, $b$ i $c$ są długościami boków trójkąta. Istotnie
 \begin{align*}
-	a + b = (x + y) + (y + z) &\geqslant (z + x) = c, \\
-	b + c = (y + z) + (z + x) &\geqslant (x + y) = a, \\
-	c + a = (z + x) + (x + y) &\geqslant (t + z) = b.
+	a + b = (x + y) + (x + z) &\geqslant (y + z) = c, \\
+	b + c = (x + z) + (y + z) &\geqslant (x + y) = a, \\
+	c + a = (y + z) + (x + y) &\geqslant (x + z) = b.
 \end{align*}
 Można także wykazać, że odcinki o długości $x$, $y$, $z$ to są długości odcinków stycznych do okręgu wpisanego w trójkącie o bokach długości~$a$, $b$ i~$c$.
 
@@ -56,10 +56,6 @@ Można także wykazać, że odcinki o długości $x$, $y$, $z$ to są długości
 	\end{tikzpicture}
 \end{center}
 
-% a = x + y, b = y + z, c = z + y
-% rysunek z okręgiem wpisanym
-
-% http://www.deltami.edu.pl/temat/matematyka/geometria/planimetria/2016/05/27/1606delta-deltoid.pdf
 \heading{Przykład 1}
 
 \noindent
@@ -73,18 +69,18 @@ Dany jest trójkąt o bokach długości $a$, $b$ i $c$. Wykazać, że zachodzi n
 \noindent
 Wykazaliśmy, że warunek zadania jest równoważny temu, że istnieją takie dodatnie liczby $x$, $y$, $z$, dla których
 \[
-	a = x + y, \quad b = y + z, \quad c = z + x.
+	a = x + y, \quad b = x + z, \quad c = y + x.
 \]
 Przepisując postulowaną nierówność za pomocą powyższych podstawień otrzymujemy
 \begin{align*}
-	\frac{1}{-(x + y) + (y + z) + (z + x)} &= \frac{1}{2y}, \\
-	\frac{1}{(x + y) - (y + z) + (z + x)} &= \frac{1}{2x}, \\
-	\frac{1}{(x + y) + (y + z) - (z + x)} &= \frac{1}{2z}. \\
+	\frac{1}{-(x + y) + (x + z) + (y + z)} &= \frac{1}{2z}, \\
+	\frac{1}{(x + y) - (x + z) + (y + z)} &= \frac{1}{2y}, \\
+	\frac{1}{(x + y) + (x + z) - (y + z)} &= \frac{1}{2x}. \\
 \end{align*}
 Trzeba więc wykazać, że
 \begin{align*}
-	\frac{1}{2y} + \frac{1}{2x} + \frac{1}{2z} \geqslant \frac{1}{x + y} + \frac{1}{y + z} + \frac{1}{z + x} \\
-	\left(\frac{1}{x} + \frac{1}{y}\right) + \left(\frac{1}{y} + \frac{1}{z}\right) + \left(\frac{1}{z} + \frac{1}{x}\right) \geqslant \frac{4}{x + y} + \frac{4}{y + z} + \frac{4}{z + x}.
+	\frac{1}{2z} + \frac{1}{2y} + \frac{1}{2x} \geqslant \frac{1}{x + y} + \frac{1}{x + z} + \frac{1}{y + z} \\
+	\left(\frac{1}{x} + \frac{1}{y}\right) + \left(\frac{1}{x} + \frac{1}{z}\right) + \left(\frac{1}{y} + \frac{1}{z}\right) \geqslant \frac{4}{x + y} + \frac{4}{x + z} + \frac{4}{y + z}.
 \end{align*}
 Zauważmy, że nierówność
 \[

@@ -17,6 +17,8 @@ Załóżmy nie wprost, że istnieje pewna liczba niecałkowita $\alpha$, dla kt�
 \end{align*}
 Skoro liczba $\alpha$ nie była całkowita, to $\alpha - 2 \neq 0$. Stąd $W(\alpha + 1) = 0$.
 
+\vspace{10 px}
+\noindent
 Wykazaliśmy, że jeśli $\alpha$ jest niecałkowitym pierwiastkiem, to również $\alpha + 1$ jest niecałkowitym pierwiastkiem. Więc liczby
 \[
     \alpha, \; \alpha + 1, \; \alpha + 2, \; \alpha + 3, \; ...
@@ -54,7 +56,9 @@ Skoro $1$ jest pierwiastkiem $P(x)$, to należy on do multizbioru $\{a, b, c\}$.
 
 \noindent
 Wykażemy indukcyjnie, że dla każdej dodatniej liczby całkowitej $n$ wielomian $x^{3n - 1} + x + 1$ jest podzielny przez wielomian $x^2 + x + 1$. Dla $n = 1$ te wielomiany są sobie równe, więc podzielność zachodzi.
-
+ 
+\vspace{10 px}
+\noindent
 Zauważmy, że
 \[
     (x^{3(n + 1) - 1} + x + 1) - (x^{3n - 1} + x + 1) = x^{3n - 1}(x^3 - 1) =   x^{3n - 1}(x - 1)(x^2 + x + 1).
@@ -123,37 +127,8 @@ Zauważmy, że
 Liczby $5 - a_1, \; 5 - a_2, \;5 - a_3, \;5 - a_4$ są parami różne. Stąd co najmniej dwie z nich nie są równe $-1$ ani $1$. Stąd wartość bezwzględna ich iloczynu nie może być liczbą pierwszą, w szczególności być równa $3$.
 
 
+
 \begin{problem}{6}
-    Paweł i Tomek grają w grę.
-    Paweł ma pewien wielomian $W(x)$ o współczynnikach dodatnich całkowitych stopnia $n \geqslant 1$. Tomek go nie zna, a chce poznać. Może w tym celu wykonywać ruchy. W każdym ruchu może wybrać pewną dodatnią liczbę całkowitą $k$, być może biorąc pod uwagę co się stało we wcześniejszych ruchach, a następnie Tomek podaje mu wartość $W(k)$. Wyznaczyć, w zależności od $n$, najmniejszą liczbę ruchów, w której Tomek, niezależnie od wybranego wielomianu, jest w stanie poznać wszystkie jego współczynniki.
-\end{problem}
-
-\noindent
-Załóżmy, że Tomek po wykonaniu pierwszego ruchu dowiedział się, że $W(a) = 2a$. Wówczas nie może rozróżnić czy $W(x) = 2a$ czy $W(x) = 2x$. Stąd aby być w stanie poznać wielomian niezależnie od tego, jaki on jest, Tomek będzie potrzebował co najmniej 2 ruchów.
-Wykażemy, że niezależnie od $n$, Tomek jest w stanie tego dokonać w 2 ruchach.
-Strategia składa się z 2 punktów:
-\begin{itemize}
-    \item Tomek pyta Pawła o wartość $W(2)$. Skoro współczynniki $W$ są dodatnie, to łatwo wykazać, że $W(2)$ jest większe od największego współczynnika wielomianu $W$.
-    \item Następnie pyta go o wartość $d = W(W(2))$. Otrzyma liczbę
-    \[
-        a_n d^n + a_{n - 1}d^{n - 1} + ... + a_1d + a_0.
-    \]
-    Jest to wartość liczby o kolejnych cyfrach $a_n, \; a_{n - 1}, \; ..., \; a_{1}, \; a_0$ w systemie liczbowym o podstawie $d$. Korzystamy tu z faktu, że $a_n, \; a_{n - 1}, \; ..., \; a_{1}, \; a_0 < d$. Zamieniając otrzymaną liczbę na liczbę w systemie o podstawie $d$ kolejne cyfry będą współczynnikami danego wielomianu.
-\end{itemize}
-
-\begin{remark}
-    W lepszym zrozumieniu idei może posłużyć przykład. Weźmy wielomian
-    \[
-        W(x) = 21x^3 + 4x + 5.
-    \]
-    Wiemy, że
-    \[
-        W(100) = 21000405.
-    \]
-    W zapisie dziesiętnym pokazały nam się kolejne współczynniki $W(x)$.
-\end{remark}
-
-\begin{problem}{7}
     Rozstrzygnąć, czy istnieje wielomian $1000$ stopnia, którego współczynniki należą do zbioru $\{-1, 1\}$ oraz ma on $1000$ pierwiastków rzeczywistych.
 \end{problem}
 

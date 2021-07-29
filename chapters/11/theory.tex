@@ -5,7 +5,7 @@
 \noindent
 Zajmiemy się teraz analizą gier. Większość gier, które będziemy rozważać, ma pewne cechy wspólne:
 \begin{itemize}
-	\item dwóch graczy wykonują ruchy na przemian,
+	\item dwóch graczy wykonuje ruchy na przemian,
 	\item obaj gracze mają wszystkie informacje na temat stanu gry -- nie ma żadnych elementów tajnych,
 	\item gra musi się skończyć -- nie można grać w nieskończoność.
 \end{itemize}
@@ -13,7 +13,7 @@ Oczywiście niektóre zadania wyłamią się z tych zasad.
 
 \vspace{10px}
 \noindent
-Powiemy, że jeden z graczy ma \textit{strategię wygrywającą}, gdy może tak wykonywać ruchy, aby wygrać, niezależnie od tego jak gra przeciwnik. . Przykład takiej strategii ilustruje następujące zadanie.
+Powiemy, że jeden z graczy ma \textit{strategię wygrywającą}, gdy może tak wykonywać ruchy, aby wygrać, niezależnie od tego jak gra przeciwnik. Przykład takiej strategii ilustruje następujące zadanie.
 
 \vspace{10px}
 
@@ -85,7 +85,7 @@ Warto zauważyć, że Bartek w drugim ruchu nie jest w stanie położyć monety 
 \vspace{10px}
 
 \noindent
-Motyw gry symetrycznej jest bardzo częsty w grach, stąd też zawsze należy go rozważyć. Warto także spróbować gry w szczególnych przypadkach, gdyż one często pozwalają nam zgadnąć kto ma strategię wygrywającą i nasuwają pomysł na nią. Przykładowo, jeśli dla powyższego zadania rozważymy stół o bardzo niewiele większy niż jedna moneta, to po pierwszym ruchu Ani Bartek nie będzie w stanie położyć kolejnej monety. Nasuwa to pomysł, że Ania ma strategię wygrywającą.
+Motyw gry symetrycznej jest bardzo częsty w grach, stąd też zawsze należy go rozważyć. Warto także spróbować gry w szczególnych przypadkach, gdyż one często pozwalają nam zgadnąć kto ma strategię wygrywającą i nasuwają pomysł na nią. Przykładowo, jeśli dla powyższego zadania rozważymy stół o bardzo niewiele większy niż jedna moneta, to po pierwszym ruchu Ani, Bartek nie będzie w stanie położyć kolejnej monety. Nasuwa to pomysł, że Ania ma strategię wygrywającą.
 
 \vspace{10px}
 
@@ -105,9 +105,6 @@ Wprowadźmy dwa pojęcia. Jeśli na stole leży $k$ kamieni i gracz wykonujący 
 \noindent
 Zauważmy, że $k = 2$ i $k = 5$ są stanami wygrywającymi, gdyż gracz może wziąć wszystkie kamienie, co spowoduje brak możliwości ruchu następnego gracza. Zaś $k = 1$ jest stanem przegrywającym, gdyż gracz, który ma wykonać ruch, nie jest w stanie tego zrobić.
 
-\vspace{10px}
-\noindent
-Zauważmy, że $k = 2$ i $k = 5$ są stanami wygrywającymi, gdyż gracz może wziąć wszystkie kamienie, co spowoduje brak możliwości ruchu następnego gracza. Zaś $k = 1$ jest stanem przegrywającym, gdyż gracz, który ma wykonać ruch, nie jest w stanie tego zrobić.
 
 \vspace{10px}
 \noindent
@@ -193,6 +190,5 @@ Analiza stanów jest znaną metodą analizy gier. Jest ona bardziej żmudna niż
 
 \vspace{10px}
 \noindent
-Niestety nie w każdym zadaniu analiza ,,małych'' przypadków coś daje. Czasem potrzebny jest pomysł, na który trzeba po prostu wpaść, często korzystając z metody prób i błędów. Jest ona tym skuteczniejsza, im więcej jest prób. 
-% komentarz, że to podejście jest bardziej ogólne
+Niestety nie w każdym zadaniu analiza ,,małych'' przypadków coś daje. Czasem potrzebny jest pomysł, na który trzeba po prostu wpaść, często korzystając z metody prób i błędów. Jest ona tym skuteczniejsza, im więcej jest prób.
 

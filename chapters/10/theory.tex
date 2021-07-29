@@ -95,7 +95,7 @@ Wówczas
 \[
 	n = p_1^{v_{p_1}(n)} \cdot p_2^{v_{p_1}(n)} \cdot ... \cdot p_s^{v_{p_1}(n)} = \left( p_1^{\frac{v_{p_1}(n)}{k}} \cdot p_2^{^{\frac{v_{p_2}(n)}{k}}} \cdot ... \cdot p_s^{^{\frac{v_{p_s}(n)}{k}}}\right)^k,
 \]
-więc jeśli każdy z wykładników jest podzielny przez $k$, to liczba w nawiasie będzie liczbą całkowitą.
+więc jeśli każdy z wykładników jest podzielny przez $k$, to liczba w nawiasie będzie liczbą całkowitą. Toteż $n$ jest $k$-tą potęgą liczby całkowitej.
 
 \vspace{10px}
 
@@ -144,6 +144,8 @@ czyli
 	v_p(ab) = v_p(a) + v_p(b) \equiv 0 \pmod{2}.
 \]
 Skoro $v_p(ab)$ dla każdej liczby pierwszej $ab$ jest liczbą parzystą, to liczba $ab$ jest kwadratem liczby całkowitej.
+
+\qed
 
 \heading{Lemat 4}
 
@@ -242,7 +244,7 @@ co dowodzi tego, że liczba
 \[
 	v_p(abc) = v_p(a) + v_p(b) + v_p(c) = 3v_p(c)
 \]
-jest podzielna przez $3$. Z Lematu $3$ wynika więc teza. 
+jest podzielna przez $3$. Przeprowadzając analogiczne rozumowanie dla dowolnej liczby pierwszej $p$ mamy, że $v_p(abc)$ zawsze jest podzielne przez $3$. Z Lematu $3$ wynika więc teza. 
 
 \qed
 
@@ -302,7 +304,7 @@ Mimo że powyższa suma ma nieskończenie wiele składników, będą one od pewn
 \vspace{10px}
 
 \noindent
-Powyższa równość ma bardzo intuicyjne uzasadnienie. Rozpatrzmy liczby $1, \; 2, \; n$. Spośród nich dokładnie $\left\lfloor \frac{n}{p} \right\rfloor$ jest podzielnych przez $p$, dokładnie $\left\lfloor \frac{n}{p^2} \right\rfloor$ jest podzielnych przez $p^2$ itd. Każda z liczb, dla których wykładnik peadyczny wynosi $k$ zostanie policzona dokładnie $k$ razy, gdyż dzieli się przez każdą z liczb $1$, $p$, ..., $p^k$, ale nie przez żadną wyższą potęgę.
+Powyższa równość ma bardzo intuicyjne uzasadnienie. Rozpatrzmy liczby $1, \; 2, ...,  \; n$. Spośród nich dokładnie $\left\lfloor \frac{n}{p} \right\rfloor$ jest podzielnych przez $p$, dokładnie $\left\lfloor \frac{n}{p^2} \right\rfloor$ jest podzielnych przez $p^2$ itd. Każda z liczb, dla których wykładnik peadyczny wynosi $k$ zostanie policzona dokładnie $k$ razy, gdyż dzieli się przez każdą z liczb $1$, $p$, ..., $p^k$, ale nie przez żadną wyższą potęgę.
 
 \vspace{10px}
 

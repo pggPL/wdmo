@@ -20,7 +20,7 @@ Wykażemy, że spełniony jest warunek Halla. Załóżmy nie wprost, że istniej
 \vspace{5px}
 
 \begin{problem}{3}
-	Dany jest graf, w którym każdy wierzchołek ma stopień co najwyżej $100$. Zbiór krawędzi nazwiemy \textit{idealnym}, jeśli żadne dwie krawędzie należące do niego nie mają wspólnego końca oraz nie da się dołożyć żadnej krawędzi, aby ta własność była zachowana. W każdym ruchu można usunąć dowolny zbiór idealny. Wykazać, że po wykonaniu dowolnych $199$ ruchów, graf nie będzie zawierał żadnej krawędzi.
+	Dany jest graf, w którym każdy wierzchołek ma stopień co najwyżej $100$. Zbiór krawędzi nazwiemy \textit{idealnym}, jeśli żadne dwie krawędzie należące do niego nie mają wspólnego końca oraz nie da się dołożyć żadnej krawędzi, aby ta własność była zachowana. W każdym ruchu usunięto dowolny  idealny zbiór krawędzi, które przed wykonaniem tego ruchu należały do rozpatrywanego grafu. Wykazać, że po wykonaniu dowolnych $199$ ruchów, graf nie będzie zawierał żadnej krawędzi.
 \end{problem}
 
 \noindent
@@ -42,7 +42,7 @@ Pozostałych wychodzących z jednego z~wierzchołków $u$ lub $v$ jest co najwy�
 \end{problem}
 
 \noindent
-Skoro każda ściana ma co najmniej $3$ boki, to dodając liczbę boków każdej ze ścian otrzymamy liczbę $3f$. Jest to dwukrotność liczby boków, bo każdy bok należy do dwóch ścian. Stąd ta liczba jest równa $2e$. Mamy więc
+Skoro każda ściana ma co najmniej $3$ boki, to dodając liczbę boków każdej ze ścian otrzymamy liczbę nie mniejszą niż $3f$. Jest to dwukrotność liczby boków, bo każdy bok należy do dwóch ścian. Stąd ta liczba jest równa $2e$. Mamy więc
 \[
 	2e \geqslant 3f.
 \]
@@ -103,7 +103,7 @@ otrzymujemy tezę.
 \end{problem}
 
 \noindent
-Przeprowadźmy rozumowanie nie wprost -- zakładamy, że żaden trójkąt nie jest różnokolorowy. Rozpatrzmy taki kolor $c$ i taki zbiór wierzchołków $A$, że pomiędzy każdymi dwoma wierzchołkami w $A$ istnieje ścieżka złożona z krawędzi koloru $c$. 
+Przeprowadźmy rozumowanie nie wprost -- zakładamy, że żaden trójkąt nie jest różnokolorowy. Rozpatrzmy taki kolor $c$ i taki zbiór wierzchołków $A$, że pomiędzy każdymi dwoma wierzchołkami w $A$ istnieje ścieżka złożona z krawędzi koloru $c$. Przyjmijmy dodatkowo, że $A$ jest maksymalnym zbiorem o tej własności.
 
 \vspace{10px}
 \noindent
