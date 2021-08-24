@@ -24,7 +24,7 @@ Zauważmy, że dla $n = 3$ teza jest znanym faktem -- mianowicie suma kątów w 
 \end{center}
 
 \noindent
-Załóżmy, że dla każdego $n$-kąta wypukłego suma jego kątów wynosi ${(n - 2) \cdot 180\degree}$. Rozpatrzmy dowolny $n+1$-kąt wypukły. Zauważmy, że ma on więcej niż trzy wierzchołki, więc możemy ,,odciąć'' trójkąt złożony z trzech kolejnych wierzchołków. Podzielimy w ten sposób $n + 1$ kąt na $n$-kąt i trójkąt. Korzystając z wypukłości rozpatrywanego wielokąta możemy zauważyć, że suma miar jego kątów wewnętrznych jest sumą miar kątów obu tych wielokątów. Wynosi więc ona
+Załóżmy, że dla każdego $n$-kąta wypukłego suma jego kątów wynosi ${(n - 2) \cdot 180\degree}$. Rozpatrzmy dowolny $(n+1)$-kąt wypukły. Zauważmy, że ma on więcej niż trzy wierzchołki, więc możemy ,,odciąć'' trójkąt złożony z trzech kolejnych wierzchołków. Podzielimy w ten sposób $(n + 1)$-kąt na $n$-kąt i trójkąt. Korzystając z wypukłości rozpatrywanego wielokąta możemy zauważyć, że suma miar jego kątów wewnętrznych jest sumą miar kątów obu tych wielokątów. Wynosi więc ona
 \[
 	(n - 2) \cdot 180\degree + 180\degree = (n - 1) \cdot 180\degree,
 \]
@@ -33,7 +33,7 @@ czego należało dowieść.
 \vspace{5px}
 
 \begin{problem}{2}
-	 Wykazać, że dla każdej dodatniej liczby całkowitej $n$ zachodzi toższamość
+	 Wykazać, że dla każdej dodatniej liczby całkowitej $n$ zachodzi tożsamość
 	\[
 		1^2 + 2^2 + 3^2 + ... + n^2 = \frac{n(n + 1)(2n + 1)}{6}.
 	\]
@@ -49,7 +49,7 @@ zachodzi dla pewnej liczby $n$. Chcemy wykazać tezę dla $n + 1$, czyli
 \[
 	1^2 + 2^2 + 3^2 + ... + n^2 + (n + 1)^2 = \frac{(n + 1)(n + 2)(2n + 3)}{6}.
 \]
-Zauważmy, że sprowadza się ona do wykazania toższamości
+Zauważmy, że sprowadza się ona do wykazania tożsamości
 \[
 	\frac{n(n + 1)(2n + 1)}{6} + (n + 1)^2 = \frac{(n + 1)(n + 2)(2n + 3)}{6}.
 \]
@@ -103,7 +103,7 @@ Przełożenia $n$ dysków dokonujemy w następujący sposób:
 \end{problem}
 
 \noindent
-Dla $n = 3$ mamy trójkąt. Wybierając kolor, na który pomalowano co najmniej dwa odcinki odcinki, postulowana własność będzie spełniona.
+Dla $n = 3$ mamy trójkąt. Wybierając kolor, na który pomalowano co najmniej dwa odcinki, postulowana własność będzie spełniona.
 \vspace{10px}
 
 \noindent
@@ -143,12 +143,12 @@ Załóżmy, że dla teza zachodzi dla $n$ punktów. Rozpatrzmy zbiór $n + 1$ pu
 \end{center}
 \end{minipage}
 \begin{center}
-Na rysunku zamiast kolorów użyto podziału na linię ciągła i przerywaną.
+Na rysunku zamiast kolorów użyto podziału na linię ciągłą i przerywaną.
 \end{center}
 
 Rozpatrzmy dwa przypadki:
 \begin{enumerate}
-	\item Punkt $P$ jest połączony czerwoną krawędzią z pewnym innym punktem $Q$. Wówczas wybierając dowolny punkt $X$, na mocy założenia wiemy, że istnieje czerwona ścieżka między $X$ i $Q$. Dokładając do niej odcinek między $P$ i $Q$ otrzymujemy ścieżkę między $P$ oraz $X$.
+	\item Punkt $P$ jest połączony czerwoną krawędzią z pewnym innym punktem $Q$. Wówczas, wybierając dowolny punkt $X$, na mocy założenia wiemy, że istnieje czerwona ścieżka między $X$ i $Q$. Dokładając do niej odcinek między $P$ i $Q$ otrzymujemy ścieżkę między $P$ oraz $X$.
 	Wykazaliśmy, że istnieje ścieżka między punktem $P$ i każdym innym punktem. Łącząc to z faktem, że na mocy założenia indukcyjnego taka ścieżka istnieje między każdą inną parą punktów, otrzymujemy, że dla koloru czerwonego teza jest spełniona.
 	\item Punkt $P$ jest połączony z każdym innym punktem niebieskim odcinkiem. Wówczas łatwo zauważyć, że pomiędzy każda parą punktów możemy przejść jednym albo dwoma niebieskimi odcinkami przechodzącymi przez punkt $P$.
 \end{enumerate}
@@ -249,7 +249,7 @@ Zauważmy, że plansza $2\times2$ z usuniętym rogiem jest w istocie L-klockiem,
 \end{center}
 
 \noindent
-Załóżmy, że dla planszy $2^{n - 1} \times 2^{n - 1}$ istnieje szukane pokrycie. Pokrycie dla planszy $2^{n} \times 2^{n}$ kontruujemy następująco. Dzielimi plansze dwiema prostymi na trzy jednakowe części i czwartą taką samą, tylko bez rogu. Kładziemy jeden klocek na środku tak jak na rysunku. Wówczas plansza jest podzielona na cztery jednakowe puste części, które na mocy założenia indukcyjnego można pokryć.
+Załóżmy, że dla planszy $2^{n - 1} \times 2^{n - 1}$ istnieje szukane pokrycie. Pokrycie dla planszy $2^{n} \times 2^{n}$ konstruujemy następująco. Dzielimy planszę dwiema prostymi na trzy jednakowe części i czwartą taką samą, tylko bez rogu. Kładziemy jeden klocek na środku, tak jak na rysunku. Wówczas plansza jest podzielona na cztery jednakowe puste części, które na mocy założenia indukcyjnego można pokryć.
 
 \begin{problem}{7}
 Niech $n$ będzie nieparzystą liczbą naturalną, a liczby $x_1,\; x_2,\; ...,\; x_n$ będa parami różne. Dla każdych dwóch liczb $x_i$ oraz $x_j$ zapisano na tablicy wartość bezwzględną ich różnicy. Wykazać, że można podzielić zapisane liczby na dwa zbiory o równej sumie.
