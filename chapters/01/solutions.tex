@@ -62,7 +62,7 @@ Przekształcając powyższą równość równoważnie otrzymujemy kolejno
 \end{align*}
 
 \begin{problem}{3}
-Dana jest następująca gra, zwana \textit{wieżami Hanoi}. Na początku ułożono $n$ dysków na jednej igle tak jak na rysunku. W każdym ruchu gracz może przemieścić dysk, wraz z wszystkimi dyskami nań leżącymi, na inną igłę, przy czym dysk ten nie może zostać położony na dysk o innej średnicy. Wykazać, że gracz jest w stanie przenieść wszystkie dyski na trzecią igłę.
+Dana jest następująca gra, zwana \textit{wieżami Hanoi}. Na początku ułożono $n$ dysków na jednej igle tak jak na rysunku. W każdym ruchu gracz może przemieścić dysk na inną igłę, przy czym dysk ten nie może zostać położony na dysk o mniejszej średnicy. Wykazać, że gracz jest w stanie przenieść wszystkie dyski na trzecią igłę.
 
 \begin{center}
 \begin{tikzpicture}[scale=0.5]
@@ -160,23 +160,23 @@ Dany jest ciąg liczb rzeczywistych
 \]
 Wykazać, że dla wszystkich $n$ 
 \[
-	a_1a_2...a_n\left(\frac{1}{a_1} + \frac{1}{a_2} + ... + \frac{1}{a_n}\right) = 1.
+	a_0a_1a_2...a_n\left(\frac{1}{a_0} + \frac{1}{a_1} + \frac{1}{a_2} + ... + \frac{1}{a_n}\right) = 1.
 \]
 \end{problem}
 
 \noindent
 Na początku wykażemy indukcyjnie, że dla każdego $n$ zachodzi równość
 \[
-	a_{n + 1} = 1 - a_1a_2a_3\cdot ... \cdot a_{n}.
+	a_{n + 1} = 1 - a_0a_1a_2\cdot ... \cdot a_{n}.
 \]
 Równość dla $n = 0$ zachodzi na mocy założeń.
 Załóżmy, że
 \[
-	a_{n} = 1 - a_1a_2a_3\cdot ... \cdot a_{n - 1}.
+	a_{n} = 1 - a_0a_1a_2\cdot ... \cdot a_{n - 1}.
 \]
 Skoro $a_{n + 1} = 1 - a_n(1 - a_n)$, to otrzymujemy
 \[
-	a_{n + 1} = 1 - a_n(1 - a_n) = 1 - a_n \cdot a_1a_2a_3\cdot ... \cdot a_{n - 1} = 1 - a_1a_2a_3\cdot ... \cdot a_{n}.
+	a_{n + 1} = 1 - a_n(1 - a_n) = 1 - a_n \cdot a_0a_1a_2\cdot ... \cdot a_{n - 1} = 1 - a_0a_1a_2\cdot ... \cdot a_{n}.
 \]
 Więc na mocy zasady indukcji matematycznej postulowana równość zachodzi.
 \vspace{10px}
@@ -186,16 +186,17 @@ Teraz przejdziemy do udowodnienia tezy.
 Dla $n = 1$ jest ona oczywista.
 Załóżmy, że zachodzi równość
 \[
-	a_1a_2a_3...a_n\left(\frac{1}{a_1} + \frac{1}{a_2} + \frac{1}{a_3} + ... + \frac{1}{a_n}\right) = 1.
+	a_0a_1a_2...a_n\left(\frac{1}{a_0} + \frac{1}{a_1} + \frac{1}{a_2} + ... + \frac{1}{a_n}\right) = 1.
 \]
 Chcemy wykazać, że
 \[
-	a_1a_2a_3...a_na_{n+1}\left(\frac{1}{a_1} + \frac{1}{a_2} + \frac{1}{a_3} + ... + \frac{1}{a_n} + \frac{1}{a_{n + 1}}\right) = 1.
+	a_0a_1a_2...a_na_{n+1}\left(\frac{1}{a_0} + \frac{1}{a_1} + \frac{1}{a_2} + ... + \frac{1}{a_n} + \frac{1}{a_{n + 1}}\right) = 1.
 \]
 Przekształcamy powyższą równość korzystając z założenia
 \begin{multline*}
-	a_1a_2a_3...a_na_{n+1}\left(\frac{1}{a_1} + \frac{1}{a_2} + \frac{1}{a_3} + ... + \frac{1}{a_n} + \frac{1}{a_{n + 1}}\right) = \\ = a_{n+1} \cdot a_1a_2a_3...a_n\left(\frac{1}{a_1} + \frac{1}{a_2} + \frac{1}{a_3} + ... + \frac{1}{a_n}\right) + a_1a_2a_3...a_n = \\ = a_{n + 1} + a_1a_2a_3...a_n = 1 - a_1a_2a_3...a_n + a_1a_2a_3...a_n = 1.
+	a_0a_1a_2...a_na_{n+1}\left(\frac{1}{a_0} + \frac{1}{a_1} + \frac{1}{a_2} + \frac{1}{a_3} + ... + \frac{1}{a_n} + \frac{1}{a_{n + 1}}\right) = \\ = a_{n+1} \cdot a_0a_1a_2...a_n\left(\frac{1}{a_0} + \frac{1}{a_1} + \frac{1}{a_2} + ... + \frac{1}{a_n}\right) + a_0a_1a_2...a_n = \\ = a_{n + 1} + a_0a_1a_2...a_n = 1 - a_0a_1a_2...a_n + a_0a_1a_2...a_n = 1.
 \end{multline*}
+
 \begin{problem}{6}
 	Wykazać, że planszę o wymiarach $2^n \times 2^n$ dla pewnego $n \geqslant 1$ z usuniętym jednym z rogów da się przykryć pewną liczbą $L$ klocków(takich jak na rysunku). Klocki można obracać.
 
