@@ -81,9 +81,9 @@ Rozpatrzmy liczbę $a = 10^{k + 1} - 1$. Wówczas
 \[
     S(a) = S(\underbrace{99...9}_{k+1}) = 9(k + 1) = S(\underbrace{99...9}_{k}8\underbrace{00...0}_{k}1) = S(10^{2k + 2} - 2\cdot 10^{k + 1} + 1) = S(a^2).
 \]
-Następnie weźmy liczbę $b = 2 \cdot 10^{k + 1} - 1$. Wówczas
+Następnie weźmy liczbę $b = 2 \cdot 10^{k} - 1$. Wówczas
 \[
-    S(b) = S(1\underbrace{99...9}_{k}) = 9k + 1 = S(3\underbrace{99...9}_{k-1}6\underbrace{00...0}_{k-1}1) = S(4\cdot 10^{2k + 2} - 4\cdot 10^{k + 1} + 1) = S(b^2).
+    S(b) = S(1\underbrace{99...9}_{k}) = 9k + 1 = S(3\underbrace{99...9}_{k-1}6\underbrace{00...0}_{k-1}1) = S(4\cdot 10^{2k} - 4\cdot 10^{k} + 1) = S(b^2).
 \]
 Zauważamy, że dla dowolnej dodatniej liczby całkowitej $k$ liczby $a$, $b$ są piękne oraz ${S(a) = 9(k + 1)}$ i $S(b) = 9k + 1$.
 

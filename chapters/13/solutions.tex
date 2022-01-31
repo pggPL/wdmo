@@ -25,14 +25,16 @@ Czyli $a = 0$ jest rozwiązaniem.
 \vspace{10px}
 
 \noindent
-Załóżmy, że $f(f(a)) = 0$. Z wyjściowego równania wynika wówczas, że
+Załóżmy, że $f(f(a)) = 0$. Z wyjściowego równania, wstawiając $f(a)$ za $x$, wynika wówczas, że
 \begin{align*}
-	0 - f(a) &= a, \\
-	f(a) &= a.
+	f(f(f(a))) - f(f(a)) &= f(a), \\
+	f(0) - 0 &= f(a), \\
+	0 = f(a).
 \end{align*}
+Podstawiając zaś $x = a$ do danego równania mamy
 Stąd
 \[
-	0 = f(f(a)) = f(a) = a.
+	0 = f(f(a)) - f(a) = a.
 \]
 Oznacza to, że żadna liczba różna od $0$ nie może być rozwiązaniem danego równania.
 
