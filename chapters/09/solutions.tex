@@ -106,16 +106,16 @@ Rozpatrzmy dwa przypadki
 \begin{enumerate}
 	\item Jeśli liczba $a_n$ jest nieparzysta, to weźmy liczbę 
 	\[
-		10^{n + 1} + 2^n \cdot a_n = 2^n\left(5^n + a_n\right).
+		10^{n} + 2^n \cdot a_n = 2^n\left(5^n + a_n\right).
 	\]
 	Powstaje ona przez doklejenie do $2^n \cdot a_n$ cyfry $1$ z lewej strony.
-	W nawiasie jest suma dwóch liczb nieparzystych, a więc jest ona parzysta. Stąd $10^{n + 1} + 2^n \cdot a_n $ jest podzielna przez $2^{n + 1}$.
+	W nawiasie jest suma dwóch liczb nieparzystych, a więc jest ona parzysta. Stąd $10^{n} + 2^n \cdot a_n $ jest podzielna przez $2^{n + 1}$.
 	\item Gdy liczba $a_n$ jest parzysta, to rozpatrzmy liczbę 
 	\[
-		2 \cdot 10^{n + 1} + 2^n \cdot a_n = 2^n\left(2 \cdot 5^n + a_n\right).
+		2 \cdot 10^{n} + 2^n \cdot a_n = 2^n\left(2 \cdot 5^n + a_n\right).
 	\]
 	Powstaje ona przez doklejenie do $2^n \cdot a_n$ cyfry $2$ z lewej strony.
-	W nawiasie jest suma dwóch liczb parzystych, a więc jest ona parzysta. Więc $2 \cdot 10^{n + 1} + 2^n \cdot a_n $ jest podzielna przez $2^{n + 1}$.
+	W nawiasie jest suma dwóch liczb parzystych, a więc jest ona parzysta. Więc $2 \cdot 10^{n} + 2^n \cdot a_n $ jest podzielna przez $2^{n + 1}$.
 \end{enumerate}
 W każdym z przypadków rozpatrywana liczba jest $n + 1$-cyfrową liczbą dobrą. Kończy to dowód indukcyjny. Biorąc liczbę dobrą, która ma $1000$ cyfr. Jest ona podzielna przez $2^{1000}$ oraz składa się wyłącznie z cyfr $1$ i $2$.
 
