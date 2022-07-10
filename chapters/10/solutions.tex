@@ -16,7 +16,7 @@ Innymi słowy $k$ jest największą liczbą całkowitą, taką, że $k^2$ jest n
 \[
 	k + 1 > \sqrt{n} \geqslant k,
 \]
-czyli $\left\lfloor \sqrt{n} \right\rfloor = k$. Jedynymi liczbami w przedziale $[k^2, (k + 1)^2)$, które są podzielne przez $k$ są $k^2$, $k^k + k$ i $k^2 + 2k$.
+czyli $\left\lfloor \sqrt{n} \right\rfloor = k$. Jedynymi liczbami w przedziale $[k^2, (k + 1)^2)$, które są podzielne przez $k$ są $k^2$, $k^2 + k$ i $k^2 + 2k$.
 
 
 \begin{problem}{2}
@@ -32,9 +32,6 @@ Z danych podzielności wynika, że
 czyli równoważnie
 \[
 	cv_p(b) \geqslant bv_p(a) \quad \text{oraz} \quad bv_p(c) \geqslant cv_p(a),
-\]
-\[
-	cv_p(b) \geqslant bv_p(a) \quad \text{oraz} \quad bv_p(c) \geqslant cv_p(a).
 \]
 Mamy więc
 \[
@@ -71,7 +68,7 @@ Możemy w ten sposób uzyskać dowolnie duże trójki kolejnych dzielników $4n$
 \begin{problem}{4}
 	Znajdź wszystkie pary $(a, b)$ liczb całkowitych dodatnich, większych od 1, dla których obie liczby
 	\[
-		\frac{a^3b - 1}{a + 1} \quad \text{oraz} \quad \frac{b^3a - 1}{b - 1}
+		\frac{a^3b - 1}{a + 1} \quad \text{oraz} \quad \frac{b^3a + 1}{b - 1}
 	\]
 	są całkowite
 \end{problem}
