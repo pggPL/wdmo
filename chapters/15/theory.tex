@@ -46,7 +46,7 @@
 \end{center}
 
 \noindent
-\textit{Cyklem} w grafie skierowanym nazywamy taki ciąg krawędzi $e_1$, ..., $e_k$, że wierzchołek końcowy krawędzi $e_i$ jest wierzchołkiem początkowym krawędzi $e_{i + 1}$ dla każdego ${1 \leqslant i \leqslant n}$ -- przyjmujemy $e_{k + 1} = e_1$. Przykład cyklu znajduje się na drugim rysunku powyżej.
+\textit{Cyklem} w grafie skierowanym nazywamy taki ciąg krawędzi $e_1$, ..., $e_k$, że wierzchołek końcowy krawędzi $e_i$ jest wierzchołkiem początkowym krawędzi $e_{i + 1}$ dla każdego ${1 \leqslant i \leqslant k}$ -- przyjmujemy $e_{k + 1} = e_1$. Przykład cyklu znajduje się na drugim rysunku powyżej.
 
 \vspace{5px}
 
@@ -315,7 +315,7 @@ Skoro nie wszystkie wierzchołki należą do do grupy $C$, to istnieje inna grup
 \heading{Lemat 3}
 
 \noindent
-Jeśli turniej o $n \geqslant 4$ wierzchołkach jest cykliczny, to zawiera cykl o długości równiej $n - 1$.
+Jeśli turniej o $n \geqslant 4$ wierzchołkach jest cykliczny, to zawiera cykl o długości równej $n - 1$.
 
 \vspace{5px}
 
@@ -368,11 +368,11 @@ Zauważmy, że jeśli $v_{i + 1}$ należy do $A$, to jako, że $v_{i}$ wygrało 
 \noindent
 Jeśli $t \geqslant 2$, to oznacza, że istnieje $v_{t - 1}$. Skoro $v_{t - 1} \in A$ oraz $v_{t + 1} \in B$, to $v_{t - 1}$ wygrał~z~$v_{t + 1}$. Czyli
 \[
-	x, \; v_1, \;, v_2, \; ..., \;, v_{t - 1}, \; v_{t + 1}, \; ..., \; v_{n - 1}
+	x, \; v_1, \; v_2, \; ..., \; v_{t - 1}, \; v_{t + 1}, \; ..., \; v_{n - 1}
 \]
 jest cyklem o długości $n - 1$. Jeśli zaś $t = 1$, to $t + 2 = 3 \leqslant n - 1$. Analogicznie jak powyżej wykazujemy, że $v_{t}$ wygrał z $v_{t + 2}$, czyli
 \[
-	x, \; v_1, \;, v_2, \; ..., \;, v_{t}, \; v_{t + 2}, \; ..., \; v_{n - 1}
+	x, \; v_1, \; v_3, \; ..., \; v_{t}, \; v_{t + 2}, \; ..., \; v_{n - 1}
 \]
 jest cyklem o długości $n - 1$.
 

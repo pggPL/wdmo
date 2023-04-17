@@ -150,7 +150,7 @@ Rozpatrzmy dwa przypadki:
 \begin{enumerate}
 	\item Punkt $P$ jest połączony czerwoną krawędzią z pewnym innym punktem $Q$. Wówczas, wybierając dowolny punkt $X$, na mocy założenia wiemy, że istnieje czerwona ścieżka między $X$ i $Q$. Dokładając do niej odcinek między $P$ i $Q$ otrzymujemy ścieżkę między $P$ oraz $X$.
 	Wykazaliśmy, że istnieje ścieżka między punktem $P$ i każdym innym punktem. Łącząc to z faktem, że na mocy założenia indukcyjnego taka ścieżka istnieje między każdą inną parą punktów, otrzymujemy, że dla koloru czerwonego teza jest spełniona.
-	\item Punkt $P$ jest połączony z każdym innym punktem niebieskim odcinkiem. Wówczas łatwo zauważyć, że pomiędzy każda parą punktów możemy przejść jednym albo dwoma niebieskimi odcinkami przechodzącymi przez punkt $P$.
+	\item Punkt $P$ jest połączony z każdym innym punktem zielonym odcinkiem. Wówczas łatwo zauważyć, że pomiędzy każdą parą punktów możemy przejść jednym albo dwoma niebieskimi odcinkami przechodzącymi przez punkt $P$.
 \end{enumerate}
 
 \begin{problem}{5}
@@ -183,7 +183,7 @@ Więc na mocy zasady indukcji matematycznej postulowana równość zachodzi.
 
 \noindent
 Teraz przejdziemy do udowodnienia tezy.
-Dla $n = 1$ jest ona oczywista.
+Dla $n = 0$ jest ona oczywista.
 Załóżmy, że zachodzi równość
 \[
 	a_0a_1a_2...a_n\left(\frac{1}{a_0} + \frac{1}{a_1} + \frac{1}{a_2} + ... + \frac{1}{a_n}\right) = 1.
@@ -273,6 +273,6 @@ Dorzucamy do multizbioru $A$ liczby
 \]
 a do multizbioru $B$ liczby
 \begin{gather*}
-	x_{2k+3} - x_{2k+2} \quad \text{i} \quad x_{2k+2} - x_{2k+1},\; x_{2k+2} - x_{2k},\; \cdots,\; x_{2k+3} - x_{k+2}  \\ \text{oraz} \quad {x_{2k+3} - x_{k+1},\; \cdots, \; x_{2k+3}-x_1}.
+	x_{2k+3} - x_{2k+2} \quad \text{i} \quad x_{2k+2} - x_{2k+1},\; x_{2k+2} - x_{2k},\; \cdots,\; x_{2k+2} - x_{k}  \\ \text{oraz} \quad {x_{2k+3} - x_{k-1},\; \cdots, \; x_{2k+3}-x_1}.
 \end{gather*}
 Łatwo sprawdzić, że suma dorzuconych elementów jest równa. Stąd wynika, że otrzymane zbiory również mają równą sumę elementów, co jest równoważne tezie.
